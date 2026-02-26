@@ -79,6 +79,33 @@ font-size: 0.85rem;
 transition: color 0.2s;
   }
 .nav-links a:hover { color: var(--text); }
+/* ── LANG TOGGLE ── */
+.lang-toggle {
+display: flex;
+align-items: center;
+background: var(--card);
+border: 1px solid var(--border);
+border-radius: 6px;
+overflow: hidden;
+flex-shrink: 0;
+  }
+.lang-btn {
+padding: 0.35rem 0.75rem;
+font-size: 0.72rem;
+font-weight: 700;
+letter-spacing: 0.1em;
+cursor: pointer;
+border: none;
+background: transparent;
+color: var(--muted);
+font-family: 'DM Sans', sans-serif;
+transition: background 0.2s, color 0.2s;
+  }
+.lang-btn.active {
+background: var(--orange);
+color: white;
+  }
+.lang-btn:hover:not(.active) { color: var(--text); }
 /* ── HERO ── */
 #hero {
 min-height: 100vh;
@@ -620,42 +647,46 @@ transform: translateY(0);
 <nav>
 <div class="nav-logo">MG<span>.</span></div>
 <ul class="nav-links">
-<li><a href="#profil">Profil</a></li>
-<li><a href="#experiences">Expériences</a></li>
-<li><a href="#cas-usage">Cas d'usage</a></li>
-<li><a href="#competences">Compétences</a></li>
-<li><a href="#references">Références</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="#profil" data-i18n="nav-profil">Profil</a></li>
+<li><a href="#experiences" data-i18n="nav-experiences">Expériences</a></li>
+<li><a href="#cas-usage" data-i18n="nav-cas-usage">Cas d'usage</a></li>
+<li><a href="#competences" data-i18n="nav-competences">Compétences</a></li>
+<li><a href="#references" data-i18n="nav-references">Références</a></li>
+<li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
 </ul>
+<div class="lang-toggle" role="group" aria-label="Language">
+<button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
+<button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+</div>
 </nav>
 <!-- HERO -->
 <section id="hero">
 <div class="hero-glow"></div>
 <div class="hero-glow2"></div>
-<div class="hero-tag">Disponible — Directeur Marketing & Growth</div>
+<div class="hero-tag" data-i18n="hero-tag">Disponible — Directeur Marketing & Growth</div>
 <h1 class="hero-name">Maxime<br><span class="accent">Girard</span></h1>
-<p class="hero-title">Directeur Marketing & Growth – B2B / B2B2C</p>
-<p class="hero-claim">Le profil que les PME cherchent<br>sans savoir qu'il existe.</p>
+<p class="hero-title" data-i18n="hero-title">Directeur Marketing & Growth – B2B / B2B2C</p>
+<p class="hero-claim" data-i18n-html="hero-claim">Le profil que les PME cherchent<br>sans savoir qu'il existe.</p>
 <div class="metrics">
 <div class="metric reveal reveal-delay-1">
 <span class="metric-value">+35 M€</span>
-<span class="metric-label">ARR générés ou pilotés</span>
+<span class="metric-label" data-i18n="metric-arr">ARR générés ou pilotés</span>
 </div>
 <div class="metric reveal reveal-delay-2">
 <span class="metric-value">5</span>
-<span class="metric-label">Marchés internationaux ouverts</span>
+<span class="metric-label" data-i18n="metric-markets">Marchés internationaux ouverts</span>
 </div>
 <div class="metric reveal reveal-delay-3">
 <span class="metric-value">5×</span>
-<span class="metric-label">Mandats COMEX</span>
+<span class="metric-label" data-i18n="metric-comex">Mandats COMEX</span>
 </div>
 <div class="metric reveal reveal-delay-4">
 <span class="metric-value">10 ans</span>
-<span class="metric-label">Direction marketing B2B</span>
+<span class="metric-label" data-i18n="metric-years">Direction marketing B2B</span>
 </div>
 </div>
 <div class="cta-row">
-<a href="mailto:girard.maxime33@gmail.com" class="btn-primary">→ Me contacter</a>
+<a href="mailto:girard.maxime33@gmail.com" class="btn-primary" data-i18n="btn-contact">→ Me contacter</a>
 <a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" class="btn-secondary">↗ LinkedIn</a>
 </div>
 </section>
@@ -663,11 +694,11 @@ transform: translateY(0);
 <!-- PROFIL -->
 <section id="profil">
 <div class="section-header reveal">
-<p class="section-label">Profil</p>
-<h2>Stratège ET technicien.</h2>
+<p class="section-label" data-i18n="label-profil">Profil</p>
+<h2 data-i18n="h2-profil">Stratège ET technicien.</h2>
 </div>
 <div class="profil-grid">
-<div class="profil-pitch reveal">
+<div class="profil-pitch reveal" data-i18n-html="profil-pitch">
 <p>Profil hybride <strong>stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable — pas des plans qui dorment en PowerPoint.</p>
 <br>
 <p>Vision CMO + exécution growth engineer. Je code, j'automatise, je pilote les données, je structure les équipes. <strong>Je scale ce que les autres posent en slides.</strong></p>
@@ -678,22 +709,22 @@ transform: translateY(0);
 <div class="value-card reveal reveal-delay-1">
 <div class="value-icon">🥊</div>
 <div>
-<h4>Combatif</h4>
-<p>Détermination à relever les défis et à se dépasser. Encourage persévérance, audace et esprit d'initiative dans les équipes.</p>
+<h4 data-i18n="value1-title">Combatif</h4>
+<p data-i18n="value1-desc">Détermination à relever les défis et à se dépasser. Encourage persévérance, audace et esprit d'initiative dans les équipes.</p>
 </div>
 </div>
 <div class="value-card reveal reveal-delay-2">
 <div class="value-icon">🎯</div>
 <div>
-<h4>Ambitieux</h4>
-<p>Vision orientée impact immédiat. Inspire l'excellence et anticipe les besoins futurs des clients et des marchés.</p>
+<h4 data-i18n="value2-title">Ambitieux</h4>
+<p data-i18n="value2-desc">Vision orientée impact immédiat. Inspire l'excellence et anticipe les besoins futurs des clients et des marchés.</p>
 </div>
 </div>
 <div class="value-card reveal reveal-delay-3">
 <div class="value-icon">🤝</div>
 <div>
-<h4>Accessible</h4>
-<p>Approche inclusive, simplicité et proximité avec toutes les parties. Peut communiquer avec des profils techniques et non techniques.</p>
+<h4 data-i18n="value3-title">Accessible</h4>
+<p data-i18n="value3-desc">Approche inclusive, simplicité et proximité avec toutes les parties. Peut communiquer avec des profils techniques et non techniques.</p>
 </div>
 </div>
 </div>
@@ -703,102 +734,100 @@ transform: translateY(0);
 <!-- EXPERIENCES -->
 <section id="experiences">
 <div class="section-header reveal">
-<p class="section-label">Parcours</p>
-<h2>10 ans, 5 COMEX,<br>5 marchés.</h2>
+<p class="section-label" data-i18n="label-exp">Parcours</p>
+<h2 data-i18n-html="h2-exp">10 ans, 5 COMEX,<br>5 marchés.</h2>
 </div>
 <div class="exp-list">
 <div class="exp-item reveal">
 <div class="exp-meta">
 <p class="exp-period">Jan. 2025 – Nov. 2025</p>
 <p class="exp-company">Camping Car Park</p>
-<p class="exp-type">PME · Tourisme · SaaS</p>
+<p class="exp-type" data-i18n="exp1-type">PME · Tourisme · SaaS</p>
 </div>
 <div class="exp-content">
-<h3>Directeur Marketing Europe B2B <span class="badge-comex">COMEX</span></h3>
+<h3 data-i18n-html="exp1-title">Directeur Marketing Europe B2B <span class="badge-comex">COMEX</span></h3>
 <ul class="exp-bullets">
-<li>Pilotage des opérations marketing européennes : Allemagne, Benelux, Espagne, Portugal, Autriche</li>
-<li>Responsabilité directe du budget marketing européen, arbitrages stratégiques, reporting au CMO et CEO</li>
-<li>Campagnes B2B ciblant 700+ collectivités locales — CRM, RP, lobbying</li>
+<li data-i18n="exp1-b1">Pilotage des opérations marketing européennes : Allemagne, Benelux, Espagne, Portugal, Autriche</li>
+<li data-i18n="exp1-b2">Responsabilité directe du budget marketing européen, arbitrages stratégiques, reporting au CMO et CEO</li>
+<li data-i18n="exp1-b3">Campagnes B2B ciblant 700+ collectivités locales — CRM, RP, lobbying</li>
 </ul>
-<span class="exp-result">+30 M€ ARR · +30% croissance mois/mois</span>
+<span class="exp-result" data-i18n="exp1-result">+30 M€ ARR · +30% croissance mois/mois</span>
 </div>
 </div>
 <div class="exp-item reveal">
 <div class="exp-meta">
 <p class="exp-period">2021 – 2024</p>
 <p class="exp-company">Sense4data</p>
-<p class="exp-type">PME · Conseil · RA OEM</p>
+<p class="exp-type" data-i18n="exp2-type">PME · Conseil · RA OEM</p>
 </div>
 <div class="exp-content">
-<h3>Directeur Marketing B2B <span class="badge-comex">COMEX</span></h3>
+<h3 data-i18n-html="exp2-title">Directeur Marketing B2B <span class="badge-comex">COMEX</span></h3>
 <ul class="exp-bullets">
-<li>Pilotage du marketing mix modeling interne et externe, avec impact direct sur la priorisation commerciale
-et l'allocation des ressources — clients PME & ETI (Eurofeu, Réseau CCI, Cegid)</li>
-<li>Définition de la stratégie de positionnement, messaging et offre commerciale</li>
-<li>Supervision de la génération de leads, du suivi commercial et de l'expérience client</li>
+<li data-i18n="exp2-b1">Pilotage du marketing mix modeling interne et externe, avec impact direct sur la priorisation commerciale et l'allocation des ressources — clients PME & ETI (Eurofeu, Réseau CCI, Cegid)</li>
+<li data-i18n="exp2-b2">Définition de la stratégie de positionnement, messaging et offre commerciale</li>
+<li data-i18n="exp2-b3">Supervision de la génération de leads, du suivi commercial et de l'expérience client</li>
 </ul>
-<span class="exp-result">+1 M€ ARR · +10 MVP industrialisés</span>
+<span class="exp-result" data-i18n="exp2-result">+1 M€ ARR · +10 MVP industrialisés</span>
 </div>
 </div>
 <div class="exp-item reveal">
 <div class="exp-meta">
 <p class="exp-period">2020 – 2021</p>
 <p class="exp-company">Eyelights</p>
-<p class="exp-type">Scale-up · IoT & AR</p>
+<p class="exp-type" data-i18n="exp3-type">Scale-up · IoT & AR</p>
 </div>
 <div class="exp-content">
-<h3>Directeur Croissance B2B2C <span class="badge-comex">COMEX</span></h3>
+<h3 data-i18n-html="exp3-title">Directeur Croissance B2B2C <span class="badge-comex">COMEX</span></h3>
 <ul class="exp-bullets">
-<li>Lancement commercial sur 5 marchés : France, USA, Allemagne, UK, Japon</li>
-<li>+200M d'impressions, +80k leads collectés, 1M$ investis en SEA</li>
-<li>Conception et déploiement d'un chatbot interne visant l'automatisation des opérations marketing, produit
-et SAV, avec gains de productivité mesurables</li>
+<li data-i18n="exp3-b1">Lancement commercial sur 5 marchés : France, USA, Allemagne, UK, Japon</li>
+<li data-i18n="exp3-b2">+200M d'impressions, +80k leads collectés, 1M$ investis en SEA</li>
+<li data-i18n="exp3-b3">Conception et déploiement d'un chatbot interne visant l'automatisation des opérations marketing, produit et SAV, avec gains de productivité mesurables</li>
 </ul>
-<span class="exp-result">+3M€ ARR · +300% croissance YoY</span>
+<span class="exp-result" data-i18n="exp3-result">+3M€ ARR · +300% croissance YoY</span>
 </div>
 </div>
 <div class="exp-item reveal">
 <div class="exp-meta">
 <p class="exp-period">2019 – 2020</p>
 <p class="exp-company">Groupe Actiplay</p>
-<p class="exp-type">Agence Marketing</p>
+<p class="exp-type" data-i18n="exp4-type">Agence Marketing</p>
 </div>
 <div class="exp-content">
-<h3>Directeur Traffic B2B <span class="badge-comex">COMEX</span></h3>
+<h3 data-i18n-html="exp4-title">Directeur Traffic B2B <span class="badge-comex">COMEX</span></h3>
 <ul class="exp-bullets">
-<li>Stratégie d'acquisition et supervision des campagnes clients (Fnac, Cdiscount, BMW)</li>
-<li>Développement des outils de collecte de données</li>
+<li data-i18n="exp4-b1">Stratégie d'acquisition et supervision des campagnes clients (Fnac, Cdiscount, BMW)</li>
+<li data-i18n="exp4-b2">Développement des outils de collecte de données</li>
 </ul>
-<span class="exp-result">300 k€ ARR · +220% performance collecte</span>
+<span class="exp-result" data-i18n="exp4-result">300 k€ ARR · +220% performance collecte</span>
 </div>
 </div>
 <div class="exp-item reveal">
 <div class="exp-meta">
 <p class="exp-period">2016 – 2018</p>
 <p class="exp-company">Facebots</p>
-<p class="exp-type">Startup · Chatbot & IA</p>
+<p class="exp-type" data-i18n="exp5-type">Startup · Chatbot & IA</p>
 </div>
 <div class="exp-content">
-<h3>Directeur Marketing B2B <span class="badge-comex">COMEX</span></h3>
+<h3 data-i18n-html="exp5-title">Directeur Marketing B2B <span class="badge-comex">COMEX</span></h3>
 <ul class="exp-bullets">
-<li>Offre commerciale chatbots & AI Flows — SNCF, Métropoles</li>
-<li>Arbitrage technologique, supervision des intégrations API</li>
+<li data-i18n="exp5-b1">Offre commerciale chatbots & AI Flows — SNCF, Métropoles</li>
+<li data-i18n="exp5-b2">Arbitrage technologique, supervision des intégrations API</li>
 </ul>
-<span class="exp-result">300 k€ levés · 2 appels d'offres publics remportés</span>
+<span class="exp-result" data-i18n="exp5-result">300 k€ levés · 2 appels d'offres publics remportés</span>
 </div>
 </div>
 <div class="exp-item reveal">
 <div class="exp-meta">
 <p class="exp-period">2012 – 2015</p>
 <p class="exp-company">Sopexa</p>
-<p class="exp-type">Multinationale · Tokyo JP</p>
+<p class="exp-type" data-i18n="exp6-type">Multinationale · Tokyo JP</p>
 </div>
 <div class="exp-content">
-<h3>Jr Account Manager B2B2C</h3>
+<h3 data-i18n="exp6-title">Jr Account Manager B2B2C</h3>
 <ul class="exp-bullets">
-<li>Développement commercial et marketing sur le marché japonais</li>
-<li>Gestion de comptes internationaux français et américains</li>
-<li>3 ans en environnement multiculturel — première exposition internationale longue durée</li>
+<li data-i18n="exp6-b1">Développement commercial et marketing sur le marché japonais</li>
+<li data-i18n="exp6-b2">Gestion de comptes internationaux français et américains</li>
+<li data-i18n="exp6-b3">3 ans en environnement multiculturel — première exposition internationale longue durée</li>
 </ul>
 </div>
 </div>
@@ -808,41 +837,41 @@ et SAV, avec gains de productivité mesurables</li>
 <!-- CAS D'USAGE -->
 <section id="cas-usage">
 <div class="section-header reveal">
-<p class="section-label">Cas d'usage</p>
-<h2>Preuves par<br>l'exécution.</h2>
+<p class="section-label" data-i18n="label-cases">Cas d'usage</p>
+<h2 data-i18n-html="h2-cases">Preuves par<br>l'exécution.</h2>
 </div>
 <div class="cases-grid">
 <div class="case-card reveal reveal-delay-1">
 <div class="case-number">01</div>
-<h3>Première IA Transport en Commun</h3>
-<p>En 2016, j'ai connecté Facebook Messenger aux API des transporteurs de Bordeaux Métropole en 10 jours. Trambots est devenu la première IA dédiée au transport en commun en France — croissance 100% organique via presse nationale.</p>
+<h3 data-i18n="case1-title">Première IA Transport en Commun</h3>
+<p data-i18n="case1-text">En 2016, j'ai connecté Facebook Messenger aux API des transporteurs de Bordeaux Métropole en 10 jours. Trambots est devenu la première IA dédiée au transport en commun en France — croissance 100% organique via presse nationale.</p>
 <div class="case-stats">
-<span class="stat-pill">+100k utilisateurs/jour</span>
-<span class="stat-pill">30 métropoles</span>
-<span class="stat-pill">+1M messages/jour</span>
-<span class="stat-pill">Devant SNCF & Expédia</span>
+<span class="stat-pill" data-i18n="case1-pill1">+100k utilisateurs/jour</span>
+<span class="stat-pill" data-i18n="case1-pill2">30 métropoles</span>
+<span class="stat-pill" data-i18n="case1-pill3">+1M messages/jour</span>
+<span class="stat-pill" data-i18n="case1-pill4">Devant SNCF & Expédia</span>
 </div>
 </div>
 <div class="case-card reveal reveal-delay-2">
 <div class="case-number">02</div>
-<h3>Growth & Crowdfunding International</h3>
-<p>Pour le lancement d'EYERIDE chez Eyelights, j'ai piloté l'ensemble de la stratégie growth et paid sur 4 marchés simultanément. Campagne Indiegogo réussie à 984k$ sur 30 jours, +3M€ de CA générés en 3 mois.</p>
+<h3 data-i18n="case2-title">Growth & Crowdfunding International</h3>
+<p data-i18n="case2-text">Pour le lancement d'EYERIDE chez Eyelights, j'ai piloté l'ensemble de la stratégie growth et paid sur 4 marchés simultanément. Campagne Indiegogo réussie à 984k$ sur 30 jours, +3M€ de CA générés en 3 mois.</p>
 <div class="case-stats">
-<span class="stat-pill">+200M impressions</span>
-<span class="stat-pill">+80k leads</span>
-<span class="stat-pill">1M$ SEA investi</span>
-<span class="stat-pill">4 pays en simultané</span>
+<span class="stat-pill" data-i18n="case2-pill1">+200M impressions</span>
+<span class="stat-pill" data-i18n="case2-pill2">+80k leads</span>
+<span class="stat-pill" data-i18n="case2-pill3">1M$ SEA investi</span>
+<span class="stat-pill" data-i18n="case2-pill4">4 pays en simultané</span>
 </div>
 </div>
 <div class="case-card reveal reveal-delay-3">
 <div class="case-number">03</div>
-<h3>Système IA Multi-agent Marketing</h3>
-<p>Système autonome d'automatisation marketing déployé en production : orchestrateur Claude API + Trello comme file de tâches, 9 agents spécialisés (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), versionning automatique sur Git.</p>
+<h3 data-i18n="case3-title">Système IA Multi-agent Marketing</h3>
+<p data-i18n="case3-text">Système autonome d'automatisation marketing déployé en production : orchestrateur Claude API + Trello comme file de tâches, 9 agents spécialisés (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), versionning automatique sur Git.</p>
 <div class="case-stats">
-<span class="stat-pill">9 agents spécialisés</span>
-<span class="stat-pill">Claude API</span>
-<span class="stat-pill">Production autonome</span>
-<span class="stat-pill">Déployé en production</span>
+<span class="stat-pill" data-i18n="case3-pill1">9 agents spécialisés</span>
+<span class="stat-pill" data-i18n="case3-pill2">Claude API</span>
+<span class="stat-pill" data-i18n="case3-pill3">Production autonome</span>
+<span class="stat-pill" data-i18n="case3-pill4">Déployé en production</span>
 </div>
 </div>
 </div>
@@ -851,29 +880,29 @@ et SAV, avec gains de productivité mesurables</li>
 <!-- COMPETENCES -->
 <section id="competences">
 <div class="section-header reveal">
-<p class="section-label">Compétences</p>
-<h2>Stack stratégique<br>& technique.</h2>
+<p class="section-label" data-i18n="label-skills">Compétences</p>
+<h2 data-i18n-html="h2-skills">Stack stratégique<br>& technique.</h2>
 </div>
 <div class="skills-grid">
 <div class="skill-card reveal">
-<h4>Go-to-market & Stratégie commerciale</h4>
-<p class="skill-tools">Positionnement, messaging, lancement produit, structuration des offres, partenariats, marchés B2B et B2B2C — de l'amorçage au LBO</p>
+<h4 data-i18n="skill1-title">Go-to-market & Stratégie commerciale</h4>
+<p class="skill-tools" data-i18n="skill1-tools">Positionnement, messaging, lancement produit, structuration des offres, partenariats, marchés B2B et B2B2C — de l'amorçage au LBO</p>
 </div>
 <div class="skill-card reveal reveal-delay-1">
-<h4>Acquisition & Growth</h4>
-<p class="skill-tools">SEO / SEA, lead generation, CRM (HubSpot, Pipedrive, Zoho, Klaviyo), campagnes multi-canal, LinkedIn Ads, Meta, Google Ads, TikTok</p>
+<h4 data-i18n="skill2-title">Acquisition & Growth</h4>
+<p class="skill-tools" data-i18n="skill2-tools">SEO / SEA, lead generation, CRM (HubSpot, Pipedrive, Zoho, Klaviyo), campagnes multi-canal, LinkedIn Ads, Meta, Google Ads, TikTok</p>
 </div>
 <div class="skill-card reveal reveal-delay-2">
-<h4>Data & Analytics</h4>
-<p class="skill-tools">GA4, Looker Studio, Metabase, tracking avancé (GTM, Umami.js, Hotjar, Clarity), Excel VBA, Google Sheets AppScript, Python (Pandas, NumPy)</p>
+<h4 data-i18n="skill3-title">Data & Analytics</h4>
+<p class="skill-tools" data-i18n="skill3-tools">GA4, Looker Studio, Metabase, tracking avancé (GTM, Umami.js, Hotjar, Clarity), Excel VBA, Google Sheets AppScript, Python (Pandas, NumPy)</p>
 </div>
 <div class="skill-card reveal reveal-delay-3">
-<h4>Automation & IA Générative</h4>
-<p class="skill-tools">Make, n8n, Zapier, Claude API, ChatGPT, Gemini, Cursor — conception de workflows autonomes, agents LLM, intégrations MCP</p>
+<h4 data-i18n="skill4-title">Automation & IA Générative</h4>
+<p class="skill-tools" data-i18n="skill4-tools">Make, n8n, Zapier, Claude API, ChatGPT, Gemini, Cursor — conception de workflows autonomes, agents LLM, intégrations MCP</p>
 </div>
 <div class="skill-card reveal reveal-delay-4">
-<h4>Développement Web</h4>
-<p class="skill-tools">Python, JavaScript / TypeScript, REST API, Google Cloud Platform, WordPress, Firebase, GitHub, Jupyter — autonome de la spec au déploiement</p>
+<h4 data-i18n="skill5-title">Développement Web</h4>
+<p class="skill-tools" data-i18n="skill5-tools">Python, JavaScript / TypeScript, REST API, Google Cloud Platform, WordPress, Firebase, GitHub, Jupyter — autonome de la spec au déploiement</p>
 </div>
 </div>
 </section>
@@ -881,48 +910,48 @@ et SAV, avec gains de productivité mesurables</li>
 <!-- REFERENCES -->
 <section id="references">
 <div class="section-header reveal">
-<p class="section-label">Références</p>
-<h2>Ce que disent<br>mes collaborateurs.</h2>
+<p class="section-label" data-i18n="label-refs">Références</p>
+<h2 data-i18n-html="h2-refs">Ce que disent<br>mes collaborateurs.</h2>
 </div>
 <div class="refs-grid">
 <div class="ref-card reveal reveal-delay-1">
 <div class="ref-quote">"</div>
-<p class="ref-text">Il est constamment en train d'innover et de rechercher les innovations qui lui permettront d'aller plus loin. C'est un profil ultra intéressant pour contribuer à faire grossir une entreprise.</p>
+<p class="ref-text" data-i18n="ref1-text">Il est constamment en train d'innover et de rechercher les innovations qui lui permettront d'aller plus loin. C'est un profil ultra intéressant pour contribuer à faire grossir une entreprise.</p>
 <div class="ref-author">
 <span class="ref-name">Nicolas Pasetti</span>
-<span class="ref-role">CEO, eteam_work — a managé Maxime directement</span>
+<span class="ref-role" data-i18n="ref1-role">CEO, eteam_work — a managé Maxime directement</span>
 </div>
 </div>
 <div class="ref-card reveal reveal-delay-2">
 <div class="ref-quote">"</div>
-<p class="ref-text">Sur le plan technique, Maxime est extrêmement compétent. Il maîtrise Python et JavaScript, et ses compétences en scraping et automatisation sont remarquables pour un directeur marketing.</p>
+<p class="ref-text" data-i18n="ref2-text">Sur le plan technique, Maxime est extrêmement compétent. Il maîtrise Python et JavaScript, et ses compétences en scraping et automatisation sont remarquables pour un directeur marketing.</p>
 <div class="ref-author">
 <span class="ref-name">Alexandre Masson</span>
-<span class="ref-role">Data Scientist, InRealArt — a reporté à Maxime</span>
+<span class="ref-role" data-i18n="ref2-role">Data Scientist, InRealArt — a reporté à Maxime</span>
 </div>
 </div>
 <div class="ref-card reveal reveal-delay-3">
 <div class="ref-quote">"</div>
-<p class="ref-text">Toujours plusieurs coups d'avance, c'est ça qu'on aime chez lui ! Son analyse est très pointue sur des sujets concernant le marketing, le management et la growth pure.</p>
+<p class="ref-text" data-i18n="ref3-text">Toujours plusieurs coups d'avance, c'est ça qu'on aime chez lui ! Son analyse est très pointue sur des sujets concernant le marketing, le management et la growth pure.</p>
 <div class="ref-author">
 <span class="ref-name">Pierre Rocherie</span>
-<span class="ref-role">Directeur Général</span>
+<span class="ref-role" data-i18n="ref3-role">Directeur Général</span>
 </div>
 </div>
 <div class="ref-card reveal reveal-delay-4">
 <div class="ref-quote">"</div>
-<p class="ref-text">Il connaît très bien son marché, son positionnement et les enjeux technologiques et commerciaux de ses clients. Il est passionné par son métier, extrêmement curieux — cela facilite grandement les échanges.</p>
+<p class="ref-text" data-i18n="ref4-text">Il connaît très bien son marché, son positionnement et les enjeux technologiques et commerciaux de ses clients. Il est passionné par son métier, extrêmement curieux — cela facilite grandement les échanges.</p>
 <div class="ref-author">
 <span class="ref-name">Jérémy Fortinon</span>
-<span class="ref-role">Expert transformation des SI — client de Maxime</span>
+<span class="ref-role" data-i18n="ref4-role">Expert transformation des SI — client de Maxime</span>
 </div>
 </div>
 </div>
 </section>
 <!-- CONTACT -->
 <section id="contact">
-<h2 class="reveal">Disponible pour<br>un échange.</h2>
-<p class="reveal">Directeur Marketing & Growth B2B · Bordeaux · France</p>
+<h2 class="reveal" data-i18n-html="h2-contact">Disponible pour<br>un échange.</h2>
+<p class="reveal" data-i18n="p-contact">Directeur Marketing & Growth B2B · Bordeaux · France</p>
 <div class="contact-links reveal">
 <a href="mailto:girard.maxime33@gmail.com" class="contact-link">✉ girard.maxime33@gmail.com</a>
 <a href="tel:+33659393626" class="contact-link">📞 +33 6 59 39 36 26</a>
@@ -930,7 +959,246 @@ et SAV, avec gains de productivité mesurables</li>
 </div>
 </section>
 <script>
-// Scroll reveal
+// ── TRANSLATIONS ──
+const t = {
+  fr: {
+    'page-title': 'Maxime Girard — Directeur Marketing & Growth',
+    'nav-profil': 'Profil',
+    'nav-experiences': 'Expériences',
+    'nav-cas-usage': "Cas d'usage",
+    'nav-competences': 'Compétences',
+    'nav-references': 'Références',
+    'nav-contact': 'Contact',
+    'hero-tag': 'Disponible — Directeur Marketing & Growth',
+    'hero-title': 'Directeur Marketing & Growth – B2B / B2B2C',
+    'hero-claim': "Le profil que les PME cherchent<br>sans savoir qu'il existe.",
+    'metric-arr': 'ARR générés ou pilotés',
+    'metric-markets': 'Marchés internationaux ouverts',
+    'metric-comex': 'Mandats COMEX',
+    'metric-years': 'Direction marketing B2B',
+    'btn-contact': '→ Me contacter',
+    'label-profil': 'Profil',
+    'h2-profil': 'Stratège ET technicien.',
+    'profil-pitch': `<p>Profil hybride <strong>stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable — pas des plans qui dorment en PowerPoint.</p><br><p>Vision CMO + exécution growth engineer. Je code, j'automatise, je pilote les données, je structure les équipes. <strong>Je scale ce que les autres posent en slides.</strong></p><br><p>Startup en amorçage, scale-up en hypercroissance, PME en structuration : j'ai opéré à chaque stade, avec des résultats mesurables à chaque fois. Périmètre France, Europe, US et Japon.</p>`,
+    'value1-title': 'Combatif',
+    'value1-desc': "Détermination à relever les défis et à se dépasser. Encourage persévérance, audace et esprit d'initiative dans les équipes.",
+    'value2-title': 'Ambitieux',
+    'value2-desc': "Vision orientée impact immédiat. Inspire l'excellence et anticipe les besoins futurs des clients et des marchés.",
+    'value3-title': 'Accessible',
+    'value3-desc': "Approche inclusive, simplicité et proximité avec toutes les parties. Peut communiquer avec des profils techniques et non techniques.",
+    'label-exp': 'Parcours',
+    'h2-exp': '10 ans, 5 COMEX,<br>5 marchés.',
+    'exp1-type': 'PME · Tourisme · SaaS',
+    'exp1-title': `Directeur Marketing Europe B2B <span class="badge-comex">COMEX</span>`,
+    'exp1-b1': 'Pilotage des opérations marketing européennes : Allemagne, Benelux, Espagne, Portugal, Autriche',
+    'exp1-b2': 'Responsabilité directe du budget marketing européen, arbitrages stratégiques, reporting au CMO et CEO',
+    'exp1-b3': 'Campagnes B2B ciblant 700+ collectivités locales — CRM, RP, lobbying',
+    'exp1-result': '+30 M€ ARR · +30% croissance mois/mois',
+    'exp2-type': 'PME · Conseil · RA OEM',
+    'exp2-title': `Directeur Marketing B2B <span class="badge-comex">COMEX</span>`,
+    'exp2-b1': "Pilotage du marketing mix modeling interne et externe, avec impact direct sur la priorisation commerciale et l'allocation des ressources — clients PME & ETI (Eurofeu, Réseau CCI, Cegid)",
+    'exp2-b2': 'Définition de la stratégie de positionnement, messaging et offre commerciale',
+    'exp2-b3': "Supervision de la génération de leads, du suivi commercial et de l'expérience client",
+    'exp2-result': '+1 M€ ARR · +10 MVP industrialisés',
+    'exp3-type': 'Scale-up · IoT & AR',
+    'exp3-title': `Directeur Croissance B2B2C <span class="badge-comex">COMEX</span>`,
+    'exp3-b1': 'Lancement commercial sur 5 marchés : France, USA, Allemagne, UK, Japon',
+    'exp3-b2': "+200M d'impressions, +80k leads collectés, 1M$ investis en SEA",
+    'exp3-b3': "Conception et déploiement d'un chatbot interne visant l'automatisation des opérations marketing, produit et SAV, avec gains de productivité mesurables",
+    'exp3-result': '+3M€ ARR · +300% croissance YoY',
+    'exp4-type': 'Agence Marketing',
+    'exp4-title': `Directeur Traffic B2B <span class="badge-comex">COMEX</span>`,
+    'exp4-b1': "Stratégie d'acquisition et supervision des campagnes clients (Fnac, Cdiscount, BMW)",
+    'exp4-b2': 'Développement des outils de collecte de données',
+    'exp4-result': '300 k€ ARR · +220% performance collecte',
+    'exp5-type': 'Startup · Chatbot & IA',
+    'exp5-title': `Directeur Marketing B2B <span class="badge-comex">COMEX</span>`,
+    'exp5-b1': 'Offre commerciale chatbots & AI Flows — SNCF, Métropoles',
+    'exp5-b2': 'Arbitrage technologique, supervision des intégrations API',
+    'exp5-result': "300 k€ levés · 2 appels d'offres publics remportés",
+    'exp6-type': 'Multinationale · Tokyo JP',
+    'exp6-title': 'Jr Account Manager B2B2C',
+    'exp6-b1': 'Développement commercial et marketing sur le marché japonais',
+    'exp6-b2': 'Gestion de comptes internationaux français et américains',
+    'exp6-b3': "3 ans en environnement multiculturel — première exposition internationale longue durée",
+    'label-cases': "Cas d'usage",
+    'h2-cases': "Preuves par<br>l'exécution.",
+    'case1-title': 'Première IA Transport en Commun',
+    'case1-text': "En 2016, j'ai connecté Facebook Messenger aux API des transporteurs de Bordeaux Métropole en 10 jours. Trambots est devenu la première IA dédiée au transport en commun en France — croissance 100% organique via presse nationale.",
+    'case1-pill1': '+100k utilisateurs/jour',
+    'case1-pill2': '30 métropoles',
+    'case1-pill3': '+1M messages/jour',
+    'case1-pill4': 'Devant SNCF & Expédia',
+    'case2-title': 'Growth & Crowdfunding International',
+    'case2-text': "Pour le lancement d'EYERIDE chez Eyelights, j'ai piloté l'ensemble de la stratégie growth et paid sur 4 marchés simultanément. Campagne Indiegogo réussie à 984k$ sur 30 jours, +3M€ de CA générés en 3 mois.",
+    'case2-pill1': '+200M impressions',
+    'case2-pill2': '+80k leads',
+    'case2-pill3': '1M$ SEA investi',
+    'case2-pill4': '4 pays en simultané',
+    'case3-title': 'Système IA Multi-agent Marketing',
+    'case3-text': "Système autonome d'automatisation marketing déployé en production : orchestrateur Claude API + Trello comme file de tâches, 9 agents spécialisés (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), versionning automatique sur Git.",
+    'case3-pill1': '9 agents spécialisés',
+    'case3-pill2': 'Claude API',
+    'case3-pill3': 'Production autonome',
+    'case3-pill4': 'Déployé en production',
+    'label-skills': 'Compétences',
+    'h2-skills': 'Stack stratégique<br>& technique.',
+    'skill1-title': 'Go-to-market & Stratégie commerciale',
+    'skill1-tools': "Positionnement, messaging, lancement produit, structuration des offres, partenariats, marchés B2B et B2B2C — de l'amorçage au LBO",
+    'skill2-title': 'Acquisition & Growth',
+    'skill2-tools': 'SEO / SEA, lead generation, CRM (HubSpot, Pipedrive, Zoho, Klaviyo), campagnes multi-canal, LinkedIn Ads, Meta, Google Ads, TikTok',
+    'skill3-title': 'Data & Analytics',
+    'skill3-tools': 'GA4, Looker Studio, Metabase, tracking avancé (GTM, Umami.js, Hotjar, Clarity), Excel VBA, Google Sheets AppScript, Python (Pandas, NumPy)',
+    'skill4-title': 'Automation & IA Générative',
+    'skill4-tools': 'Make, n8n, Zapier, Claude API, ChatGPT, Gemini, Cursor — conception de workflows autonomes, agents LLM, intégrations MCP',
+    'skill5-title': 'Développement Web',
+    'skill5-tools': 'Python, JavaScript / TypeScript, REST API, Google Cloud Platform, WordPress, Firebase, GitHub, Jupyter — autonome de la spec au déploiement',
+    'label-refs': 'Références',
+    'h2-refs': 'Ce que disent<br>mes collaborateurs.',
+    'ref1-text': "Il est constamment en train d'innover et de rechercher les innovations qui lui permettront d'aller plus loin. C'est un profil ultra intéressant pour contribuer à faire grossir une entreprise.",
+    'ref1-role': 'CEO, eteam_work — a managé Maxime directement',
+    'ref2-text': 'Sur le plan technique, Maxime est extrêmement compétent. Il maîtrise Python et JavaScript, et ses compétences en scraping et automatisation sont remarquables pour un directeur marketing.',
+    'ref2-role': 'Data Scientist, InRealArt — a reporté à Maxime',
+    'ref3-text': "Toujours plusieurs coups d'avance, c'est ça qu'on aime chez lui ! Son analyse est très pointue sur des sujets concernant le marketing, le management et la growth pure.",
+    'ref3-role': 'Directeur Général',
+    'ref4-text': 'Il connaît très bien son marché, son positionnement et les enjeux technologiques et commerciaux de ses clients. Il est passionné par son métier, extrêmement curieux — cela facilite grandement les échanges.',
+    'ref4-role': 'Expert transformation des SI — client de Maxime',
+    'h2-contact': 'Disponible pour<br>un échange.',
+    'p-contact': 'Directeur Marketing & Growth B2B · Bordeaux · France',
+  },
+  en: {
+    'page-title': 'Maxime Girard — Marketing & Growth Director',
+    'nav-profil': 'Profile',
+    'nav-experiences': 'Experience',
+    'nav-cas-usage': 'Case Studies',
+    'nav-competences': 'Skills',
+    'nav-references': 'References',
+    'nav-contact': 'Contact',
+    'hero-tag': 'Available — Marketing & Growth Director',
+    'hero-title': 'Marketing & Growth Director – B2B / B2B2C',
+    'hero-claim': 'The profile SMBs are looking for<br>without knowing it exists.',
+    'metric-arr': 'ARR generated or managed',
+    'metric-markets': 'International markets opened',
+    'metric-comex': 'Executive Committee seats',
+    'metric-years': 'B2B marketing leadership',
+    'btn-contact': '→ Contact me',
+    'label-profil': 'Profile',
+    'h2-profil': 'Strategist AND practitioner.',
+    'profil-pitch': `<p>Hybrid profile combining <strong>strategy / data / automation</strong>. I build marketing systems that drive measurable growth — not plans that collect dust in PowerPoint.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams. <strong>I scale what others leave in slide decks.</strong></p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p>`,
+    'value1-title': 'Fighter',
+    'value1-desc': 'Determination to tackle challenges and push beyond limits. Fosters perseverance, boldness and initiative within teams.',
+    'value2-title': 'Ambitious',
+    'value2-desc': 'Impact-driven vision. Inspires excellence and anticipates the future needs of clients and markets.',
+    'value3-title': 'Approachable',
+    'value3-desc': 'Inclusive approach, simplicity and closeness with all stakeholders. Can communicate effectively with both technical and non-technical profiles.',
+    'label-exp': 'Experience',
+    'h2-exp': '10 years, 5 Exec. Committees,<br>5 markets.',
+    'exp1-type': 'SME · Tourism · SaaS',
+    'exp1-title': `B2B Europe Marketing Director <span class="badge-comex">C-Suite</span>`,
+    'exp1-b1': 'Managed European marketing operations: Germany, Benelux, Spain, Portugal, Austria',
+    'exp1-b2': 'Direct ownership of European marketing budget, strategic decision-making, reporting to CMO and CEO',
+    'exp1-b3': 'B2B campaigns targeting 700+ local authorities — CRM, PR, lobbying',
+    'exp1-result': '+30M€ ARR · +30% month-over-month growth',
+    'exp2-type': 'SME · Consulting · AR OEM',
+    'exp2-title': `B2B Marketing Director <span class="badge-comex">C-Suite</span>`,
+    'exp2-b1': 'Led internal and external marketing mix modeling with direct impact on commercial prioritization and resource allocation — SME & mid-market clients (Eurofeu, CCI Network, Cegid)',
+    'exp2-b2': 'Defined positioning strategy, messaging and commercial offering',
+    'exp2-b3': 'Oversaw lead generation, sales pipeline tracking and customer experience',
+    'exp2-result': '+1M€ ARR · +10 industrialized MVPs',
+    'exp3-type': 'Scale-up · IoT & AR',
+    'exp3-title': `B2B2C Growth Director <span class="badge-comex">C-Suite</span>`,
+    'exp3-b1': 'Commercial launch across 5 markets: France, USA, Germany, UK, Japan',
+    'exp3-b2': '+200M impressions, +80k leads captured, $1M invested in SEA',
+    'exp3-b3': 'Designed and deployed an internal chatbot to automate marketing, product and customer service operations, with measurable productivity gains',
+    'exp3-result': '+3M€ ARR · +300% YoY growth',
+    'exp4-type': 'Marketing Agency',
+    'exp4-title': `B2B Traffic & Acquisition Director <span class="badge-comex">C-Suite</span>`,
+    'exp4-b1': 'Acquisition strategy and client campaign management (Fnac, Cdiscount, BMW)',
+    'exp4-b2': 'Development of data collection tools',
+    'exp4-result': '300k€ ARR · +220% collection performance',
+    'exp5-type': 'Startup · Chatbot & AI',
+    'exp5-title': `B2B Marketing Director <span class="badge-comex">C-Suite</span>`,
+    'exp5-b1': 'Chatbot & AI Flows commercial offering — SNCF, Metropolitan transit authorities',
+    'exp5-b2': 'Technology decisions and API integration oversight',
+    'exp5-result': '300k€ raised · 2 public tenders won',
+    'exp6-type': 'Multinational · Tokyo, Japan',
+    'exp6-title': 'Jr B2B2C Account Manager',
+    'exp6-b1': 'Business development and marketing in the Japanese market',
+    'exp6-b2': 'Management of French and American international accounts',
+    'exp6-b3': '3 years in a multicultural environment — first extended international experience',
+    'label-cases': 'Case Studies',
+    'h2-cases': 'Proven by<br>execution.',
+    'case1-title': 'First Public Transit AI',
+    'case1-text': 'In 2016, I connected Facebook Messenger to transit APIs across Bordeaux Métropole in 10 days. Trambots became the first AI dedicated to public transit in France — 100% organic growth through national press coverage.',
+    'case1-pill1': '+100k users/day',
+    'case1-pill2': '30 cities',
+    'case1-pill3': '+1M messages/day',
+    'case1-pill4': 'Ahead of SNCF & Expedia',
+    'case2-title': 'International Growth & Crowdfunding',
+    'case2-text': 'For the launch of EYERIDE at Eyelights, I drove the full growth and paid strategy across 4 markets simultaneously. Indiegogo campaign raised $984k in 30 days, generating +3M€ in revenue within 3 months.',
+    'case2-pill1': '+200M impressions',
+    'case2-pill2': '+80k leads',
+    'case2-pill3': '$1M SEA invested',
+    'case2-pill4': '4 markets simultaneously',
+    'case3-title': 'Multi-Agent AI Marketing System',
+    'case3-text': 'Autonomous marketing automation system deployed in production: Claude API orchestrator + Trello as task queue, 9 specialized agents (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), automatic versioning on Git.',
+    'case3-pill1': '9 specialized agents',
+    'case3-pill2': 'Claude API',
+    'case3-pill3': 'Fully autonomous',
+    'case3-pill4': 'Deployed in production',
+    'label-skills': 'Skills',
+    'h2-skills': 'Strategic &<br>technical stack.',
+    'skill1-title': 'Go-to-market & Sales Strategy',
+    'skill1-tools': 'Positioning, messaging, product launch, offer structuring, partnerships, B2B and B2B2C markets — from seed stage to LBO',
+    'skill2-title': 'Acquisition & Growth',
+    'skill2-tools': 'SEO / SEA, lead generation, CRM (HubSpot, Pipedrive, Zoho, Klaviyo), multi-channel campaigns, LinkedIn Ads, Meta, Google Ads, TikTok',
+    'skill3-title': 'Data & Analytics',
+    'skill3-tools': 'GA4, Looker Studio, Metabase, advanced tracking (GTM, Umami.js, Hotjar, Clarity), Excel VBA, Google Sheets AppScript, Python (Pandas, NumPy)',
+    'skill4-title': 'Automation & Generative AI',
+    'skill4-tools': 'Make, n8n, Zapier, Claude API, ChatGPT, Gemini, Cursor — autonomous workflow design, LLM agents, MCP integrations',
+    'skill5-title': 'Web Development',
+    'skill5-tools': 'Python, JavaScript / TypeScript, REST API, Google Cloud Platform, WordPress, Firebase, GitHub, Jupyter — autonomous from spec to deployment',
+    'label-refs': 'References',
+    'h2-refs': 'What my<br>peers say.',
+    'ref1-text': "He is constantly innovating and seeking breakthroughs that will take him further. He's an extremely valuable profile to help a company grow.",
+    'ref1-role': 'CEO, eteam_work — managed Maxime directly',
+    'ref2-text': 'On the technical side, Maxime is extremely skilled. He masters Python and JavaScript, and his scraping and automation capabilities are remarkable for a marketing director.',
+    'ref2-role': 'Data Scientist, InRealArt — reported to Maxime',
+    'ref3-text': "Always several moves ahead — that's what we love about him! His analysis is very sharp on marketing, management and pure growth topics.",
+    'ref3-role': 'General Manager',
+    'ref4-text': "He knows his market, positioning and the technological and commercial challenges of his clients very well. He's passionate about his work, extremely curious — this greatly facilitates exchanges.",
+    'ref4-role': "IT Transformation Expert — Maxime's client",
+    'h2-contact': 'Available for<br>a conversation.',
+    'p-contact': 'B2B Marketing & Growth Director · Bordeaux · France',
+  }
+};
+
+// ── LANG SWITCH ──
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.title = t[lang]['page-title'];
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[lang][key] !== undefined) el.textContent = t[lang][key];
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (t[lang][key] !== undefined) el.innerHTML = t[lang][key];
+  });
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  try { localStorage.setItem('lang', lang); } catch(e) {}
+}
+
+// ── SCROLL REVEAL ──
 const observer = new IntersectionObserver((entries) => {
 entries.forEach(entry => {
 if (entry.isIntersecting) {
@@ -939,10 +1207,17 @@ entry.target.classList.add('visible');
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
 // Trigger hero animations immediately
 document.querySelectorAll('#hero .reveal').forEach((el, i) => {
 setTimeout(() => el.classList.add('visible'), 100 + i * 100);
   });
+
+// Init language from localStorage
+try {
+  const saved = localStorage.getItem('lang');
+  if (saved && saved !== 'fr') setLang(saved);
+} catch(e) {}
 </script>
 </body>
 </html>
