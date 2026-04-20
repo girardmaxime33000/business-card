@@ -8,6 +8,9 @@
 <meta name="author" content="Maxime Girard">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://girardmaxime33000.github.io/business-card/">
+<link rel="alternate" hreflang="fr" href="https://girardmaxime33000.github.io/business-card/">
+<link rel="alternate" hreflang="en" href="https://girardmaxime33000.github.io/business-card/en/">
+<link rel="alternate" hreflang="x-default" href="https://girardmaxime33000.github.io/business-card/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#080810">
 <meta property="og:type" content="profile">
@@ -123,6 +126,7 @@ border: none;
 background: transparent;
 color: var(--muted);
 font-family: 'DM Sans', sans-serif;
+text-decoration: none;
 transition: background 0.2s, color 0.2s;
   }
 .lang-btn.active {
@@ -729,9 +733,9 @@ transition-duration: 0.01ms !important;
 <li><a href="#references" data-i18n="nav-references">Références</a></li>
 <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
 </ul>
-<div class="lang-toggle" role="group" aria-label="Language">
-<button class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
-<button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+<div class="lang-toggle" role="group" aria-label="Langue / Language">
+<a href="/business-card/" class="lang-btn active" data-lang="fr" aria-pressed="true" hreflang="fr">FR</a>
+<a href="/business-card/en/" class="lang-btn" data-lang="en" aria-pressed="false" hreflang="en">EN</a>
 </div>
 </nav>
 <main>
@@ -762,8 +766,9 @@ transition-duration: 0.01ms !important;
 </div>
 </div>
 <div class="cta-row">
-<a href="mailto:girard.maxime33@gmail.com" class="btn-primary plausible-event-name=Hero+Mail+Click" data-i18n="btn-contact" aria-label="Me contacter"><span aria-hidden="true">→</span> Me contacter</a>
+<a href="mailto:girard.maxime33@gmail.com" class="btn-primary plausible-event-name=Hero+Mail+Click" data-i18n-html="btn-contact" aria-label="Me contacter"><span aria-hidden="true">→</span> Me contacter</a>
 <a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="btn-secondary plausible-event-name=Hero+LinkedIn+Click" aria-label="Voir le profil LinkedIn"><span aria-hidden="true">↗</span> LinkedIn</a>
+<a href="cv-maxime-girard-fr.pdf" class="btn-secondary plausible-event-name=CV+Download+Click" data-i18n-html="btn-cv" aria-label="Télécharger mon CV PDF"><span aria-hidden="true">↓</span> Télécharger mon CV</a>
 </div>
 </section>
 <div class="divider"></div>
@@ -1010,6 +1015,7 @@ transition-duration: 0.01ms !important;
 <div class="ref-quote">"</div>
 <p class="ref-text" data-i18n="ref1-text">Il est constamment en train d'innover et de rechercher les innovations qui lui permettront d'aller plus loin. C'est un profil ultra intéressant pour contribuer à faire grossir une entreprise.</p>
 <div class="ref-author">
+<!-- TODO: LinkedIn URL Nicolas Pasetti (CEO eteam_work) -->
 <span class="ref-name">Nicolas Pasetti</span>
 <span class="ref-role" data-i18n="ref1-role">CEO, eteam_work — a managé Maxime directement</span>
 </div>
@@ -1018,6 +1024,7 @@ transition-duration: 0.01ms !important;
 <div class="ref-quote">"</div>
 <p class="ref-text" data-i18n="ref2-text">Sur le plan technique, Maxime est extrêmement compétent. Il maîtrise Python et JavaScript, et ses compétences en scraping et automatisation sont remarquables pour un directeur marketing.</p>
 <div class="ref-author">
+<!-- TODO: LinkedIn URL Alexandre Masson (Data Engineer ColisPrivé) -->
 <span class="ref-name">Alexandre Masson</span>
 <span class="ref-role" data-i18n="ref2-role">Data Engineer, ColisPrivé — a reporté à Maxime</span>
 </div>
@@ -1026,6 +1033,7 @@ transition-duration: 0.01ms !important;
 <div class="ref-quote">"</div>
 <p class="ref-text" data-i18n="ref3-text">Toujours plusieurs coups d'avance, c'est ça qu'on aime chez lui ! Son analyse est très pointue sur des sujets concernant le marketing, le management et la growth pure.</p>
 <div class="ref-author">
+<!-- TODO: LinkedIn URL Pierre Rocherie (DG FM Auto) -->
 <span class="ref-name">Pierre Rocherie</span>
 <span class="ref-role" data-i18n="ref3-role">Directeur Général FM Auto</span>
 </div>
@@ -1034,6 +1042,7 @@ transition-duration: 0.01ms !important;
 <div class="ref-quote">"</div>
 <p class="ref-text" data-i18n="ref4-text">Il connaît très bien son marché, son positionnement et les enjeux technologiques et commerciaux de ses clients. Il est passionné par son métier, extrêmement curieux — cela facilite grandement les échanges.</p>
 <div class="ref-author">
+<!-- TODO: LinkedIn URL Jérémy Fortinon (Expert SI) -->
 <span class="ref-name">Jérémy Fortinon</span>
 <span class="ref-role" data-i18n="ref4-role">Expert transformation des SI — client de Maxime</span>
 </div>
@@ -1055,7 +1064,7 @@ transition-duration: 0.01ms !important;
 // ── TRANSLATIONS ──
 const t = {
   fr: {
-    'page-title': 'Maxime Girard — Directeur Marketing & Growth',
+    'page-title': 'Maxime Girard | Directeur Marketing & Growth B2B — Bordeaux',
     'nav-profil': 'Profil',
     'nav-experiences': 'Expériences',
     'nav-cas-usage': "Cas d'usage",
@@ -1069,7 +1078,8 @@ const t = {
     'metric-markets': 'Marchés internationaux ouverts',
     'metric-comex': 'Mandats COMEX',
     'metric-years': 'Direction marketing B2B',
-    'btn-contact': '→ Me contacter',
+    'btn-contact': '<span aria-hidden="true">→</span> Me contacter',
+    'btn-cv': '<span aria-hidden="true">↓</span> Télécharger mon CV',
     'label-profil': 'Profil',
     'h2-profil': 'Stratège ET technicien.',
     'profil-pitch': `<p>Profil hybride <strong>stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable — pas des plans qui dorment en PowerPoint.</p><br><p>Vision CMO + exécution growth engineer. Je code, j'automatise, je pilote les données, je structure les équipes. <strong>Je scale ce que les autres posent en slides.</strong></p><br><p>Startup en amorçage, scale-up en hypercroissance, PME en structuration : j'ai opéré à chaque stade, avec des résultats mesurables à chaque fois. Périmètre France, Europe, US et Japon.</p>`,
@@ -1166,7 +1176,7 @@ const t = {
     'p-contact': 'Directeur Marketing & Growth B2B · Bordeaux · France',
   },
   en: {
-    'page-title': 'Maxime Girard — Marketing & Growth Director',
+    'page-title': 'Maxime Girard | Marketing & Growth Director B2B — Bordeaux',
     'nav-profil': 'Profile',
     'nav-experiences': 'Experience',
     'nav-cas-usage': 'Case Studies',
@@ -1180,7 +1190,8 @@ const t = {
     'metric-markets': 'International markets opened',
     'metric-comex': 'Executive Committee seats',
     'metric-years': 'B2B marketing leadership',
-    'btn-contact': '→ Contact me',
+    'btn-contact': '<span aria-hidden="true">→</span> Contact me',
+    'btn-cv': '<span aria-hidden="true">↓</span> Download my CV',
     'label-profil': 'Profile',
     'h2-profil': 'Strategist AND practitioner.',
     'profil-pitch': `<p>Hybrid profile combining <strong>strategy / data / automation</strong>. I build marketing systems that drive measurable growth — not plans that collect dust in PowerPoint.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams. <strong>I scale what others leave in slide decks.</strong></p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p>`,
@@ -1320,9 +1331,12 @@ document.querySelectorAll('#hero .reveal').forEach((el, i) => {
 setTimeout(() => el.classList.add('visible'), 100 + i * 100);
   });
 
-// Lang toggle event listeners (replaces inline onclick)
+// Lang toggle — in-page switch (href fallback works if JS disabled)
 document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    setLang(btn.dataset.lang);
+  });
 });
 
 // Init language from localStorage
