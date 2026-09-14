@@ -131,7 +131,8 @@ body::before {
 </head>
 <body class="bg-bg text-neutral-900 font-sans antialiased leading-relaxed">
 <!-- NAV -->
-<nav aria-label="Navigation principale" class="fixed inset-x-0 top-0 z-[100] flex items-center justify-between px-[4vw] py-5 bg-lime-400/95 backdrop-blur-xl border-b border-lime-600/30 shadow-[0_2px_24px_-6px_rgba(101,163,13,0.35)]">
+<header class="fixed inset-x-0 top-0 z-[100]">
+<nav aria-label="Navigation principale" class="flex items-center justify-between px-[4vw] py-5 bg-lime-400/95 backdrop-blur-xl border-b border-lime-600/30 shadow-[0_2px_24px_-6px_rgba(101,163,13,0.35)]">
 <div class="font-extrabold text-base tracking-wide">MG<span class="text-neutral-950">.</span></div>
 <ul class="hidden md:flex gap-2 list-none">
 <li><a href="#profil" data-i18n="nav-profil" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Profil</a></li>
@@ -141,11 +142,27 @@ body::before {
 <li><a href="#references" data-i18n="nav-references" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Références</a></li>
 <li><a href="#contact" data-i18n="nav-contact" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Contact</a></li>
 </ul>
+<div class="flex items-center gap-3">
+<button id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-menu" aria-label="Ouvrir le menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-md text-neutral-900 text-xl leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2">
+<span id="nav-toggle-icon" aria-hidden="true">☰</span>
+</button>
 <div class="lang-toggle flex items-center bg-surface border border-neutral-200 rounded-md overflow-hidden shrink-0" role="group" aria-label="Langue / Language">
 <a href="/business-card/" class="lang-btn active bg-lime-400 text-black px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest transition-colors" data-lang="fr" aria-pressed="true" hreflang="fr">FR</a>
 <a href="/business-card/en/" class="lang-btn px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors" data-lang="en" aria-pressed="false" hreflang="en">EN</a>
 </div>
+</div>
 </nav>
+<div id="nav-mobile-menu" hidden class="md:hidden bg-surface border-b border-neutral-200 shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto">
+<ul class="flex flex-col divide-y divide-neutral-200">
+<li><a href="#profil" data-i18n="nav-profil" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Profil</a></li>
+<li><a href="#experiences" data-i18n="nav-experiences" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Expériences</a></li>
+<li><a href="#cas-usage" data-i18n="nav-cas-usage" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Cas d'usage</a></li>
+<li><a href="#competences" data-i18n="nav-competences" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Compétences</a></li>
+<li><a href="#references" data-i18n="nav-references" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Références</a></li>
+<li><a href="#contact" data-i18n="nav-contact" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Contact</a></li>
+</ul>
+</div>
+</header>
 <main>
 <!-- HERO -->
 <section id="hero" aria-labelledby="h1-hero" class="min-h-screen flex flex-col justify-center px-[4vw] pt-40 pb-28 relative overflow-hidden">
@@ -800,23 +817,59 @@ setTimeout(() => el.classList.add('visible'), 100 + i * 100);
   });
 
 // ── NAV ACTIVE OVERLAY (scrollspy) ──
-const navLinks = document.querySelectorAll('nav ul .nav-link[href^="#"]');
-const navSections = Array.from(navLinks)
-  .map(link => document.querySelector(link.getAttribute('href')))
-  .filter(Boolean);
+// .nav-link exists twice per section (desktop bar + mobile menu) — matched by class, not by parent.
+const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+const navHrefs = [...new Set(Array.from(navLinks).map(link => link.getAttribute('href')))];
+const navSections = navHrefs.map(href => document.querySelector(href)).filter(Boolean);
 
 const navObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    const link = document.querySelector(`nav ul .nav-link[href="#${entry.target.id}"]`);
-    if (!link) return;
+    const matches = document.querySelectorAll(`.nav-link[href="#${entry.target.id}"]`);
+    if (!matches.length) return;
     if (entry.isIntersecting) {
       navLinks.forEach(l => l.classList.remove('nav-active'));
-      link.classList.add('nav-active');
+      matches.forEach(l => l.classList.add('nav-active'));
     }
   });
 }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
 
 navSections.forEach(section => navObserver.observe(section));
+
+// ── MOBILE NAV ──
+(function () {
+  const toggleBtn = document.getElementById('nav-toggle');
+  const toggleIcon = document.getElementById('nav-toggle-icon');
+  const menu = document.getElementById('nav-mobile-menu');
+  if (!toggleBtn || !toggleIcon || !menu) return;
+
+  function openMenu() {
+    menu.hidden = false;
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    toggleIcon.textContent = '✕';
+  }
+
+  function closeMenu() {
+    menu.hidden = true;
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleIcon.textContent = '☰';
+  }
+
+  toggleBtn.addEventListener('click', () => (menu.hidden ? openMenu() : closeMenu()));
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu.hidden) closeMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menu.hidden && !menu.contains(e.target) && !toggleBtn.contains(e.target)) closeMenu();
+  });
+
+  // Repli automatique si la fenêtre est agrandie au-delà du point de rupture mobile
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+    if (e.matches) closeMenu();
+  });
+})();
 
 // Lang toggle — in-page switch (href fallback works if JS disabled)
 document.querySelectorAll('.lang-btn').forEach(btn => {
