@@ -79,7 +79,7 @@ for key, val in en.items():
         out = sub_i18n(out, key, val, is_html=False)
 
 # ── 3. lang et métadonnées ─────────────────────────────────────────────────
-out = out.replace('<html lang="fr">', '<html lang="en">', 1)
+out = re.sub(r'<html lang="fr"', '<html lang="en"', out, count=1)
 
 out = re.sub(r'<title>[^<]*</title>',
     '<title>Maxime Girard | Marketing &amp; Growth Director B2B — Bordeaux</title>',
@@ -138,12 +138,23 @@ out = out.replace('href="cv-maxime-girard-fr.pdf"',  'href="../cv-maxime-girard-
 out = out.replace('href="cv-maxime-girard-en.pdf"',  'href="../cv-maxime-girard-en.pdf"')
 
 # ── 5. Lang toggle : EN actif, FR inactif ─────────────────────────────────
-out = out.replace(
-    'class="lang-btn active" data-lang="fr" aria-pressed="true"',
-    'class="lang-btn"        data-lang="fr" aria-pressed="false"', 1)
-out = out.replace(
-    'class="lang-btn" data-lang="en" aria-pressed="false"',
-    'class="lang-btn active" data-lang="en" aria-pressed="true"', 1)
+# Basé sur data-lang plutôt que sur la liste exacte des classes, pour rester
+# robuste aux classes Tailwind ajoutées au bouton actif (bg-lime-400, text-black…).
+def _deactivate_lang_btn(m):
+    tag = m.group(0)
+    tag = re.sub(r'\bactive\s+bg-lime-400\s+text-black\s+', '', tag)
+    tag = re.sub(r'aria-pressed="true"', 'aria-pressed="false"', tag)
+    return tag
+
+def _activate_lang_btn(m):
+    tag = m.group(0)
+    if re.search(r'class="lang-btn\s+active\b', tag) is None:
+        tag = re.sub(r'class="lang-btn\s+', 'class="lang-btn active bg-lime-400 text-black ', tag, count=1)
+    tag = re.sub(r'aria-pressed="false"', 'aria-pressed="true"', tag)
+    return tag
+
+out = re.sub(r'<a\b[^>]*\bdata-lang="fr"[^>]*>', _deactivate_lang_btn, out, count=1)
+out = re.sub(r'<a\b[^>]*\bdata-lang="en"[^>]*>', _activate_lang_btn, out, count=1)
 
 # ── 6. Supprimer le système i18n JS (contenu déjà statique) ───────────────
 minimal_script = '''<script>
