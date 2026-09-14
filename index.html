@@ -82,7 +82,7 @@ body::before {
 /* ── IMPRESSION ── */
 @media print {
   /* Nav fixe, menu mobile, assistant : sans valeur hors écran */
-  header, #chat-toggle, #chat-panel { display: none !important; }
+  header, footer, #chat-toggle, #chat-panel { display: none !important; }
   /* Widget de réservation interactif : inutilisable sur papier */
   #booking-block { display: none !important; }
   /* CTA de réservation : mène au widget masqué ci-dessus */
@@ -558,6 +558,22 @@ body::before {
 </div>
 </section>
 </main>
+<!-- FOOTER -->
+<footer class="bg-neutral-900 text-white/50 px-[4vw] py-8">
+<div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+<p>© <span id="footer-year">2026</span> Maxime Girard · Bordeaux, France</p>
+<div class="flex items-center gap-5">
+<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="plausible-event-name=Footer+Bottom+LinkedIn+Click hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" aria-label="Voir le profil LinkedIn">LinkedIn</a>
+<a href="mailto:girard.maxime33@gmail.com" class="plausible-event-name=Footer+Bottom+Mail+Click hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" aria-label="Envoyer un e-mail">Email</a>
+<div class="flex items-center gap-2" role="group" aria-label="Langue / Language">
+<a href="/business-card/" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" hreflang="fr">FR</a>
+<span aria-hidden="true">/</span>
+<a href="/business-card/en/" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" hreflang="en">EN</a>
+</div>
+<a href="#hero" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" data-i18n="footer-top" aria-label="Retour en haut de page">↑ Retour en haut</a>
+</div>
+</div>
+</footer>
 <!-- ASSISTANT IA -->
 <button id="chat-toggle" type="button" aria-expanded="true" aria-controls="chat-panel" aria-label="Fermer l'assistant" class="fixed bottom-6 right-6 z-[90] w-14 h-14 rounded-full bg-lime-400 text-black flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_32px_-6px_rgba(221,255,87,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2">
 <svg id="chat-icon-open" aria-hidden="true" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
@@ -709,6 +725,7 @@ const t = {
     'h2-contact': 'Disponible pour<br>un échange.',
     'p-contact': 'Directeur Marketing & Growth B2B · Bordeaux · France',
     'label-booking': 'Réserver un créneau',
+    'footer-top': '↑ Retour en haut',
     'chat-title': 'Assistant Maxime',
     'chat-intro': 'Posez une question sur le profil de Maxime, ou choisissez une suggestion ci-dessous.',
     'chat-q1': "En quoi Maxime peut-il m'aider ?",
@@ -842,6 +859,7 @@ const t = {
     'h2-contact': 'Available for<br>a conversation.',
     'p-contact': 'B2B Marketing & Growth Director · Bordeaux · France',
     'label-booking': 'Book a time slot',
+    'footer-top': '↑ Back to top',
     'chat-title': 'Ask about Maxime',
     'chat-intro': "Ask a question about Maxime's profile, or pick a suggestion below.",
     'chat-q1': 'How can Maxime help me?',
@@ -1003,6 +1021,10 @@ try {
   const saved = localStorage.getItem('lang');
   if (saved && saved !== 'fr') setLang(saved);
 } catch(e) {}
+
+// ── ANNÉE DU FOOTER ──
+const footerYear = document.getElementById('footer-year');
+if (footerYear) footerYear.textContent = new Date().getFullYear();
 
 // ── ASSISTANT IA ──
 // Remplacer par l'URL du Worker publié (voir cloudflare-worker/README.md).
