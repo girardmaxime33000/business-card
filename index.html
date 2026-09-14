@@ -85,6 +85,8 @@ body::before {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
+/* ── NAV ACTIVE OVERLAY ── */
+.nav-link.nav-active { color: #0a0a0a; font-weight: 700; background-color: rgba(10,10,10,0.14); }
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -129,15 +131,15 @@ body::before {
 </head>
 <body class="bg-bg text-neutral-900 font-sans antialiased leading-relaxed">
 <!-- NAV -->
-<nav aria-label="Navigation principale" class="fixed inset-x-0 top-0 z-[100] flex items-center justify-between px-[4vw] py-5 bg-bg/85 backdrop-blur-xl border-b border-neutral-200">
-<div class="font-extrabold text-base tracking-wide">MG<span class="text-lime-700">.</span></div>
-<ul class="hidden md:flex gap-8 list-none">
-<li><a href="#profil" data-i18n="nav-profil" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Profil</a></li>
-<li><a href="#experiences" data-i18n="nav-experiences" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Expériences</a></li>
-<li><a href="#cas-usage" data-i18n="nav-cas-usage" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Cas d'usage</a></li>
-<li><a href="#competences" data-i18n="nav-competences" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Compétences</a></li>
-<li><a href="#references" data-i18n="nav-references" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Références</a></li>
-<li><a href="#contact" data-i18n="nav-contact" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Contact</a></li>
+<nav aria-label="Navigation principale" class="fixed inset-x-0 top-0 z-[100] flex items-center justify-between px-[4vw] py-5 bg-lime-400/95 backdrop-blur-xl border-b border-lime-600/30 shadow-[0_2px_24px_-6px_rgba(101,163,13,0.35)]">
+<div class="font-extrabold text-base tracking-wide">MG<span class="text-neutral-950">.</span></div>
+<ul class="hidden md:flex gap-2 list-none">
+<li><a href="#profil" data-i18n="nav-profil" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Profil</a></li>
+<li><a href="#experiences" data-i18n="nav-experiences" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Expériences</a></li>
+<li><a href="#cas-usage" data-i18n="nav-cas-usage" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Cas d'usage</a></li>
+<li><a href="#competences" data-i18n="nav-competences" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Compétences</a></li>
+<li><a href="#references" data-i18n="nav-references" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Références</a></li>
+<li><a href="#contact" data-i18n="nav-contact" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Contact</a></li>
 </ul>
 <div class="lang-toggle flex items-center bg-surface border border-neutral-200 rounded-md overflow-hidden shrink-0" role="group" aria-label="Langue / Language">
 <a href="/business-card/" class="lang-btn active bg-lime-400 text-black px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest transition-colors" data-lang="fr" aria-pressed="true" hreflang="fr">FR</a>
@@ -796,6 +798,25 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.querySelectorAll('#hero .reveal').forEach((el, i) => {
 setTimeout(() => el.classList.add('visible'), 100 + i * 100);
   });
+
+// ── NAV ACTIVE OVERLAY (scrollspy) ──
+const navLinks = document.querySelectorAll('nav ul .nav-link[href^="#"]');
+const navSections = Array.from(navLinks)
+  .map(link => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const link = document.querySelector(`nav ul .nav-link[href="#${entry.target.id}"]`);
+    if (!link) return;
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('nav-active'));
+      link.classList.add('nav-active');
+    }
+  });
+}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+navSections.forEach(section => navObserver.observe(section));
 
 // Lang toggle — in-page switch (href fallback works if JS disabled)
 document.querySelectorAll('.lang-btn').forEach(btn => {
