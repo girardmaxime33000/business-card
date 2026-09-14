@@ -141,7 +141,8 @@ body::before {
 <!-- NAV -->
 <header class="fixed inset-x-0 top-0 z-[100]">
 <nav aria-label="Navigation principale" class="flex items-center justify-between px-[4vw] py-5 bg-lime-400/95 backdrop-blur-xl border-b border-lime-600/30 shadow-[0_2px_24px_-6px_rgba(101,163,13,0.35)]">
-<div class="font-extrabold text-base tracking-wide">MG<span class="text-neutral-950">.</span></div>
+<div class="flex items-center gap-10">
+<div class="font-extrabold text-base tracking-wide shrink-0">MG<span class="text-neutral-950">.</span></div>
 <ul class="hidden md:flex gap-2 list-none">
 <li><a href="#profil" data-i18n="nav-profil" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Profil</a></li>
 <li><a href="#experiences" data-i18n="nav-experiences" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Expériences</a></li>
@@ -150,11 +151,12 @@ body::before {
 <li><a href="#references" data-i18n="nav-references" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Références</a></li>
 <li><a href="#contact" data-i18n="nav-contact" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Contact</a></li>
 </ul>
+</div>
+<div class="flex items-center gap-3">
 <div id="local-clock" class="hidden lg:flex items-center gap-3 bg-surface border border-neutral-200 rounded-full px-4 py-1.5 font-mono text-xs text-neutral-900 tabular-nums" aria-hidden="true">
 <span>Bordeaux, FR</span>
 <span id="clock-time">--:--:--</span>
 </div>
-<div class="flex items-center gap-3">
 <a href="cv-maxime-girard-en.pdf" download class="nav-cv-btn plausible-event-name=Nav+CV+Download+Click hidden md:inline-flex items-center gap-1.5 bg-neutral-900 text-lime-300 text-xs font-bold tracking-wide px-3.5 py-1.5 rounded-full transition-all duration-200 hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2" data-i18n-html="btn-cv-nav" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> CV</a>
 <button id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-menu" aria-label="Ouvrir le menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-md text-neutral-900 text-xl leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2">
 <span id="nav-toggle-icon" aria-hidden="true">☰</span>
