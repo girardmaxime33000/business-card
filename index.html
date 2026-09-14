@@ -64,9 +64,6 @@ body::before {
 .btn-shine { position: relative; overflow: hidden; }
 .btn-shine::before { content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent); transform: skewX(-20deg); transition: left 0.6s ease; }
 .btn-shine:hover::before { left: 125%; }
-/* ── PULSE DOT ── */
-@keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
-.pulse-dot { animation: pulse-dot 2s infinite; }
 /* ── SCROLL REVEAL ── */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: none; }
@@ -185,11 +182,6 @@ body::before {
 <div class="grid-texture"></div>
 <div class="hero-glow"></div>
 <div class="hero-glow2"></div>
-<div class="hero-tag inline-flex items-center gap-2 bg-surface border border-neutral-200 text-lime-700 text-xs tracking-widest uppercase px-4 py-1.5 rounded-full mb-8 w-fit">
-<span class="font-mono opacity-60" aria-hidden="true">//</span>
-<span class="pulse-dot w-1.5 h-1.5 rounded-full bg-lime-400" aria-hidden="true"></span>
-<span class="font-mono" data-i18n="hero-tag">En poste — Founding Marketing Lead, Pollen AM</span>
-</div>
 <h1 class="font-extrabold leading-none tracking-tight text-[clamp(3.5rem,8vw,7rem)] mb-2" id="h1-hero">Maxime<br><span class="text-lime-700">Girard</span></h1>
 <p class="font-semibold text-neutral-500 text-[clamp(1rem,2.5vw,1.5rem)] mb-12" data-i18n="hero-title">Directeur Marketing & Growth – B2B / B2B2C</p>
 <div class="flex flex-wrap gap-4 mb-12">
@@ -581,7 +573,6 @@ const t = {
     'nav-competences': 'Compétences',
     'nav-references': 'Références',
     'nav-contact': 'Contact',
-    'hero-tag': 'En poste — Founding Marketing Lead, Pollen AM',
     'hero-title': 'Directeur Marketing & Growth – B2B / B2B2C',
     'metric-arr': 'ARR générés ou pilotés',
     'metric-markets': 'Marchés internationaux ouverts',
@@ -704,7 +695,6 @@ const t = {
     'nav-competences': 'Skills',
     'nav-references': 'References',
     'nav-contact': 'Contact',
-    'hero-tag': 'Employed — Founding Marketing Lead, Pollen AM',
     'hero-title': 'Marketing & Growth Director – B2B / B2B2C',
     'metric-arr': 'ARR generated or managed',
     'metric-markets': 'International markets opened',
