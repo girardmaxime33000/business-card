@@ -77,6 +77,25 @@ body::before {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
 }
+/* ── IMPRESSION ── */
+@media print {
+  /* Nav fixe, menu mobile, assistant : sans valeur hors écran */
+  header, #chat-toggle, #chat-panel { display: none !important; }
+  /* Widget de réservation interactif : inutilisable sur papier */
+  #booking-block { display: none !important; }
+  /* CTA de réservation : mène au widget masqué ci-dessus */
+  #hero-book-btn { display: none !important; }
+  /* Flourishes purement visuelles : gaspillent l'encre, aucune valeur informative */
+  body::before, .hero-glow, .hero-glow2, .contact-glow, .grid-texture { display: none !important; }
+  /* Affiche l'URL des liens dont le texte visible ne la porte pas déjà
+     (LinkedIn, CV), faute de pouvoir cliquer sur papier. L'email est déjà
+     affiché en clair dans le texte du lien, pas besoin de le répéter. */
+  #contact a[href^="http"]::after, .btn-shine[href$=".pdf"]::after { content: " — " attr(href); font-weight: 400; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  section, .exp-item, .case-card, .value-card, .skill-card, .ref-card { break-inside: avoid; }
+  /* pt-40/min-h-screen ne servaient qu'à dégager la place du header fixe, masqué ci-dessus */
+  #hero { min-height: 0 !important; padding-top: 1rem !important; }
+}
 </style>
 <script type="application/ld+json">
 {
@@ -182,7 +201,7 @@ body::before {
 </div>
 </div>
 <div class="flex flex-wrap gap-4">
-<a href="#contact" class="btn-shine plausible-event-name=Hero+Booking+Click inline-flex items-center gap-2 bg-lime-400 text-black font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(163,230,53,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n-html="btn-contact" aria-label="Prendre rendez-vous"><span aria-hidden="true">→</span> Prendre RDV</a>
+<a id="hero-book-btn" href="#contact" class="btn-shine plausible-event-name=Hero+Booking+Click inline-flex items-center gap-2 bg-lime-400 text-black font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(163,230,53,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n-html="btn-contact" aria-label="Prendre rendez-vous"><span aria-hidden="true">→</span> Prendre RDV</a>
 <a href="cv-maxime-girard-en.pdf" download class="btn-shine plausible-event-name=Hero+CV+Download+Click inline-flex items-center gap-2 bg-neutral-900 text-lime-300 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-125 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(23,23,23,0.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n-html="btn-cv" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> Télécharger le CV</a>
 <a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="plausible-event-name=Hero+LinkedIn+Click inline-flex items-center gap-2 border border-neutral-300 text-neutral-900 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:border-neutral-400 hover:bg-neutral-100 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" aria-label="Voir le profil LinkedIn"><span aria-hidden="true">↗</span> LinkedIn</a>
 </div>
@@ -475,7 +494,7 @@ body::before {
 <a href="mailto:girard.maxime33@gmail.com" class="plausible-event-name=Footer+Mail+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 inline-block align-[-3px]"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span> girard.maxime33@gmail.com</a>
 <a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="plausible-event-name=Footer+LinkedIn+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">↗</span> LinkedIn</a>
 </div>
-<div class="reveal relative max-w-3xl mx-auto text-left">
+<div id="booking-block" class="reveal relative max-w-3xl mx-auto text-left">
 <p class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-booking">Réserver un créneau</span></p>
 <div class="bg-surface border border-neutral-200 rounded-2xl p-3 overflow-hidden">
 <div class="calendly-inline-widget" data-url="https://calendly.com/girard-maxime33?hide_gdpr_banner=1&amp;background_color=ffffff&amp;text_color=171717&amp;primary_color=65a30d" style="min-width:280px;height:700px;"></div>
