@@ -150,6 +150,10 @@ body::before {
 <li><a href="#references" data-i18n="nav-references" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">References</a></li>
 <li><a href="#contact" data-i18n="nav-contact" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Contact</a></li>
 </ul>
+<div id="local-clock" class="hidden lg:flex items-center gap-3 bg-surface border border-neutral-200 rounded-full px-4 py-1.5 font-mono text-xs text-neutral-900 tabular-nums" aria-hidden="true">
+<span>Bordeaux, FR</span>
+<span id="clock-time">--:--:--</span>
+</div>
 <div class="flex items-center gap-3">
 <a href="../cv-maxime-girard-en.pdf" download class="nav-cv-btn plausible-event-name=Nav+CV+Download+Click hidden md:inline-flex items-center gap-1.5 bg-neutral-900 text-lime-300 text-xs font-bold tracking-wide px-3.5 py-1.5 rounded-full transition-all duration-200 hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2" data-i18n-html="btn-cv-nav" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> CV</a>
 <button id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-menu" aria-label="Ouvrir le menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-md text-neutral-900 text-xl leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2">
@@ -185,8 +189,7 @@ body::before {
 <span class="font-mono" data-i18n="hero-tag">Employed — Founding Marketing Lead, Pollen AM</span>
 </div>
 <h1 class="font-extrabold leading-none tracking-tight text-[clamp(3.5rem,8vw,7rem)] mb-2" id="h1-hero">Maxime<br><span class="text-lime-700">Girard</span></h1>
-<p class="font-semibold text-neutral-500 text-[clamp(1rem,2.5vw,1.5rem)] mb-6" data-i18n="hero-title">Marketing & Growth Director – B2B / B2B2C</p>
-<p class="font-semibold text-neutral-900 text-[clamp(1.1rem,2vw,1.4rem)] leading-snug max-w-xl mb-12" data-i18n-html="hero-claim">The profile SMBs are looking for<br>without knowing it exists.</p>
+<p class="font-semibold text-neutral-500 text-[clamp(1rem,2.5vw,1.5rem)] mb-12" data-i18n="hero-title">Marketing & Growth Director – B2B / B2B2C</p>
 <div class="flex flex-wrap gap-4 mb-12">
 <div class="metric reveal reveal-delay-1 bg-surface border border-neutral-200 rounded-2xl px-7 py-5 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-0.5 hover:shadow-[0_0_32px_-8px_rgba(221,255,87,0.35)]">
 <span class="block font-extrabold text-3xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent">+35 M€</span>
@@ -572,7 +575,6 @@ const t = {
     'nav-contact': 'Contact',
     'hero-tag': 'En poste — Founding Marketing Lead, Pollen AM',
     'hero-title': 'Directeur Marketing & Growth – B2B / B2B2C',
-    'hero-claim': "Le profil que les PME cherchent<br>sans savoir qu'il existe.",
     'metric-arr': 'ARR générés ou pilotés',
     'metric-markets': 'Marchés internationaux ouverts',
     'metric-comex': 'Mandats COMEX',
@@ -696,7 +698,6 @@ const t = {
     'nav-contact': 'Contact',
     'hero-tag': 'Employed — Founding Marketing Lead, Pollen AM',
     'hero-title': 'Marketing & Growth Director – B2B / B2B2C',
-    'hero-claim': 'The profile SMBs are looking for<br>without knowing it exists.',
     'metric-arr': 'ARR generated or managed',
     'metric-markets': 'International markets opened',
     'metric-comex': 'Executive Committee seats',
@@ -897,6 +898,20 @@ if (calendlyContainer) {
   }, { rootMargin: '400px 0px' });
   calendlyObserver.observe(calendlyContainer);
 }
+
+// ── HORLOGE BORDEAUX ──
+// Heure réelle à Bordeaux (Europe/Paris), indépendante du fuseau du visiteur.
+(function () {
+  const el = document.getElementById('clock-time');
+  if (!el) return;
+  function tick() {
+    el.textContent = new Date().toLocaleTimeString('fr-FR', {
+      timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', second: '2-digit',
+    });
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
 
 // ── MOBILE NAV ──
 (function () {
