@@ -1,41 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <radialGradient id="glow" cx="85%" cy="15%" r="50%">
-      <stop offset="0%" stop-color="rgba(232,97,42,0.08)"/>
+    <radialGradient id="glow" cx="88%" cy="8%" r="55%">
+      <stop offset="0%" stop-color="rgba(163,230,53,0.14)"/>
       <stop offset="100%" stop-color="transparent"/>
     </radialGradient>
   </defs>
   <!-- Background -->
-  <rect width="1200" height="630" fill="#080810"/>
+  <rect width="1200" height="630" fill="#FBFBFB"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
-  <!-- Bordeaux tag top-left -->
-  <rect x="60" y="52" width="160" height="30" rx="15" fill="rgba(232,97,42,0.12)" stroke="rgba(232,97,42,0.3)" stroke-width="1"/>
-  <text x="140" y="72" font-family="DM Sans, sans-serif" font-weight="500" font-size="13" fill="#E8612A" text-anchor="middle" letter-spacing="0.1em">BORDEAUX · FRANCE</text>
-  <!-- Name -->
-  <text x="60" y="230" font-family="Syne, sans-serif" font-weight="800" font-size="108" fill="#ffffff" letter-spacing="-0.02em">MAXIME GIRARD</text>
-  <!-- Title -->
-  <text x="62" y="290" font-family="DM Sans, sans-serif" font-weight="500" font-size="32" fill="#7a7a9a">Directeur Marketing &amp; Growth B2B</text>
+  <!-- Monogramme -->
+  <text x="1140" y="72" font-family="Plus Jakarta Sans" font-weight="800" font-size="26" fill="#171717" text-anchor="end">MG.</text>
+  <!-- Tag Bordeaux -->
+  <rect x="60" y="56" width="192" height="34" rx="17" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="82" y="78" font-family="JetBrains Mono" font-weight="500" font-size="14" fill="#4d7c0f" letter-spacing="0.08em">// BORDEAUX · FRANCE</text>
+  <!-- Nom -->
+  <text x="58" y="215" font-family="Plus Jakarta Sans" font-weight="800" font-size="98" fill="#171717" letter-spacing="-0.02em">Maxime</text>
+  <text x="58" y="315" font-family="Plus Jakarta Sans" font-weight="800" font-size="98" fill="#4d7c0f" letter-spacing="-0.02em">Girard</text>
+  <!-- Titre -->
+  <text x="60" y="365" font-family="Plus Jakarta Sans" font-weight="600" font-size="28" fill="#737373">Directeur Marketing &amp; Growth – B2B / B2B2C</text>
   <!-- Divider -->
-  <rect x="60" y="330" width="80" height="3" rx="2" fill="#E8612A"/>
+  <rect x="60" y="400" width="72" height="4" rx="2" fill="#a3e635"/>
   <!-- Metric cards -->
   <!-- Card 1: +35M€ ARR -->
-  <rect x="60" y="380" width="240" height="110" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-  <rect x="60" y="380" width="240" height="3" rx="2" fill="#E8612A"/>
-  <text x="180" y="435" font-family="Syne, sans-serif" font-weight="800" font-size="36" fill="#E8612A" text-anchor="middle">+35M€</text>
-  <text x="180" y="465" font-family="DM Sans, sans-serif" font-weight="400" font-size="14" fill="#7a7a9a" text-anchor="middle">ARR générés ou pilotés</text>
-  <!-- Card 2: 5 COMEX -->
-  <rect x="320" y="380" width="240" height="110" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-  <rect x="320" y="380" width="240" height="3" rx="2" fill="#E8612A"/>
-  <text x="440" y="435" font-family="Syne, sans-serif" font-weight="800" font-size="36" fill="#E8612A" text-anchor="middle">5×</text>
-  <text x="440" y="465" font-family="DM Sans, sans-serif" font-weight="400" font-size="14" fill="#7a7a9a" text-anchor="middle">Mandats COMEX</text>
-  <!-- Card 3: 5 marchés -->
-  <rect x="580" y="380" width="240" height="110" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-  <rect x="580" y="380" width="240" height="3" rx="2" fill="#E8612A"/>
-  <text x="700" y="435" font-family="Syne, sans-serif" font-weight="800" font-size="36" fill="#E8612A" text-anchor="middle">5</text>
-  <text x="700" y="465" font-family="DM Sans, sans-serif" font-weight="400" font-size="14" fill="#7a7a9a" text-anchor="middle">Marchés internationaux</text>
+  <rect x="60" y="440" width="255" height="120" rx="16" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+  <rect x="60" y="440" width="255" height="4" rx="2" fill="#a3e635"/>
+  <text x="86" y="502" font-family="Plus Jakarta Sans" font-weight="800" font-size="38" fill="#4d7c0f">+35 M€</text>
+  <text x="86" y="532" font-family="Plus Jakarta Sans" font-weight="500" font-size="15" fill="#737373">ARR générés ou pilotés</text>
+  <!-- Card 2: 5 marchés -->
+  <rect x="335" y="440" width="255" height="120" rx="16" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+  <rect x="335" y="440" width="255" height="4" rx="2" fill="#a3e635"/>
+  <text x="361" y="502" font-family="Plus Jakarta Sans" font-weight="800" font-size="38" fill="#4d7c0f">5</text>
+  <text x="361" y="532" font-family="Plus Jakarta Sans" font-weight="500" font-size="15" fill="#737373">Marchés internationaux</text>
+  <!-- Card 3: 5x COMEX -->
+  <rect x="610" y="440" width="255" height="120" rx="16" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+  <rect x="610" y="440" width="255" height="4" rx="2" fill="#a3e635"/>
+  <text x="636" y="502" font-family="Plus Jakarta Sans" font-weight="800" font-size="38" fill="#4d7c0f">5×</text>
+  <text x="636" y="532" font-family="Plus Jakarta Sans" font-weight="500" font-size="15" fill="#737373">Mandats COMEX</text>
   <!-- Card 4: 10 ans -->
-  <rect x="840" y="380" width="240" height="110" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
-  <rect x="840" y="380" width="240" height="3" rx="2" fill="#E8612A"/>
-  <text x="960" y="435" font-family="Syne, sans-serif" font-weight="800" font-size="36" fill="#E8612A" text-anchor="middle">10 ans</text>
-  <text x="960" y="465" font-family="DM Sans, sans-serif" font-weight="400" font-size="14" fill="#7a7a9a" text-anchor="middle">Direction marketing B2B</text>
+  <rect x="885" y="440" width="255" height="120" rx="16" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+  <rect x="885" y="440" width="255" height="4" rx="2" fill="#a3e635"/>
+  <text x="911" y="502" font-family="Plus Jakarta Sans" font-weight="800" font-size="38" fill="#4d7c0f">10 ans</text>
+  <text x="911" y="532" font-family="Plus Jakarta Sans" font-weight="500" font-size="15" fill="#737373">Direction marketing B2B</text>
 </svg>

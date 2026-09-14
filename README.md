@@ -8,18 +8,25 @@ Portfolio / carte de visite personnelle. Site statique single-page, déployé su
 
 ## Actions manuelles requises avant déploiement
 
-### 1. Convertir `og-image.svg` → `og-image.jpg`
+### 1. Régénérer `og-image.jpg` après modification d'`og-image.svg`
 
-Les crawlers LinkedIn, Slack et iMessage ne rendent pas toujours les SVG en Open Graph.
-Il faut exporter `og-image.svg` en `og-image.jpg` **1200×630 px** avant de pousser en production.
+Les crawlers LinkedIn, Slack et iMessage ne rendent pas toujours les SVG en Open Graph ;
+`og-image.jpg` (1200×630 px, généré depuis `og-image.svg`) est ce qu'ils affichent réellement.
+`og-image.svg` reflète la charte actuelle du site (fond clair, accent lime, Plus Jakarta Sans /
+JetBrains Mono) — à ne pas confondre avec une éventuelle ancienne version au thème sombre/orange.
 
-Options :
-- **Figma** : File → Import SVG → Export as JPG 1200×630
-- **Inkscape** : `inkscape og-image.svg --export-type=png --export-filename=og-image.png -w 1200 -h 630` puis convertir en JPG
-- **CloudConvert** : https://cloudconvert.com/svg-to-jpg
-- **Sharp (Node.js)** : `npx sharp-cli og-image.svg -o og-image.jpg -w 1200 -h 630`
-
-Le fichier `og-image.jpg` doit être placé à la **racine du repo**.
+Régénération (nécessite les polices Plus Jakarta Sans/JetBrains Mono installées, ou une police
+de secours proche) :
+```bash
+python3 -c "
+import cairosvg, io
+from PIL import Image
+png = cairosvg.svg2png(url='og-image.svg', output_width=1200, output_height=630)
+Image.open(io.BytesIO(png)).convert('RGB').save('og-image.jpg', 'JPEG', quality=90, optimize=True)
+"
+```
+Alternative sans dépendance Python : Figma (File → Import SVG → Export as JPG 1200×630),
+Inkscape, ou https://cloudconvert.com/svg-to-jpg.
 
 ### 2. CV PDF
 
@@ -75,8 +82,10 @@ business-card/
 ├── tailwind-input.css       # Point d'entrée @tailwind base/components/utilities
 ├── tailwind.css             # CSS Tailwind précompilé — généré, ne pas éditer à la main
 ├── favicon.svg             # Favicon monogramme MG.
-├── og-image.svg            # Source OG image (à exporter en .jpg)
-├── og-image.jpg            # ⚠ À créer manuellement (voir ci-dessus)
+├── og-image.svg            # Source OG image — régénérer og-image.jpg après édition (voir ci-dessus)
+├── og-image.jpg            # Généré depuis og-image.svg
+├── logos/                  # Logos employeurs (.webp), affichés dans Expériences
+├── testimonials/           # Portraits des référents (.webp), affichés dans Références
 ├── robots.txt
 ├── sitemap.xml
 ├── cv-maxime-girard-fr.pdf # ⚠ Vide — voir « CV PDF » ci-dessus
