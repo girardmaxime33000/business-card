@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="en" href="https://girardmaxime33000.github.io/business-card/en/">
 <link rel="alternate" hreflang="x-default" href="https://girardmaxime33000.github.io/business-card/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#FBFBFB">
 <meta property="og:type" content="profile">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
@@ -39,9 +39,9 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        bg: '#0a0a0a',
-        surface: '#141414',
-        surface2: '#1a1a1a',
+        bg: '#FBFBFB',
+        surface: '#FFFFFF',
+        surface2: '#F1F1F1',
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'sans-serif'],
@@ -65,11 +65,11 @@ body::before {
   opacity: 0.4;
 }
 /* ── AMBIENT GLOWS ── */
-.hero-glow { position: absolute; top: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(163,230,53,0.08) 0%, transparent 70%); pointer-events: none; }
-.hero-glow2 { position: absolute; bottom: -10%; left: -5%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%); pointer-events: none; }
-.contact-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(163,230,53,0.06) 0%, transparent 70%); pointer-events: none; }
+.hero-glow { position: absolute; top: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(101,163,13,0.10) 0%, transparent 70%); pointer-events: none; }
+.hero-glow2 { position: absolute; bottom: -10%; left: -5%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(0,0,0,0.035) 0%, transparent 70%); pointer-events: none; }
+.contact-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(101,163,13,0.08) 0%, transparent 70%); pointer-events: none; }
 /* ── DOT-GRID TEXTURE ── */
-.grid-texture { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%); pointer-events: none; }
+.grid-texture { position: absolute; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.07) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%); pointer-events: none; }
 /* ── BUTTON SHINE ── */
 .btn-shine { position: relative; overflow: hidden; }
 .btn-shine::before { content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent); transform: skewX(-20deg); transition: left 0.6s ease; }
@@ -127,21 +127,21 @@ body::before {
 <script defer data-domain="girardmaxime33000.github.io" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
-<body class="bg-bg text-white font-sans antialiased leading-relaxed">
+<body class="bg-bg text-neutral-900 font-sans antialiased leading-relaxed">
 <!-- NAV -->
-<nav aria-label="Navigation principale" class="fixed inset-x-0 top-0 z-[100] flex items-center justify-between px-[4vw] py-5 bg-bg/85 backdrop-blur-xl border-b border-white/10">
-<div class="font-extrabold text-base tracking-wide">MG<span class="text-lime-400">.</span></div>
+<nav aria-label="Navigation principale" class="fixed inset-x-0 top-0 z-[100] flex items-center justify-between px-[4vw] py-5 bg-bg/85 backdrop-blur-xl border-b border-neutral-200">
+<div class="font-extrabold text-base tracking-wide">MG<span class="text-lime-700">.</span></div>
 <ul class="hidden md:flex gap-8 list-none">
-<li><a href="#profil" data-i18n="nav-profil" class="text-neutral-400 text-sm hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2 rounded">Profil</a></li>
-<li><a href="#experiences" data-i18n="nav-experiences" class="text-neutral-400 text-sm hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2 rounded">Expériences</a></li>
-<li><a href="#cas-usage" data-i18n="nav-cas-usage" class="text-neutral-400 text-sm hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2 rounded">Cas d'usage</a></li>
-<li><a href="#competences" data-i18n="nav-competences" class="text-neutral-400 text-sm hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2 rounded">Compétences</a></li>
-<li><a href="#references" data-i18n="nav-references" class="text-neutral-400 text-sm hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2 rounded">Références</a></li>
-<li><a href="#contact" data-i18n="nav-contact" class="text-neutral-400 text-sm hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2 rounded">Contact</a></li>
+<li><a href="#profil" data-i18n="nav-profil" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Profil</a></li>
+<li><a href="#experiences" data-i18n="nav-experiences" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Expériences</a></li>
+<li><a href="#cas-usage" data-i18n="nav-cas-usage" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Cas d'usage</a></li>
+<li><a href="#competences" data-i18n="nav-competences" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Compétences</a></li>
+<li><a href="#references" data-i18n="nav-references" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Références</a></li>
+<li><a href="#contact" data-i18n="nav-contact" class="text-neutral-500 text-sm hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">Contact</a></li>
 </ul>
-<div class="lang-toggle flex items-center bg-surface border border-white/10 rounded-md overflow-hidden shrink-0" role="group" aria-label="Langue / Language">
+<div class="lang-toggle flex items-center bg-surface border border-neutral-200 rounded-md overflow-hidden shrink-0" role="group" aria-label="Langue / Language">
 <a href="/business-card/" class="lang-btn active bg-lime-400 text-black px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest transition-colors" data-lang="fr" aria-pressed="true" hreflang="fr">FR</a>
-<a href="/business-card/en/" class="lang-btn px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest text-neutral-400 hover:text-white transition-colors" data-lang="en" aria-pressed="false" hreflang="en">EN</a>
+<a href="/business-card/en/" class="lang-btn px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors" data-lang="en" aria-pressed="false" hreflang="en">EN</a>
 </div>
 </nav>
 <main>
@@ -150,326 +150,326 @@ body::before {
 <div class="grid-texture"></div>
 <div class="hero-glow"></div>
 <div class="hero-glow2"></div>
-<div class="hero-tag inline-flex items-center gap-2 bg-surface border border-white/10 text-lime-400 text-xs tracking-widest uppercase px-4 py-1.5 rounded-full mb-8 w-fit">
+<div class="hero-tag inline-flex items-center gap-2 bg-surface border border-neutral-200 text-lime-700 text-xs tracking-widest uppercase px-4 py-1.5 rounded-full mb-8 w-fit">
 <span class="font-mono opacity-60" aria-hidden="true">//</span>
 <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-lime-400" aria-hidden="true"></span>
 <span class="font-mono" data-i18n="hero-tag">En poste — Founding Marketing Lead, Pollen AM</span>
 </div>
-<h1 class="font-extrabold leading-none tracking-tight text-[clamp(3.5rem,8vw,7rem)] mb-2" id="h1-hero">Maxime<br><span class="text-lime-400">Girard</span></h1>
-<p class="font-semibold text-neutral-400 text-[clamp(1rem,2.5vw,1.5rem)] mb-6" data-i18n="hero-title">Directeur Marketing & Growth – B2B / B2B2C</p>
-<p class="font-semibold text-white text-[clamp(1.1rem,2vw,1.4rem)] leading-snug max-w-xl mb-12" data-i18n-html="hero-claim">Le profil que les PME cherchent<br>sans savoir qu'il existe.</p>
+<h1 class="font-extrabold leading-none tracking-tight text-[clamp(3.5rem,8vw,7rem)] mb-2" id="h1-hero">Maxime<br><span class="text-lime-700">Girard</span></h1>
+<p class="font-semibold text-neutral-500 text-[clamp(1rem,2.5vw,1.5rem)] mb-6" data-i18n="hero-title">Directeur Marketing & Growth – B2B / B2B2C</p>
+<p class="font-semibold text-neutral-900 text-[clamp(1.1rem,2vw,1.4rem)] leading-snug max-w-xl mb-12" data-i18n-html="hero-claim">Le profil que les PME cherchent<br>sans savoir qu'il existe.</p>
 <div class="flex flex-wrap gap-4 mb-12">
-<div class="metric reveal reveal-delay-1 bg-surface border border-white/10 rounded-2xl px-7 py-5 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-0.5 hover:shadow-[0_0_32px_-8px_rgba(163,230,53,0.35)]">
-<span class="block font-extrabold text-3xl bg-gradient-to-br from-lime-300 to-lime-500 bg-clip-text text-transparent">+35 M€</span>
-<span class="block text-xs text-neutral-400 mt-1" data-i18n="metric-arr">ARR générés ou pilotés</span>
+<div class="metric reveal reveal-delay-1 bg-surface border border-neutral-200 rounded-2xl px-7 py-5 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-0.5 hover:shadow-[0_0_32px_-8px_rgba(163,230,53,0.35)]">
+<span class="block font-extrabold text-3xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent">+35 M€</span>
+<span class="block text-xs text-neutral-500 mt-1" data-i18n="metric-arr">ARR générés ou pilotés</span>
 </div>
-<div class="metric reveal reveal-delay-2 bg-surface border border-white/10 rounded-2xl px-7 py-5 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-0.5 hover:shadow-[0_0_32px_-8px_rgba(163,230,53,0.35)]">
-<span class="block font-extrabold text-3xl bg-gradient-to-br from-lime-300 to-lime-500 bg-clip-text text-transparent">5</span>
-<span class="block text-xs text-neutral-400 mt-1" data-i18n="metric-markets">Marchés internationaux ouverts</span>
+<div class="metric reveal reveal-delay-2 bg-surface border border-neutral-200 rounded-2xl px-7 py-5 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-0.5 hover:shadow-[0_0_32px_-8px_rgba(163,230,53,0.35)]">
+<span class="block font-extrabold text-3xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent">5</span>
+<span class="block text-xs text-neutral-500 mt-1" data-i18n="metric-markets">Marchés internationaux ouverts</span>
 </div>
-<div class="metric reveal reveal-delay-3 bg-surface border border-white/10 rounded-2xl px-7 py-5 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-0.5 hover:shadow-[0_0_32px_-8px_rgba(163,230,53,0.35)]">
-<span class="block font-extrabold text-3xl bg-gradient-to-br from-lime-300 to-lime-500 bg-clip-text text-transparent">5×</span>
-<span class="block text-xs text-neutral-400 mt-1" data-i18n="metric-comex">Mandats COMEX</span>
+<div class="metric reveal reveal-delay-3 bg-surface border border-neutral-200 rounded-2xl px-7 py-5 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-0.5 hover:shadow-[0_0_32px_-8px_rgba(163,230,53,0.35)]">
+<span class="block font-extrabold text-3xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent">5×</span>
+<span class="block text-xs text-neutral-500 mt-1" data-i18n="metric-comex">Mandats COMEX</span>
 </div>
-<div class="metric reveal reveal-delay-4 bg-surface border border-white/10 rounded-2xl px-7 py-5 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-0.5 hover:shadow-[0_0_32px_-8px_rgba(163,230,53,0.35)]">
-<span class="block font-extrabold text-3xl bg-gradient-to-br from-lime-300 to-lime-500 bg-clip-text text-transparent">10 ans</span>
-<span class="block text-xs text-neutral-400 mt-1" data-i18n="metric-years">Direction marketing B2B</span>
+<div class="metric reveal reveal-delay-4 bg-surface border border-neutral-200 rounded-2xl px-7 py-5 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-0.5 hover:shadow-[0_0_32px_-8px_rgba(163,230,53,0.35)]">
+<span class="block font-extrabold text-3xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent">10 ans</span>
+<span class="block text-xs text-neutral-500 mt-1" data-i18n="metric-years">Direction marketing B2B</span>
 </div>
 </div>
 <div class="flex flex-wrap gap-4">
-<a href="mailto:girard.maxime33@gmail.com" class="btn-shine plausible-event-name=Hero+Mail+Click inline-flex items-center gap-2 bg-lime-400 text-black font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(163,230,53,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2" data-i18n-html="btn-contact" aria-label="Me contacter"><span aria-hidden="true">→</span> Me contacter</a>
-<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="plausible-event-name=Hero+LinkedIn+Click inline-flex items-center gap-2 border border-white/15 text-white font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:border-white/30 hover:bg-white/5 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2" aria-label="Voir le profil LinkedIn"><span aria-hidden="true">↗</span> LinkedIn</a>
-<a href="cv-maxime-girard-fr.pdf" class="plausible-event-name=CV+Download+Click inline-flex items-center gap-2 border border-white/15 text-white font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:border-white/30 hover:bg-white/5 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2" data-i18n-html="btn-cv" aria-label="Télécharger mon CV PDF"><span aria-hidden="true">↓</span> Télécharger mon CV</a>
+<a href="mailto:girard.maxime33@gmail.com" class="btn-shine plausible-event-name=Hero+Mail+Click inline-flex items-center gap-2 bg-lime-400 text-black font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(163,230,53,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n-html="btn-contact" aria-label="Me contacter"><span aria-hidden="true">→</span> Me contacter</a>
+<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="plausible-event-name=Hero+LinkedIn+Click inline-flex items-center gap-2 border border-neutral-300 text-neutral-900 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:border-neutral-400 hover:bg-neutral-100 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" aria-label="Voir le profil LinkedIn"><span aria-hidden="true">↗</span> LinkedIn</a>
+<a href="cv-maxime-girard-fr.pdf" class="plausible-event-name=CV+Download+Click inline-flex items-center gap-2 border border-neutral-300 text-neutral-900 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:border-neutral-400 hover:bg-neutral-100 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n-html="btn-cv" aria-label="Télécharger mon CV PDF"><span aria-hidden="true">↓</span> Télécharger mon CV</a>
 </div>
 </section>
-<div class="h-px bg-white/10"></div>
+<div class="h-px bg-neutral-200"></div>
 <!-- PROFIL -->
 <section id="profil" aria-labelledby="h2-profil-label" class="max-w-6xl mx-auto px-[4vw] py-28">
 <div class="reveal mb-16">
-<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-400 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-profil">Profil</span></p>
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-profil">Profil</span></p>
 <h2 id="h2-profil-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n="h2-profil">Marketing stratégique, exécution technique.</h2>
 </div>
 <div class="grid md:grid-cols-2 gap-16 items-start">
-<div class="text-lg text-white/80 leading-relaxed reveal" data-i18n-html="profil-pitch">
-<p>Profil hybride <strong class="text-lime-400 font-medium">stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable.</p>
+<div class="text-lg text-neutral-700 leading-relaxed reveal" data-i18n-html="profil-pitch">
+<p>Profil hybride <strong class="text-lime-700 font-medium">stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable.</p>
 <br>
 <p>Vision CMO + exécution growth engineer. Je code, j'automatise, je pilote les données, je structure les équipes.</p>
 <br>
 <p>Startup en amorçage, scale-up en hypercroissance, PME en structuration : j'ai opéré à chaque stade, avec des résultats mesurables à chaque fois. Périmètre France, Europe, US et Japon.</p>
 </div>
 <div class="flex flex-col gap-4">
-<div class="value-card reveal reveal-delay-1 bg-surface border border-white/10 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
+<div class="value-card reveal reveal-delay-1 bg-surface border border-neutral-200 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
 <div class="text-xl shrink-0 mt-0.5" aria-hidden="true">🥊</div>
 <div>
-<h4 class="font-bold text-sm text-lime-400 mb-1" data-i18n="value1-title">Combatif</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="value1-desc">Détermination à relever les défis et à se dépasser. Encourage persévérance, audace et esprit d'initiative dans les équipes.</p>
+<h4 class="font-bold text-sm text-lime-700 mb-1" data-i18n="value1-title">Combatif</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="value1-desc">Détermination à relever les défis et à se dépasser. Encourage persévérance, audace et esprit d'initiative dans les équipes.</p>
 </div>
 </div>
-<div class="value-card reveal reveal-delay-2 bg-surface border border-white/10 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
+<div class="value-card reveal reveal-delay-2 bg-surface border border-neutral-200 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
 <div class="text-xl shrink-0 mt-0.5" aria-hidden="true">🎯</div>
 <div>
-<h4 class="font-bold text-sm text-lime-400 mb-1" data-i18n="value2-title">Ambitieux</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="value2-desc">Vision orientée impact immédiat. Inspire l'excellence et anticipe les besoins futurs des clients et des marchés.</p>
+<h4 class="font-bold text-sm text-lime-700 mb-1" data-i18n="value2-title">Ambitieux</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="value2-desc">Vision orientée impact immédiat. Inspire l'excellence et anticipe les besoins futurs des clients et des marchés.</p>
 </div>
 </div>
-<div class="value-card reveal reveal-delay-3 bg-surface border border-white/10 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
+<div class="value-card reveal reveal-delay-3 bg-surface border border-neutral-200 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
 <div class="text-xl shrink-0 mt-0.5" aria-hidden="true">🤝</div>
 <div>
-<h4 class="font-bold text-sm text-lime-400 mb-1" data-i18n="value3-title">Accessible</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="value3-desc">Approche inclusive, simplicité et proximité avec toutes les parties. Peut communiquer avec des profils techniques et non techniques.</p>
+<h4 class="font-bold text-sm text-lime-700 mb-1" data-i18n="value3-title">Accessible</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="value3-desc">Approche inclusive, simplicité et proximité avec toutes les parties. Peut communiquer avec des profils techniques et non techniques.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<div class="h-px bg-white/10"></div>
+<div class="h-px bg-neutral-200"></div>
 <!-- EXPERIENCES -->
 <section id="experiences" aria-labelledby="h2-exp-label" class="max-w-6xl mx-auto px-[4vw] py-28">
 <div class="reveal mb-16">
-<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-400 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-exp">Parcours</span></p>
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-exp">Parcours</span></p>
 <h2 id="h2-exp-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-exp">10 ans, 5 COMEX,<br>5 marchés.</h2>
 </div>
 <div class="flex flex-col">
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10 first:pt-0">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200 first:pt-0">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">Avr. 2026 — Aujourd'hui</p>
-<p class="font-bold text-sm text-white mb-1">Pollen AM</p>
-<p class="text-xs text-neutral-400" data-i18n="exp0-type">Startup industrielle · Impression 3D pellets</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">Avr. 2026 — Aujourd'hui</p>
+<p class="font-bold text-sm text-neutral-900 mb-1">Pollen AM</p>
+<p class="text-xs text-neutral-500" data-i18n="exp0-type">Startup industrielle · Impression 3D pellets</p>
 </div>
 <div>
 <h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n="exp0-title">Founding Marketing Lead</h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp0-b1">Construction de la fonction marketing ex-nihilo : positionnement, messaging, demand gen, ABM grands comptes industriels</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp0-b2">Budget marketing ~€100–150k, priorité salons industriels (Formnext, Global Industrie) et contenu technique B2B</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp0-b3">Cibles : fabricants aéronautique, ferroviaire, pharmaceutique (Airbus, Alstom, Sanofi déjà clients)</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp0-b1">Construction de la fonction marketing ex-nihilo : positionnement, messaging, demand gen, ABM grands comptes industriels</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp0-b2">Budget marketing ~€100–150k, priorité salons industriels (Formnext, Global Industrie) et contenu technique B2B</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp0-b3">Cibles : fabricants aéronautique, ferroviaire, pharmaceutique (Airbus, Alstom, Sanofi déjà clients)</li>
 </ul>
-<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp0-result">En ramp-up · Q2–Q3 2026</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp0-result">En ramp-up · Q2–Q3 2026</span>
 </div>
 </div>
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">Jan. 2025 – Nov. 2025</p>
-<p class="font-bold text-sm text-white mb-1">Camping Car Park</p>
-<p class="text-xs text-neutral-400" data-i18n="exp1-type">PME · Tourisme · SaaS</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">Jan. 2025 – Nov. 2025</p>
+<p class="font-bold text-sm text-neutral-900 mb-1">Camping Car Park</p>
+<p class="text-xs text-neutral-500" data-i18n="exp1-type">PME · Tourisme · SaaS</p>
 </div>
 <div>
-<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp1-title">Directeur Marketing Europe B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span></h3>
+<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp1-title">Directeur Marketing Europe B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span></h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp1-b1">Pilotage des opérations marketing européennes : Allemagne, Benelux, Espagne, Portugal, Autriche</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp1-b2">Responsabilité directe du budget marketing européen, arbitrages stratégiques, reporting au CMO et CEO</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp1-b3">Campagnes B2B ciblant 700+ collectivités locales — CRM, RP, lobbying</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp1-b1">Pilotage des opérations marketing européennes : Allemagne, Benelux, Espagne, Portugal, Autriche</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp1-b2">Responsabilité directe du budget marketing européen, arbitrages stratégiques, reporting au CMO et CEO</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp1-b3">Campagnes B2B ciblant 700+ collectivités locales — CRM, RP, lobbying</li>
 </ul>
-<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp1-result">+30 M€ ARR · +30% croissance mois/mois</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp1-result">+30 M€ ARR · +30% croissance mois/mois</span>
 </div>
 </div>
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">2021 – 2024</p>
-<p class="font-bold text-sm text-white mb-1">Sense4data</p>
-<p class="text-xs text-neutral-400" data-i18n="exp2-type">PME · Conseil · RA OEM</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2021 – 2024</p>
+<p class="font-bold text-sm text-neutral-900 mb-1">Sense4data</p>
+<p class="text-xs text-neutral-500" data-i18n="exp2-type">PME · Conseil · RA OEM</p>
 </div>
 <div>
-<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp2-title">Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span></h3>
+<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp2-title">Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span></h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp2-b1">Pilotage du marketing mix modeling interne et externe, avec impact direct sur la priorisation commerciale et l'allocation des ressources — clients PME & ETI (Eurofeu, Réseau CCI, Cegid)</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp2-b2">Définition de la stratégie de positionnement, messaging et offre commerciale</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp2-b3">Supervision de la génération de leads, du suivi commercial et de l'expérience client</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp2-b1">Pilotage du marketing mix modeling interne et externe, avec impact direct sur la priorisation commerciale et l'allocation des ressources — clients PME & ETI (Eurofeu, Réseau CCI, Cegid)</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp2-b2">Définition de la stratégie de positionnement, messaging et offre commerciale</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp2-b3">Supervision de la génération de leads, du suivi commercial et de l'expérience client</li>
 </ul>
-<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp2-result">+1 M€ ARR · +10 MVP industrialisés</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp2-result">+1 M€ ARR · +10 MVP industrialisés</span>
 </div>
 </div>
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">2020 – 2021</p>
-<p class="font-bold text-sm text-white mb-1">Eyelights</p>
-<p class="text-xs text-neutral-400" data-i18n="exp3-type">Scale-up · IoT & AR</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2020 – 2021</p>
+<p class="font-bold text-sm text-neutral-900 mb-1">Eyelights</p>
+<p class="text-xs text-neutral-500" data-i18n="exp3-type">Scale-up · IoT & AR</p>
 </div>
 <div>
-<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp3-title">Directeur Croissance B2B2C <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span></h3>
+<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp3-title">Directeur Croissance B2B2C <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span></h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp3-b1">Lancement commercial sur 5 marchés : France, USA, Allemagne, UK, Japon</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp3-b2">+200M d'impressions, +80k leads collectés, 1M$ investis en SEA</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp3-b3">Conception et déploiement d'un chatbot interne visant l'automatisation des opérations marketing, produit et SAV, avec gains de productivité mesurables</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp3-b1">Lancement commercial sur 5 marchés : France, USA, Allemagne, UK, Japon</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp3-b2">+200M d'impressions, +80k leads collectés, 1M$ investis en SEA</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp3-b3">Conception et déploiement d'un chatbot interne visant l'automatisation des opérations marketing, produit et SAV, avec gains de productivité mesurables</li>
 </ul>
-<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp3-result">+3M€ ARR · +300% croissance YoY</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp3-result">+3M€ ARR · +300% croissance YoY</span>
 </div>
 </div>
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">2019 – 2020</p>
-<p class="font-bold text-sm text-white mb-1">Groupe Actiplay</p>
-<p class="text-xs text-neutral-400" data-i18n="exp4-type">Agence Marketing</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2019 – 2020</p>
+<p class="font-bold text-sm text-neutral-900 mb-1">Groupe Actiplay</p>
+<p class="text-xs text-neutral-500" data-i18n="exp4-type">Agence Marketing</p>
 </div>
 <div>
-<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp4-title">Directeur Traffic B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span></h3>
+<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp4-title">Directeur Traffic B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span></h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp4-b1">Stratégie d'acquisition et supervision des campagnes clients (Fnac, Cdiscount, BMW)</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp4-b2">Développement des outils de collecte de données</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp4-b1">Stratégie d'acquisition et supervision des campagnes clients (Fnac, Cdiscount, BMW)</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp4-b2">Développement des outils de collecte de données</li>
 </ul>
-<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp4-result">300 k€ ARR · +220% performance collecte</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp4-result">300 k€ ARR · +220% performance collecte</span>
 </div>
 </div>
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">2016 – 2018</p>
-<p class="font-bold text-sm text-white mb-1">Facebots</p>
-<p class="text-xs text-neutral-400" data-i18n="exp5-type">Startup · Chatbot & IA</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2016 – 2018</p>
+<p class="font-bold text-sm text-neutral-900 mb-1">Facebots</p>
+<p class="text-xs text-neutral-500" data-i18n="exp5-type">Startup · Chatbot & IA</p>
 </div>
 <div>
-<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp5-title">Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span></h3>
+<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp5-title">Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span></h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp5-b1">Offre commerciale chatbots & AI Flows — SNCF, Métropoles</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp5-b2">Arbitrage technologique, supervision des intégrations API</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp5-b1">Offre commerciale chatbots & AI Flows — SNCF, Métropoles</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp5-b2">Arbitrage technologique, supervision des intégrations API</li>
 </ul>
-<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp5-result">300 k€ levés · 2 appels d'offres publics remportés</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp5-result">300 k€ levés · 2 appels d'offres publics remportés</span>
 </div>
 </div>
 <div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">2012 – 2015</p>
-<p class="font-bold text-sm text-white mb-1">Sopexa</p>
-<p class="text-xs text-neutral-400" data-i18n="exp6-type">Multinationale · Tokyo JP</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2012 – 2015</p>
+<p class="font-bold text-sm text-neutral-900 mb-1">Sopexa</p>
+<p class="text-xs text-neutral-500" data-i18n="exp6-type">Multinationale · Tokyo JP</p>
 </div>
 <div>
 <h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n="exp6-title">Jr Account Manager B2B2C</h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp6-b1">Développement commercial et marketing sur le marché japonais</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp6-b2">Gestion de comptes internationaux français et américains</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-400 before:text-xs" data-i18n="exp6-b3">3 ans en environnement multiculturel — première exposition internationale longue durée</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp6-b1">Développement commercial et marketing sur le marché japonais</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp6-b2">Gestion de comptes internationaux français et américains</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp6-b3">3 ans en environnement multiculturel — première exposition internationale longue durée</li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<div class="h-px bg-white/10"></div>
+<div class="h-px bg-neutral-200"></div>
 <!-- CAS D'USAGE (BENTO) -->
 <section id="cas-usage" aria-labelledby="h2-cases-label" class="max-w-6xl mx-auto px-[4vw] py-28">
 <div class="reveal mb-16">
-<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-400 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-cases">Cas d'usage</span></p>
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-cases">Cas d'usage</span></p>
 <h2 id="h2-cases-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-cases">Preuves par<br>l'exécution.</h2>
 </div>
 <div class="grid md:grid-cols-6 gap-6">
-<div class="case-card reveal reveal-delay-1 md:col-span-3 group relative overflow-hidden bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-1 hover:shadow-[0_0_48px_-12px_rgba(163,230,53,0.4)]">
-<div class="font-mono font-extrabold text-5xl text-white/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-lime-300 group-hover:to-lime-500 group-hover:bg-clip-text">01</div>
+<div class="case-card reveal reveal-delay-1 md:col-span-3 group relative overflow-hidden bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-1 hover:shadow-[0_0_48px_-12px_rgba(163,230,53,0.4)]">
+<div class="font-mono font-extrabold text-5xl text-neutral-900/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-lime-600 group-hover:to-lime-700 group-hover:bg-clip-text">01</div>
 <h3 class="font-bold text-lg mb-3" data-i18n="case1-title">Première IA Transport en Commun</h3>
-<p class="text-sm text-neutral-400 leading-relaxed mb-5" data-i18n="case1-text">En 2016, j'ai connecté Facebook Messenger aux API des transporteurs de Bordeaux Métropole en 10 jours. Trambots est devenu la première IA dédiée au transport en commun en France — croissance 100% organique via presse nationale.</p>
+<p class="text-sm text-neutral-500 leading-relaxed mb-5" data-i18n="case1-text">En 2016, j'ai connecté Facebook Messenger aux API des transporteurs de Bordeaux Métropole en 10 jours. Trambots est devenu la première IA dédiée au transport en commun en France — croissance 100% organique via presse nationale.</p>
 <div class="flex flex-wrap gap-2">
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill1">+100k utilisateurs/jour</span>
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill2">30 métropoles</span>
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill3">+1M messages/jour</span>
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill4">Devant SNCF & Expédia</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill1">+100k utilisateurs/jour</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill2">30 métropoles</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill3">+1M messages/jour</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill4">Devant SNCF & Expédia</span>
 </div>
 </div>
-<div class="case-card reveal reveal-delay-2 md:col-span-3 group relative overflow-hidden bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-1 hover:shadow-[0_0_48px_-12px_rgba(163,230,53,0.4)]">
-<div class="font-mono font-extrabold text-5xl text-white/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-lime-300 group-hover:to-lime-500 group-hover:bg-clip-text">02</div>
+<div class="case-card reveal reveal-delay-2 md:col-span-3 group relative overflow-hidden bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-1 hover:shadow-[0_0_48px_-12px_rgba(163,230,53,0.4)]">
+<div class="font-mono font-extrabold text-5xl text-neutral-900/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-lime-600 group-hover:to-lime-700 group-hover:bg-clip-text">02</div>
 <h3 class="font-bold text-lg mb-3" data-i18n="case2-title">Growth & Crowdfunding International</h3>
-<p class="text-sm text-neutral-400 leading-relaxed mb-5" data-i18n="case2-text">Pour le lancement d'EYERIDE chez Eyelights, j'ai piloté l'ensemble de la stratégie growth et paid sur 4 marchés simultanément. Campagne Indiegogo réussie à 984k$ sur 30 jours, +3M€ de CA générés en 3 mois.</p>
+<p class="text-sm text-neutral-500 leading-relaxed mb-5" data-i18n="case2-text">Pour le lancement d'EYERIDE chez Eyelights, j'ai piloté l'ensemble de la stratégie growth et paid sur 4 marchés simultanément. Campagne Indiegogo réussie à 984k$ sur 30 jours, +3M€ de CA générés en 3 mois.</p>
 <div class="flex flex-wrap gap-2">
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill1">+200M impressions</span>
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill2">+80k leads</span>
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill3">1M$ SEA investi</span>
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill4">4 pays en simultané</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill1">+200M impressions</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill2">+80k leads</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill3">1M$ SEA investi</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill4">4 pays en simultané</span>
 </div>
 </div>
 <div class="case-card reveal reveal-delay-3 md:col-span-6 group relative overflow-hidden bg-gradient-to-br from-lime-400/5 to-surface border border-lime-400/20 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-1 hover:shadow-[0_0_48px_-12px_rgba(163,230,53,0.4)]">
-<div class="font-mono font-extrabold text-5xl text-white/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-lime-300 group-hover:to-lime-500 group-hover:bg-clip-text">03</div>
+<div class="font-mono font-extrabold text-5xl text-neutral-900/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-lime-600 group-hover:to-lime-700 group-hover:bg-clip-text">03</div>
 <h3 class="font-bold text-lg mb-3" data-i18n="case3-title">Système IA Multi-agent Marketing</h3>
-<p class="text-sm text-neutral-400 leading-relaxed mb-5 max-w-3xl" data-i18n="case3-text">Système autonome d'automatisation marketing déployé en production : orchestrateur Claude API + Trello comme file de tâches, 9 agents spécialisés (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), versionning automatique sur Git.</p>
+<p class="text-sm text-neutral-500 leading-relaxed mb-5 max-w-3xl" data-i18n="case3-text">Système autonome d'automatisation marketing déployé en production : orchestrateur Claude API + Trello comme file de tâches, 9 agents spécialisés (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), versionning automatique sur Git.</p>
 <div class="flex flex-wrap gap-2">
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill1">9 agents spécialisés</span>
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill2">Claude API</span>
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill3">Production autonome</span>
-<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-400 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill4">Déployé en production</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill1">9 agents spécialisés</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill2">Claude API</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill3">Production autonome</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill4">Déployé en production</span>
 </div>
 </div>
 </div>
 </section>
-<div class="h-px bg-white/10"></div>
+<div class="h-px bg-neutral-200"></div>
 <!-- COMPETENCES (BENTO) -->
 <section id="competences" aria-labelledby="h2-skills-label" class="max-w-6xl mx-auto px-[4vw] py-28">
 <div class="reveal mb-16">
-<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-400 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-skills">Compétences</span></p>
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-skills">Compétences</span></p>
 <h2 id="h2-skills-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-skills">Stack stratégique<br>& technique.</h2>
 </div>
 <div class="grid md:grid-cols-2 gap-6">
 <div class="skill-card reveal md:col-span-2 bg-gradient-to-br from-lime-400/8 to-surface border border-lime-400/20 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<h4 class="font-bold text-sm text-lime-400 mb-3" data-i18n="skill1-title">Go-to-market & Stratégie commerciale</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="skill1-tools">Positionnement, messaging, lancement produit, structuration des offres, partenariats, marchés B2B et B2B2C — de l'amorçage au LBO</p>
+<h4 class="font-bold text-sm text-lime-700 mb-3" data-i18n="skill1-title">Go-to-market & Stratégie commerciale</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="skill1-tools">Positionnement, messaging, lancement produit, structuration des offres, partenariats, marchés B2B et B2B2C — de l'amorçage au LBO</p>
 </div>
-<div class="skill-card reveal reveal-delay-1 bg-surface border border-white/10 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<h4 class="font-bold text-sm text-lime-400 mb-3" data-i18n="skill2-title">Acquisition & Growth</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="skill2-tools">SEO / SEA, lead generation, CRM (HubSpot, Pipedrive, Zoho, Klaviyo), campagnes multi-canal, LinkedIn Ads, Meta, Google Ads, TikTok</p>
+<div class="skill-card reveal reveal-delay-1 bg-surface border border-neutral-200 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
+<h4 class="font-bold text-sm text-lime-700 mb-3" data-i18n="skill2-title">Acquisition & Growth</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="skill2-tools">SEO / SEA, lead generation, CRM (HubSpot, Pipedrive, Zoho, Klaviyo), campagnes multi-canal, LinkedIn Ads, Meta, Google Ads, TikTok</p>
 </div>
-<div class="skill-card reveal reveal-delay-2 bg-surface border border-white/10 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<h4 class="font-bold text-sm text-lime-400 mb-3" data-i18n="skill3-title">Data & Analytics</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="skill3-tools">GA4, Looker Studio, Metabase, tracking avancé (GTM, Umami.js, Hotjar, Clarity), Excel VBA, Google Sheets AppScript, Python (Pandas, NumPy)</p>
+<div class="skill-card reveal reveal-delay-2 bg-surface border border-neutral-200 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
+<h4 class="font-bold text-sm text-lime-700 mb-3" data-i18n="skill3-title">Data & Analytics</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="skill3-tools">GA4, Looker Studio, Metabase, tracking avancé (GTM, Umami.js, Hotjar, Clarity), Excel VBA, Google Sheets AppScript, Python (Pandas, NumPy)</p>
 </div>
-<div class="skill-card reveal reveal-delay-3 bg-surface border border-white/10 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<h4 class="font-bold text-sm text-lime-400 mb-3" data-i18n="skill4-title">Automation & IA Générative</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="skill4-tools">Make, n8n, Zapier, Claude API, ChatGPT, Gemini, Cursor — conception de workflows autonomes, agents LLM, intégrations MCP</p>
+<div class="skill-card reveal reveal-delay-3 bg-surface border border-neutral-200 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
+<h4 class="font-bold text-sm text-lime-700 mb-3" data-i18n="skill4-title">Automation & IA Générative</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="skill4-tools">Make, n8n, Zapier, Claude API, ChatGPT, Gemini, Cursor — conception de workflows autonomes, agents LLM, intégrations MCP</p>
 </div>
-<div class="skill-card reveal reveal-delay-4 bg-surface border border-white/10 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<h4 class="font-bold text-sm text-lime-400 mb-3" data-i18n="skill5-title">Développement Web</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="skill5-tools">Python, JavaScript / TypeScript, REST API, Google Cloud Platform, WordPress, Firebase, GitHub, Jupyter — autonome de la spec au déploiement</p>
+<div class="skill-card reveal reveal-delay-4 bg-surface border border-neutral-200 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
+<h4 class="font-bold text-sm text-lime-700 mb-3" data-i18n="skill5-title">Développement Web</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="skill5-tools">Python, JavaScript / TypeScript, REST API, Google Cloud Platform, WordPress, Firebase, GitHub, Jupyter — autonome de la spec au déploiement</p>
 </div>
 </div>
 </section>
-<div class="h-px bg-white/10"></div>
+<div class="h-px bg-neutral-200"></div>
 <!-- REFERENCES -->
 <section id="references" aria-labelledby="h2-refs-label" class="max-w-6xl mx-auto px-[4vw] py-28">
 <div class="reveal mb-16">
-<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-400 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-refs">Références</span></p>
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-refs">Références</span></p>
 <h2 id="h2-refs-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-refs">Ce que disent<br>mes collaborateurs.</h2>
 </div>
 <div class="grid md:grid-cols-2 gap-6">
-<div class="ref-card reveal reveal-delay-1 bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-300 to-lime-500 bg-clip-text text-transparent leading-none mb-4">"</div>
-<p class="text-sm text-white/90 italic leading-relaxed mb-6" data-i18n="ref1-text">Il est constamment en train d'innover et de rechercher les innovations qui lui permettront d'aller plus loin. C'est un profil ultra intéressant pour contribuer à faire grossir une entreprise.</p>
+<div class="ref-card reveal reveal-delay-1 bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
+<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent leading-none mb-4">"</div>
+<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref1-text">Il est constamment en train d'innover et de rechercher les innovations qui lui permettront d'aller plus loin. C'est un profil ultra intéressant pour contribuer à faire grossir une entreprise.</p>
 <div class="flex flex-col gap-0.5">
 <!-- TODO: LinkedIn URL Nicolas Pasetti (CEO eteam_work) -->
-<span class="font-bold text-sm text-white">Nicolas Pasetti</span>
-<span class="text-xs text-neutral-400" data-i18n="ref1-role">CEO, eteam_work — a managé Maxime directement</span>
+<span class="font-bold text-sm text-neutral-900">Nicolas Pasetti</span>
+<span class="text-xs text-neutral-500" data-i18n="ref1-role">CEO, eteam_work — a managé Maxime directement</span>
 </div>
 </div>
-<div class="ref-card reveal reveal-delay-2 bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-300 to-lime-500 bg-clip-text text-transparent leading-none mb-4">"</div>
-<p class="text-sm text-white/90 italic leading-relaxed mb-6" data-i18n="ref2-text">Sur le plan technique, Maxime est extrêmement compétent. Il maîtrise Python et JavaScript, et ses compétences en scraping et automatisation sont remarquables pour un directeur marketing.</p>
+<div class="ref-card reveal reveal-delay-2 bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
+<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent leading-none mb-4">"</div>
+<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref2-text">Sur le plan technique, Maxime est extrêmement compétent. Il maîtrise Python et JavaScript, et ses compétences en scraping et automatisation sont remarquables pour un directeur marketing.</p>
 <div class="flex flex-col gap-0.5">
 <!-- TODO: LinkedIn URL Alexandre Masson (Data Engineer ColisPrivé) -->
-<span class="font-bold text-sm text-white">Alexandre Masson</span>
-<span class="text-xs text-neutral-400" data-i18n="ref2-role">Data Engineer, ColisPrivé — a reporté à Maxime</span>
+<span class="font-bold text-sm text-neutral-900">Alexandre Masson</span>
+<span class="text-xs text-neutral-500" data-i18n="ref2-role">Data Engineer, ColisPrivé — a reporté à Maxime</span>
 </div>
 </div>
-<div class="ref-card reveal reveal-delay-3 bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-300 to-lime-500 bg-clip-text text-transparent leading-none mb-4">"</div>
-<p class="text-sm text-white/90 italic leading-relaxed mb-6" data-i18n="ref3-text">Toujours plusieurs coups d'avance, c'est ça qu'on aime chez lui ! Son analyse est très pointue sur des sujets concernant le marketing, le management et la growth pure.</p>
+<div class="ref-card reveal reveal-delay-3 bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
+<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent leading-none mb-4">"</div>
+<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref3-text">Toujours plusieurs coups d'avance, c'est ça qu'on aime chez lui ! Son analyse est très pointue sur des sujets concernant le marketing, le management et la growth pure.</p>
 <div class="flex flex-col gap-0.5">
 <!-- TODO: LinkedIn URL Pierre Rocherie (DG FM Auto) -->
-<span class="font-bold text-sm text-white">Pierre Rocherie</span>
-<span class="text-xs text-neutral-400" data-i18n="ref3-role">Directeur Général FM Auto</span>
+<span class="font-bold text-sm text-neutral-900">Pierre Rocherie</span>
+<span class="text-xs text-neutral-500" data-i18n="ref3-role">Directeur Général FM Auto</span>
 </div>
 </div>
-<div class="ref-card reveal reveal-delay-4 bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-300 to-lime-500 bg-clip-text text-transparent leading-none mb-4">"</div>
-<p class="text-sm text-white/90 italic leading-relaxed mb-6" data-i18n="ref4-text">Il connaît très bien son marché, son positionnement et les enjeux technologiques et commerciaux de ses clients. Il est passionné par son métier, extrêmement curieux — cela facilite grandement les échanges.</p>
+<div class="ref-card reveal reveal-delay-4 bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
+<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent leading-none mb-4">"</div>
+<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref4-text">Il connaît très bien son marché, son positionnement et les enjeux technologiques et commerciaux de ses clients. Il est passionné par son métier, extrêmement curieux — cela facilite grandement les échanges.</p>
 <div class="flex flex-col gap-0.5">
 <!-- TODO: LinkedIn URL Jérémy Fortinon (Expert SI) -->
-<span class="font-bold text-sm text-white">Jérémy Fortinon</span>
-<span class="text-xs text-neutral-400" data-i18n="ref4-role">Expert transformation des SI — client de Maxime</span>
+<span class="font-bold text-sm text-neutral-900">Jérémy Fortinon</span>
+<span class="text-xs text-neutral-500" data-i18n="ref4-role">Expert transformation des SI — client de Maxime</span>
 </div>
 </div>
 </div>
 </section>
 <!-- CONTACT -->
-<section id="contact" aria-labelledby="h2-contact-label" class="relative overflow-hidden bg-surface2 border-t border-white/10 text-center px-[4vw] py-28">
+<section id="contact" aria-labelledby="h2-contact-label" class="relative overflow-hidden bg-surface2 border-t border-neutral-200 text-center px-[4vw] py-28">
 <div class="grid-texture"></div>
 <div class="contact-glow"></div>
 <h2 id="h2-contact-label" class="reveal relative font-extrabold text-[clamp(2.5rem,5vw,4rem)] mb-4" data-i18n-html="h2-contact">Disponible pour<br>un échange.</h2>
-<p class="reveal relative text-neutral-400 text-lg mb-10" data-i18n="p-contact">Directeur Marketing & Growth B2B · Bordeaux · France</p>
+<p class="reveal relative text-neutral-500 text-lg mb-10" data-i18n="p-contact">Directeur Marketing & Growth B2B · Bordeaux · France</p>
 <div class="reveal relative flex flex-wrap gap-4 justify-center">
-<a href="mailto:girard.maxime33@gmail.com" class="plausible-event-name=Footer+Mail+Click flex items-center gap-2 text-white text-sm border border-white/10 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-400 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2"><span aria-hidden="true">✉</span> girard.maxime33@gmail.com</a>
-<a href="tel:+33659393626" class="plausible-event-name=Footer+Phone+Click flex items-center gap-2 text-white text-sm border border-white/10 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-400 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2"><span aria-hidden="true">📞</span> +33 6 59 39 36 26</a>
-<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="plausible-event-name=Footer+LinkedIn+Click flex items-center gap-2 text-white text-sm border border-white/10 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-400 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2"><span aria-hidden="true">↗</span> LinkedIn</a>
+<a href="mailto:girard.maxime33@gmail.com" class="plausible-event-name=Footer+Mail+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">✉</span> girard.maxime33@gmail.com</a>
+<a href="tel:+33659393626" class="plausible-event-name=Footer+Phone+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">📞</span> +33 6 59 39 36 26</a>
+<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="plausible-event-name=Footer+LinkedIn+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">↗</span> LinkedIn</a>
 </div>
 </section>
 </main>
@@ -495,7 +495,7 @@ const t = {
     'btn-cv': '<span aria-hidden="true">↓</span> Télécharger mon CV',
     'label-profil': 'Profil',
     'h2-profil': 'Marketing stratégique, exécution technique.',
-    'profil-pitch': `<p>Profil hybride <strong class="text-lime-400 font-medium">stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable.</p><br><p>Vision CMO + exécution growth engineer. Je code, j'automatise, je pilote les données, je structure les équipes.</p><br><p>Startup en amorçage, scale-up en hypercroissance, PME en structuration : j'ai opéré à chaque stade, avec des résultats mesurables à chaque fois. Périmètre France, Europe, US et Japon.</p>`,
+    'profil-pitch': `<p>Profil hybride <strong class="text-lime-700 font-medium">stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable.</p><br><p>Vision CMO + exécution growth engineer. Je code, j'automatise, je pilote les données, je structure les équipes.</p><br><p>Startup en amorçage, scale-up en hypercroissance, PME en structuration : j'ai opéré à chaque stade, avec des résultats mesurables à chaque fois. Périmètre France, Europe, US et Japon.</p>`,
     'value1-title': 'Combatif',
     'value1-desc': "Détermination à relever les défis et à se dépasser. Encourage persévérance, audace et esprit d'initiative dans les équipes.",
     'value2-title': 'Ambitieux',
@@ -511,30 +511,30 @@ const t = {
     'exp0-b3': 'Cibles : fabricants aéronautique, ferroviaire, pharmaceutique (Airbus, Alstom, Sanofi déjà clients)',
     'exp0-result': 'En ramp-up · Q2–Q3 2026',
     'exp1-type': 'PME · Tourisme · SaaS',
-    'exp1-title': `Directeur Marketing Europe B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp1-title': `Directeur Marketing Europe B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
     'exp1-b1': 'Pilotage des opérations marketing européennes : Allemagne, Benelux, Espagne, Portugal, Autriche',
     'exp1-b2': 'Responsabilité directe du budget marketing européen, arbitrages stratégiques, reporting au CMO et CEO',
     'exp1-b3': 'Campagnes B2B ciblant 700+ collectivités locales — CRM, RP, lobbying',
     'exp1-result': '+30 M€ ARR · +30% croissance mois/mois',
     'exp2-type': 'PME · Conseil · RA OEM',
-    'exp2-title': `Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp2-title': `Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
     'exp2-b1': "Pilotage du marketing mix modeling interne et externe, avec impact direct sur la priorisation commerciale et l'allocation des ressources — clients PME & ETI (Eurofeu, Réseau CCI, Cegid)",
     'exp2-b2': 'Définition de la stratégie de positionnement, messaging et offre commerciale',
     'exp2-b3': "Supervision de la génération de leads, du suivi commercial et de l'expérience client",
     'exp2-result': '+1 M€ ARR · +10 MVP industrialisés',
     'exp3-type': 'Scale-up · IoT & AR',
-    'exp3-title': `Directeur Croissance B2B2C <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp3-title': `Directeur Croissance B2B2C <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
     'exp3-b1': 'Lancement commercial sur 5 marchés : France, USA, Allemagne, UK, Japon',
     'exp3-b2': "+200M d'impressions, +80k leads collectés, 1M$ investis en SEA",
     'exp3-b3': "Conception et déploiement d'un chatbot interne visant l'automatisation des opérations marketing, produit et SAV, avec gains de productivité mesurables",
     'exp3-result': '+3M€ ARR · +300% croissance YoY',
     'exp4-type': 'Agence Marketing',
-    'exp4-title': `Directeur Traffic B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp4-title': `Directeur Traffic B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
     'exp4-b1': "Stratégie d'acquisition et supervision des campagnes clients (Fnac, Cdiscount, BMW)",
     'exp4-b2': 'Développement des outils de collecte de données',
     'exp4-result': '300 k€ ARR · +220% performance collecte',
     'exp5-type': 'Startup · Chatbot & IA',
-    'exp5-title': `Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp5-title': `Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
     'exp5-b1': 'Offre commerciale chatbots & AI Flows — SNCF, Métropoles',
     'exp5-b2': 'Arbitrage technologique, supervision des intégrations API',
     'exp5-result': "300 k€ levés · 2 appels d'offres publics remportés",
@@ -607,7 +607,7 @@ const t = {
     'btn-cv': '<span aria-hidden="true">↓</span> Download my CV',
     'label-profil': 'Profile',
     'h2-profil': 'Strategic marketing, technical execution.',
-    'profil-pitch': `<p>Hybrid profile combining <strong class="text-lime-400 font-medium">strategy / data / automation</strong>. I build marketing systems that drive measurable growth.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams.</p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p>`,
+    'profil-pitch': `<p>Hybrid profile combining <strong class="text-lime-700 font-medium">strategy / data / automation</strong>. I build marketing systems that drive measurable growth.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams.</p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p>`,
     'value1-title': 'Fighter',
     'value1-desc': 'Determination to tackle challenges and push beyond limits. Fosters perseverance, boldness and initiative within teams.',
     'value2-title': 'Ambitious',
@@ -623,30 +623,30 @@ const t = {
     'exp0-b3': 'Target verticals: aerospace, rail, pharma manufacturers (Airbus, Alstom, Sanofi already clients)',
     'exp0-result': 'Ramping up · Q2–Q3 2026',
     'exp1-type': 'SME · Tourism · SaaS',
-    'exp1-title': `B2B Europe Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp1-title': `B2B Europe Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
     'exp1-b1': 'Managed European marketing operations: Germany, Benelux, Spain, Portugal, Austria',
     'exp1-b2': 'Direct ownership of European marketing budget, strategic decision-making, reporting to CMO and CEO',
     'exp1-b3': 'B2B campaigns targeting 700+ local authorities — CRM, PR, lobbying',
     'exp1-result': '+30M€ ARR · +30% month-over-month growth',
     'exp2-type': 'SME · Consulting · AR OEM',
-    'exp2-title': `B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp2-title': `B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
     'exp2-b1': 'Led internal and external marketing mix modeling with direct impact on commercial prioritization and resource allocation — SME & mid-market clients (Eurofeu, CCI Network, Cegid)',
     'exp2-b2': 'Defined positioning strategy, messaging and commercial offering',
     'exp2-b3': 'Oversaw lead generation, sales pipeline tracking and customer experience',
     'exp2-result': '+1M€ ARR · +10 industrialized MVPs',
     'exp3-type': 'Scale-up · IoT & AR',
-    'exp3-title': `B2B2C Growth Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp3-title': `B2B2C Growth Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
     'exp3-b1': 'Commercial launch across 5 markets: France, USA, Germany, UK, Japan',
     'exp3-b2': '+200M impressions, +80k leads captured, $1M invested in SEA',
     'exp3-b3': 'Designed and deployed an internal chatbot to automate marketing, product and customer service operations, with measurable productivity gains',
     'exp3-result': '+3M€ ARR · +300% YoY growth',
     'exp4-type': 'Marketing Agency',
-    'exp4-title': `B2B Traffic & Acquisition Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp4-title': `B2B Traffic & Acquisition Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
     'exp4-b1': 'Acquisition strategy and client campaign management (Fnac, Cdiscount, BMW)',
     'exp4-b2': 'Development of data collection tools',
     'exp4-result': '300k€ ARR · +220% collection performance',
     'exp5-type': 'Startup · Chatbot & AI',
-    'exp5-title': `B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp5-title': `B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
     'exp5-b1': 'Chatbot & AI Flows commercial offering — SNCF, Metropolitan transit authorities',
     'exp5-b2': 'Technology decisions and API integration oversight',
     'exp5-result': '300k€ raised · 2 public tenders won',
