@@ -1,6 +1,7 @@
 name = "maxime-girard-assistant"
 main = "chat-worker.js"
 compatibility_date = "2024-09-23"
+account_id = "89fe5a77265d9ae6b6ae1642b6b6236d"
 
 [ai]
 binding = "AI"
