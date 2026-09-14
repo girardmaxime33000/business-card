@@ -21,14 +21,13 @@ Options :
 
 Le fichier `og-image.jpg` doit être placé à la **racine du repo**.
 
-### 2. Uploader les CV PDF
+### 2. CV PDF
 
-Deux fichiers placeholder ont été créés. Remplace-les par les vrais PDFs :
-
-| Fichier | Langue |
-|---------|--------|
-| `cv-maxime-girard-fr.pdf` | Français |
-| `cv-maxime-girard-en.pdf` | Anglais |
+`cv-maxime-girard-en.pdf` contient le vrai CV (anglais). Décision prise : ce même
+fichier est utilisé comme lien de téléchargement sur les deux langues du site
+(pas de CV français disponible). `cv-maxime-girard-fr.pdf` reste un fichier
+vide (0 octet) et n'est référencé nulle part — à fournir et relier si un CV
+français doit un jour remplacer l'anglais sur la version FR du site.
 
 ### 3. Créer un compte Plausible
 
@@ -68,15 +67,55 @@ Puis configurer GitHub Pages sur la branche souhaitée (Settings → Pages).
 
 ```
 business-card/
-├── index.html              # Site FR (source unique, ~1300 lignes)
+├── index.html              # Site FR (source unique, ~1000 lignes)
 ├── en/
-│   └── index.html          # Version EN statique (indexable par Google)
+│   └── index.html          # Version EN — générée par build-en.py, ne pas éditer à la main
+├── build-en.py              # Génère en/index.html depuis index.html (traductions t.en)
+├── tailwind.config.js       # Config Tailwind (content, couleurs, polices)
+├── tailwind-input.css       # Point d'entrée @tailwind base/components/utilities
+├── tailwind.css             # CSS Tailwind précompilé — généré, ne pas éditer à la main
 ├── favicon.svg             # Favicon monogramme MG.
 ├── og-image.svg            # Source OG image (à exporter en .jpg)
 ├── og-image.jpg            # ⚠ À créer manuellement (voir ci-dessus)
 ├── robots.txt
 ├── sitemap.xml
-├── cv-maxime-girard-fr.pdf # ⚠ À remplacer par le vrai PDF
-├── cv-maxime-girard-en.pdf # ⚠ À remplacer par le vrai PDF
+├── cv-maxime-girard-fr.pdf # ⚠ Vide — voir « CV PDF » ci-dessus
+├── cv-maxime-girard-en.pdf # Vrai CV, utilisé sur les deux langues
 └── README.md
 ```
+
+---
+
+## Mise à jour du site
+
+Le site reste 100 % statique à l'usage (aucune installation pour un visiteur),
+mais deux fichiers sont **générés** et doivent être régénérés après toute
+modification d'`index.html` :
+
+### Régénérer `en/index.html` (après un changement de contenu ou de structure)
+
+```bash
+python3 build-en.py
+```
+
+Applique les traductions `t.en` du script d'`index.html` sur les éléments
+`data-i18n`/`data-i18n-html`, réécrit les chemins relatifs (`../`), et bascule
+`lang`, les métadonnées et le sélecteur de langue actif. Le script principal
+(scrollspy, menu mobile, assistant, chargement différé de Calendly) est
+conservé tel quel — commun aux deux langues, pas seulement de l'i18n.
+
+### Régénérer `tailwind.css` (après un changement de classes Tailwind)
+
+```bash
+npx tailwindcss@3.4.13 -i ./tailwind-input.css -o ./tailwind.css --minify
+```
+
+Scanne `index.html` et `en/index.html` (voir `content` dans `tailwind.config.js`)
+pour ne générer que les classes utilisées. Remplace le CDN runtime
+`cdn.tailwindcss.com` (compilation à la volée côté client, pénalisant le
+premier rendu) par un fichier statique commité — toujours régénérer **avant**
+de lancer `build-en.py`, puisque celui-ci recopie `<link rel="stylesheet"
+href="tailwind.css">` vers `en/index.html`.
+
+**Ordre à respecter** après une modification d'`index.html` touchant des
+classes Tailwind : régénérer `tailwind.css`, puis `en/index.html`.

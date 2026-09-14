@@ -134,6 +134,7 @@ out = out.replace(
 
 # ── 4. Chemins relatifs (depuis en/) ──────────────────────────────────────
 out = out.replace('href="favicon.svg"',              'href="../favicon.svg"',              1)
+out = out.replace('href="tailwind.css"',             'href="../tailwind.css"',             1)
 out = out.replace('href="cv-maxime-girard-fr.pdf"',  'href="../cv-maxime-girard-en.pdf"')
 out = out.replace('href="cv-maxime-girard-en.pdf"',  'href="../cv-maxime-girard-en.pdf"')
 
@@ -156,19 +157,13 @@ def _activate_lang_btn(m):
 out = re.sub(r'<a\b[^>]*\bdata-lang="fr"[^>]*>', _deactivate_lang_btn, out, count=1)
 out = re.sub(r'<a\b[^>]*\bdata-lang="en"[^>]*>', _activate_lang_btn, out, count=1)
 
-# ── 6. Supprimer le système i18n JS (contenu déjà statique) ───────────────
-minimal_script = '''<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-document.querySelectorAll('#hero .reveal').forEach((el, i) => {
-  setTimeout(() => el.classList.add('visible'), 100 + i * 100);
-});
-</script>'''
-
-out = re.sub(r'<script>\s*// ── TRANSLATIONS ──.*?</script>',
-             minimal_script, out, flags=re.DOTALL, count=1)
+# ── 6. Script ──────────────────────────────────────────────────────────────
+# Le script principal est conservé tel quel : au-delà de la traduction (déjà
+# statique dans le HTML à ce stade), il porte aussi le scrollspy, le menu
+# mobile, le widget d'assistant et le chargement différé de Calendly — des
+# fonctionnalités communes aux deux langues, pas seulement de l'i18n. Le
+# système de traduction (dict `t`, setLang) reste inerte tant que personne ne
+# clique sur le sélecteur de langue ou n'a 'lang' en localStorage.
 
 # ── 7. Écrire ──────────────────────────────────────────────────────────────
 os.makedirs(os.path.dirname(DST), exist_ok=True)

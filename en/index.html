@@ -34,24 +34,8 @@
 <link rel="preconnect" href="https://assets.calendly.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        bg: '#FBFBFB',
-        surface: '#FFFFFF',
-        surface2: '#F1F1F1',
-      },
-      fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
-      },
-    },
-  },
-};
-</script>
+<!-- CSS Tailwind précompilé (voir README.md « Mettre à jour le CSS Tailwind ») — remplace le CDN runtime cdn.tailwindcss.com -->
+<link rel="stylesheet" href="../tailwind.css">
 <style>
 ::selection { background: #a3e635; color: #0a0a0a; }
 body { overflow-x: hidden; }
@@ -214,21 +198,21 @@ body::before {
 <div class="text-lg text-neutral-700 leading-relaxed reveal" data-i18n-html="profil-pitch"><p>Hybrid profile combining <strong class="text-lime-700 font-medium">strategy / data / automation</strong>. I build marketing systems that drive measurable growth.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams.</p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p></div>
 <div class="flex flex-col gap-4">
 <div class="value-card reveal reveal-delay-1 bg-surface border border-neutral-200 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<div class="text-xl shrink-0 mt-0.5" aria-hidden="true">🥊</div>
+<div class="text-lime-700 shrink-0 mt-0.5" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
 <div>
 <h4 class="font-bold text-sm text-lime-700 mb-1" data-i18n="value1-title">Fighter</h4>
 <p class="text-sm text-neutral-500 leading-relaxed" data-i18n="value1-desc">Determination to tackle challenges and push beyond limits. Fosters perseverance, boldness and initiative within teams.</p>
 </div>
 </div>
 <div class="value-card reveal reveal-delay-2 bg-surface border border-neutral-200 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<div class="text-xl shrink-0 mt-0.5" aria-hidden="true">🎯</div>
+<div class="text-lime-700 shrink-0 mt-0.5" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
 <div>
 <h4 class="font-bold text-sm text-lime-700 mb-1" data-i18n="value2-title">Ambitious</h4>
 <p class="text-sm text-neutral-500 leading-relaxed" data-i18n="value2-desc">Impact-driven vision. Inspires excellence and anticipates the future needs of clients and markets.</p>
 </div>
 </div>
 <div class="value-card reveal reveal-delay-3 bg-surface border border-neutral-200 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(163,230,53,0.3)]">
-<div class="text-xl shrink-0 mt-0.5" aria-hidden="true">🤝</div>
+<div class="text-lime-700 shrink-0 mt-0.5" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
 <div>
 <h4 class="font-bold text-sm text-lime-700 mb-1" data-i18n="value3-title">Approachable</h4>
 <p class="text-sm text-neutral-500 leading-relaxed" data-i18n="value3-desc">Inclusive approach, simplicity and closeness with all stakeholders. Can communicate effectively with both technical and non-technical profiles.</p>
@@ -482,7 +466,7 @@ body::before {
 <h2 id="h2-contact-label" class="reveal relative font-extrabold text-[clamp(2.5rem,5vw,4rem)] mb-4" data-i18n-html="h2-contact">Available for<br>a conversation.</h2>
 <p class="reveal relative text-neutral-500 text-lg mb-10" data-i18n="p-contact">B2B Marketing & Growth Director · Bordeaux · France</p>
 <div class="reveal relative flex flex-wrap gap-4 justify-center mb-14">
-<a href="mailto:girard.maxime33@gmail.com" class="plausible-event-name=Footer+Mail+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">✉</span> girard.maxime33@gmail.com</a>
+<a href="mailto:girard.maxime33@gmail.com" class="plausible-event-name=Footer+Mail+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 inline-block align-[-3px]"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span> girard.maxime33@gmail.com</a>
 <a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="plausible-event-name=Footer+LinkedIn+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">↗</span> LinkedIn</a>
 </div>
 <div class="reveal relative max-w-3xl mx-auto text-left">
@@ -495,7 +479,8 @@ body::before {
 </main>
 <!-- ASSISTANT IA -->
 <button id="chat-toggle" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="Ouvrir l'assistant" class="fixed bottom-6 right-6 z-[90] w-14 h-14 rounded-full bg-lime-400 text-black flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_32px_-6px_rgba(163,230,53,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2">
-<span id="chat-toggle-icon" aria-hidden="true" class="text-2xl leading-none">💬</span>
+<svg id="chat-icon-open" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+<svg id="chat-icon-close" aria-hidden="true" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 6 6 18"/><path d="M6 6 18 18"/></svg>
 </button>
 <div id="chat-panel" hidden class="fixed z-[90] bottom-24 right-6 left-6 sm:left-auto w-auto sm:w-96 max-h-[70vh] bg-surface border border-neutral-200 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
 <div class="flex items-center justify-between px-4 py-3 border-b border-neutral-200">
@@ -518,14 +503,486 @@ body::before {
 </form>
 </div>
 <script>
+// ── TRANSLATIONS ──
+const t = {
+  fr: {
+    'page-title': 'Maxime Girard | Directeur Marketing & Growth B2B — Bordeaux',
+    'nav-profil': 'Profil',
+    'nav-experiences': 'Expériences',
+    'nav-cas-usage': "Cas d'usage",
+    'nav-competences': 'Compétences',
+    'nav-references': 'Références',
+    'nav-contact': 'Contact',
+    'hero-tag': 'En poste — Founding Marketing Lead, Pollen AM',
+    'hero-title': 'Directeur Marketing & Growth – B2B / B2B2C',
+    'hero-claim': "Le profil que les PME cherchent<br>sans savoir qu'il existe.",
+    'metric-arr': 'ARR générés ou pilotés',
+    'metric-markets': 'Marchés internationaux ouverts',
+    'metric-comex': 'Mandats COMEX',
+    'metric-years': 'Direction marketing B2B',
+    'btn-contact': '<span aria-hidden="true">→</span> Prendre RDV',
+    'btn-cv': '<span aria-hidden="true">↓</span> Télécharger le CV',
+    'btn-cv-nav': '<span aria-hidden="true">↓</span> CV',
+    'btn-cv-nav-mobile': '<span aria-hidden="true">↓</span> Télécharger le CV',
+    'label-profil': 'Profil',
+    'h2-profil': 'Marketing stratégique, exécution technique.',
+    'profil-pitch': `<p>Profil hybride <strong class="text-lime-700 font-medium">stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable.</p><br><p>Vision CMO + exécution growth engineer. Je code, j'automatise, je pilote les données, je structure les équipes.</p><br><p>Startup en amorçage, scale-up en hypercroissance, PME en structuration : j'ai opéré à chaque stade, avec des résultats mesurables à chaque fois. Périmètre France, Europe, US et Japon.</p>`,
+    'value1-title': 'Combatif',
+    'value1-desc': "Détermination à relever les défis et à se dépasser. Encourage persévérance, audace et esprit d'initiative dans les équipes.",
+    'value2-title': 'Ambitieux',
+    'value2-desc': "Vision orientée impact immédiat. Inspire l'excellence et anticipe les besoins futurs des clients et des marchés.",
+    'value3-title': 'Accessible',
+    'value3-desc': "Approche inclusive, simplicité et proximité avec toutes les parties. Peut communiquer avec des profils techniques et non techniques.",
+    'label-exp': 'Parcours',
+    'h2-exp': '10 ans, 5 COMEX,<br>5 marchés.',
+    'exp0-type': 'Startup industrielle · Impression 3D pellets',
+    'exp0-title': 'Founding Marketing Lead',
+    'exp0-b1': 'Construction de la fonction marketing ex-nihilo : positionnement, messaging, demand gen, ABM grands comptes industriels',
+    'exp0-b2': 'Budget marketing ~€100–150k, priorité salons industriels (Formnext, Global Industrie) et contenu technique B2B',
+    'exp0-b3': 'Cibles : fabricants aéronautique, ferroviaire, pharmaceutique (Airbus, Alstom, Sanofi déjà clients)',
+    'exp0-result': 'En ramp-up · Q2–Q3 2026',
+    'exp1-type': 'PME · Tourisme · SaaS',
+    'exp1-title': `Directeur Marketing Europe B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp1-b1': 'Pilotage des opérations marketing européennes : Allemagne, Benelux, Espagne, Portugal, Autriche',
+    'exp1-b2': 'Responsabilité directe du budget marketing européen, arbitrages stratégiques, reporting au CMO et CEO',
+    'exp1-b3': 'Campagnes B2B ciblant 700+ collectivités locales — CRM, RP, lobbying',
+    'exp1-result': '+30 M€ ARR · +30% croissance mois/mois',
+    'exp2-type': 'PME · Conseil · RA OEM',
+    'exp2-title': `Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp2-b1': "Pilotage du marketing mix modeling interne et externe, avec impact direct sur la priorisation commerciale et l'allocation des ressources — clients PME & ETI (Eurofeu, Réseau CCI, Cegid)",
+    'exp2-b2': 'Définition de la stratégie de positionnement, messaging et offre commerciale',
+    'exp2-b3': "Supervision de la génération de leads, du suivi commercial et de l'expérience client",
+    'exp2-result': '+1 M€ ARR · +10 MVP industrialisés',
+    'exp3-type': 'Scale-up · IoT & AR',
+    'exp3-title': `Directeur Croissance B2B2C <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp3-b1': 'Lancement commercial sur 5 marchés : France, USA, Allemagne, UK, Japon',
+    'exp3-b2': "+200M d'impressions, +80k leads collectés, 1M$ investis en SEA",
+    'exp3-b3': "Conception et déploiement d'un chatbot interne visant l'automatisation des opérations marketing, produit et SAV, avec gains de productivité mesurables",
+    'exp3-result': '+3M€ ARR · +300% croissance YoY',
+    'exp4-type': 'Agence Marketing',
+    'exp4-title': `Directeur Traffic B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp4-b1': "Stratégie d'acquisition et supervision des campagnes clients (Fnac, Cdiscount, BMW)",
+    'exp4-b2': 'Développement des outils de collecte de données',
+    'exp4-result': '300 k€ ARR · +220% performance collecte',
+    'exp5-type': 'Startup · Chatbot & IA',
+    'exp5-title': `Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp5-b1': 'Offre commerciale chatbots & AI Flows — SNCF, Métropoles',
+    'exp5-b2': 'Arbitrage technologique, supervision des intégrations API',
+    'exp5-result': "300 k€ levés · 2 appels d'offres publics remportés",
+    'exp6-type': 'Multinationale · Tokyo JP',
+    'exp6-title': 'Jr Account Manager B2B2C',
+    'exp6-b1': 'Développement commercial et marketing sur le marché japonais',
+    'exp6-b2': 'Gestion de comptes internationaux français et américains',
+    'exp6-b3': "3 ans en environnement multiculturel — première exposition internationale longue durée",
+    'label-cases': "Cas d'usage",
+    'h2-cases': "Preuves par<br>l'exécution.",
+    'case1-title': 'Première IA Transport en Commun',
+    'case1-text': "En 2016, j'ai connecté Facebook Messenger aux API des transporteurs de Bordeaux Métropole en 10 jours. Trambots est devenu la première IA dédiée au transport en commun en France — croissance 100% organique via presse nationale.",
+    'case1-pill1': '+100k utilisateurs/jour',
+    'case1-pill2': '30 métropoles',
+    'case1-pill3': '+1M messages/jour',
+    'case1-pill4': 'Devant SNCF & Expédia',
+    'case2-title': 'Growth & Crowdfunding International',
+    'case2-text': "Pour le lancement d'EYERIDE chez Eyelights, j'ai piloté l'ensemble de la stratégie growth et paid sur 4 marchés simultanément. Campagne Indiegogo réussie à 984k$ sur 30 jours, +3M€ de CA générés en 3 mois.",
+    'case2-pill1': '+200M impressions',
+    'case2-pill2': '+80k leads',
+    'case2-pill3': '1M$ SEA investi',
+    'case2-pill4': '4 pays en simultané',
+    'case3-title': 'Système IA Multi-agent Marketing',
+    'case3-text': "Système autonome d'automatisation marketing déployé en production : orchestrateur Claude API + Trello comme file de tâches, 9 agents spécialisés (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), versionning automatique sur Git.",
+    'case3-pill1': '9 agents spécialisés',
+    'case3-pill2': 'Claude API',
+    'case3-pill3': 'Production autonome',
+    'case3-pill4': 'Déployé en production',
+    'label-skills': 'Compétences',
+    'h2-skills': 'Stack stratégique<br>& technique.',
+    'skill1-title': 'Go-to-market & Stratégie commerciale',
+    'skill1-tools': "Positionnement, messaging, lancement produit, structuration des offres, partenariats, marchés B2B et B2B2C — de l'amorçage au LBO",
+    'skill2-title': 'Acquisition & Growth',
+    'skill2-tools': 'SEO / SEA, lead generation, CRM (HubSpot, Pipedrive, Zoho, Klaviyo), campagnes multi-canal, LinkedIn Ads, Meta, Google Ads, TikTok',
+    'skill3-title': 'Data & Analytics',
+    'skill3-tools': 'GA4, Looker Studio, Metabase, tracking avancé (GTM, Umami.js, Hotjar, Clarity), Excel VBA, Google Sheets AppScript, Python (Pandas, NumPy)',
+    'skill4-title': 'Automation & IA Générative',
+    'skill4-tools': 'Make, n8n, Zapier, Claude API, ChatGPT, Gemini, Cursor — conception de workflows autonomes, agents LLM, intégrations MCP',
+    'skill5-title': 'Développement Web',
+    'skill5-tools': 'Python, JavaScript / TypeScript, REST API, Google Cloud Platform, WordPress, Firebase, GitHub, Jupyter — autonome de la spec au déploiement',
+    'label-refs': 'Références',
+    'h2-refs': 'Ce que disent<br>mes collaborateurs.',
+    'ref1-text': "Il est constamment en train d'innover et de rechercher les innovations qui lui permettront d'aller plus loin. C'est un profil ultra intéressant pour contribuer à faire grossir une entreprise.",
+    'ref1-role': 'CEO, eteam_work — a managé Maxime directement',
+    'ref2-text': 'Sur le plan technique, Maxime est extrêmement compétent. Il maîtrise Python et JavaScript, et ses compétences en scraping et automatisation sont remarquables pour un directeur marketing.',
+    'ref2-role': 'Data Engineer, ColisPrivé — a reporté à Maxime',
+    'ref3-text': "Toujours plusieurs coups d'avance, c'est ça qu'on aime chez lui ! Son analyse est très pointue sur des sujets concernant le marketing, le management et la growth pure.",
+    'ref3-role': 'Directeur Général, FM Auto',
+    'ref4-text': 'Il connaît très bien son marché, son positionnement et les enjeux technologiques et commerciaux de ses clients. Il est passionné par son métier, extrêmement curieux — cela facilite grandement les échanges.',
+    'ref4-role': 'Expert transformation des SI — client de Maxime',
+    'h2-contact': 'Disponible pour<br>un échange.',
+    'p-contact': 'Directeur Marketing & Growth B2B · Bordeaux · France',
+    'label-booking': 'Réserver un créneau',
+    'chat-title': 'Assistant Maxime',
+    'chat-intro': 'Posez une question sur le profil de Maxime, ou choisissez une suggestion ci-dessous.',
+    'chat-q1': "En quoi Maxime peut-il m'aider ?",
+    'chat-q2': 'Quelles sont ses compétences principales ?',
+    'chat-q3': 'Quel est son parcours ?',
+    'chat-q4': 'Comment le contacter ?',
+    'chat-input-label': 'Votre question',
+    'chat-placeholder': 'Posez votre question…',
+    'chat-error': "Assistant indisponible pour le moment. Écrivez-moi directement : girard.maxime33@gmail.com",
+  },
+  en: {
+    'page-title': 'Maxime Girard | Marketing & Growth Director B2B — Bordeaux',
+    'nav-profil': 'Profile',
+    'nav-experiences': 'Experience',
+    'nav-cas-usage': 'Case Studies',
+    'nav-competences': 'Skills',
+    'nav-references': 'References',
+    'nav-contact': 'Contact',
+    'hero-tag': 'Employed — Founding Marketing Lead, Pollen AM',
+    'hero-title': 'Marketing & Growth Director – B2B / B2B2C',
+    'hero-claim': 'The profile SMBs are looking for<br>without knowing it exists.',
+    'metric-arr': 'ARR generated or managed',
+    'metric-markets': 'International markets opened',
+    'metric-comex': 'Executive Committee seats',
+    'metric-years': 'B2B marketing leadership',
+    'btn-contact': '<span aria-hidden="true">→</span> Book a call',
+    'btn-cv': '<span aria-hidden="true">↓</span> Download my CV',
+    'btn-cv-nav': '<span aria-hidden="true">↓</span> CV',
+    'btn-cv-nav-mobile': '<span aria-hidden="true">↓</span> Download my CV',
+    'label-profil': 'Profile',
+    'h2-profil': 'Strategic marketing, technical execution.',
+    'profil-pitch': `<p>Hybrid profile combining <strong class="text-lime-700 font-medium">strategy / data / automation</strong>. I build marketing systems that drive measurable growth.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams.</p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p>`,
+    'value1-title': 'Fighter',
+    'value1-desc': 'Determination to tackle challenges and push beyond limits. Fosters perseverance, boldness and initiative within teams.',
+    'value2-title': 'Ambitious',
+    'value2-desc': 'Impact-driven vision. Inspires excellence and anticipates the future needs of clients and markets.',
+    'value3-title': 'Approachable',
+    'value3-desc': 'Inclusive approach, simplicity and closeness with all stakeholders. Can communicate effectively with both technical and non-technical profiles.',
+    'label-exp': 'Experience',
+    'h2-exp': '10 years, 5 Exec. Committees,<br>5 markets.',
+    'exp0-type': 'Industrial startup · Pellet 3D printing',
+    'exp0-title': 'Founding Marketing Lead',
+    'exp0-b1': 'Building the marketing function from scratch: positioning, messaging, demand gen, enterprise ABM for industrial accounts',
+    'exp0-b2': 'Marketing budget ~€100–150k, priority on industrial trade shows (Formnext, Global Industrie) and technical B2B content',
+    'exp0-b3': 'Target verticals: aerospace, rail, pharma manufacturers (Airbus, Alstom, Sanofi already clients)',
+    'exp0-result': 'Ramping up · Q2–Q3 2026',
+    'exp1-type': 'SME · Tourism · SaaS',
+    'exp1-title': `B2B Europe Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp1-b1': 'Managed European marketing operations: Germany, Benelux, Spain, Portugal, Austria',
+    'exp1-b2': 'Direct ownership of European marketing budget, strategic decision-making, reporting to CMO and CEO',
+    'exp1-b3': 'B2B campaigns targeting 700+ local authorities — CRM, PR, lobbying',
+    'exp1-result': '+30M€ ARR · +30% month-over-month growth',
+    'exp2-type': 'SME · Consulting · AR OEM',
+    'exp2-title': `B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp2-b1': 'Led internal and external marketing mix modeling with direct impact on commercial prioritization and resource allocation — SME & mid-market clients (Eurofeu, CCI Network, Cegid)',
+    'exp2-b2': 'Defined positioning strategy, messaging and commercial offering',
+    'exp2-b3': 'Oversaw lead generation, sales pipeline tracking and customer experience',
+    'exp2-result': '+1M€ ARR · +10 industrialized MVPs',
+    'exp3-type': 'Scale-up · IoT & AR',
+    'exp3-title': `B2B2C Growth Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp3-b1': 'Commercial launch across 5 markets: France, USA, Germany, UK, Japan',
+    'exp3-b2': '+200M impressions, +80k leads captured, $1M invested in SEA',
+    'exp3-b3': 'Designed and deployed an internal chatbot to automate marketing, product and customer service operations, with measurable productivity gains',
+    'exp3-result': '+3M€ ARR · +300% YoY growth',
+    'exp4-type': 'Marketing Agency',
+    'exp4-title': `B2B Traffic & Acquisition Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp4-b1': 'Acquisition strategy and client campaign management (Fnac, Cdiscount, BMW)',
+    'exp4-b2': 'Development of data collection tools',
+    'exp4-result': '300k€ ARR · +220% collection performance',
+    'exp5-type': 'Startup · Chatbot & AI',
+    'exp5-title': `B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp5-b1': 'Chatbot & AI Flows commercial offering — SNCF, Metropolitan transit authorities',
+    'exp5-b2': 'Technology decisions and API integration oversight',
+    'exp5-result': '300k€ raised · 2 public tenders won',
+    'exp6-type': 'Multinational · Tokyo, Japan',
+    'exp6-title': 'Jr B2B2C Account Manager',
+    'exp6-b1': 'Business development and marketing in the Japanese market',
+    'exp6-b2': 'Management of French and American international accounts',
+    'exp6-b3': '3 years in a multicultural environment — first extended international experience',
+    'label-cases': 'Case Studies',
+    'h2-cases': 'Proven by<br>execution.',
+    'case1-title': 'First Public Transit AI',
+    'case1-text': 'In 2016, I connected Facebook Messenger to transit APIs across Bordeaux Métropole in 10 days. Trambots became the first AI dedicated to public transit in France — 100% organic growth through national press coverage.',
+    'case1-pill1': '+100k users/day',
+    'case1-pill2': '30 cities',
+    'case1-pill3': '+1M messages/day',
+    'case1-pill4': 'Ahead of SNCF & Expedia',
+    'case2-title': 'International Growth & Crowdfunding',
+    'case2-text': 'For the launch of EYERIDE at Eyelights, I drove the full growth and paid strategy across 4 markets simultaneously. Indiegogo campaign raised $984k in 30 days, generating +3M€ in revenue within 3 months.',
+    'case2-pill1': '+200M impressions',
+    'case2-pill2': '+80k leads',
+    'case2-pill3': '$1M SEA invested',
+    'case2-pill4': '4 markets simultaneously',
+    'case3-title': 'Multi-Agent AI Marketing System',
+    'case3-text': 'Autonomous marketing automation system deployed in production: Claude API orchestrator + Trello as task queue, 9 specialized agents (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), automatic versioning on Git.',
+    'case3-pill1': '9 specialized agents',
+    'case3-pill2': 'Claude API',
+    'case3-pill3': 'Fully autonomous',
+    'case3-pill4': 'Deployed in production',
+    'label-skills': 'Skills',
+    'h2-skills': 'Strategic &<br>technical stack.',
+    'skill1-title': 'Go-to-market & Sales Strategy',
+    'skill1-tools': 'Positioning, messaging, product launch, offer structuring, partnerships, B2B and B2B2C markets — from seed stage to LBO',
+    'skill2-title': 'Acquisition & Growth',
+    'skill2-tools': 'SEO / SEA, lead generation, CRM (HubSpot, Pipedrive, Zoho, Klaviyo), multi-channel campaigns, LinkedIn Ads, Meta, Google Ads, TikTok',
+    'skill3-title': 'Data & Analytics',
+    'skill3-tools': 'GA4, Looker Studio, Metabase, advanced tracking (GTM, Umami.js, Hotjar, Clarity), Excel VBA, Google Sheets AppScript, Python (Pandas, NumPy)',
+    'skill4-title': 'Automation & Generative AI',
+    'skill4-tools': 'Make, n8n, Zapier, Claude API, ChatGPT, Gemini, Cursor — autonomous workflow design, LLM agents, MCP integrations',
+    'skill5-title': 'Web Development',
+    'skill5-tools': 'Python, JavaScript / TypeScript, REST API, Google Cloud Platform, WordPress, Firebase, GitHub, Jupyter — autonomous from spec to deployment',
+    'label-refs': 'References',
+    'h2-refs': 'What my<br>peers say.',
+    'ref1-text': "He is constantly innovating and seeking breakthroughs that will take him further. He's an extremely valuable profile to help a company grow.",
+    'ref1-role': 'CEO, eteam_work — managed Maxime directly',
+    'ref2-text': 'On the technical side, Maxime is extremely skilled. He masters Python and JavaScript, and his scraping and automation capabilities are remarkable for a marketing director.',
+    'ref2-role': 'Data Engineer, ColisPrivé — reported to Maxime',
+    'ref3-text': "Always several moves ahead — that's what we love about him! His analysis is very sharp on marketing, management and pure growth topics.",
+    'ref3-role': 'General Manager, FM Auto',
+    'ref4-text': "He knows his market, positioning and the technological and commercial challenges of his clients very well. He's passionate about his work, extremely curious — this greatly facilitates exchanges.",
+    'ref4-role': "IT Transformation Expert — Maxime's client",
+    'h2-contact': 'Available for<br>a conversation.',
+    'p-contact': 'B2B Marketing & Growth Director · Bordeaux · France',
+    'label-booking': 'Book a time slot',
+    'chat-title': 'Ask about Maxime',
+    'chat-intro': "Ask a question about Maxime's profile, or pick a suggestion below.",
+    'chat-q1': 'How can Maxime help me?',
+    'chat-q2': 'What are his main skills?',
+    'chat-q3': "What's his background?",
+    'chat-q4': 'How do I get in touch?',
+    'chat-input-label': 'Your question',
+    'chat-placeholder': 'Ask your question…',
+    'chat-error': 'Assistant unavailable right now. Email me directly: girard.maxime33@gmail.com',
+  }
+};
+
+// ── LANG SWITCH ──
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.title = t[lang]['page-title'];
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[lang][key] !== undefined) el.textContent = t[lang][key];
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (t[lang][key] !== undefined) el.innerHTML = t[lang][key];
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (t[lang][key] !== undefined) el.setAttribute('placeholder', t[lang][key]);
+  });
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const isActive = btn.dataset.lang === lang;
+    btn.classList.toggle('active', isActive);
+    btn.classList.toggle('bg-lime-400', isActive);
+    btn.classList.toggle('text-black', isActive);
+    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+
+  try { localStorage.setItem('lang', lang); } catch(e) {}
+}
+
+// ── SCROLL REVEAL ──
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Trigger hero animations immediately
 document.querySelectorAll('#hero .reveal').forEach((el, i) => {
-  setTimeout(() => el.classList.add('visible'), 100 + i * 100);
+setTimeout(() => el.classList.add('visible'), 100 + i * 100);
+  });
+
+// ── NAV ACTIVE OVERLAY (scrollspy) ──
+// .nav-link exists twice per section (desktop bar + mobile menu) — matched by class, not by parent.
+const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+const navHrefs = [...new Set(Array.from(navLinks).map(link => link.getAttribute('href')))];
+const navSections = navHrefs.map(href => document.querySelector(href)).filter(Boolean);
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const matches = document.querySelectorAll(`.nav-link[href="#${entry.target.id}"]`);
+    if (!matches.length) return;
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('nav-active'));
+      matches.forEach(l => l.classList.add('nav-active'));
+    }
+  });
+}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+navSections.forEach(section => navObserver.observe(section));
+
+// ── CHARGEMENT DIFFÉRÉ DU WIDGET CALENDLY ──
+// Le script Calendly n'est injecté qu'à l'approche de #contact, pour ne pas
+// alourdir le chargement initial des visiteurs qui ne descendent pas jusqu'au formulaire.
+const calendlyContainer = document.querySelector('.calendly-inline-widget');
+if (calendlyContainer) {
+  const calendlyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
+      calendlyObserver.disconnect();
+    });
+  }, { rootMargin: '400px 0px' });
+  calendlyObserver.observe(calendlyContainer);
+}
+
+// ── MOBILE NAV ──
+(function () {
+  const toggleBtn = document.getElementById('nav-toggle');
+  const toggleIcon = document.getElementById('nav-toggle-icon');
+  const menu = document.getElementById('nav-mobile-menu');
+  if (!toggleBtn || !toggleIcon || !menu) return;
+
+  function openMenu() {
+    menu.hidden = false;
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    toggleIcon.textContent = '✕';
+  }
+
+  function closeMenu() {
+    menu.hidden = true;
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleIcon.textContent = '☰';
+  }
+
+  toggleBtn.addEventListener('click', () => (menu.hidden ? openMenu() : closeMenu()));
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu.hidden) closeMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menu.hidden && !menu.contains(e.target) && !toggleBtn.contains(e.target)) closeMenu();
+  });
+
+  // Repli automatique si la fenêtre est agrandie au-delà du point de rupture mobile
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+    if (e.matches) closeMenu();
+  });
+})();
+
+// Lang toggle — in-page switch (href fallback works if JS disabled)
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    setLang(btn.dataset.lang);
+  });
 });
+
+// Init language from localStorage
+try {
+  const saved = localStorage.getItem('lang');
+  if (saved && saved !== 'fr') setLang(saved);
+} catch(e) {}
+
+// ── ASSISTANT IA ──
+// Remplacer par l'URL du Worker publié (voir cloudflare-worker/README.md).
+const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.dev';
+
+(function () {
+  const toggleBtn = document.getElementById('chat-toggle');
+  const iconOpen = document.getElementById('chat-icon-open');
+  const iconClose = document.getElementById('chat-icon-close');
+  const panel = document.getElementById('chat-panel');
+  const closeBtn = document.getElementById('chat-close');
+  const messages = document.getElementById('chat-messages');
+  const chips = document.getElementById('chat-chips');
+  const form = document.getElementById('chat-form');
+  const input = document.getElementById('chat-input');
+  if (!toggleBtn || !panel || !form || !input) return;
+
+  let opened = false;
+
+  function openPanel() {
+    opened = true;
+    panel.hidden = false;
+    iconOpen.setAttribute('hidden', '');
+    iconClose.removeAttribute('hidden');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    toggleBtn.setAttribute('aria-label', 'Fermer l’assistant');
+    input.focus();
+    try { window.plausible && window.plausible('Chat Opened'); } catch (e) {}
+  }
+
+  function closePanel() {
+    opened = false;
+    panel.hidden = true;
+    iconOpen.removeAttribute('hidden');
+    iconClose.setAttribute('hidden', '');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleBtn.setAttribute('aria-label', 'Ouvrir l’assistant');
+  }
+
+  toggleBtn.addEventListener('click', () => (opened ? closePanel() : openPanel()));
+  closeBtn && closeBtn.addEventListener('click', closePanel);
+
+  function addBubble(text, role) {
+    const bubble = document.createElement('div');
+    bubble.className = role === 'user'
+      ? 'self-end max-w-[85%] bg-lime-400 text-black text-sm rounded-lg rounded-br-sm px-3 py-2'
+      : 'self-start max-w-[85%] bg-neutral-100 border border-neutral-200 text-neutral-900 text-sm rounded-lg rounded-bl-sm px-3 py-2';
+    bubble.textContent = text;
+    messages.appendChild(bubble);
+    messages.scrollTop = messages.scrollHeight;
+    return bubble;
+  }
+
+  async function ask(question) {
+    if (!question) return;
+    chips.style.display = 'none';
+    addBubble(question, 'user');
+    const loading = addBubble('…', 'assistant');
+    input.value = '';
+    input.disabled = true;
+
+    if (!CHAT_ENDPOINT) {
+      loading.textContent = t[currentLang]['chat-error'];
+      input.disabled = false;
+      return;
+    }
+
+    try {
+      const res = await fetch(CHAT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question }),
+      });
+      const data = await res.json();
+      loading.textContent = (data && data.answer) ? data.answer : t[currentLang]['chat-error'];
+      try { window.plausible && window.plausible('Chat Question'); } catch (e) {}
+    } catch (err) {
+      loading.textContent = t[currentLang]['chat-error'];
+    } finally {
+      input.disabled = false;
+      input.focus();
+    }
+  }
+
+  chips && chips.querySelectorAll('.chat-chip').forEach(btn => {
+    btn.addEventListener('click', () => ask(btn.textContent.trim()));
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    ask(input.value.trim());
+  });
+})();
 </script>
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
