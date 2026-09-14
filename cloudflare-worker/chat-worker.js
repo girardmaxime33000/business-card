@@ -8,7 +8,7 @@ const ALLOWED_ORIGINS = [
   'http://localhost:8080',
 ];
 
-const MODEL = '@cf/meta/llama-3.1-8b-instruct';
+const MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
 
 const SYSTEM_PROMPT = `Tu es l'assistant du site personnel de Maxime Girard, Directeur Marketing & Growth B2B. Réponds UNIQUEMENT à partir des informations ci-dessous. Si la question sort de ce périmètre (profil professionnel de Maxime), dis poliment que tu ne peux répondre qu'à ce sujet. Réponds dans la langue de la question, en 2 à 4 phrases maximum, ton direct et professionnel, sans emoji.
 
@@ -95,10 +95,7 @@ export default {
         headers: { ...headers, 'Content-Type': 'application/json' },
       });
     } catch (err) {
-      return new Response(JSON.stringify({
-        error: 'Erreur du modèle',
-        detail: err && err.message ? err.message : String(err),
-      }), {
+      return new Response(JSON.stringify({ error: 'Erreur du modèle' }), {
         status: 502,
         headers: { ...headers, 'Content-Type': 'application/json' },
       });
