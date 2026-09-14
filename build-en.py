@@ -138,6 +138,7 @@ out = out.replace('href="tailwind.css"',             'href="../tailwind.css"',  
 out = out.replace('href="cv-maxime-girard-fr.pdf"',  'href="../cv-maxime-girard-en.pdf"')
 out = out.replace('href="cv-maxime-girard-en.pdf"',  'href="../cv-maxime-girard-en.pdf"')
 out = re.sub(r'src="logos/', 'src="../logos/', out)
+out = re.sub(r'src="testimonials/', 'src="../testimonials/', out)
 
 # ── 5. Lang toggle : EN actif, FR inactif ─────────────────────────────────
 # Basé sur data-lang plutôt que sur la liste exacte des classes, pour rester
