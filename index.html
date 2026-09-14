@@ -131,7 +131,8 @@ body::before {
 </head>
 <body class="bg-bg text-neutral-900 font-sans antialiased leading-relaxed">
 <!-- NAV -->
-<nav aria-label="Navigation principale" class="fixed inset-x-0 top-0 z-[100] flex items-center justify-between px-[4vw] py-5 bg-lime-400/95 backdrop-blur-xl border-b border-lime-600/30 shadow-[0_2px_24px_-6px_rgba(101,163,13,0.35)]">
+<header class="fixed inset-x-0 top-0 z-[100]">
+<nav aria-label="Navigation principale" class="flex items-center justify-between px-[4vw] py-5 bg-lime-400/95 backdrop-blur-xl border-b border-lime-600/30 shadow-[0_2px_24px_-6px_rgba(101,163,13,0.35)]">
 <div class="font-extrabold text-base tracking-wide">MG<span class="text-neutral-950">.</span></div>
 <ul class="hidden md:flex gap-2 list-none">
 <li><a href="#profil" data-i18n="nav-profil" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Profil</a></li>
@@ -141,11 +142,29 @@ body::before {
 <li><a href="#references" data-i18n="nav-references" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Références</a></li>
 <li><a href="#contact" data-i18n="nav-contact" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Contact</a></li>
 </ul>
+<div class="flex items-center gap-3">
+<a href="cv-maxime-girard-en.pdf" download class="nav-cv-btn plausible-event-name=Nav+CV+Download+Click hidden md:inline-flex items-center gap-1.5 bg-neutral-900 text-lime-300 text-xs font-bold tracking-wide px-3.5 py-1.5 rounded-full transition-all duration-200 hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2" data-i18n-html="btn-cv-nav" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> CV</a>
+<button id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-menu" aria-label="Ouvrir le menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-md text-neutral-900 text-xl leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2">
+<span id="nav-toggle-icon" aria-hidden="true">☰</span>
+</button>
 <div class="lang-toggle flex items-center bg-surface border border-neutral-200 rounded-md overflow-hidden shrink-0" role="group" aria-label="Langue / Language">
 <a href="/business-card/" class="lang-btn active bg-lime-400 text-black px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest transition-colors" data-lang="fr" aria-pressed="true" hreflang="fr">FR</a>
 <a href="/business-card/en/" class="lang-btn px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors" data-lang="en" aria-pressed="false" hreflang="en">EN</a>
 </div>
+</div>
 </nav>
+<div id="nav-mobile-menu" hidden class="md:hidden bg-surface border-b border-neutral-200 shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto">
+<ul class="flex flex-col divide-y divide-neutral-200">
+<li><a href="#profil" data-i18n="nav-profil" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Profil</a></li>
+<li><a href="#experiences" data-i18n="nav-experiences" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Expériences</a></li>
+<li><a href="#cas-usage" data-i18n="nav-cas-usage" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Cas d'usage</a></li>
+<li><a href="#competences" data-i18n="nav-competences" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Compétences</a></li>
+<li><a href="#references" data-i18n="nav-references" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Références</a></li>
+<li><a href="#contact" data-i18n="nav-contact" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Contact</a></li>
+<li><a href="cv-maxime-girard-en.pdf" download class="plausible-event-name=Nav+CV+Download+Click block px-[4vw] py-4 text-base font-bold text-lime-700 bg-lime-400/10 hover:bg-lime-400/20 transition-colors" data-i18n-html="btn-cv-nav-mobile" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> Télécharger le CV</a></li>
+</ul>
+</div>
+</header>
 <main>
 <!-- HERO -->
 <section id="hero" aria-labelledby="h1-hero" class="min-h-screen flex flex-col justify-center px-[4vw] pt-40 pb-28 relative overflow-hidden">
@@ -180,6 +199,7 @@ body::before {
 </div>
 <div class="flex flex-wrap gap-4">
 <a href="#contact" class="btn-shine plausible-event-name=Hero+Booking+Click inline-flex items-center gap-2 bg-lime-400 text-black font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(163,230,53,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n-html="btn-contact" aria-label="Prendre rendez-vous"><span aria-hidden="true">→</span> Prendre RDV</a>
+<a href="cv-maxime-girard-en.pdf" download class="btn-shine plausible-event-name=Hero+CV+Download+Click inline-flex items-center gap-2 bg-neutral-900 text-lime-300 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-125 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(23,23,23,0.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n-html="btn-cv" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> Télécharger le CV</a>
 <a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="plausible-event-name=Hero+LinkedIn+Click inline-flex items-center gap-2 border border-neutral-300 text-neutral-900 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:border-neutral-400 hover:bg-neutral-100 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" aria-label="Voir le profil LinkedIn"><span aria-hidden="true">↗</span> LinkedIn</a>
 </div>
 </section>
@@ -522,6 +542,9 @@ const t = {
     'metric-comex': 'Mandats COMEX',
     'metric-years': 'Direction marketing B2B',
     'btn-contact': '<span aria-hidden="true">→</span> Prendre RDV',
+    'btn-cv': '<span aria-hidden="true">↓</span> Télécharger le CV',
+    'btn-cv-nav': '<span aria-hidden="true">↓</span> CV',
+    'btn-cv-nav-mobile': '<span aria-hidden="true">↓</span> Télécharger le CV',
     'label-profil': 'Profil',
     'h2-profil': 'Marketing stratégique, exécution technique.',
     'profil-pitch': `<p>Profil hybride <strong class="text-lime-700 font-medium">stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable.</p><br><p>Vision CMO + exécution growth engineer. Je code, j'automatise, je pilote les données, je structure les équipes.</p><br><p>Startup en amorçage, scale-up en hypercroissance, PME en structuration : j'ai opéré à chaque stade, avec des résultats mesurables à chaque fois. Périmètre France, Europe, US et Japon.</p>`,
@@ -643,6 +666,9 @@ const t = {
     'metric-comex': 'Executive Committee seats',
     'metric-years': 'B2B marketing leadership',
     'btn-contact': '<span aria-hidden="true">→</span> Book a call',
+    'btn-cv': '<span aria-hidden="true">↓</span> Download my CV',
+    'btn-cv-nav': '<span aria-hidden="true">↓</span> CV',
+    'btn-cv-nav-mobile': '<span aria-hidden="true">↓</span> Download my CV',
     'label-profil': 'Profile',
     'h2-profil': 'Strategic marketing, technical execution.',
     'profil-pitch': `<p>Hybrid profile combining <strong class="text-lime-700 font-medium">strategy / data / automation</strong>. I build marketing systems that drive measurable growth.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams.</p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p>`,
@@ -800,23 +826,59 @@ setTimeout(() => el.classList.add('visible'), 100 + i * 100);
   });
 
 // ── NAV ACTIVE OVERLAY (scrollspy) ──
-const navLinks = document.querySelectorAll('nav ul .nav-link[href^="#"]');
-const navSections = Array.from(navLinks)
-  .map(link => document.querySelector(link.getAttribute('href')))
-  .filter(Boolean);
+// .nav-link exists twice per section (desktop bar + mobile menu) — matched by class, not by parent.
+const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+const navHrefs = [...new Set(Array.from(navLinks).map(link => link.getAttribute('href')))];
+const navSections = navHrefs.map(href => document.querySelector(href)).filter(Boolean);
 
 const navObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    const link = document.querySelector(`nav ul .nav-link[href="#${entry.target.id}"]`);
-    if (!link) return;
+    const matches = document.querySelectorAll(`.nav-link[href="#${entry.target.id}"]`);
+    if (!matches.length) return;
     if (entry.isIntersecting) {
       navLinks.forEach(l => l.classList.remove('nav-active'));
-      link.classList.add('nav-active');
+      matches.forEach(l => l.classList.add('nav-active'));
     }
   });
 }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
 
 navSections.forEach(section => navObserver.observe(section));
+
+// ── MOBILE NAV ──
+(function () {
+  const toggleBtn = document.getElementById('nav-toggle');
+  const toggleIcon = document.getElementById('nav-toggle-icon');
+  const menu = document.getElementById('nav-mobile-menu');
+  if (!toggleBtn || !toggleIcon || !menu) return;
+
+  function openMenu() {
+    menu.hidden = false;
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    toggleIcon.textContent = '✕';
+  }
+
+  function closeMenu() {
+    menu.hidden = true;
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleIcon.textContent = '☰';
+  }
+
+  toggleBtn.addEventListener('click', () => (menu.hidden ? openMenu() : closeMenu()));
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu.hidden) closeMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menu.hidden && !menu.contains(e.target) && !toggleBtn.contains(e.target)) closeMenu();
+  });
+
+  // Repli automatique si la fenêtre est agrandie au-delà du point de rupture mobile
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+    if (e.matches) closeMenu();
+  });
+})();
 
 // Lang toggle — in-page switch (href fallback works if JS disabled)
 document.querySelectorAll('.lang-btn').forEach(btn => {
