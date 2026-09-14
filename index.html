@@ -31,6 +31,7 @@
 <meta name="twitter:image" content="https://girardmaxime33000.github.io/business-card/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://assets.calendly.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -101,7 +102,6 @@ body::before {
   "jobTitle": "Directeur Marketing & Growth B2B",
   "description": "Directeur Marketing & Growth B2B — 10 ans d'expérience, 5 COMEX, +35M€ ARR. Marketing stratégique et exécution technique, B2B/B2B2C. France, Europe, US, Japon.",
   "email": "mailto:girard.maxime33@gmail.com",
-  "telephone": "+33659393626",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Bordeaux",
@@ -466,10 +466,15 @@ body::before {
 <div class="contact-glow"></div>
 <h2 id="h2-contact-label" class="reveal relative font-extrabold text-[clamp(2.5rem,5vw,4rem)] mb-4" data-i18n-html="h2-contact">Disponible pour<br>un échange.</h2>
 <p class="reveal relative text-neutral-500 text-lg mb-10" data-i18n="p-contact">Directeur Marketing & Growth B2B · Bordeaux · France</p>
-<div class="reveal relative flex flex-wrap gap-4 justify-center">
+<div class="reveal relative flex flex-wrap gap-4 justify-center mb-14">
 <a href="mailto:girard.maxime33@gmail.com" class="plausible-event-name=Footer+Mail+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">✉</span> girard.maxime33@gmail.com</a>
-<a href="tel:+33659393626" class="plausible-event-name=Footer+Phone+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">📞</span> +33 6 59 39 36 26</a>
 <a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="plausible-event-name=Footer+LinkedIn+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">↗</span> LinkedIn</a>
+</div>
+<div class="reveal relative max-w-3xl mx-auto text-left">
+<p class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-booking">Réserver un créneau</span></p>
+<div class="bg-surface border border-neutral-200 rounded-2xl p-3 overflow-hidden">
+<div class="calendly-inline-widget" data-url="https://calendly.com/girard-maxime33?hide_gdpr_banner=1&amp;background_color=ffffff&amp;text_color=171717&amp;primary_color=65a30d" style="min-width:280px;height:700px;"></div>
+</div>
 </div>
 </section>
 </main>
@@ -587,6 +592,7 @@ const t = {
     'ref4-role': 'Expert transformation des SI — client de Maxime',
     'h2-contact': 'Disponible pour<br>un échange.',
     'p-contact': 'Directeur Marketing & Growth B2B · Bordeaux · France',
+    'label-booking': 'Réserver un créneau',
   },
   en: {
     'page-title': 'Maxime Girard | Marketing & Growth Director B2B — Bordeaux',
@@ -699,6 +705,7 @@ const t = {
     'ref4-role': "IT Transformation Expert — Maxime's client",
     'h2-contact': 'Available for<br>a conversation.',
     'p-contact': 'B2B Marketing & Growth Director · Bordeaux · France',
+    'label-booking': 'Book a time slot',
   }
 };
 
@@ -760,5 +767,6 @@ try {
   if (saved && saved !== 'fr') setLang(saved);
 } catch(e) {}
 </script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
