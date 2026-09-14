@@ -2,6 +2,12 @@
 // Reçoit { question } en POST, interroge un modèle open-source hébergé par
 // Cloudflare via le binding AI, répond en JSON { answer }. Aucune clé API
 // à gérer : le binding AI donne l'accès au modèle directement.
+//
+// Les données du profil vivent dans profile-data.js (source unique) —
+// ce fichier ne fait que les sérialiser en system prompt. Ne pas
+// réintroduire de texte profil codé en dur ici : modifier profile-data.js.
+
+import { PROFILE } from './profile-data.js';
 
 const ALLOWED_ORIGINS = [
   'https://www.girardmaxime33.com',
@@ -12,34 +18,56 @@ const ALLOWED_ORIGINS = [
 
 const MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
 
-const SYSTEM_PROMPT = `Tu es l'assistant du site personnel de Maxime Girard, Directeur Marketing & Growth B2B. Réponds UNIQUEMENT à partir des informations ci-dessous. Si la question sort de ce périmètre (profil professionnel de Maxime), dis poliment que tu ne peux répondre qu'à ce sujet. Réponds dans la langue de la question, en 2 à 4 phrases maximum, ton direct et professionnel, sans emoji.
+function buildSystemPrompt(profile) {
+  const expLines = profile.experiences.map(e => {
+    const label = e.comex ? `${e.title} (COMEX)` : e.title;
+    const bullets = e.bullets.map(b => `  · ${b}`).join('\n');
+    const result = e.result ? `\n  Résultat : ${e.result}` : '';
+    return `- ${e.period} — ${label}, ${e.company} (${e.type})\n${bullets}${result}`;
+  }).join('\n\n');
+
+  const caseLines = profile.cases.map((c, i) =>
+    `${i + 1}. ${c.title} — ${c.text} Chiffres clés : ${c.stats.join(', ')}.`
+  ).join('\n\n');
+
+  const skillLines = profile.skills.map(s => `- ${s.title} : ${s.tools}`).join('\n');
+
+  const traitLines = profile.traits.map(t => `- ${t.title} : ${t.desc}`).join('\n');
+
+  const testimonialLines = profile.testimonials.map(t =>
+    `- « ${t.text} » — ${t.name}, ${t.role}.`
+  ).join('\n');
+
+  return `Tu es l'assistant du site personnel de ${profile.identity.name}, ${profile.identity.title}. Réponds UNIQUEMENT à partir des informations ci-dessous. Si la question sort de ce périmètre (profil professionnel de ${profile.identity.name}), dis poliment que tu ne peux répondre qu'à ce sujet. Réponds dans la langue de la question, en 2 à 5 phrases maximum, ton direct et professionnel, sans emoji.
 
 --- PROFIL ---
-Maxime Girard — Directeur Marketing & Growth B2B/B2B2C. 10 ans d'expérience, 5 mandats COMEX, +35M€ d'ARR généré ou piloté, marchés France/Europe/US/Japon.
+${profile.identity.name} — ${profile.identity.title}. ${profile.identity.location}.
+${profile.metrics.join(' · ')}.
 
-Poste actuel : Founding Marketing Lead chez Pollen AM (startup industrielle, impression 3D pellets) — construction de la fonction marketing ex-nihilo, ABM grands comptes industriels (Airbus, Alstom, Sanofi déjà clients).
+${profile.pitch}
 
-Parcours :
-- Directeur Marketing Europe B2B, Camping Car Park (COMEX) — pilotage marketing sur 5 pays européens, +30M€ ARR, +30% croissance mois/mois.
-- Directeur Marketing B2B, Sense4data (COMEX) — marketing mix modeling, +1M€ ARR, +10 MVP industrialisés.
-- Directeur Croissance B2B2C, Eyelights (COMEX) — lancement sur 5 marchés (France, USA, Allemagne, UK, Japon), +3M€ ARR, +300% croissance YoY.
-- Directeur Traffic B2B, Groupe Actiplay (COMEX) — acquisition pour Fnac, Cdiscount, BMW.
-- Directeur Marketing B2B, Facebots (COMEX) — chatbots IA pour la SNCF et des métropoles.
-- Jr Account Manager B2B2C, Sopexa — 3 ans à Tokyo, développement commercial marché japonais.
+Traits de personnalité :
+${traitLines}
 
-Compétences :
-- Go-to-market & stratégie commerciale : positionnement, messaging, lancement produit, de l'amorçage au LBO.
-- Acquisition & growth : SEO/SEA, lead gen, HubSpot/Pipedrive, LinkedIn/Meta/Google/TikTok Ads.
-- Data & analytics : GA4, Looker Studio, Python (Pandas, NumPy).
-- Automation & IA générative : Make, n8n, Claude API, agents LLM, intégrations MCP.
-- Développement web : Python, JavaScript/TypeScript, REST API, GCP, Firebase.
+--- PARCOURS (du plus récent au plus ancien) ---
+${expLines}
 
-Cas d'usage marquants :
-- Trambots (2016) : première IA dédiée au transport en commun en France, connectée en 10 jours, +100k utilisateurs/jour.
-- Campagne crowdfunding EYERIDE : 984k$ levés en 30 jours sur Indiegogo, 4 marchés simultanés.
-- Système IA multi-agent marketing en production : orchestrateur Claude API, 9 agents spécialisés (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research).
+--- CAS D'USAGE MARQUANTS ---
+${caseLines}
 
-Contact : email girard.maxime33@gmail.com, LinkedIn (lien "LinkedIn" sur le site), prise de rendez-vous via le bouton "Prendre RDV" (calendrier Calendly en bas de page).`;
+--- COMPÉTENCES ---
+${skillLines}
+
+--- TÉMOIGNAGES ---
+${testimonialLines}
+
+--- CONTACT ---
+Email : ${profile.identity.email}
+LinkedIn : ${profile.identity.linkedin}
+Prise de rendez-vous : ${profile.identity.booking}`;
+}
+
+const SYSTEM_PROMPT = buildSystemPrompt(PROFILE);
 
 function corsHeaders(origin) {
   const allowed = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
