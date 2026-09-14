@@ -143,6 +143,7 @@ body::before {
 <li><a href="#contact" data-i18n="nav-contact" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Contact</a></li>
 </ul>
 <div class="flex items-center gap-3">
+<a href="cv-maxime-girard-en.pdf" download class="nav-cv-btn plausible-event-name=Nav+CV+Download+Click hidden md:inline-flex items-center gap-1.5 bg-neutral-900 text-lime-300 text-xs font-bold tracking-wide px-3.5 py-1.5 rounded-full transition-all duration-200 hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2" data-i18n-html="btn-cv-nav" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> CV</a>
 <button id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-menu" aria-label="Ouvrir le menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-md text-neutral-900 text-xl leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2">
 <span id="nav-toggle-icon" aria-hidden="true">☰</span>
 </button>
@@ -160,6 +161,7 @@ body::before {
 <li><a href="#competences" data-i18n="nav-competences" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Compétences</a></li>
 <li><a href="#references" data-i18n="nav-references" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Références</a></li>
 <li><a href="#contact" data-i18n="nav-contact" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Contact</a></li>
+<li><a href="cv-maxime-girard-en.pdf" download class="plausible-event-name=Nav+CV+Download+Click block px-[4vw] py-4 text-base font-bold text-lime-700 bg-lime-400/10 hover:bg-lime-400/20 transition-colors" data-i18n-html="btn-cv-nav-mobile" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> Télécharger le CV</a></li>
 </ul>
 </div>
 </header>
@@ -197,6 +199,7 @@ body::before {
 </div>
 <div class="flex flex-wrap gap-4">
 <a href="#contact" class="btn-shine plausible-event-name=Hero+Booking+Click inline-flex items-center gap-2 bg-lime-400 text-black font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(163,230,53,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n-html="btn-contact" aria-label="Prendre rendez-vous"><span aria-hidden="true">→</span> Prendre RDV</a>
+<a href="cv-maxime-girard-en.pdf" download class="btn-shine plausible-event-name=Hero+CV+Download+Click inline-flex items-center gap-2 bg-neutral-900 text-lime-300 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-125 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(23,23,23,0.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n-html="btn-cv" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> Télécharger le CV</a>
 <a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" class="plausible-event-name=Hero+LinkedIn+Click inline-flex items-center gap-2 border border-neutral-300 text-neutral-900 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:border-neutral-400 hover:bg-neutral-100 hover:shadow-[0_0_24px_-8px_rgba(163,230,53,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" aria-label="Voir le profil LinkedIn"><span aria-hidden="true">↗</span> LinkedIn</a>
 </div>
 </section>
@@ -539,6 +542,9 @@ const t = {
     'metric-comex': 'Mandats COMEX',
     'metric-years': 'Direction marketing B2B',
     'btn-contact': '<span aria-hidden="true">→</span> Prendre RDV',
+    'btn-cv': '<span aria-hidden="true">↓</span> Télécharger le CV',
+    'btn-cv-nav': '<span aria-hidden="true">↓</span> CV',
+    'btn-cv-nav-mobile': '<span aria-hidden="true">↓</span> Télécharger le CV',
     'label-profil': 'Profil',
     'h2-profil': 'Marketing stratégique, exécution technique.',
     'profil-pitch': `<p>Profil hybride <strong class="text-lime-700 font-medium">stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable.</p><br><p>Vision CMO + exécution growth engineer. Je code, j'automatise, je pilote les données, je structure les équipes.</p><br><p>Startup en amorçage, scale-up en hypercroissance, PME en structuration : j'ai opéré à chaque stade, avec des résultats mesurables à chaque fois. Périmètre France, Europe, US et Japon.</p>`,
@@ -660,6 +666,9 @@ const t = {
     'metric-comex': 'Executive Committee seats',
     'metric-years': 'B2B marketing leadership',
     'btn-contact': '<span aria-hidden="true">→</span> Book a call',
+    'btn-cv': '<span aria-hidden="true">↓</span> Download my CV',
+    'btn-cv-nav': '<span aria-hidden="true">↓</span> CV',
+    'btn-cv-nav-mobile': '<span aria-hidden="true">↓</span> Download my CV',
     'label-profil': 'Profile',
     'h2-profil': 'Strategic marketing, technical execution.',
     'profil-pitch': `<p>Hybrid profile combining <strong class="text-lime-700 font-medium">strategy / data / automation</strong>. I build marketing systems that drive measurable growth.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams.</p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p>`,
