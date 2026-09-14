@@ -95,7 +95,10 @@ export default {
         headers: { ...headers, 'Content-Type': 'application/json' },
       });
     } catch (err) {
-      return new Response(JSON.stringify({ error: 'Erreur du modèle' }), {
+      return new Response(JSON.stringify({
+        error: 'Erreur du modèle',
+        detail: err && err.message ? err.message : String(err),
+      }), {
         status: 502,
         headers: { ...headers, 'Content-Type': 'application/json' },
       });
