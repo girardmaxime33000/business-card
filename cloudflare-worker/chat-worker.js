@@ -84,12 +84,14 @@ function corsHeaders(origin) {
   };
 }
 
-// Le modèle doit renvoyer un objet JSON unique, sans balises de code, mais
-// rien ne garantit qu'il obéisse toujours à la lettre : on essaie un parse
-// direct, puis on retente sur le premier bloc {...} trouvé, puis on
-// retombe sur le texte brut plutôt que d'échouer sèchement.
+// Avec response_format: json_object, Workers AI renvoie déjà un objet JS
+// dans result.response (pas une chaîne) — on le prend tel quel. Sinon
+// (chaîne, ou modèle qui ignore la consigne) : parse direct, puis
+// extraction du premier bloc {...} trouvé, puis abandon.
 function parseModelJson(raw) {
-  const text = (raw || '').trim();
+  if (raw && typeof raw === 'object') return raw;
+  const text = (typeof raw === 'string' ? raw : '').trim();
+  if (!text) return null;
   try {
     return JSON.parse(text);
   } catch {}
@@ -145,9 +147,10 @@ export default {
         response_format: { type: 'json_object' },
       });
 
-      const raw = (result && result.response) || '';
+      const raw = result && result.response;
       const parsed = parseModelJson(raw);
 
+      const fallbackAnswer = typeof raw === 'string' ? raw.trim() : '';
       const payload = parsed && typeof parsed.answer === 'string'
         ? {
             answer: parsed.answer,
@@ -159,16 +162,13 @@ export default {
             next_action: parsed.next_action || 'none',
             contact_email: parsed.contact_email || null,
           }
-        : { answer: raw.trim(), next_action: 'none', contact_email: null };
+        : { answer: fallbackAnswer, next_action: 'none', contact_email: null };
 
       return new Response(JSON.stringify(payload), {
         headers: { ...headers, 'Content-Type': 'application/json' },
       });
     } catch (err) {
-      return new Response(JSON.stringify({
-        error: 'Erreur du modèle',
-        detail: err && err.message ? err.message : String(err),
-      }), {
+      return new Response(JSON.stringify({ error: 'Erreur du modèle' }), {
         status: 502,
         headers: { ...headers, 'Content-Type': 'application/json' },
       });
