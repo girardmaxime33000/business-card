@@ -4,6 +4,8 @@
 // à gérer : le binding AI donne l'accès au modèle directement.
 
 const ALLOWED_ORIGINS = [
+  'https://www.girardmaxime33.com',
+  'https://girardmaxime33.com',
   'https://girardmaxime33000.github.io',
   'http://localhost:8080',
 ];
