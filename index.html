@@ -38,6 +38,11 @@
 <link rel="stylesheet" href="tailwind.css">
 <style>
 ::selection { background: #a3e635; color: #0a0a0a; }
+/* ── FIX [hidden] vs utilitaires flex/grid ── */
+/* Le Preflight Tailwind pose [hidden]{display:none} avant .flex{display:flex} :
+   à spécificité égale, la règle la plus tardive gagne, donc .flex/.grid gagnaient
+   sur l'attribut hidden (ex. #chat-panel restait visible malgré hidden). */
+[hidden] { display: none !important; }
 body { overflow-x: hidden; }
 /* ── NOISE OVERLAY ── */
 body::before {
@@ -257,7 +262,10 @@ body::before {
 <div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200 first:pt-0">
 <div class="pt-1">
 <p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">Avr. 2026 — Aujourd'hui</p>
-<p class="font-bold text-sm text-neutral-900 mb-1">Pollen AM</p>
+<div class="flex items-center gap-2 mb-1">
+<img src="logos/pollen-am.png" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Pollen AM</p>
+</div>
 <p class="text-xs text-neutral-500" data-i18n="exp0-type">Startup industrielle · Impression 3D pellets</p>
 </div>
 <div>
@@ -273,7 +281,10 @@ body::before {
 <div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
 <p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">Jan. 2025 – Nov. 2025</p>
-<p class="font-bold text-sm text-neutral-900 mb-1">Camping Car Park</p>
+<div class="flex items-center gap-2 mb-1">
+<img src="logos/camping-car-park.png" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Camping Car Park</p>
+</div>
 <p class="text-xs text-neutral-500" data-i18n="exp1-type">PME · Tourisme · SaaS</p>
 </div>
 <div>
@@ -289,7 +300,10 @@ body::before {
 <div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
 <p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2021 – 2024</p>
-<p class="font-bold text-sm text-neutral-900 mb-1">Sense4data</p>
+<div class="flex items-center gap-2 mb-1">
+<img src="logos/sense4data.png" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Sense4data</p>
+</div>
 <p class="text-xs text-neutral-500" data-i18n="exp2-type">PME · Conseil · RA OEM</p>
 </div>
 <div>
@@ -305,7 +319,10 @@ body::before {
 <div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
 <p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2020 – 2021</p>
-<p class="font-bold text-sm text-neutral-900 mb-1">Eyelights</p>
+<div class="flex items-center gap-2 mb-1">
+<img src="logos/eyelights.png" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Eyelights</p>
+</div>
 <p class="text-xs text-neutral-500" data-i18n="exp3-type">Scale-up · IoT & AR</p>
 </div>
 <div>
@@ -321,7 +338,10 @@ body::before {
 <div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
 <p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2019 – 2020</p>
-<p class="font-bold text-sm text-neutral-900 mb-1">Groupe Actiplay</p>
+<div class="flex items-center gap-2 mb-1">
+<img src="logos/groupe-actiplay.png" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Groupe Actiplay</p>
+</div>
 <p class="text-xs text-neutral-500" data-i18n="exp4-type">Agence Marketing</p>
 </div>
 <div>
@@ -336,7 +356,10 @@ body::before {
 <div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
 <p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2016 – 2018</p>
-<p class="font-bold text-sm text-neutral-900 mb-1">Facebots</p>
+<div class="flex items-center gap-2 mb-1">
+<img src="logos/facebots.png" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Facebots</p>
+</div>
 <p class="text-xs text-neutral-500" data-i18n="exp5-type">Startup · Chatbot & IA</p>
 </div>
 <div>
@@ -351,7 +374,10 @@ body::before {
 <div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10">
 <div class="pt-1">
 <p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2012 – 2015</p>
-<p class="font-bold text-sm text-neutral-900 mb-1">Sopexa</p>
+<div class="flex items-center gap-2 mb-1">
+<img src="logos/sopexa.png" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Sopexa</p>
+</div>
 <p class="text-xs text-neutral-500" data-i18n="exp6-type">Multinationale · Tokyo JP</p>
 </div>
 <div>
