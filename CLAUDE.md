@@ -115,15 +115,9 @@ footer, widget d'assistant IA flottant (fermé par défaut).
 
 ## Build & génération — ordre à respecter
 
-Après toute modification d'`index.html` :
+Après toute modification d'`index.html`, toujours dans cet ordre :
 
-1. **Si des classes Tailwind ont changé** :
-   ```bash
-   npx tailwindcss@3.4.13 -i ./tailwind-input.css -o ./tailwind.css --minify
-   ```
-   Scanne `index.html` + `en/index.html` (`content` dans `tailwind.config.js`).
-
-2. **Toujours, après un changement de contenu ou de structure** :
+1. **`build-en.py`** :
    ```bash
    python3 build-en.py
    ```
@@ -131,9 +125,20 @@ Après toute modification d'`index.html` :
    métadonnées, JSON-LD, sélecteur de langue actif) **et** republie
    `<lastmod>` dans `sitemap.xml` à la date du jour.
 
-**Toujours dans cet ordre** : Tailwind d'abord (le `<link>` vers
-`tailwind.css` est recopié tel quel par `build-en.py`), puis `build-en.py`.
-Une CI vérifie qu'aucun diff ne reste après ces deux commandes — voir
+2. **`tailwindcss`** :
+   ```bash
+   npx tailwindcss@3.4.13 -i ./tailwind-input.css -o ./tailwind.css --minify
+   ```
+   Scanne `index.html` **et** `en/index.html` (`content` dans
+   `tailwind.config.js`) pour ne générer que les classes réellement utilisées.
+
+**`build-en.py` d'abord, `tailwindcss` ensuite — jamais l'inverse.**
+`en/index.html` est généré depuis `index.html` ; tant qu'il n'a pas été
+régénéré, il reflète encore l'état précédent. Si une modification retire des
+classes Tailwind, scanner un `en/index.html` pas encore à jour les garde à
+tort dans `tailwind.css` (bug déjà rencontré — un fichier plus gros que
+nécessaire, sans casse visuelle, mais qui fait échouer la CI). Une CI
+vérifie qu'aucun diff ne reste après ces deux commandes — voir
 `.github/workflows/` si présent ; sinon, exécuter les deux commandes
 manuellement avant de committer reste indispensable.
 

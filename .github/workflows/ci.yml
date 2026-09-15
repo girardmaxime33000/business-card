@@ -23,11 +23,16 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Régénérer tailwind.css
-        run: npx --yes tailwindcss@3.4.13 -i ./tailwind-input.css -o ./tailwind.css --minify
-
+      # Ordre impératif — voir README « Mise à jour du site » : build-en.py
+      # d'abord, pour que en/index.html reflète l'index.html du commit avant
+      # que tailwindcss ne le scanne. Sinon des classes retirées d'index.html
+      # mais encore présentes dans l'ancien en/index.html restent à tort
+      # dans tailwind.css (bug déjà rencontré).
       - name: Régénérer en/index.html et sitemap.xml
         run: python3 build-en.py
+
+      - name: Régénérer tailwind.css
+        run: npx --yes tailwindcss@3.4.13 -i ./tailwind-input.css -o ./tailwind.css --minify
 
       - name: Vérifier qu'aucun fichier généré n'a divergé
         run: |

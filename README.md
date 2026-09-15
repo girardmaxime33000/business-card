@@ -104,7 +104,7 @@ Le site reste 100 % statique à l'usage (aucune installation pour un visiteur),
 mais deux fichiers sont **générés** et doivent être régénérés après toute
 modification d'`index.html` :
 
-### Régénérer `en/index.html` (après un changement de contenu ou de structure)
+### 1. Régénérer `en/index.html`
 
 ```bash
 python3 build-en.py
@@ -120,21 +120,28 @@ deux langues, pas seulement de l'i18n.
 Ce même run met aussi à jour `<lastmod>` dans `sitemap.xml` à la date du jour
 — pas besoin d'y toucher à la main.
 
-### Régénérer `tailwind.css` (après un changement de classes Tailwind)
+### 2. Régénérer `tailwind.css`
 
 ```bash
 npx tailwindcss@3.4.13 -i ./tailwind-input.css -o ./tailwind.css --minify
 ```
 
-Scanne `index.html` et `en/index.html` (voir `content` dans `tailwind.config.js`)
-pour ne générer que les classes utilisées. Remplace le CDN runtime
-`cdn.tailwindcss.com` (compilation à la volée côté client, pénalisant le
-premier rendu) par un fichier statique commité — toujours régénérer **avant**
-de lancer `build-en.py`, puisque celui-ci recopie `<link rel="stylesheet"
-href="tailwind.css">` vers `en/index.html`.
+Scanne `index.html` **et** `en/index.html` (voir `content` dans
+`tailwind.config.js`) pour ne générer que les classes réellement utilisées.
+Remplace le CDN runtime `cdn.tailwindcss.com` (compilation à la volée côté
+client, pénalisant le premier rendu) par un fichier statique commité.
 
-**Ordre à respecter** après une modification d'`index.html` touchant des
-classes Tailwind : régénérer `tailwind.css`, puis `en/index.html`.
+**Ordre impératif : `build-en.py` d'abord, `tailwindcss` ensuite — jamais
+l'inverse.** `en/index.html` est lui-même généré depuis `index.html` ; tant
+qu'il n'a pas été régénéré, il reflète encore l'état *précédent*
+d'`index.html`. Si une modification retire des classes Tailwind d'un élément,
+lancer `tailwindcss` avant `build-en.py` fait scanner cet `en/index.html`
+encore obsolète : les classes retirées y sont encore présentes, donc
+conservées à tort dans `tailwind.css` — un fichier committé qui diverge
+silencieusement de ce que la CI régénère (elle, checkout puis les deux
+commandes dans le bon ordre : toujours correct). Un fichier `tailwind.css`
+plus gros que nécessaire ne casse rien visuellement, mais fait échouer le
+job CI « Fichiers générés à jour ».
 
 ### CI (`.github/workflows/ci.yml`)
 
