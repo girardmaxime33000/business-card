@@ -5,3 +5,8 @@ account_id = "89fe5a77265d9ae6b6ae1642b6b6236d"
 
 [ai]
 binding = "AI"
+
+# Rate limiting par IP (voir README « Rate limiting »).
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "fb67100da7924a68a0d29302d9e9a61a"

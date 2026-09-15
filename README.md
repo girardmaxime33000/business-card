@@ -28,15 +28,7 @@ Image.open(io.BytesIO(png)).convert('RGB').save('og-image.jpg', 'JPEG', quality=
 Alternative sans dépendance Python : Figma (File → Import SVG → Export as JPG 1200×630),
 Inkscape, ou https://cloudconvert.com/svg-to-jpg.
 
-### 2. CV PDF
-
-`cv-maxime-girard-en.pdf` contient le vrai CV (anglais). Décision prise : ce même
-fichier est utilisé comme lien de téléchargement sur les deux langues du site
-(pas de CV français disponible). `cv-maxime-girard-fr.pdf` reste un fichier
-vide (0 octet) et n'est référencé nulle part — à fournir et relier si un CV
-français doit un jour remplacer l'anglais sur la version FR du site.
-
-### 3. Créer un compte Plausible
+### 2. Créer un compte Plausible
 
 Domaine custom retenu : `www.girardmaxime33.com` (voir `CNAME`). Toutes les URLs
 canoniques, OG, hreflang, JSON-LD, `sitemap.xml`, `robots.txt` et l'attribut
@@ -56,9 +48,12 @@ Pour activer la collecte :
 1. Créer un compte sur https://plausible.io (ou auto-héberger)
 2. Ajouter le site avec le domaine `www.girardmaxime33.com`
 
-### 4. Fournir les URLs LinkedIn des référents
+### 3. Fournir les URLs LinkedIn des référents
 
-Les profils LinkedIn des personnes citées dans la section Références sont marqués `<!-- TODO: LinkedIn URL -->` dans le code. Une fois les URLs disponibles, remplacer les `<span class="ref-name">` par des `<a>` avec les liens correspondants.
+Les profils LinkedIn des personnes citées dans la section Références ne
+sont pas liés (URLs non disponibles). Une fois obtenues, transformer les
+`<span>` du nom en `<a href="...">` correspondants dans `index.html` (les
+4 occurrences dans `#references`), puis régénérer `en/index.html`.
 
 Référents :
 - Nicolas Pasetti (CEO, eteam_work)
@@ -96,8 +91,8 @@ business-card/
 ├── testimonials/           # Portraits des référents (.webp), affichés dans Références
 ├── robots.txt
 ├── sitemap.xml
-├── cv-maxime-girard-fr.pdf # ⚠ Vide — voir « CV PDF » ci-dessus
-├── cv-maxime-girard-en.pdf # Vrai CV, utilisé sur les deux langues
+├── cv-maxime-girard-fr.pdf # CV FR, lié depuis index.html
+├── cv-maxime-girard-en.pdf # CV EN, lié depuis en/index.html
 └── README.md
 ```
 

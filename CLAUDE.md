@@ -30,8 +30,8 @@ business-card/
 ├── testimonials/               # Portraits des référents (.webp), section Références
 ├── robots.txt
 ├── sitemap.xml                  # <lastmod> réécrit automatiquement par build-en.py
-├── cv-maxime-girard-en.pdf      # CV réel, utilisé sur les deux langues du site
-├── cv-maxime-girard-fr.pdf      # Vide intentionnellement — voir README « CV PDF »
+├── cv-maxime-girard-en.pdf      # CV réel EN, lié depuis en/index.html
+├── cv-maxime-girard-fr.pdf      # CV réel FR, lié depuis index.html
 ├── CNAME                        # Domaine custom : www.girardmaxime33.com
 ├── cloudflare-worker/            # Backend de l'assistant IA — déployé séparément, hors GitHub Pages
 │   ├── chat-worker.js             # Source unique de vérité des faits/règles du bot (SYSTEM_PROMPT)
@@ -151,8 +151,10 @@ manuellement avant de committer reste indispensable.
   bloc pour changer ce que le bot sait, ne pas dupliquer ces faits ailleurs.
 - CORS : `ALLOWED_ORIGINS` dans `chat-worker.js` couvre le domaine custom,
   l'ancien `girardmaxime33000.github.io` (transition) et `localhost:8080`.
-- Aucun rate-limiting côté Worker actuellement — à garder en tête avant
-  toute exposition à un trafic plus large.
+- Rate limiting par IP (10 req/5 min) via un namespace KV `RATE_LIMIT`,
+  actif (binding lié dans `wrangler.toml`) — voir
+  `cloudflare-worker/README.md` § Rate limiting. Fail-open par conception
+  si jamais le binding disparaissait (pas de blocage du chat).
 
 ---
 
@@ -232,8 +234,6 @@ métadonnées — ce domaine github.io reste seulement dans les
 
 ### À ne pas « corriger » sans demander
 
-- `cv-maxime-girard-fr.pdf` vide : décision assumée, le CV EN sert les deux
-  langues (voir README § « CV PDF »).
 - Références sans lien LinkedIn dans `#references` : les URLs ne sont pas
   disponibles, ne pas en inventer.
 

@@ -75,13 +75,47 @@ Question : "Quelles sont ses prétentions salariales ?"
 {"lang":"fr","answer":"Cette information n'est pas disponible ici. Le sujet se traite directement avec Maxime Girard par email.","intent":"recruiter","topic":"profile","sources":[],"confidence":"low","next_action":"email","contact_email":"${CONTACT_EMAIL}"}`;
 
 function corsHeaders(origin) {
-  const allowed = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
-  return {
-    'Access-Control-Allow-Origin': allowed,
+  // Une origine non whitelistée (ou absente) ne doit recevoir aucun
+  // Access-Control-Allow-Origin — pas la valeur d'une origine autorisée au
+  // hasard. Le fallback précédent (ALLOWED_ORIGINS[0]) n'ouvrait rien de
+  // plus côté navigateur (l'origine réelle ne matchait toujours pas, donc
+  // le fetch échouait déjà côté client), mais c'était un header trompeur :
+  // il annonçait un accès qu'aucune origine réelle n'obtenait.
+  const headers = {
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Vary': 'Origin',
   };
+  if (ALLOWED_ORIGINS.includes(origin)) {
+    headers['Access-Control-Allow-Origin'] = origin;
+  }
+  return headers;
+}
+
+// ── RATE LIMITING (par IP, best-effort) ──
+// Protège la question dans FAITS/RÈGLES (SYSTEM_PROMPT) et le quota gratuit
+// Workers AI (10 000 "neurons"/jour, voir README) d'un bourrage de requêtes.
+// Nécessite un namespace KV lié en RATE_LIMIT (voir README « Rate
+// limiting ») — tant qu'il n'est pas configuré, isRateLimited() ne bloque
+// rien (fail open) : le chat continue de fonctionner sans limite, comme
+// avant.
+const RATE_LIMIT_WINDOW_SECONDS = 300; // 5 minutes
+const RATE_LIMIT_MAX_REQUESTS = 10;    // par IP, par fenêtre de 5 minutes
+
+async function isRateLimited(env, ip) {
+  if (!env.RATE_LIMIT || !ip) return false;
+  const window = Math.floor(Date.now() / 1000 / RATE_LIMIT_WINDOW_SECONDS);
+  const key = `rl:${ip}:${window}`;
+  const current = parseInt((await env.RATE_LIMIT.get(key)) || '0', 10);
+  if (current >= RATE_LIMIT_MAX_REQUESTS) return true;
+  // Lecture-puis-écriture non atomique : limite connue de Workers KV, une
+  // poignée de requêtes simultanées peut passer en trop sous forte
+  // concurrence. Acceptable pour le trafic attendu ici (site personnel) —
+  // un Durable Object donnerait un comptage exact si jamais nécessaire.
+  await env.RATE_LIMIT.put(key, String(current + 1), {
+    expirationTtl: RATE_LIMIT_WINDOW_SECONDS + 5,
+  });
+  return false;
 }
 
 // Avec response_format: json_object, Workers AI renvoie déjà un objet JS
@@ -116,6 +150,14 @@ export default {
       return new Response(JSON.stringify({ error: 'Method not allowed' }), {
         status: 405,
         headers: { ...headers, 'Content-Type': 'application/json' },
+      });
+    }
+
+    const ip = request.headers.get('CF-Connecting-IP') || '';
+    if (await isRateLimited(env, ip)) {
+      return new Response(JSON.stringify({ error: 'Trop de requêtes, réessayez dans quelques minutes.' }), {
+        status: 429,
+        headers: { ...headers, 'Content-Type': 'application/json', 'Retry-After': String(RATE_LIMIT_WINDOW_SECONDS) },
       });
     }
 
