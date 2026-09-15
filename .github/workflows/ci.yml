@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  # Régénère tailwind.css et en/index.html (voir README « Mise à jour du
+  # site ») et échoue si le résultat diverge de ce qui est commité — évite
+  # qu'un commit oublie de régénérer un fichier dérivé.
+  build-check:
+    name: Fichiers générés à jour
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Régénérer tailwind.css
+        run: npx --yes tailwindcss@3.4.13 -i ./tailwind-input.css -o ./tailwind.css --minify
+
+      - name: Régénérer en/index.html et sitemap.xml
+        run: python3 build-en.py
+
+      - name: Vérifier qu'aucun fichier généré n'a divergé
+        run: |
+          git diff --stat -- . ':!sitemap.xml'
+          # sitemap.xml : exclu de ce contrôle. build-en.py republie <lastmod>
+          # à la date du jour à chaque run (voir README) — un diff sur ce
+          # seul fichier, un autre jour que celui du dernier commit de
+          # contenu, est attendu et ne doit pas faire échouer la CI.
+          git diff --exit-code -- . ':!sitemap.xml' || {
+            echo "::error::tailwind.css et/ou en/index.html ne sont pas à jour avec index.html. Relancer les deux commandes ci-dessus en local et committer le résultat (voir README § Mise à jour du site)."
+            exit 1
+          }
+
+  html-validate:
+    name: Validation HTML (Nu Html Checker)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - run: pip install html5validator
+
+      - name: Valider index.html et en/index.html
+        run: |
+          html5validator --root . --match "index.html" "en/index.html" \
+            --ignore 'CSS: "inset": Property "inset" doesn'\''t exist'
+        # L'unique règle ignorée : le vérificateur CSS embarqué du Nu Html
+        # Checker ne connaît pas le raccourci "inset" (CSS Positioned Layout
+        # Level 3), pourtant largement supporté par les navigateurs actuels.
+        # Faux positif documenté du validateur, pas un bug du site — ne pas
+        # réécrire les règles top/right/bottom/left pour le faire taire.
+
+  link-check:
+    name: Liens morts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --root-dir ${{ github.workspace }}
+            --max-retries 2
+            --timeout 20
+            --exclude "girardmaxime33\.com"
+            --exclude "linkedin\.com"
+            index.html en/index.html
+          fail: true
+        # girardmaxime33.com : domaine custom pas encore en ligne (DNS/HTTPS
+        # à finaliser, voir README § Créer un compte Plausible) — à retirer
+        # de cette exclusion une fois le domaine réellement joignable.
+        # linkedin.com : bloque systématiquement les clients automatisés
+        # (comportement connu, sans rapport avec la validité du lien).

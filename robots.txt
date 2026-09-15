@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://girardmaxime33000.github.io/business-card/sitemap.xml
+Sitemap: https://www.girardmaxime33.com/sitemap.xml

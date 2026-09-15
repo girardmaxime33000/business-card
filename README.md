@@ -2,7 +2,7 @@
 
 Portfolio / carte de visite personnelle. Site statique single-page, déployé sur GitHub Pages.
 
-**URL prod :** https://girardmaxime33000.github.io/business-card/
+**URL prod :** https://www.girardmaxime33.com/
 
 ---
 
@@ -38,15 +38,23 @@ français doit un jour remplacer l'anglais sur la version FR du site.
 
 ### 3. Créer un compte Plausible
 
-Le tracking Plausible est configuré pour le domaine `girardmaxime33000.github.io`.
+Domaine custom retenu : `www.girardmaxime33.com` (voir `CNAME`). Toutes les URLs
+canoniques, OG, hreflang, JSON-LD, `sitemap.xml`, `robots.txt` et l'attribut
+`data-domain` du script Plausible pointent désormais vers ce domaine — plus
+vers `girardmaxime33000.github.io` (domaine partagé entre tous les repos
+GitHub Pages de l'utilisateur, à ne plus utiliser comme référence).
 
-**Important :** `girardmaxime33000.github.io` est un domaine partagé entre tous les repos GitHub Pages de l'utilisateur. Le tracking Plausible sera donc global à l'ensemble des pages hébergées sous ce domaine, pas uniquement `business-card/`.
-
-**Recommandation :** Brancher un domaine custom (ex. `maxime-girard.fr`) et mettre à jour l'attribut `data-domain` dans le script Plausible ainsi que toutes les URLs canoniques, OG et sitemap.
+Pré-requis encore à vérifier côté hébergement avant mise en prod :
+- DNS du domaine custom configuré vers GitHub Pages et certificat HTTPS actif
+  (Settings → Pages du repo doit afficher le domaine sans erreur).
+- GitHub Pages configuré pour appliquer strictement le domaine custom
+  (« Enforce HTTPS »), sinon `girardmaxime33000.github.io/business-card/`
+  reste accessible en parallèle et sert le même contenu sous une URL non
+  canonique.
 
 Pour activer la collecte :
 1. Créer un compte sur https://plausible.io (ou auto-héberger)
-2. Ajouter le site avec le domaine `girardmaxime33000.github.io`
+2. Ajouter le site avec le domaine `www.girardmaxime33.com`
 
 ### 4. Fournir les URLs LinkedIn des référents
 
@@ -108,10 +116,14 @@ python3 build-en.py
 ```
 
 Applique les traductions `t.en` du script d'`index.html` sur les éléments
-`data-i18n`/`data-i18n-html`, réécrit les chemins relatifs (`../`), et bascule
-`lang`, les métadonnées et le sélecteur de langue actif. Le script principal
-(scrollspy, menu mobile, assistant, chargement différé de Calendly) est
-conservé tel quel — commun aux deux langues, pas seulement de l'i18n.
+`data-i18n`/`data-i18n-html`/`data-i18n-placeholder`, réécrit les chemins
+relatifs (`../`), et bascule `lang`, les métadonnées (y compris le JSON-LD) et
+le sélecteur de langue actif. Le script principal (scrollspy, menu mobile,
+assistant, chargement différé de Calendly) est conservé tel quel — commun aux
+deux langues, pas seulement de l'i18n.
+
+Ce même run met aussi à jour `<lastmod>` dans `sitemap.xml` à la date du jour
+— pas besoin d'y toucher à la main.
 
 ### Régénérer `tailwind.css` (après un changement de classes Tailwind)
 
@@ -128,3 +140,18 @@ href="tailwind.css">` vers `en/index.html`.
 
 **Ordre à respecter** après une modification d'`index.html` touchant des
 classes Tailwind : régénérer `tailwind.css`, puis `en/index.html`.
+
+### CI (`.github/workflows/ci.yml`)
+
+Trois checks sur chaque push/PR :
+- **Fichiers générés à jour** — relance les deux commandes ci-dessus et
+  échoue si le résultat diverge de ce qui est commité (hors `sitemap.xml`,
+  dont le `<lastmod>` change de façon attendue à chaque run).
+- **Validation HTML** (Nu Html Checker, via `html5validator`) sur
+  `index.html` et `en/index.html`. Une règle est ignorée : le vérificateur
+  CSS embarqué ne connaît pas le raccourci `inset`, pourtant supporté par
+  tous les navigateurs actuels — faux positif documenté du validateur.
+- **Liens morts** (`lychee`) sur les deux pages. Deux exclusions
+  temporaires : `girardmaxime33.com` (domaine custom pas encore joignable,
+  voir § Plausible ci-dessus — à retirer une fois le DNS/HTTPS en place) et
+  `linkedin.com` (bloque systématiquement les clients automatisés).
