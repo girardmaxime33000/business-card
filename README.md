@@ -116,10 +116,14 @@ python3 build-en.py
 ```
 
 Applique les traductions `t.en` du script d'`index.html` sur les éléments
-`data-i18n`/`data-i18n-html`, réécrit les chemins relatifs (`../`), et bascule
-`lang`, les métadonnées et le sélecteur de langue actif. Le script principal
-(scrollspy, menu mobile, assistant, chargement différé de Calendly) est
-conservé tel quel — commun aux deux langues, pas seulement de l'i18n.
+`data-i18n`/`data-i18n-html`/`data-i18n-placeholder`, réécrit les chemins
+relatifs (`../`), et bascule `lang`, les métadonnées (y compris le JSON-LD) et
+le sélecteur de langue actif. Le script principal (scrollspy, menu mobile,
+assistant, chargement différé de Calendly) est conservé tel quel — commun aux
+deux langues, pas seulement de l'i18n.
+
+Ce même run met aussi à jour `<lastmod>` dans `sitemap.xml` à la date du jour
+— pas besoin d'y toucher à la main.
 
 ### Régénérer `tailwind.css` (après un changement de classes Tailwind)
 

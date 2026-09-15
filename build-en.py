@@ -138,12 +138,15 @@ out = re.sub(r'(<meta name="twitter:description" content=")[^"]*(")',
 out = out.replace(
     '"jobTitle": "Directeur Marketing & Growth B2B"',
     '"jobTitle": "Marketing & Growth Director B2B"', 1)
-out = out.replace(
-    '"description": "Directeur Marketing & Growth B2B — 10 ans d\'expérience, '
-    '5 COMEX, +35M€ ARR. Stratège ET technicien, B2B/B2B2C. France, Europe, US, Japon."',
-    '"description": "Marketing & Growth Director B2B — 10 years, '
-    '5 Exec. Committees, +35M€ ARR. Strategist AND practitioner, B2B/B2B2C. France, Europe, US, Japan."',
-    1)
+
+# Basé sur un regex (comme og:description ci-dessus) plutôt qu'un .replace()
+# sur chaîne littérale : un .replace() exact se tait silencieusement dès que
+# le texte FR source dérive, laissant le JSON-LD EN en français sans erreur
+# visible au build. Le regex reste correct même si le texte FR change.
+out = re.sub(r'("description": ")[^"]*(")',
+    lambda m: m.group(1) + 'Marketing & Growth Director B2B — 10 years, '
+    '5 Exec. Committees, +35M€ ARR. Strategist AND practitioner, B2B/B2B2C. France, Europe, US, Japan.' + m.group(2),
+    out, count=1)
 
 # ── 4. Chemins relatifs (depuis en/) ──────────────────────────────────────
 out = out.replace('href="favicon.svg"',              'href="../favicon.svg"',              1)
@@ -176,9 +179,10 @@ out = re.sub(r'<a\b[^>]*\bdata-lang="en"[^>]*>', _activate_lang_btn, out, count=
 # Le script principal est conservé tel quel : au-delà de la traduction (déjà
 # statique dans le HTML à ce stade), il porte aussi le scrollspy, le menu
 # mobile, le widget d'assistant et le chargement différé de Calendly — des
-# fonctionnalités communes aux deux langues, pas seulement de l'i18n. Le
-# système de traduction (dict `t`, setLang) reste inerte tant que personne ne
-# clique sur le sélecteur de langue ou n'a 'lang' en localStorage.
+# fonctionnalités communes aux deux langues, pas seulement de l'i18n. L'objet
+# `t` reste dans le fichier : c'est la source de traduction lue par ce script
+# (section 1 ci-dessus), pas un mécanisme de bascule de langue en direct dans
+# le navigateur (supprimé — chaque langue est servie par sa propre page).
 
 # ── 7. Écrire ──────────────────────────────────────────────────────────────
 os.makedirs(os.path.dirname(DST), exist_ok=True)
@@ -186,3 +190,18 @@ with open(DST, "w", encoding="utf-8") as f:
     f.write(out)
 
 print(f"✓ {DST} ({len(out):,} chars)")
+
+# ── 8. sitemap.xml : lastmod à la date du build ────────────────────────────
+# Évite qu'une date figée dérive silencieusement au fil des modifications de
+# contenu — ce script tourne déjà à chaque changement d'index.html (voir
+# README), c'est le point naturel pour republier ces dates.
+import datetime
+SITEMAP = os.path.join(os.path.dirname(SRC), "sitemap.xml")
+if os.path.exists(SITEMAP):
+    with open(SITEMAP, encoding="utf-8") as f:
+        sitemap = f.read()
+    today = datetime.date.today().isoformat()
+    sitemap, n = re.subn(r"<lastmod>[^<]*</lastmod>", f"<lastmod>{today}</lastmod>", sitemap)
+    with open(SITEMAP, "w", encoding="utf-8") as f:
+        f.write(sitemap)
+    print(f"✓ {SITEMAP} ({n} lastmod → {today})")
