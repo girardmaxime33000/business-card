@@ -29,3 +29,24 @@ vers l'email/Calendly — il ne casse rien.
 
 10 000 "neurons" par jour (largement suffisant pour un site personnel).
 Pas de carte bancaire requise pour rester sur ce palier.
+
+## Rate limiting
+
+Le Worker limite chaque IP à 10 requêtes / 5 minutes (voir
+`RATE_LIMIT_WINDOW_SECONDS` / `RATE_LIMIT_MAX_REQUESTS` dans
+`chat-worker.js`) — protège le quota gratuit ci-dessus d'un bourrage de
+requêtes. **Désactivé par défaut** (le code tourne sans erreur, sans
+limite, tant que le binding n'existe pas) : activer une seule fois,
+après le premier déploiement.
+
+```bash
+cd cloudflare-worker
+npx wrangler kv namespace create RATE_LIMIT
+```
+
+La commande affiche un id. Décommenter le bloc `[[kv_namespaces]]` dans
+`wrangler.toml`, y coller cet id, puis redéployer :
+
+```bash
+npx wrangler deploy
+```

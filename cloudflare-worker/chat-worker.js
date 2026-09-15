@@ -92,6 +92,32 @@ function corsHeaders(origin) {
   return headers;
 }
 
+// ── RATE LIMITING (par IP, best-effort) ──
+// Protège la question dans FAITS/RÈGLES (SYSTEM_PROMPT) et le quota gratuit
+// Workers AI (10 000 "neurons"/jour, voir README) d'un bourrage de requêtes.
+// Nécessite un namespace KV lié en RATE_LIMIT (voir README « Rate
+// limiting ») — tant qu'il n'est pas configuré, isRateLimited() ne bloque
+// rien (fail open) : le chat continue de fonctionner sans limite, comme
+// avant.
+const RATE_LIMIT_WINDOW_SECONDS = 300; // 5 minutes
+const RATE_LIMIT_MAX_REQUESTS = 10;    // par IP, par fenêtre de 5 minutes
+
+async function isRateLimited(env, ip) {
+  if (!env.RATE_LIMIT || !ip) return false;
+  const window = Math.floor(Date.now() / 1000 / RATE_LIMIT_WINDOW_SECONDS);
+  const key = `rl:${ip}:${window}`;
+  const current = parseInt((await env.RATE_LIMIT.get(key)) || '0', 10);
+  if (current >= RATE_LIMIT_MAX_REQUESTS) return true;
+  // Lecture-puis-écriture non atomique : limite connue de Workers KV, une
+  // poignée de requêtes simultanées peut passer en trop sous forte
+  // concurrence. Acceptable pour le trafic attendu ici (site personnel) —
+  // un Durable Object donnerait un comptage exact si jamais nécessaire.
+  await env.RATE_LIMIT.put(key, String(current + 1), {
+    expirationTtl: RATE_LIMIT_WINDOW_SECONDS + 5,
+  });
+  return false;
+}
+
 // Avec response_format: json_object, Workers AI renvoie déjà un objet JS
 // dans result.response (pas une chaîne) — on le prend tel quel. Sinon
 // (chaîne, ou modèle qui ignore la consigne) : parse direct, puis
@@ -124,6 +150,14 @@ export default {
       return new Response(JSON.stringify({ error: 'Method not allowed' }), {
         status: 405,
         headers: { ...headers, 'Content-Type': 'application/json' },
+      });
+    }
+
+    const ip = request.headers.get('CF-Connecting-IP') || '';
+    if (await isRateLimited(env, ip)) {
+      return new Response(JSON.stringify({ error: 'Trop de requêtes, réessayez dans quelques minutes.' }), {
+        status: 429,
+        headers: { ...headers, 'Content-Type': 'application/json', 'Retry-After': String(RATE_LIMIT_WINDOW_SECONDS) },
       });
     }
 
