@@ -91,7 +91,7 @@ out = re.sub(r'(<meta name="description" content=")[^"]*(")',
     out, count=1)
 
 out = re.sub(r'(<link rel="canonical" href=")[^"]*(")',
-    r'\g<1>https://girardmaxime33000.github.io/business-card/en/\2', out, count=1)
+    r'\g<1>https://www.girardmaxime33.com/en/\2', out, count=1)
 
 out = out.replace(
     '<meta property="og:locale" content="fr_FR">',
@@ -101,7 +101,7 @@ out = out.replace(
     '<meta property="og:locale:alternate" content="fr_FR">', 1)
 
 out = re.sub(r'(<meta property="og:url" content=")[^"]*(")',
-    r'\g<1>https://girardmaxime33000.github.io/business-card/en/\2', out, count=1)
+    r'\g<1>https://www.girardmaxime33.com/en/\2', out, count=1)
 
 out = re.sub(r'(<meta property="og:title" content=")[^"]*(")',
     r'\g<1>Maxime Girard | Marketing &amp; Growth Director B2B — Bordeaux\2', out, count=1)

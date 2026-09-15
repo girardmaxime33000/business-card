@@ -2,7 +2,7 @@
 
 Portfolio / carte de visite personnelle. Site statique single-page, déployé sur GitHub Pages.
 
-**URL prod :** https://girardmaxime33000.github.io/business-card/
+**URL prod :** https://www.girardmaxime33.com/
 
 ---
 
@@ -38,15 +38,23 @@ français doit un jour remplacer l'anglais sur la version FR du site.
 
 ### 3. Créer un compte Plausible
 
-Le tracking Plausible est configuré pour le domaine `girardmaxime33000.github.io`.
+Domaine custom retenu : `www.girardmaxime33.com` (voir `CNAME`). Toutes les URLs
+canoniques, OG, hreflang, JSON-LD, `sitemap.xml`, `robots.txt` et l'attribut
+`data-domain` du script Plausible pointent désormais vers ce domaine — plus
+vers `girardmaxime33000.github.io` (domaine partagé entre tous les repos
+GitHub Pages de l'utilisateur, à ne plus utiliser comme référence).
 
-**Important :** `girardmaxime33000.github.io` est un domaine partagé entre tous les repos GitHub Pages de l'utilisateur. Le tracking Plausible sera donc global à l'ensemble des pages hébergées sous ce domaine, pas uniquement `business-card/`.
-
-**Recommandation :** Brancher un domaine custom (ex. `maxime-girard.fr`) et mettre à jour l'attribut `data-domain` dans le script Plausible ainsi que toutes les URLs canoniques, OG et sitemap.
+Pré-requis encore à vérifier côté hébergement avant mise en prod :
+- DNS du domaine custom configuré vers GitHub Pages et certificat HTTPS actif
+  (Settings → Pages du repo doit afficher le domaine sans erreur).
+- GitHub Pages configuré pour appliquer strictement le domaine custom
+  (« Enforce HTTPS »), sinon `girardmaxime33000.github.io/business-card/`
+  reste accessible en parallèle et sert le même contenu sous une URL non
+  canonique.
 
 Pour activer la collecte :
 1. Créer un compte sur https://plausible.io (ou auto-héberger)
-2. Ajouter le site avec le domaine `girardmaxime33000.github.io`
+2. Ajouter le site avec le domaine `www.girardmaxime33.com`
 
 ### 4. Fournir les URLs LinkedIn des référents
 
