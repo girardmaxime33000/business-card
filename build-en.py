@@ -78,6 +78,19 @@ for key, val in en.items():
     if "<" not in val:
         out = sub_i18n(out, key, val, is_html=False)
 
+# data-i18n-placeholder (attribut placeholder — ex. champ de saisie du chat)
+def sub_i18n_placeholder(html, key, val):
+    """Remplace le placeholder d'un élément portant data-i18n-placeholder="key".
+    Suppose l'ordre d'attributs du gabarit source : data-i18n-placeholder="key"
+    vient avant placeholder="...". """
+    pattern = re.compile(
+        r'(data-i18n-placeholder="' + re.escape(key) + r'"[^>]*?placeholder=")[^"]*(")'
+    )
+    return pattern.sub(lambda m: m.group(1) + val.replace('"', '&quot;') + m.group(2), html, count=1)
+
+for key, val in en.items():
+    out = sub_i18n_placeholder(out, key, val)
+
 # ── 3. lang et métadonnées ─────────────────────────────────────────────────
 out = re.sub(r'<html lang="fr"', '<html lang="en"', out, count=1)
 

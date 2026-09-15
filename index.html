@@ -135,6 +135,7 @@ body::before {
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
 <body class="bg-bg text-neutral-900 font-sans antialiased leading-relaxed">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-lime-400 focus:text-black focus:font-bold focus:text-sm focus:px-4 focus:py-2 focus:rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2" data-i18n="skip-link">Aller au contenu principal</a>
 <!-- NAV -->
 <header class="fixed inset-x-0 top-0 z-[100]">
 <nav aria-label="Navigation principale" class="flex items-center justify-between px-[4vw] py-5 bg-lime-400/95 backdrop-blur-xl border-b border-lime-600/30 shadow-[0_2px_24px_-6px_rgba(101,163,13,0.35)]">
@@ -176,7 +177,7 @@ body::before {
 </ul>
 </div>
 </header>
-<main>
+<main id="main-content">
 <!-- HERO -->
 <section id="hero" aria-labelledby="h1-hero" class="min-h-screen flex flex-col justify-center px-[4vw] pt-40 pb-28 relative overflow-hidden">
 <div class="grid-texture"></div>
@@ -589,16 +590,16 @@ body::before {
 </div>
 </footer>
 <!-- ASSISTANT IA -->
-<button id="chat-toggle" type="button" aria-expanded="true" aria-controls="chat-panel" aria-label="Fermer l'assistant" class="fixed bottom-6 right-6 z-[90] w-14 h-14 rounded-full bg-lime-400 text-black flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_32px_-6px_rgba(221,255,87,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2">
-<svg id="chat-icon-open" aria-hidden="true" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-<svg id="chat-icon-close" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 6 6 18"/><path d="M6 6 18 18"/></svg>
+<button id="chat-toggle" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="Ouvrir l'assistant" class="fixed bottom-6 right-6 z-[90] w-14 h-14 rounded-full bg-lime-400 text-black flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_32px_-6px_rgba(221,255,87,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2">
+<svg id="chat-icon-open" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+<svg id="chat-icon-close" aria-hidden="true" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 6 6 18"/><path d="M6 6 18 18"/></svg>
 </button>
-<div id="chat-panel" class="fixed z-[90] bottom-24 right-6 left-6 sm:left-auto w-auto sm:w-96 max-h-[70vh] bg-surface border border-neutral-200 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+<div id="chat-panel" hidden class="fixed z-[90] bottom-24 right-6 left-6 sm:left-auto w-auto sm:w-96 max-h-[70vh] bg-surface border border-neutral-200 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
 <div class="flex items-center justify-between px-4 py-3 border-b border-neutral-200">
 <p class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="chat-title">Assistant Maxime</span></p>
 <button id="chat-close" type="button" aria-label="Fermer l'assistant" class="text-neutral-500 hover:text-neutral-900 text-lg leading-none px-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">✕</button>
 </div>
-<div id="chat-messages" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 min-h-[160px]">
+<div id="chat-messages" aria-live="polite" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 min-h-[160px]">
 <p class="text-sm text-neutral-500 leading-relaxed" data-i18n="chat-intro">Posez une question sur le profil de Maxime, ou choisissez une suggestion ci-dessous.</p>
 </div>
 <div id="chat-chips" class="flex flex-col gap-2 px-4 pb-3">
@@ -618,6 +619,7 @@ body::before {
 const t = {
   fr: {
     'page-title': 'Maxime Girard | Directeur Marketing & Growth B2B — Bordeaux',
+    'skip-link': 'Aller au contenu principal',
     'nav-profil': 'Profil',
     'nav-experiences': 'Expériences',
     'nav-cas-usage': "Cas d'usage",
@@ -752,6 +754,7 @@ const t = {
   },
   en: {
     'page-title': 'Maxime Girard | Marketing & Growth Director B2B — Bordeaux',
+    'skip-link': 'Skip to main content',
     'nav-profil': 'Profile',
     'nav-experiences': 'Experience',
     'nav-cas-usage': 'Case Studies',
@@ -886,39 +889,13 @@ const t = {
   }
 };
 
-// ── LANG SWITCH ──
-let currentLang = 'fr';
-
-function setLang(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-  document.title = t[lang]['page-title'];
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (t[lang][key] !== undefined) el.textContent = t[lang][key];
-  });
-
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const key = el.dataset.i18nHtml;
-    if (t[lang][key] !== undefined) el.innerHTML = t[lang][key];
-  });
-
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.dataset.i18nPlaceholder;
-    if (t[lang][key] !== undefined) el.setAttribute('placeholder', t[lang][key]);
-  });
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    const isActive = btn.dataset.lang === lang;
-    btn.classList.toggle('active', isActive);
-    btn.classList.toggle('bg-lime-400', isActive);
-    btn.classList.toggle('text-black', isActive);
-    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-  });
-
-  try { localStorage.setItem('lang', lang); } catch(e) {}
-}
+// ── LANGUE ──
+// Chaque langue est servie par sa propre page statique (/ pour le FR, /en/
+// pour l'EN, générée par build-en.py) : l'objet `t` ci-dessus est la source
+// de traduction utilisée au moment du build, pas un mécanisme de bascule en
+// place. currentLang ne sert plus ici qu'à choisir le bon message d'erreur
+// de l'assistant IA selon la page réellement affichée.
+let currentLang = document.documentElement.lang === 'en' ? 'en' : 'fr';
 
 // ── SCROLL REVEAL ──
 const observer = new IntersectionObserver((entries) => {
@@ -1022,19 +999,8 @@ if (calendlyContainer) {
   });
 })();
 
-// Lang toggle — in-page switch (href fallback works if JS disabled)
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    setLang(btn.dataset.lang);
-  });
-});
-
-// Init language from localStorage
-try {
-  const saved = localStorage.getItem('lang');
-  if (saved && saved !== 'fr') setLang(saved);
-} catch(e) {}
+// Lang toggle : lien <a> classique vers / ou /en/, navigation native du
+// navigateur — l'URL affichée correspond toujours à la langue du contenu.
 
 // ── ANNÉE DU FOOTER ──
 const footerYear = document.getElementById('footer-year');
@@ -1056,7 +1022,7 @@ const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.d
   const input = document.getElementById('chat-input');
   if (!toggleBtn || !panel || !form || !input) return;
 
-  let opened = true; // ouvert par défaut
+  let opened = false; // fermé par défaut — ne pas masquer le CTA hero au chargement
 
   function openPanel() {
     opened = true;
