@@ -151,9 +151,10 @@ manuellement avant de committer reste indispensable.
   bloc pour changer ce que le bot sait, ne pas dupliquer ces faits ailleurs.
 - CORS : `ALLOWED_ORIGINS` dans `chat-worker.js` couvre le domaine custom,
   l'ancien `girardmaxime33000.github.io` (transition) et `localhost:8080`.
-- Rate limiting par IP (10 req/5 min) via un namespace KV `RATE_LIMIT` —
-  **désactivé par défaut** (fail-open tant que le binding n'est pas créé),
-  voir `cloudflare-worker/README.md` § Rate limiting pour l'activer.
+- Rate limiting par IP (10 req/5 min) via un namespace KV `RATE_LIMIT`,
+  actif (binding lié dans `wrangler.toml`) — voir
+  `cloudflare-worker/README.md` § Rate limiting. Fail-open par conception
+  si jamais le binding disparaissait (pas de blocage du chat).
 
 ---
 
