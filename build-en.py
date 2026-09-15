@@ -151,8 +151,10 @@ out = re.sub(r'("description": ")[^"]*(")',
 # ── 4. Chemins relatifs (depuis en/) ──────────────────────────────────────
 out = out.replace('href="favicon.svg"',              'href="../favicon.svg"',              1)
 out = out.replace('href="tailwind.css"',             'href="../tailwind.css"',             1)
+# index.html (FR) lie le CV FR ; la page EN doit toujours offrir le CV EN,
+# quel que soit le lien source — d'où un remplacement fixe plutôt qu'un
+# simple ajout de "../" devant le nom de fichier existant.
 out = out.replace('href="cv-maxime-girard-fr.pdf"',  'href="../cv-maxime-girard-en.pdf"')
-out = out.replace('href="cv-maxime-girard-en.pdf"',  'href="../cv-maxime-girard-en.pdf"')
 out = re.sub(r'src="logos/', 'src="../logos/', out)
 out = re.sub(r'src="testimonials/', 'src="../testimonials/', out)
 
