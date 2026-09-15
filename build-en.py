@@ -162,14 +162,17 @@ out = re.sub(r'src="testimonials/', 'src="../testimonials/', out)
 def _deactivate_lang_btn(m):
     tag = m.group(0)
     tag = re.sub(r'\bactive\s+bg-lime-400\s+text-black\s+', '', tag)
-    tag = re.sub(r'aria-pressed="true"', 'aria-pressed="false"', tag)
+    # aria-current="page" ne doit exister que sur le lien de la langue
+    # affichée — pas de valeur "false" en ARIA, on retire l'attribut.
+    tag = re.sub(r'\s*aria-current="page"', '', tag)
     return tag
 
 def _activate_lang_btn(m):
     tag = m.group(0)
     if re.search(r'class="lang-btn\s+active\b', tag) is None:
         tag = re.sub(r'class="lang-btn\s+', 'class="lang-btn active bg-lime-400 text-black ', tag, count=1)
-    tag = re.sub(r'aria-pressed="false"', 'aria-pressed="true"', tag)
+    if 'aria-current="page"' not in tag:
+        tag = re.sub(r'(\bdata-lang="en")', r'\1 aria-current="page"', tag, count=1)
     return tag
 
 out = re.sub(r'<a\b[^>]*\bdata-lang="fr"[^>]*>', _deactivate_lang_btn, out, count=1)

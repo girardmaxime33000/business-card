@@ -140,3 +140,18 @@ href="tailwind.css">` vers `en/index.html`.
 
 **Ordre à respecter** après une modification d'`index.html` touchant des
 classes Tailwind : régénérer `tailwind.css`, puis `en/index.html`.
+
+### CI (`.github/workflows/ci.yml`)
+
+Trois checks sur chaque push/PR :
+- **Fichiers générés à jour** — relance les deux commandes ci-dessus et
+  échoue si le résultat diverge de ce qui est commité (hors `sitemap.xml`,
+  dont le `<lastmod>` change de façon attendue à chaque run).
+- **Validation HTML** (Nu Html Checker, via `html5validator`) sur
+  `index.html` et `en/index.html`. Une règle est ignorée : le vérificateur
+  CSS embarqué ne connaît pas le raccourci `inset`, pourtant supporté par
+  tous les navigateurs actuels — faux positif documenté du validateur.
+- **Liens morts** (`lychee`) sur les deux pages. Deux exclusions
+  temporaires : `girardmaxime33.com` (domaine custom pas encore joignable,
+  voir § Plausible ci-dessus — à retirer une fois le DNS/HTTPS en place) et
+  `linkedin.com` (bloque systématiquement les clients automatisés).
