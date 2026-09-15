@@ -75,13 +75,21 @@ Question : "Quelles sont ses prétentions salariales ?"
 {"lang":"fr","answer":"Cette information n'est pas disponible ici. Le sujet se traite directement avec Maxime Girard par email.","intent":"recruiter","topic":"profile","sources":[],"confidence":"low","next_action":"email","contact_email":"${CONTACT_EMAIL}"}`;
 
 function corsHeaders(origin) {
-  const allowed = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
-  return {
-    'Access-Control-Allow-Origin': allowed,
+  // Une origine non whitelistée (ou absente) ne doit recevoir aucun
+  // Access-Control-Allow-Origin — pas la valeur d'une origine autorisée au
+  // hasard. Le fallback précédent (ALLOWED_ORIGINS[0]) n'ouvrait rien de
+  // plus côté navigateur (l'origine réelle ne matchait toujours pas, donc
+  // le fetch échouait déjà côté client), mais c'était un header trompeur :
+  // il annonçait un accès qu'aucune origine réelle n'obtenait.
+  const headers = {
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Vary': 'Origin',
   };
+  if (ALLOWED_ORIGINS.includes(origin)) {
+    headers['Access-Control-Allow-Origin'] = origin;
+  }
+  return headers;
 }
 
 // Avec response_format: json_object, Workers AI renvoie déjà un objet JS
