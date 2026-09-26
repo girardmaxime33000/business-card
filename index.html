@@ -595,7 +595,7 @@ body::before {
 <!-- CONSENTEMENT COOKIES (GTM + Clarity) -->
 <div id="cookie-consent" hidden class="fixed inset-x-0 bottom-0 z-[110] bg-neutral-900 text-white px-[4vw] py-4 border-t border-white/10">
 <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
-<p class="text-sm text-white/70 max-w-2xl" data-i18n="cookie-text">Ce site utilise des cookies de mesure d'audience et d'analyse comportementale (Google Tag Manager, Microsoft Clarity). Vous pouvez accepter ou refuser leur dépôt.</p>
+<p class="text-sm text-white/70 max-w-2xl" data-i18n-html="cookie-text">Ce site utilise des cookies de mesure d'audience et d'analyse comportementale (Google Tag Manager, Microsoft Clarity). Vous pouvez accepter ou refuser leur dépôt. <a href="/confidentialite.html" class="underline hover:text-white">En savoir plus</a>.</p>
 <div class="flex items-center gap-3 shrink-0">
 <button id="cookie-decline" type="button" class="text-sm font-medium text-white/70 hover:text-white transition-colors px-4 py-2 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2" data-i18n="cookie-decline">Refuser</button>
 <button id="cookie-accept" type="button" class="text-sm font-bold bg-lime-400 text-black px-4 py-2 rounded-lg transition-all duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2" data-i18n="cookie-accept">Accepter</button>
@@ -751,7 +751,7 @@ const t = {
     'p-contact': 'Directeur Marketing & Growth B2B · Bordeaux · France',
     'label-booking': 'Réserver un créneau',
     'footer-top': '↑ Retour en haut',
-    'cookie-text': "Ce site utilise des cookies de mesure d'audience et d'analyse comportementale (Google Tag Manager, Microsoft Clarity). Vous pouvez accepter ou refuser leur dépôt.",
+    'cookie-text': `Ce site utilise des cookies de mesure d'audience et d'analyse comportementale (Google Tag Manager, Microsoft Clarity). Vous pouvez accepter ou refuser leur dépôt. <a href="/confidentialite.html" class="underline hover:text-white">En savoir plus</a>.`,
     'cookie-accept': 'Accepter',
     'cookie-decline': 'Refuser',
     'chat-title': 'Assistant Maxime',
@@ -885,7 +885,7 @@ const t = {
     'p-contact': 'B2B Marketing & Growth Director · Bordeaux · France',
     'label-booking': 'Book a time slot',
     'footer-top': '↑ Back to top',
-    'cookie-text': 'This site uses cookies for audience measurement and behavioral analytics (Google Tag Manager, Microsoft Clarity). You can accept or decline them.',
+    'cookie-text': `This site uses cookies for audience measurement and behavioral analytics (Google Tag Manager, Microsoft Clarity). You can accept or decline them. <a href="/en/confidentialite.html" class="underline hover:text-white">Learn more</a>.`,
     'cookie-accept': 'Accept',
     'cookie-decline': 'Decline',
     'chat-title': 'Ask about Maxime',

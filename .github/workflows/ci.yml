@@ -58,9 +58,9 @@ jobs:
 
       - run: pip install html5validator
 
-      - name: Valider index.html et en/index.html
+      - name: Valider index.html, en/index.html et les pages de confidentialité
         run: |
-          html5validator --root . --match "index.html" "en/index.html" \
+          html5validator --root . --match "index.html" "en/index.html" "confidentialite.html" "en/confidentialite.html" \
             --ignore 'CSS: "inset": Property "inset" doesn'\''t exist'
         # L'unique règle ignorée : le vérificateur CSS embarqué du Nu Html
         # Checker ne connaît pas le raccourci "inset" (CSS Positioned Layout
@@ -83,7 +83,7 @@ jobs:
             --timeout 20
             --exclude "girardmaxime33\.com"
             --exclude "linkedin\.com"
-            index.html en/index.html
+            index.html en/index.html confidentialite.html en/confidentialite.html
           fail: true
         # girardmaxime33.com : domaine custom pas encore en ligne (DNS/HTTPS
         # à finaliser, voir README § Créer un compte Plausible) — à retirer
