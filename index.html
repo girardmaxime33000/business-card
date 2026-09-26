@@ -49,11 +49,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://assets.calendly.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 <!-- CSS Tailwind précompilé (voir README.md « Mettre à jour le CSS Tailwind ») — remplace le CDN runtime cdn.tailwindcss.com -->
 <link rel="stylesheet" href="tailwind.css">
 <style>
+/* ── POLICE DE MARQUE — QTFrank ──
+   Chemins en racine absolue (/fonts/...) : servent identiquement depuis
+   index.html et en/index.html sans réécriture par build-en.py. */
+@font-face {
+  font-family: 'QTFrank';
+  src: url('/fonts/QTFrank.otf') format('opentype');
+  font-weight: 100 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'QTFrank';
+  src: url('/fonts/QTFrankHeavy.otf') format('opentype');
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
 ::selection { background: #ddff57; color: #0a0a0a; }
 /* ── FIX [hidden] vs utilitaires flex/grid ── */
 /* Le Preflight Tailwind pose [hidden]{display:none} avant .flex{display:flex} :

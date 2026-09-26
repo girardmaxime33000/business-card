@@ -13,7 +13,9 @@ module.exports = {
         lime: { 400: '#ddff57' },
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'sans-serif'],
+        // QTFrank — polices maison, déclarées en @font-face dans index.html
+        // (voir fonts/QTFrank.otf + fonts/QTFrankHeavy.otf).
+        sans: ['QTFrank', 'ui-sans-serif', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
     },
