@@ -153,6 +153,18 @@ export default {
       });
     }
 
+    // Rejet serveur, pas seulement l'en-tête CORS ci-dessus : CORS ne
+    // protège que les appels fetch() faits par du JS de navigateur. Un
+    // script tiers (curl, bot) peut appeler ce endpoint directement sans
+    // jamais être soumis à la policy CORS, et épuiser le quota gratuit
+    // Workers AI (10 000 neurons/jour) au détriment des vrais visiteurs.
+    if (!ALLOWED_ORIGINS.includes(origin)) {
+      return new Response(JSON.stringify({ error: 'Origin non autorisée' }), {
+        status: 403,
+        headers: { ...headers, 'Content-Type': 'application/json' },
+      });
+    }
+
     const ip = request.headers.get('CF-Connecting-IP') || '';
     if (await isRateLimited(env, ip)) {
       return new Response(JSON.stringify({ error: 'Trop de requêtes, réessayez dans quelques minutes.' }), {

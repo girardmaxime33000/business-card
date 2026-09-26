@@ -1,7 +1,7 @@
 /** Config Tailwind pour la compilation statique (voir README.md).
  *  Doit rester alignée avec le tailwind.config inline historique. */
 module.exports = {
-  content: ['./index.html', './en/index.html'],
+  content: ['./index.html', './en/index.html', './confidentialite.html', './en/confidentialite.html'],
   theme: {
     extend: {
       colors: {

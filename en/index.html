@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T453T2RB');</script>
-<!-- End Google Tag Manager -->
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "yiajg2xzcr");
-</script>
+<meta charset="UTF-8">
+<!-- GTM + Microsoft Clarity : chargés seulement après consentement (voir bloc
+     #cookie-consent en bas de page et son script). Posent des cookies / font
+     du session replay — soumis à consentement RGPD, contrairement à Umami
+     ci-dessous (mesure d'audience anonyme, sans cookie, exemptée). -->
 <!-- Umami -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="f769a5c6-f348-48f4-a9ed-e8fc1396c2cb"></script>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maxime Girard | Marketing &amp; Growth Director B2B — Bordeaux</title>
 <meta name="description" content="Marketing &amp; Growth Director B2B — 10 years, 5 Exec. Committees, +35M€ ARR. Strategist AND practitioner, B2B/B2B2C. France, Europe, US, Japan.">
@@ -169,10 +158,6 @@ body::before {
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
 <body class="bg-bg text-neutral-900 font-sans antialiased leading-relaxed">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T453T2RB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-lime-400 focus:text-black focus:font-bold focus:text-sm focus:px-4 focus:py-2 focus:rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2" data-i18n="skip-link">Skip to main content</a>
 <!-- NAV -->
 <header class="fixed inset-x-0 top-0 z-[100]">
@@ -603,6 +588,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div>
 </footer>
+<!-- CONSENTEMENT COOKIES (GTM + Clarity) -->
+<div id="cookie-consent" hidden class="fixed inset-x-0 bottom-0 z-[110] bg-neutral-900 text-white px-[4vw] py-4 border-t border-white/10">
+<div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
+<p class="text-sm text-white/70 max-w-2xl" data-i18n-html="cookie-text">This site uses cookies for audience measurement and behavioral analytics (Google Tag Manager, Microsoft Clarity). You can accept or decline them. <a href="/en/confidentialite.html" class="underline hover:text-white">Learn more</a>.</p>
+<div class="flex items-center gap-3 shrink-0">
+<button id="cookie-decline" type="button" class="text-sm font-medium text-white/70 hover:text-white transition-colors px-4 py-2 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2" data-i18n="cookie-decline">Decline</button>
+<button id="cookie-accept" type="button" class="text-sm font-bold bg-lime-400 text-black px-4 py-2 rounded-lg transition-all duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2" data-i18n="cookie-accept">Accept</button>
+</div>
+</div>
+</div>
 <!-- ASSISTANT IA -->
 <button id="chat-toggle" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="Ouvrir l'assistant" class="fixed bottom-6 right-6 z-[90] w-14 h-14 rounded-full bg-lime-400 text-black flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_32px_-6px_rgba(221,255,87,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2">
 <svg id="chat-icon-open" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
@@ -752,6 +747,9 @@ const t = {
     'p-contact': 'Directeur Marketing & Growth B2B · Bordeaux · France',
     'label-booking': 'Réserver un créneau',
     'footer-top': '↑ Retour en haut',
+    'cookie-text': `Ce site utilise des cookies de mesure d'audience et d'analyse comportementale (Google Tag Manager, Microsoft Clarity). Vous pouvez accepter ou refuser leur dépôt. <a href="/confidentialite.html" class="underline hover:text-white">En savoir plus</a>.`,
+    'cookie-accept': 'Accepter',
+    'cookie-decline': 'Refuser',
     'chat-title': 'Assistant Maxime',
     'chat-intro': 'Posez une question sur le profil de Maxime, ou choisissez une suggestion ci-dessous.',
     'chat-q1': "En quoi Maxime peut-il m'aider ?",
@@ -883,6 +881,9 @@ const t = {
     'p-contact': 'B2B Marketing & Growth Director · Bordeaux · France',
     'label-booking': 'Book a time slot',
     'footer-top': '↑ Back to top',
+    'cookie-text': `This site uses cookies for audience measurement and behavioral analytics (Google Tag Manager, Microsoft Clarity). You can accept or decline them. <a href="/en/confidentialite.html" class="underline hover:text-white">Learn more</a>.`,
+    'cookie-accept': 'Accept',
+    'cookie-decline': 'Decline',
     'chat-title': 'Ask about Maxime',
     'chat-intro': "Ask a question about Maxime's profile, or pick a suggestion below.",
     'chat-q1': 'How can Maxime help me?',
@@ -1042,6 +1043,58 @@ if (calendlyContainer) {
 // ── ANNÉE DU FOOTER ──
 const footerYear = document.getElementById('footer-year');
 if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+// ── CONSENTEMENT COOKIES (GTM + Clarity) ──
+// Umami (script en tête de page) ne pose pas de cookie et mesure l'audience
+// de façon anonyme, sans tracking cross-site : exempté de consentement selon
+// les critères CNIL, reste chargé sans condition. GTM et Clarity posent des
+// cookies / font du session replay — chargés uniquement après acceptation.
+(function () {
+  const STORAGE_KEY = 'cookie-consent';
+  const banner = document.getElementById('cookie-consent');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+  if (!banner || !acceptBtn || !declineBtn) return;
+
+  function loadGTM() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-T453T2RB';
+    document.head.appendChild(script);
+  }
+
+  function loadClarity() {
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', 'yiajg2xzcr');
+  }
+
+  let consent = null;
+  try { consent = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+  if (consent === 'granted') {
+    loadGTM();
+    loadClarity();
+  } else if (consent !== 'denied') {
+    banner.hidden = false;
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    try { localStorage.setItem(STORAGE_KEY, 'granted'); } catch (e) {}
+    banner.hidden = true;
+    loadGTM();
+    loadClarity();
+  });
+
+  declineBtn.addEventListener('click', () => {
+    try { localStorage.setItem(STORAGE_KEY, 'denied'); } catch (e) {}
+    banner.hidden = true;
+  });
+})();
 
 // ── ASSISTANT IA ──
 // Remplacer par l'URL du Worker publié (voir cloudflare-worker/README.md).
