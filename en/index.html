@@ -234,7 +234,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="profil" aria-labelledby="h2-profil-label" class="max-w-6xl mx-auto px-[4vw] py-28">
 <div class="reveal mb-16">
 <p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-profil">Profile</span></p>
-<h2 id="h2-profil-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n="h2-profil">Strategic marketing, technical execution.</h2>
+<h2 id="h2-profil-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-profil">Expert <span id="rotating-skill" class="inline-block text-lime-700 transition-opacity duration-300">Growth</span>.</h2>
 </div>
 <div class="grid md:grid-cols-2 gap-16 items-start">
 <div class="text-lg text-neutral-700 leading-relaxed reveal" data-i18n-html="profil-pitch"><p>I've worked in web marketing for over 10 years. I have expertise in <strong class="text-lime-700 font-medium">acquisition strategy, brand awareness, traffic, lead generation and conversion</strong>. My range of tools and skills lets me tackle the most demanding challenges. My interpersonal skills and approachability let me collaborate with any profile, technical or not.</p><br><p>My sole objective: growing the business and generating commercial opportunities.</p></div>
@@ -646,7 +646,7 @@ const t = {
     'btn-cv-nav': '<span aria-hidden="true">↓</span> CV',
     'btn-cv-nav-mobile': '<span aria-hidden="true">↓</span> Télécharger le CV',
     'label-profil': 'Profil',
-    'h2-profil': 'Marketing stratégique, exécution technique.',
+    'h2-profil': 'Expert <span id="rotating-skill" class="inline-block text-lime-700 transition-opacity duration-300">Growth</span>.',
     'profil-pitch': `<p>Je travaille dans le webmarketing depuis plus de 10 ans. J'ai une expertise en <strong class="text-lime-700 font-medium">stratégie d'acquisition, notoriété, trafic, génération de leads et conversions</strong>. Ma palette d'outils et de compétences me permet d'appréhender les challenges les plus exigeants. Mon relationnel et ma proximité me permettent de collaborer avec tous les profils techniques ou non techniques.</p><br><p>Mon unique objectif repose sur le développement de l'entreprise et la génération d'opportunités commerciales.</p>`,
     'value1-title': 'Combatif',
     'value1-desc': "Détermination à relever les défis et à se dépasser. Encourage persévérance, audace et esprit d'initiative dans les équipes.",
@@ -777,7 +777,7 @@ const t = {
     'btn-cv-nav': '<span aria-hidden="true">↓</span> CV',
     'btn-cv-nav-mobile': '<span aria-hidden="true">↓</span> Download my CV',
     'label-profil': 'Profile',
-    'h2-profil': 'Strategic marketing, technical execution.',
+    'h2-profil': 'Expert <span id="rotating-skill" class="inline-block text-lime-700 transition-opacity duration-300">Growth</span>.',
     'profil-pitch': `<p>I've worked in web marketing for over 10 years. I have expertise in <strong class="text-lime-700 font-medium">acquisition strategy, brand awareness, traffic, lead generation and conversion</strong>. My range of tools and skills lets me tackle the most demanding challenges. My interpersonal skills and approachability let me collaborate with any profile, technical or not.</p><br><p>My sole objective: growing the business and generating commercial opportunities.</p>`,
     'value1-title': 'Fighter',
     'value1-desc': 'Determination to tackle challenges and push beyond limits. Fosters perseverance, boldness and initiative within teams.',
@@ -933,6 +933,21 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.querySelectorAll('#hero .reveal').forEach((el, i) => {
 setTimeout(() => el.classList.add('visible'), 100 + i * 100);
   });
+
+// ── MOT-CLÉ DYNAMIQUE (h2-profil) ──
+const rotatingSkillEl = document.getElementById('rotating-skill');
+if (rotatingSkillEl) {
+  const rotatingSkills = ['Growth', 'SEO', 'Socials', 'SEA', 'Analytics', 'Tracking', 'CRM', 'Gen AI'];
+  let rotatingSkillIndex = 0;
+  setInterval(() => {
+    rotatingSkillEl.style.opacity = '0';
+    setTimeout(() => {
+      rotatingSkillIndex = (rotatingSkillIndex + 1) % rotatingSkills.length;
+      rotatingSkillEl.textContent = rotatingSkills[rotatingSkillIndex];
+      rotatingSkillEl.style.opacity = '1';
+    }, 300);
+  }, 2200);
+}
 
 // ── NAV ACTIVE OVERLAY (scrollspy) ──
 // .nav-link exists twice per section (desktop bar + mobile menu) — matched by class, not by parent.
