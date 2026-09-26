@@ -904,6 +904,63 @@ const t = {
 // de l'assistant IA selon la page réellement affichée.
 let currentLang = document.documentElement.lang === 'en' ? 'en' : 'fr';
 
+// ── CONSENTEMENT COOKIES (GTM + Clarity) ──
+// Placé en tout premier dans ce script, avant toute autre fonctionnalité :
+// si un bloc plus bas (reveal, scrollspy, horloge...) lève une exception,
+// le reste du <script> s'arrête silencieusement — la bannière de
+// consentement, elle, ne doit jamais dépendre du succès d'une fonctionnalité
+// purement décorative. Umami (script en tête de page) ne pose pas de cookie
+// et mesure l'audience de façon anonyme, sans tracking cross-site : exempté
+// de consentement selon les critères CNIL, reste chargé sans condition. GTM
+// et Clarity posent des cookies / font du session replay — chargés
+// uniquement après acceptation.
+(function () {
+  const STORAGE_KEY = 'cookie-consent';
+  const banner = document.getElementById('cookie-consent');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+  if (!banner || !acceptBtn || !declineBtn) return;
+
+  function loadGTM() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-T453T2RB';
+    document.head.appendChild(script);
+  }
+
+  function loadClarity() {
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', 'yiajg2xzcr');
+  }
+
+  let consent = null;
+  try { consent = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+  if (consent === 'granted') {
+    loadGTM();
+    loadClarity();
+  } else if (consent !== 'denied') {
+    banner.hidden = false;
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    try { localStorage.setItem(STORAGE_KEY, 'granted'); } catch (e) {}
+    banner.hidden = true;
+    loadGTM();
+    loadClarity();
+  });
+
+  declineBtn.addEventListener('click', () => {
+    try { localStorage.setItem(STORAGE_KEY, 'denied'); } catch (e) {}
+    banner.hidden = true;
+  });
+})();
+
 // ── SUIVI CLIC CV (GTM) ──
 // Pousse un événement dataLayer à chaque clic sur un lien de téléchargement
 // du CV, pour créer un trigger d'événement personnalisé "cv_download" côté
@@ -1043,58 +1100,6 @@ if (calendlyContainer) {
 // ── ANNÉE DU FOOTER ──
 const footerYear = document.getElementById('footer-year');
 if (footerYear) footerYear.textContent = new Date().getFullYear();
-
-// ── CONSENTEMENT COOKIES (GTM + Clarity) ──
-// Umami (script en tête de page) ne pose pas de cookie et mesure l'audience
-// de façon anonyme, sans tracking cross-site : exempté de consentement selon
-// les critères CNIL, reste chargé sans condition. GTM et Clarity posent des
-// cookies / font du session replay — chargés uniquement après acceptation.
-(function () {
-  const STORAGE_KEY = 'cookie-consent';
-  const banner = document.getElementById('cookie-consent');
-  const acceptBtn = document.getElementById('cookie-accept');
-  const declineBtn = document.getElementById('cookie-decline');
-  if (!banner || !acceptBtn || !declineBtn) return;
-
-  function loadGTM() {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-T453T2RB';
-    document.head.appendChild(script);
-  }
-
-  function loadClarity() {
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, 'clarity', 'script', 'yiajg2xzcr');
-  }
-
-  let consent = null;
-  try { consent = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-
-  if (consent === 'granted') {
-    loadGTM();
-    loadClarity();
-  } else if (consent !== 'denied') {
-    banner.hidden = false;
-  }
-
-  acceptBtn.addEventListener('click', () => {
-    try { localStorage.setItem(STORAGE_KEY, 'granted'); } catch (e) {}
-    banner.hidden = true;
-    loadGTM();
-    loadClarity();
-  });
-
-  declineBtn.addEventListener('click', () => {
-    try { localStorage.setItem(STORAGE_KEY, 'denied'); } catch (e) {}
-    banner.hidden = true;
-  });
-})();
 
 // ── ASSISTANT IA ──
 // Remplacer par l'URL du Worker publié (voir cloudflare-worker/README.md).
