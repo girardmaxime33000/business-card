@@ -5,15 +5,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Ladder Style — obsidian dark theme, accent emerald (Tailwind's default
-        // emerald/cyan scales cover the rest of the palette, no override needed).
-        bg: '#0B0D12',
-        surface: '#12151C',
-        surface2: '#10131A',
+        bg: '#FBFBFB',
+        surface: '#FFFFFF',
+        surface2: '#F1F1F1',
+        // Accent de marque — remplace le lime-400 par défaut de Tailwind (#a3e635).
+        // lime-600/700 (texte lisible sur fond clair) restent les teintes par défaut.
+        lime: { 400: '#ddff57' },
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'sans-serif'],
-        display: ['Fraunces', 'ui-serif', 'serif'],
+        // QTFrank — polices maison, déclarées en @font-face dans index.html
+        // (voir fonts/QTFrank.otf + fonts/QTFrankHeavy.otf).
+        sans: ['QTFrank', 'ui-sans-serif', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
     },

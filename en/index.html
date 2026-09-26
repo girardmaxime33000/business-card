@@ -29,7 +29,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="alternate" hreflang="en" href="https://www.girardmaxime33.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://www.girardmaxime33.com/">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<meta name="theme-color" content="#0B0D12">
+<meta name="theme-color" content="#FBFBFB">
 <meta property="og:type" content="profile">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
@@ -49,12 +49,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://assets.calendly.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340..700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 <!-- CSS Tailwind précompilé (voir README.md « Mettre à jour le CSS Tailwind ») — remplace le CDN runtime cdn.tailwindcss.com -->
 <link rel="stylesheet" href="../tailwind.css">
 <style>
-::selection { background: #10b981; color: #0a0a0a; }
+/* ── POLICE DE MARQUE — QTFrank ──
+   Chemins en racine absolue (/fonts/...) : servent identiquement depuis
+   index.html et en/index.html sans réécriture par build-en.py. */
+@font-face {
+  font-family: 'QTFrank';
+  src: url('/fonts/QTFrank.otf') format('opentype');
+  font-weight: 100 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'QTFrank';
+  src: url('/fonts/QTFrankHeavy.otf') format('opentype');
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
+::selection { background: #ddff57; color: #0a0a0a; }
 /* ── FIX [hidden] vs utilitaires flex/grid ── */
 /* Le Preflight Tailwind pose [hidden]{display:none} avant .flex{display:flex} :
    à spécificité égale, la règle la plus tardive gagne, donc .flex/.grid gagnaient
@@ -72,11 +89,11 @@ body::before {
   opacity: 0.4;
 }
 /* ── AMBIENT GLOWS ── */
-.hero-glow { position: absolute; top: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(16,185,129,0.10) 0%, transparent 70%); pointer-events: none; }
-.hero-glow2 { position: absolute; bottom: -10%; left: -5%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(244,245,247,0.04) 0%, transparent 70%); pointer-events: none; }
-.contact-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%); pointer-events: none; }
+.hero-glow { position: absolute; top: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(101,163,13,0.10) 0%, transparent 70%); pointer-events: none; }
+.hero-glow2 { position: absolute; bottom: -10%; left: -5%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(0,0,0,0.035) 0%, transparent 70%); pointer-events: none; }
+.contact-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(101,163,13,0.08) 0%, transparent 70%); pointer-events: none; }
 /* ── DOT-GRID TEXTURE ── */
-.grid-texture { position: absolute; inset: 0; background-image: radial-gradient(rgba(244,245,247,0.06) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%); pointer-events: none; }
+.grid-texture { position: absolute; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.07) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%); pointer-events: none; }
 /* ── BUTTON SHINE ── */
 .btn-shine { position: relative; overflow: hidden; }
 .btn-shine::before { content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent); transform: skewX(-20deg); transition: left 0.6s ease; }
@@ -89,7 +106,7 @@ body::before {
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 /* ── NAV ACTIVE OVERLAY ── */
-.nav-link.nav-active { color: #F4F5F7; font-weight: 700; background-color: rgba(16,185,129,0.16); }
+.nav-link.nav-active { color: #0a0a0a; font-weight: 700; background-color: rgba(10,10,10,0.14); }
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -151,50 +168,50 @@ body::before {
 <script defer data-domain="www.girardmaxime33.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
-<body class="bg-bg text-neutral-100 font-sans antialiased leading-relaxed">
+<body class="bg-bg text-neutral-900 font-sans antialiased leading-relaxed">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T453T2RB"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-emerald-400 focus:text-black focus:font-bold focus:text-sm focus:px-4 focus:py-2 focus:rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2" data-i18n="skip-link">Skip to main content</a>
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-lime-400 focus:text-black focus:font-bold focus:text-sm focus:px-4 focus:py-2 focus:rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2" data-i18n="skip-link">Skip to main content</a>
 <!-- NAV -->
 <header class="fixed inset-x-0 top-0 z-[100]">
-<nav aria-label="Navigation principale" class="flex items-center justify-between px-[4vw] py-5 bg-bg/80 backdrop-blur-xl border-b border-white/10 shadow-[0_2px_24px_-6px_rgba(0,0,0,0.5)]">
+<nav aria-label="Navigation principale" class="flex items-center justify-between px-[4vw] py-5 bg-lime-400/95 backdrop-blur-xl border-b border-lime-600/30 shadow-[0_2px_24px_-6px_rgba(101,163,13,0.35)]">
 <div class="flex items-center gap-10">
 <div class="font-extrabold text-base tracking-wide shrink-0">MG<span class="text-neutral-950">.</span></div>
 <ul class="hidden md:flex gap-2 list-none">
-<li><a href="#profil" data-i18n="nav-profil" class="nav-link text-neutral-400 text-sm font-medium hover:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Profile</a></li>
-<li><a href="#experiences" data-i18n="nav-experiences" class="nav-link text-neutral-400 text-sm font-medium hover:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Experience</a></li>
-<li><a href="#cas-usage" data-i18n="nav-cas-usage" class="nav-link text-neutral-400 text-sm font-medium hover:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Case Studies</a></li>
-<li><a href="#competences" data-i18n="nav-competences" class="nav-link text-neutral-400 text-sm font-medium hover:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Skills</a></li>
-<li><a href="#references" data-i18n="nav-references" class="nav-link text-neutral-400 text-sm font-medium hover:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">References</a></li>
-<li><a href="#contact" data-i18n="nav-contact" class="nav-link text-neutral-400 text-sm font-medium hover:text-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Contact</a></li>
+<li><a href="#profil" data-i18n="nav-profil" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Profile</a></li>
+<li><a href="#experiences" data-i18n="nav-experiences" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Experience</a></li>
+<li><a href="#cas-usage" data-i18n="nav-cas-usage" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Case Studies</a></li>
+<li><a href="#competences" data-i18n="nav-competences" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Skills</a></li>
+<li><a href="#references" data-i18n="nav-references" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">References</a></li>
+<li><a href="#contact" data-i18n="nav-contact" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Contact</a></li>
 </ul>
 </div>
 <div class="flex items-center gap-3">
-<div id="local-clock" class="hidden lg:flex items-center gap-2 font-mono text-xs text-neutral-400 tabular-nums" aria-hidden="true">
+<div id="local-clock" class="hidden lg:flex items-center gap-2 font-mono text-xs text-neutral-900/65 tabular-nums" aria-hidden="true">
 <span>Bordeaux, FR</span>
 <span id="clock-time">--:--:--</span>
 </div>
-<a href="../cv-maxime-girard-en.pdf" download data-cv-location="header" data-umami-event="Nav CV Download Click" class="nav-cv-btn plausible-event-name=Nav+CV+Download+Click hidden md:inline-flex items-center gap-1.5 bg-neutral-900 text-emerald-300 text-xs font-bold tracking-wide px-3.5 py-1.5 rounded-full transition-all duration-200 hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2" data-i18n-html="btn-cv-nav" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> CV</a>
-<button id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-menu" aria-label="Ouvrir le menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-md text-neutral-100 text-xl leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2">
+<a href="../cv-maxime-girard-en.pdf" download data-cv-location="header" data-umami-event="Nav CV Download Click" class="nav-cv-btn plausible-event-name=Nav+CV+Download+Click hidden md:inline-flex items-center gap-1.5 bg-neutral-900 text-lime-300 text-xs font-bold tracking-wide px-3.5 py-1.5 rounded-full transition-all duration-200 hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2" data-i18n-html="btn-cv-nav" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> CV</a>
+<button id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-menu" aria-label="Ouvrir le menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-md text-neutral-900 text-xl leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2">
 <span id="nav-toggle-icon" aria-hidden="true">☰</span>
 </button>
-<div class="lang-toggle flex items-center bg-surface border border-white/10 rounded-md overflow-hidden shrink-0" role="group" aria-label="Langue / Language">
+<div class="lang-toggle flex items-center bg-surface border border-neutral-200 rounded-md overflow-hidden shrink-0" role="group" aria-label="Langue / Language">
 <a href="/" class="lang-btn px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest transition-colors" data-lang="fr" hreflang="fr">FR</a>
-<a href="/en/" class="lang-btn active bg-emerald-400 text-black px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest text-neutral-400 hover:text-white transition-colors" data-lang="en" aria-current="page" hreflang="en">EN</a>
+<a href="/en/" class="lang-btn active bg-lime-400 text-black px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors" data-lang="en" aria-current="page" hreflang="en">EN</a>
 </div>
 </div>
 </nav>
-<div id="nav-mobile-menu" hidden class="md:hidden bg-surface border-b border-white/10 shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto">
-<ul class="flex flex-col divide-y divide-white/10">
-<li><a href="#profil" data-i18n="nav-profil" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-300 hover:bg-white/5 hover:text-white transition-colors">Profil</a></li>
-<li><a href="#experiences" data-i18n="nav-experiences" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-300 hover:bg-white/5 hover:text-white transition-colors">Expériences</a></li>
-<li><a href="#cas-usage" data-i18n="nav-cas-usage" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-300 hover:bg-white/5 hover:text-white transition-colors">Cas d'usage</a></li>
-<li><a href="#competences" data-i18n="nav-competences" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-300 hover:bg-white/5 hover:text-white transition-colors">Compétences</a></li>
-<li><a href="#references" data-i18n="nav-references" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-300 hover:bg-white/5 hover:text-white transition-colors">Références</a></li>
-<li><a href="#contact" data-i18n="nav-contact" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-300 hover:bg-white/5 hover:text-white transition-colors">Contact</a></li>
-<li><a href="../cv-maxime-girard-en.pdf" download data-cv-location="nav-mobile" data-umami-event="Nav CV Download Click" class="plausible-event-name=Nav+CV+Download+Click block px-[4vw] py-4 text-base font-bold text-emerald-400 bg-emerald-400/10 hover:bg-emerald-400/20 transition-colors" data-i18n-html="btn-cv-nav-mobile" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> Download my CV</a></li>
+<div id="nav-mobile-menu" hidden class="md:hidden bg-surface border-b border-neutral-200 shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto">
+<ul class="flex flex-col divide-y divide-neutral-200">
+<li><a href="#profil" data-i18n="nav-profil" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Profil</a></li>
+<li><a href="#experiences" data-i18n="nav-experiences" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Expériences</a></li>
+<li><a href="#cas-usage" data-i18n="nav-cas-usage" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Cas d'usage</a></li>
+<li><a href="#competences" data-i18n="nav-competences" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Compétences</a></li>
+<li><a href="#references" data-i18n="nav-references" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Références</a></li>
+<li><a href="#contact" data-i18n="nav-contact" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Contact</a></li>
+<li><a href="../cv-maxime-girard-en.pdf" download data-cv-location="nav-mobile" data-umami-event="Nav CV Download Click" class="plausible-event-name=Nav+CV+Download+Click block px-[4vw] py-4 text-base font-bold text-lime-700 bg-lime-400/10 hover:bg-lime-400/20 transition-colors" data-i18n-html="btn-cv-nav-mobile" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> Download my CV</a></li>
 </ul>
 </div>
 </header>
@@ -204,412 +221,411 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="grid-texture"></div>
 <div class="hero-glow"></div>
 <div class="hero-glow2"></div>
-<p class="reveal inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded-full px-3 py-1.5 mb-8" data-i18n="hero-status">Available for new engagements</p>
-<h1 class="font-display font-medium leading-none tracking-tight text-[clamp(3.5rem,11vw,9rem)] mb-2" id="h1-hero">&lt;Hello, I'm a<br><span class="text-emerald-400">Marketer</span>/&gt;</h1>
-<p class="font-semibold text-neutral-400 text-[clamp(1rem,2.5vw,1.5rem)] mb-12" data-i18n="hero-title">Maxime Girard - Page personnelle</p>
+<h1 class="font-extrabold leading-none tracking-tight text-[clamp(3.5rem,11vw,9rem)] mb-2" id="h1-hero">&lt;Hello, I'm a<br><span class="text-lime-700">Marketer</span>/&gt;</h1>
+<p class="font-semibold text-neutral-500 text-[clamp(1rem,2.5vw,1.5rem)] mb-12" data-i18n="hero-title">Maxime Girard - Page personnelle</p>
 <div class="flex flex-wrap gap-4">
-<a id="hero-book-btn" href="#contact" data-umami-event="Hero Booking Click" class="btn-shine plausible-event-name=Hero+Booking+Click inline-flex items-center gap-2 bg-emerald-400 text-black font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(16,185,129,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2" data-i18n-html="btn-contact" aria-label="Prendre rendez-vous"><span aria-hidden="true">→</span> Book a call</a>
-<a href="../cv-maxime-girard-en.pdf" download data-cv-location="hero" data-umami-event="Hero CV Download Click" class="btn-shine plausible-event-name=Hero+CV+Download+Click inline-flex items-center gap-2 border border-white/15 text-neutral-100 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:bg-white/5 hover:border-white/25 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-500 focus-visible:outline-offset-2" data-i18n-html="btn-cv" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> Download my CV</a>
-<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" data-umami-event="Hero LinkedIn Click" class="plausible-event-name=Hero+LinkedIn+Click inline-flex items-center gap-2 border border-white/15 text-neutral-100 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:border-white/30 hover:bg-white/5 hover:shadow-[0_0_24px_-8px_rgba(16,185,129,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2" aria-label="Voir le profil LinkedIn"><span aria-hidden="true">↗</span> LinkedIn</a>
+<a id="hero-book-btn" href="#contact" data-umami-event="Hero Booking Click" class="btn-shine plausible-event-name=Hero+Booking+Click inline-flex items-center gap-2 bg-lime-400 text-black font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(221,255,87,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n-html="btn-contact" aria-label="Prendre rendez-vous"><span aria-hidden="true">→</span> Book a call</a>
+<a href="../cv-maxime-girard-en.pdf" download data-cv-location="hero" data-umami-event="Hero CV Download Click" class="btn-shine plausible-event-name=Hero+CV+Download+Click inline-flex items-center gap-2 bg-neutral-900 text-lime-300 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-125 hover:scale-[1.02] hover:shadow-[0_0_32px_-6px_rgba(23,23,23,0.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n-html="btn-cv" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> Download my CV</a>
+<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" data-umami-event="Hero LinkedIn Click" class="plausible-event-name=Hero+LinkedIn+Click inline-flex items-center gap-2 border border-neutral-300 text-neutral-900 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:border-neutral-400 hover:bg-neutral-100 hover:shadow-[0_0_24px_-8px_rgba(221,255,87,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" aria-label="Voir le profil LinkedIn"><span aria-hidden="true">↗</span> LinkedIn</a>
 </div>
 </section>
-<div class="h-px bg-white/10"></div>
+<div class="h-px bg-neutral-200"></div>
 <!-- PROFIL -->
 <section id="profil" aria-labelledby="h2-profil-label" class="max-w-6xl mx-auto px-[4vw] py-28">
 <div class="reveal mb-16">
-<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-emerald-400 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-profil">Profile</span></p>
-<h2 id="h2-profil-label" class="font-display font-medium text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n="h2-profil">Strategic marketing, technical execution.</h2>
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-profil">Profile</span></p>
+<h2 id="h2-profil-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n="h2-profil">Strategic marketing, technical execution.</h2>
 </div>
 <div class="grid md:grid-cols-2 gap-16 items-start">
-<div class="text-lg text-neutral-300 leading-relaxed reveal" data-i18n-html="profil-pitch"><p>Hybrid profile combining <strong class="text-emerald-400 font-medium">strategy / data / automation</strong>. I build marketing systems that drive measurable growth.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams.</p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p></div>
+<div class="text-lg text-neutral-700 leading-relaxed reveal" data-i18n-html="profil-pitch"><p>Hybrid profile combining <strong class="text-lime-700 font-medium">strategy / data / automation</strong>. I build marketing systems that drive measurable growth.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams.</p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p></div>
 <div class="flex flex-col gap-4">
-<div class="value-card reveal reveal-delay-1 bg-surface border border-white/10 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="text-emerald-400 shrink-0 mt-0.5" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+<div class="value-card reveal reveal-delay-1 bg-surface border border-neutral-200 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="text-lime-700 shrink-0 mt-0.5" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
 <div>
-<h4 class="font-bold text-sm text-emerald-400 mb-1" data-i18n="value1-title">Fighter</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="value1-desc">Determination to tackle challenges and push beyond limits. Fosters perseverance, boldness and initiative within teams.</p>
+<h4 class="font-bold text-sm text-lime-700 mb-1" data-i18n="value1-title">Fighter</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="value1-desc">Determination to tackle challenges and push beyond limits. Fosters perseverance, boldness and initiative within teams.</p>
 </div>
 </div>
-<div class="value-card reveal reveal-delay-2 bg-surface border border-white/10 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="text-emerald-400 shrink-0 mt-0.5" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+<div class="value-card reveal reveal-delay-2 bg-surface border border-neutral-200 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="text-lime-700 shrink-0 mt-0.5" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
 <div>
-<h4 class="font-bold text-sm text-emerald-400 mb-1" data-i18n="value2-title">Ambitious</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="value2-desc">Impact-driven vision. Inspires excellence and anticipates the future needs of clients and markets.</p>
+<h4 class="font-bold text-sm text-lime-700 mb-1" data-i18n="value2-title">Ambitious</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="value2-desc">Impact-driven vision. Inspires excellence and anticipates the future needs of clients and markets.</p>
 </div>
 </div>
-<div class="value-card reveal reveal-delay-3 bg-surface border border-white/10 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="text-emerald-400 shrink-0 mt-0.5" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+<div class="value-card reveal reveal-delay-3 bg-surface border border-neutral-200 rounded-2xl p-6 flex gap-4 items-start transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="text-lime-700 shrink-0 mt-0.5" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
 <div>
-<h4 class="font-bold text-sm text-emerald-400 mb-1" data-i18n="value3-title">Approachable</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="value3-desc">Inclusive approach, simplicity and closeness with all stakeholders. Can communicate effectively with both technical and non-technical profiles.</p>
+<h4 class="font-bold text-sm text-lime-700 mb-1" data-i18n="value3-title">Approachable</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="value3-desc">Inclusive approach, simplicity and closeness with all stakeholders. Can communicate effectively with both technical and non-technical profiles.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<div class="h-px bg-white/10"></div>
+<div class="h-px bg-neutral-200"></div>
 <!-- EXPERIENCES -->
 <section id="experiences" aria-labelledby="h2-exp-label" class="max-w-6xl mx-auto px-[4vw] py-28">
 <div class="reveal mb-16">
-<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-emerald-400 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-exp">Experience</span></p>
-<h2 id="h2-exp-label" class="font-display font-medium text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-exp">10 years, 6 Exec. Committees,<br>5 markets.</h2>
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-exp">Experience</span></p>
+<h2 id="h2-exp-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-exp">10 years, 6 Exec. Committees,<br>5 markets.</h2>
 </div>
 <div class="flex flex-col">
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10 first:pt-0">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200 first:pt-0">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">Fév. 2026 — Aujourd'hui</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">Fév. 2026 — Aujourd'hui</p>
 <div class="flex items-center gap-2 mb-1">
-<img src="../logos/pollen-am.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-white/10 bg-white shrink-0">
-<p class="font-bold text-sm text-neutral-100">Pollen AM</p>
+<img src="../logos/pollen-am.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Pollen AM</p>
 </div>
-<p class="text-xs text-neutral-400" data-i18n="exp0-type">SME · Additive Manufacturing</p>
+<p class="text-xs text-neutral-500" data-i18n="exp0-type">SME · Additive Manufacturing</p>
 </div>
 <div>
-<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp0-title">Europe Marketing Lead <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
+<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp0-title">Europe Marketing Lead <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp0-b1">Déploiement complet d'une architecture GTM IA : pipeline RAG local (FastAPI + ChromaDB + Ollama), retrieval hybride BM25+RRF, reranking par cross-encoder, 6 modes experts métier, sans dépendance cloud</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp0-b2">Intégration du protocole MCP : orchestration d'agents IA connectant CRM, outils analytics (Semrush, GA4) et workflows n8n pour automatiser les cas d'usage GTM</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp0-b3">Architecture CRM orientée RevOps : pipeline à 8 étapes, scoring BANT/ICP, enrichissement, gouvernance Zoho Flow + webhooks n8n</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp0-b4">Coordination transverse Business / IT / Data en solo — périmètre Pologne, Allemagne, République tchèque</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp0-b1">Déploiement complet d'une architecture GTM IA : pipeline RAG local (FastAPI + ChromaDB + Ollama), retrieval hybride BM25+RRF, reranking par cross-encoder, 6 modes experts métier, sans dépendance cloud</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp0-b2">Intégration du protocole MCP : orchestration d'agents IA connectant CRM, outils analytics (Semrush, GA4) et workflows n8n pour automatiser les cas d'usage GTM</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp0-b3">Architecture CRM orientée RevOps : pipeline à 8 étapes, scoring BANT/ICP, enrichissement, gouvernance Zoho Flow + webhooks n8n</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp0-b4">Coordination transverse Business / IT / Data en solo — périmètre Pologne, Allemagne, République tchèque</li>
 </ul>
-<span class="inline-flex items-center bg-emerald-400/10 border border-emerald-400/25 text-emerald-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp0-result">GTM AI stack 0→1 in 1 month · RAG in production · 2 business cases</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp0-result">GTM AI stack 0→1 in 1 month · RAG in production · 2 business cases</span>
 </div>
 </div>
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">Depuis 2024</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">Depuis 2024</p>
 <div class="flex items-center gap-2 mb-1">
-<img src="../logos/inrealart.svg" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-white/10 bg-white shrink-0">
-<p class="font-bold text-sm text-neutral-100">InRealArt</p>
+<img src="../logos/inrealart.svg" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">InRealArt</p>
 </div>
-<p class="text-xs text-neutral-400" data-i18n="exp1-type">B2C/B2B Art Platform · Direct & indirect sales</p>
+<p class="text-xs text-neutral-500" data-i18n="exp1-type">B2C/B2B Art Platform · Direct & indirect sales</p>
 </div>
 <div>
 <h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n="exp1-title">Marketing Director & Partner</h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp1-b1">Conception et déploiement d'un outil de pilotage de stratégie de contenu LinkedIn : prédit la performance d'un post avant publication et recommande le format générant le plus de prospects qualifiés — application déployée et utilisée en routine</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp1-b2">Gestion du catalogue de services data-driven pour les artistes, de la campagne d'acquisition et du scoring des leads sur une base CRM réactivée</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp1-b3">Développement de notebooks d'analyse pour les études marketing (comportement collectionneurs, performance des canaux, segmentation de la base)</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp1-b4">Déploiement d'un dispositif multi-comptes Google My Business pour le mailing direct et la génération de trafic D2C</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp1-b1">Conception et déploiement d'un outil de pilotage de stratégie de contenu LinkedIn : prédit la performance d'un post avant publication et recommande le format générant le plus de prospects qualifiés — application déployée et utilisée en routine</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp1-b2">Gestion du catalogue de services data-driven pour les artistes, de la campagne d'acquisition et du scoring des leads sur une base CRM réactivée</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp1-b3">Développement de notebooks d'analyse pour les études marketing (comportement collectionneurs, performance des canaux, segmentation de la base)</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp1-b4">Déploiement d'un dispositif multi-comptes Google My Business pour le mailing direct et la génération de trafic D2C</li>
 </ul>
-<span class="inline-flex items-center bg-emerald-400/10 border border-emerald-400/25 text-emerald-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp1-result">LinkedIn scoring tool in production · 300 leads generated · 40 GMB accounts automated</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp1-result">LinkedIn scoring tool in production · 300 leads generated · 40 GMB accounts automated</span>
 </div>
 </div>
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">Jan. 2025 – Nov. 2025</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">Jan. 2025 – Nov. 2025</p>
 <div class="flex items-center gap-2 mb-1">
-<img src="../logos/camping-car-park.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-white/10 bg-white shrink-0">
-<p class="font-bold text-sm text-neutral-100">Camping Car Park</p>
+<img src="../logos/camping-car-park.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Camping Car Park</p>
 </div>
-<p class="text-xs text-neutral-400" data-i18n="exp2-type">SME · Parking solutions</p>
+<p class="text-xs text-neutral-500" data-i18n="exp2-type">SME · Parking solutions</p>
 </div>
 <div>
-<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp2-title">B2B Europe Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
+<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp2-title">B2B Europe Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp2-b1">Pilotage des opérations marketing européennes : Allemagne, Benelux, Espagne, Portugal, Autriche</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp2-b2">Définition et exécution de campagnes B2B ciblant 700+ collectivités locales — CRM, RP, lobbying</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp2-b3">Supervision de la conformité du site web B2B et de la génération de leads</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp2-b4">Responsabilité directe du budget marketing européen, arbitrages stratégiques, reporting au CMO et au CEO</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp2-b1">Pilotage des opérations marketing européennes : Allemagne, Benelux, Espagne, Portugal, Autriche</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp2-b2">Définition et exécution de campagnes B2B ciblant 700+ collectivités locales — CRM, RP, lobbying</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp2-b3">Supervision de la conformité du site web B2B et de la génération de leads</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp2-b4">Responsabilité directe du budget marketing européen, arbitrages stratégiques, reporting au CMO et au CEO</li>
 </ul>
-<span class="inline-flex items-center bg-emerald-400/10 border border-emerald-400/25 text-emerald-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp2-result">+30M€ ARR · +30% month-over-month growth</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp2-result">+30M€ ARR · +30% month-over-month growth</span>
 </div>
 </div>
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">2021 – 2024</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2021 – 2024</p>
 <div class="flex items-center gap-2 mb-1">
-<img src="../logos/sense4data.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-white/10 bg-white shrink-0">
-<p class="font-bold text-sm text-neutral-100">Sense4data</p>
+<img src="../logos/sense4data.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Sense4data</p>
 </div>
-<p class="text-xs text-neutral-400" data-i18n="exp3-type">SME · Consulting, Product & Data</p>
+<p class="text-xs text-neutral-500" data-i18n="exp3-type">SME · Consulting, Product & Data</p>
 </div>
 <div>
-<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp3-title">B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
+<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp3-title">B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp3-b1">Pilotage du marketing mix modeling interne et externe — clients PME & ETI (Eurofeu, Réseau CCI, Cegid)</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp3-b2">Définition de la stratégie de positionnement, messaging et offre commerciale</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp3-b3">Supervision de la génération de leads, du suivi commercial et de l'expérience client</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp3-b4">Management d'une équipe de 5 personnes</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp3-b1">Pilotage du marketing mix modeling interne et externe — clients PME & ETI (Eurofeu, Réseau CCI, Cegid)</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp3-b2">Définition de la stratégie de positionnement, messaging et offre commerciale</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp3-b3">Supervision de la génération de leads, du suivi commercial et de l'expérience client</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp3-b4">Management d'une équipe de 5 personnes</li>
 </ul>
-<span class="inline-flex items-center bg-emerald-400/10 border border-emerald-400/25 text-emerald-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp3-result">+1M€ ARR · +10 MVPs and business cases industrialized</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp3-result">+1M€ ARR · +10 MVPs and business cases industrialized</span>
 </div>
 </div>
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">2020 – 2021</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2020 – 2021</p>
 <div class="flex items-center gap-2 mb-1">
-<img src="../logos/eyelights.svg" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-white/10 bg-white shrink-0">
-<p class="font-bold text-sm text-neutral-100">Eyelights</p>
+<img src="../logos/eyelights.svg" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Eyelights</p>
 </div>
-<p class="text-xs text-neutral-400" data-i18n="exp4-type">IoT & AR Scale-up · Toulouse</p>
+<p class="text-xs text-neutral-500" data-i18n="exp4-type">IoT & AR Scale-up · Toulouse</p>
 </div>
 <div>
-<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp4-title">B2B2C Growth Director <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
+<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp4-title">B2B2C Growth Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp4-b1">Définition de la stratégie mix marketing, positionnement et messaging — grands comptes (Renault, BMW, Airbus)</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp4-b2">Gestion d'un budget d'acquisition de 1 M€, stratégie multi-canal</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp4-b3">Lancement commercial sur 5 marchés : France, USA, Allemagne, UK, Japon</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp4-b4">Conception et déploiement d'un chatbot interne pour automatiser les opérations marketing, produit et SAV</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp4-b1">Définition de la stratégie mix marketing, positionnement et messaging — grands comptes (Renault, BMW, Airbus)</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp4-b2">Gestion d'un budget d'acquisition de 1 M€, stratégie multi-canal</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp4-b3">Lancement commercial sur 5 marchés : France, USA, Allemagne, UK, Japon</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp4-b4">Conception et déploiement d'un chatbot interne pour automatiser les opérations marketing, produit et SAV</li>
 </ul>
-<span class="inline-flex items-center bg-emerald-400/10 border border-emerald-400/25 text-emerald-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp4-result">+3M€ ARR · +300% YoY growth</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp4-result">+3M€ ARR · +300% YoY growth</span>
 </div>
 </div>
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">2019 – 2020</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2019 – 2020</p>
 <div class="flex items-center gap-2 mb-1">
-<img src="../logos/groupe-actiplay.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-white/10 bg-white shrink-0">
-<p class="font-bold text-sm text-neutral-100">Groupe Actiplay</p>
+<img src="../logos/groupe-actiplay.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Groupe Actiplay</p>
 </div>
-<p class="text-xs text-neutral-400" data-i18n="exp5-type">Marketing Agency · Bordeaux</p>
+<p class="text-xs text-neutral-500" data-i18n="exp5-type">Marketing Agency · Bordeaux</p>
 </div>
 <div>
-<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp5-title">B2B Traffic Director <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
+<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp5-title">B2B Traffic Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp5-b1">Définition de la stratégie d'acquisition et supervision des campagnes clients (Fnac, Cdiscount, BMW)</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp5-b2">Développement et exploitation d'outils de collecte de données</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp5-b3">Structuration du réseau partenaires et commercial, management d'une équipe de 2 personnes</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp5-b1">Définition de la stratégie d'acquisition et supervision des campagnes clients (Fnac, Cdiscount, BMW)</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp5-b2">Développement et exploitation d'outils de collecte de données</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp5-b3">Structuration du réseau partenaires et commercial, management d'une équipe de 2 personnes</li>
 </ul>
-<span class="inline-flex items-center bg-emerald-400/10 border border-emerald-400/25 text-emerald-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp5-result">€300K ARR · +220% performance on data collection systems</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp5-result">€300K ARR · +220% performance on data collection systems</span>
 </div>
 </div>
-<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-white/10">
+<div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10 border-b border-neutral-200">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">2016 – 2018</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2016 – 2018</p>
 <div class="flex items-center gap-2 mb-1">
-<img src="../logos/facebots.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-white/10 bg-white shrink-0">
-<p class="font-bold text-sm text-neutral-100">Facebots</p>
+<img src="../logos/facebots.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Facebots</p>
 </div>
-<p class="text-xs text-neutral-400" data-i18n="exp6-type">Chatbot & AI Startup · Transport · Bordeaux</p>
+<p class="text-xs text-neutral-500" data-i18n="exp6-type">Chatbot & AI Startup · Transport · Bordeaux</p>
 </div>
 <div>
-<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp6-title">B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
+<h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n-html="exp6-title">B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span></h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp6-b1">Développement de l'offre commerciale chatbots & AI Flows — grands comptes et secteur public (SNCF, métropoles)</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp6-b2">Arbitrage technologique et supervision des intégrations API, impact direct sur l'adoption commerciale et le revenu</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp6-b1">Développement de l'offre commerciale chatbots & AI Flows — grands comptes et secteur public (SNCF, métropoles)</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp6-b2">Arbitrage technologique et supervision des intégrations API, impact direct sur l'adoption commerciale et le revenu</li>
 </ul>
-<span class="inline-flex items-center bg-emerald-400/10 border border-emerald-400/25 text-emerald-400 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp6-result">€300K raised in seed funding · 2 public tenders won</span>
+<span class="inline-flex items-center bg-lime-400/10 border border-lime-400/25 text-lime-700 text-sm font-medium px-3 py-1 rounded-md" data-i18n="exp6-result">€300K raised in seed funding · 2 public tenders won</span>
 </div>
 </div>
 <div class="exp-item reveal grid md:grid-cols-[200px_1fr] gap-8 py-10">
 <div class="pt-1">
-<p class="text-xs font-mono text-neutral-400 tracking-wide mb-1">2012 – 2015</p>
+<p class="text-xs font-mono text-neutral-500 tracking-wide mb-1">2012 – 2015</p>
 <div class="flex items-center gap-2 mb-1">
-<img src="../logos/sopexa.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-white/10 bg-white shrink-0">
-<p class="font-bold text-sm text-neutral-100">Sopexa</p>
+<img src="../logos/sopexa.webp" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-md object-cover border border-neutral-200 bg-white shrink-0">
+<p class="font-bold text-sm text-neutral-900">Sopexa</p>
 </div>
-<p class="text-xs text-neutral-400" data-i18n="exp7-type">Marketing Agency · Tokyo, Japan</p>
+<p class="text-xs text-neutral-500" data-i18n="exp7-type">Marketing Agency · Tokyo, Japan</p>
 </div>
 <div>
 <h3 class="font-bold text-xl mb-2 flex items-center gap-3 flex-wrap" data-i18n="exp7-title">Jr Account Manager B2B2C</h3>
 <ul class="mb-4">
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp7-b1">Développement commercial et marketing B2B2C sur le marché japonais, gestion de comptes internationaux (3 ans en environnement multiculturel)</li>
-<li class="relative pl-4 text-sm text-neutral-400 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-emerald-400 before:text-xs" data-i18n="exp7-b2">Accompagnement des grands comptes français et américains, développement d'outils de sales enablement, campagnes événementielles</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp7-b1">Développement commercial et marketing B2B2C sur le marché japonais, gestion de comptes internationaux (3 ans en environnement multiculturel)</li>
+<li class="relative pl-4 text-sm text-neutral-500 leading-relaxed py-1 before:content-['->'] before:absolute before:left-0 before:text-lime-700 before:text-xs" data-i18n="exp7-b2">Accompagnement des grands comptes français et américains, développement d'outils de sales enablement, campagnes événementielles</li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<div class="h-px bg-white/10"></div>
+<div class="h-px bg-neutral-200"></div>
 <!-- CAS D'USAGE (BENTO) -->
 <section id="cas-usage" aria-labelledby="h2-cases-label" class="max-w-6xl mx-auto px-[4vw] py-28">
 <div class="reveal mb-16">
-<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-emerald-400 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-cases">Case Studies</span></p>
-<h2 id="h2-cases-label" class="font-display font-medium text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-cases">Proven by<br>execution.</h2>
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-cases">Case Studies</span></p>
+<h2 id="h2-cases-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-cases">Proven by<br>execution.</h2>
 </div>
 <div class="grid md:grid-cols-6 gap-6">
-<div class="case-card reveal reveal-delay-1 md:col-span-3 group relative overflow-hidden bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1 hover:shadow-[0_0_48px_-12px_rgba(16,185,129,0.4)]">
-<div class="font-mono font-extrabold text-5xl text-white/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-emerald-400 group-hover:to-emerald-500 group-hover:bg-clip-text">01</div>
+<div class="case-card reveal reveal-delay-1 md:col-span-3 group relative overflow-hidden bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-1 hover:shadow-[0_0_48px_-12px_rgba(221,255,87,0.4)]">
+<div class="font-mono font-extrabold text-5xl text-neutral-900/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-lime-600 group-hover:to-lime-700 group-hover:bg-clip-text">01</div>
 <h3 class="font-bold text-lg mb-3" data-i18n="case1-title">First Public Transit AI</h3>
-<p class="text-sm text-neutral-400 leading-relaxed mb-5" data-i18n="case1-text">In 2016, I connected Facebook Messenger to transit APIs across Bordeaux Métropole in 10 days. Trambots became the first AI dedicated to public transit in France — 100% organic growth through national press coverage.</p>
+<p class="text-sm text-neutral-500 leading-relaxed mb-5" data-i18n="case1-text">In 2016, I connected Facebook Messenger to transit APIs across Bordeaux Métropole in 10 days. Trambots became the first AI dedicated to public transit in France — 100% organic growth through national press coverage.</p>
 <div class="flex flex-wrap gap-2">
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case1-pill1">+100k users/day</span>
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case1-pill2">30 cities</span>
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case1-pill3">+1M messages/day</span>
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case1-pill4">Ahead of SNCF & Expedia</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill1">+100k users/day</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill2">30 cities</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill3">+1M messages/day</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case1-pill4">Ahead of SNCF & Expedia</span>
 </div>
 </div>
-<div class="case-card reveal reveal-delay-2 md:col-span-3 group relative overflow-hidden bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1 hover:shadow-[0_0_48px_-12px_rgba(16,185,129,0.4)]">
-<div class="font-mono font-extrabold text-5xl text-white/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-emerald-400 group-hover:to-emerald-500 group-hover:bg-clip-text">02</div>
+<div class="case-card reveal reveal-delay-2 md:col-span-3 group relative overflow-hidden bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-1 hover:shadow-[0_0_48px_-12px_rgba(221,255,87,0.4)]">
+<div class="font-mono font-extrabold text-5xl text-neutral-900/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-lime-600 group-hover:to-lime-700 group-hover:bg-clip-text">02</div>
 <h3 class="font-bold text-lg mb-3" data-i18n="case2-title">International Growth & Crowdfunding</h3>
-<p class="text-sm text-neutral-400 leading-relaxed mb-5" data-i18n="case2-text">For the launch of EYERIDE at Eyelights, I drove the full growth and paid strategy across 4 markets simultaneously. Indiegogo campaign raised $984k in 30 days, generating +3M€ in revenue within 3 months.</p>
+<p class="text-sm text-neutral-500 leading-relaxed mb-5" data-i18n="case2-text">For the launch of EYERIDE at Eyelights, I drove the full growth and paid strategy across 4 markets simultaneously. Indiegogo campaign raised $984k in 30 days, generating +3M€ in revenue within 3 months.</p>
 <div class="flex flex-wrap gap-2">
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case2-pill1">+200M impressions</span>
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case2-pill2">+80k leads</span>
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case2-pill3">$1M SEA invested</span>
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case2-pill4">4 markets simultaneously</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill1">+200M impressions</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill2">+80k leads</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill3">$1M SEA invested</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case2-pill4">4 markets simultaneously</span>
 </div>
 </div>
-<div class="case-card reveal reveal-delay-3 md:col-span-6 group relative overflow-hidden bg-gradient-to-br from-emerald-400/5 to-surface border border-emerald-400/20 rounded-2xl p-8 transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1 hover:shadow-[0_0_48px_-12px_rgba(16,185,129,0.4)]">
-<div class="font-mono font-extrabold text-5xl text-white/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-emerald-400 group-hover:to-emerald-500 group-hover:bg-clip-text">03</div>
+<div class="case-card reveal reveal-delay-3 md:col-span-6 group relative overflow-hidden bg-gradient-to-br from-lime-400/5 to-surface border border-lime-400/20 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/40 hover:-translate-y-1 hover:shadow-[0_0_48px_-12px_rgba(221,255,87,0.4)]">
+<div class="font-mono font-extrabold text-5xl text-neutral-900/10 mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-gradient-to-br group-hover:from-lime-600 group-hover:to-lime-700 group-hover:bg-clip-text">03</div>
 <h3 class="font-bold text-lg mb-3" data-i18n="case3-title">Multi-Agent AI Marketing System</h3>
-<p class="text-sm text-neutral-400 leading-relaxed mb-5 max-w-3xl" data-i18n="case3-text">Autonomous marketing automation system deployed in production: Claude API orchestrator + Trello as task queue, 9 specialized agents (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), automatic versioning on Git.</p>
+<p class="text-sm text-neutral-500 leading-relaxed mb-5 max-w-3xl" data-i18n="case3-text">Autonomous marketing automation system deployed in production: Claude API orchestrator + Trello as task queue, 9 specialized agents (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), automatic versioning on Git.</p>
 <div class="flex flex-wrap gap-2">
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case3-pill1">9 specialized agents</span>
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case3-pill2">Claude API</span>
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case3-pill3">Fully autonomous</span>
-<span class="font-mono text-xs font-medium bg-emerald-400/10 text-emerald-400 border border-emerald-400/20 rounded-full px-3 py-1" data-i18n="case3-pill4">Deployed in production</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill1">9 specialized agents</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill2">Claude API</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill3">Fully autonomous</span>
+<span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1" data-i18n="case3-pill4">Deployed in production</span>
 </div>
 </div>
 </div>
 </section>
-<div class="h-px bg-white/10"></div>
+<div class="h-px bg-neutral-200"></div>
 <!-- COMPETENCES (BENTO) -->
 <section id="competences" aria-labelledby="h2-skills-label" class="max-w-6xl mx-auto px-[4vw] py-28">
 <div class="reveal mb-16">
-<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-emerald-400 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-skills">Skills</span></p>
-<h2 id="h2-skills-label" class="font-display font-medium text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-skills">Strategic &<br>technical stack.</h2>
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-skills">Skills</span></p>
+<h2 id="h2-skills-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-skills">Strategic &<br>technical stack.</h2>
 </div>
 <div class="grid md:grid-cols-2 gap-6">
-<div class="skill-card reveal md:col-span-2 bg-gradient-to-br from-emerald-400/8 to-surface border border-emerald-400/20 rounded-2xl p-7 transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="w-11 h-11 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 mb-4" aria-hidden="true">
+<div class="skill-card reveal md:col-span-2 bg-gradient-to-br from-lime-400/8 to-surface border border-lime-400/20 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="w-11 h-11 rounded-xl bg-lime-400/10 border border-lime-400/20 flex items-center justify-center text-lime-700 mb-4" aria-hidden="true">
 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
 </div>
-<h4 class="font-bold text-sm text-emerald-400 mb-3" data-i18n="skill1-title">Go-to-market & Sales Strategy</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="skill1-tools">Positioning, messaging, product launch, offer structuring, partnerships, B2B and B2B2C markets — from seed stage to LBO</p>
+<h4 class="font-bold text-sm text-lime-700 mb-3" data-i18n="skill1-title">Go-to-market & Sales Strategy</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="skill1-tools">Positioning, messaging, product launch, offer structuring, partnerships, B2B and B2B2C markets — from seed stage to LBO</p>
 </div>
-<div class="skill-card reveal reveal-delay-1 bg-surface border border-white/10 rounded-2xl p-7 transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="w-11 h-11 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 mb-4" aria-hidden="true">
+<div class="skill-card reveal reveal-delay-1 bg-surface border border-neutral-200 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="w-11 h-11 rounded-xl bg-lime-400/10 border border-lime-400/20 flex items-center justify-center text-lime-700 mb-4" aria-hidden="true">
 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="14 6 21 6 21 13"/></svg>
 </div>
-<h4 class="font-bold text-sm text-emerald-400 mb-3" data-i18n="skill2-title">Acquisition & Growth</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="skill2-tools">SEO / SEA, lead generation, CRM (HubSpot, Pipedrive, Zoho, Klaviyo), multi-channel campaigns, LinkedIn Ads, Meta, Google Ads, TikTok</p>
+<h4 class="font-bold text-sm text-lime-700 mb-3" data-i18n="skill2-title">Acquisition & Growth</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="skill2-tools">SEO / SEA, lead generation, CRM (HubSpot, Pipedrive, Zoho, Klaviyo), multi-channel campaigns, LinkedIn Ads, Meta, Google Ads, TikTok</p>
 </div>
-<div class="skill-card reveal reveal-delay-2 bg-surface border border-white/10 rounded-2xl p-7 transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="w-11 h-11 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 mb-4" aria-hidden="true">
+<div class="skill-card reveal reveal-delay-2 bg-surface border border-neutral-200 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="w-11 h-11 rounded-xl bg-lime-400/10 border border-lime-400/20 flex items-center justify-center text-lime-700 mb-4" aria-hidden="true">
 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="14"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="18" y1="20" x2="18" y2="10"/></svg>
 </div>
-<h4 class="font-bold text-sm text-emerald-400 mb-3" data-i18n="skill3-title">Data & Analytics</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="skill3-tools">GA4, Looker Studio, Metabase, advanced tracking (GTM, Umami.js, Hotjar, Clarity), Excel VBA, Google Sheets AppScript, Python (Pandas, NumPy)</p>
+<h4 class="font-bold text-sm text-lime-700 mb-3" data-i18n="skill3-title">Data & Analytics</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="skill3-tools">GA4, Looker Studio, Metabase, advanced tracking (GTM, Umami.js, Hotjar, Clarity), Excel VBA, Google Sheets AppScript, Python (Pandas, NumPy)</p>
 </div>
-<div class="skill-card reveal reveal-delay-3 bg-surface border border-white/10 rounded-2xl p-7 transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="w-11 h-11 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 mb-4" aria-hidden="true">
+<div class="skill-card reveal reveal-delay-3 bg-surface border border-neutral-200 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="w-11 h-11 rounded-xl bg-lime-400/10 border border-lime-400/20 flex items-center justify-center text-lime-700 mb-4" aria-hidden="true">
 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.5 3 1.3 5 2.6 6.4C15.9 10.7 17.9 11.5 21 12c-3.1.5-5.1 1.3-6.4 2.6C13.3 16 12.5 18 12 21c-.5-3-1.3-5-2.6-6.4C8.1 13.3 6.1 12.5 3 12c3.1-.5 5.1-1.3 6.4-2.6C10.7 8 11.5 6 12 3Z"/></svg>
 </div>
-<h4 class="font-bold text-sm text-emerald-400 mb-3" data-i18n="skill4-title">Automation & Generative AI</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="skill4-tools">Make, n8n, Zapier, Claude API, ChatGPT, Gemini, Cursor — autonomous workflow design, LLM agents, MCP integrations</p>
+<h4 class="font-bold text-sm text-lime-700 mb-3" data-i18n="skill4-title">Automation & Generative AI</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="skill4-tools">Make, n8n, Zapier, Claude API, ChatGPT, Gemini, Cursor — autonomous workflow design, LLM agents, MCP integrations</p>
 </div>
-<div class="skill-card reveal reveal-delay-4 bg-surface border border-white/10 rounded-2xl p-7 transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="w-11 h-11 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 mb-4" aria-hidden="true">
+<div class="skill-card reveal reveal-delay-4 bg-surface border border-neutral-200 rounded-2xl p-7 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="w-11 h-11 rounded-xl bg-lime-400/10 border border-lime-400/20 flex items-center justify-center text-lime-700 mb-4" aria-hidden="true">
 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/></svg>
 </div>
-<h4 class="font-bold text-sm text-emerald-400 mb-3" data-i18n="skill5-title">Web Development</h4>
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="skill5-tools">Python, JavaScript / TypeScript, REST API, Google Cloud Platform, WordPress, Firebase, GitHub, Jupyter — autonomous from spec to deployment</p>
+<h4 class="font-bold text-sm text-lime-700 mb-3" data-i18n="skill5-title">Web Development</h4>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="skill5-tools">Python, JavaScript / TypeScript, REST API, Google Cloud Platform, WordPress, Firebase, GitHub, Jupyter — autonomous from spec to deployment</p>
 </div>
 </div>
 </section>
-<div class="h-px bg-white/10"></div>
+<div class="h-px bg-neutral-200"></div>
 <!-- REFERENCES -->
 <section id="references" aria-labelledby="h2-refs-label" class="max-w-6xl mx-auto px-[4vw] py-28">
 <div class="reveal mb-16">
-<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-emerald-400 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-refs">References</span></p>
-<h2 id="h2-refs-label" class="font-display font-medium text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-refs">What my<br>peers say.</h2>
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-refs">References</span></p>
+<h2 id="h2-refs-label" class="font-extrabold text-[clamp(2rem,4vw,3rem)] leading-tight tracking-tight" data-i18n-html="h2-refs">What my<br>peers say.</h2>
 </div>
 <div class="grid md:grid-cols-2 gap-6">
-<div class="ref-card reveal reveal-delay-1 bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="font-extrabold text-4xl bg-gradient-to-br from-emerald-400 to-emerald-500 bg-clip-text text-transparent leading-none mb-4">"</div>
-<p class="text-sm text-neutral-200 italic leading-relaxed mb-6" data-i18n="ref1-text">Il est constamment en train d'innover et de rechercher les innovations qui lui permettront d'aller plus loin. C'est un profil ultra intéressant pour contribuer à faire grossir une entreprise.</p>
+<div class="ref-card reveal reveal-delay-1 bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent leading-none mb-4">"</div>
+<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref1-text">Il est constamment en train d'innover et de rechercher les innovations qui lui permettront d'aller plus loin. C'est un profil ultra intéressant pour contribuer à faire grossir une entreprise.</p>
 <div class="flex items-center gap-3">
-<img src="../testimonials/nicolas-pasetti.webp" alt="" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full object-cover border border-white/10 shrink-0">
+<img src="../testimonials/nicolas-pasetti.webp" alt="" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full object-cover border border-neutral-200 shrink-0">
 <div class="flex flex-col gap-0.5">
-<span class="font-bold text-sm text-neutral-100">Nicolas Pasetti</span>
-<span class="text-xs text-neutral-400" data-i18n="ref1-role">CEO, eteam_work — managed Maxime directly</span>
+<span class="font-bold text-sm text-neutral-900">Nicolas Pasetti</span>
+<span class="text-xs text-neutral-500" data-i18n="ref1-role">CEO, eteam_work — managed Maxime directly</span>
 </div>
 </div>
 </div>
-<div class="ref-card reveal reveal-delay-2 bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="font-extrabold text-4xl bg-gradient-to-br from-emerald-400 to-emerald-500 bg-clip-text text-transparent leading-none mb-4">"</div>
-<p class="text-sm text-neutral-200 italic leading-relaxed mb-6" data-i18n="ref2-text">On the technical side, Maxime is extremely skilled. He masters Python and JavaScript, and his scraping and automation capabilities are remarkable for a marketing director.</p>
+<div class="ref-card reveal reveal-delay-2 bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent leading-none mb-4">"</div>
+<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref2-text">On the technical side, Maxime is extremely skilled. He masters Python and JavaScript, and his scraping and automation capabilities are remarkable for a marketing director.</p>
 <div class="flex items-center gap-3">
-<img src="../testimonials/alexandre-masson.webp" alt="" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full object-cover border border-white/10 shrink-0">
+<img src="../testimonials/alexandre-masson.webp" alt="" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full object-cover border border-neutral-200 shrink-0">
 <div class="flex flex-col gap-0.5">
-<span class="font-bold text-sm text-neutral-100">Alexandre Masson</span>
-<span class="text-xs text-neutral-400" data-i18n="ref2-role">Data Engineer, ColisPrivé — reported to Maxime</span>
+<span class="font-bold text-sm text-neutral-900">Alexandre Masson</span>
+<span class="text-xs text-neutral-500" data-i18n="ref2-role">Data Engineer, ColisPrivé — reported to Maxime</span>
 </div>
 </div>
 </div>
-<div class="ref-card reveal reveal-delay-3 bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="font-extrabold text-4xl bg-gradient-to-br from-emerald-400 to-emerald-500 bg-clip-text text-transparent leading-none mb-4">"</div>
-<p class="text-sm text-neutral-200 italic leading-relaxed mb-6" data-i18n="ref3-text">Toujours plusieurs coups d'avance, c'est ça qu'on aime chez lui ! Son analyse est très pointue sur des sujets concernant le marketing, le management et la growth pure.</p>
+<div class="ref-card reveal reveal-delay-3 bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent leading-none mb-4">"</div>
+<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref3-text">Toujours plusieurs coups d'avance, c'est ça qu'on aime chez lui ! Son analyse est très pointue sur des sujets concernant le marketing, le management et la growth pure.</p>
 <div class="flex items-center gap-3">
-<img src="../testimonials/pierre-rocherie.webp" alt="" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full object-cover border border-white/10 shrink-0">
+<img src="../testimonials/pierre-rocherie.webp" alt="" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full object-cover border border-neutral-200 shrink-0">
 <div class="flex flex-col gap-0.5">
-<span class="font-bold text-sm text-neutral-100">Pierre Rocherie</span>
-<span class="text-xs text-neutral-400" data-i18n="ref3-role">General Manager, FM Auto</span>
+<span class="font-bold text-sm text-neutral-900">Pierre Rocherie</span>
+<span class="text-xs text-neutral-500" data-i18n="ref3-role">General Manager, FM Auto</span>
 </div>
 </div>
 </div>
-<div class="ref-card reveal reveal-delay-4 bg-surface border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_32px_-10px_rgba(16,185,129,0.3)]">
-<div class="font-extrabold text-4xl bg-gradient-to-br from-emerald-400 to-emerald-500 bg-clip-text text-transparent leading-none mb-4">"</div>
-<p class="text-sm text-neutral-200 italic leading-relaxed mb-6" data-i18n="ref4-text">Il connaît très bien son marché, son positionnement et les enjeux technologiques et commerciaux de ses clients. Il est passionné par son métier, extrêmement curieux — cela facilite grandement les échanges.</p>
+<div class="ref-card reveal reveal-delay-4 bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
+<div class="font-extrabold text-4xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent leading-none mb-4">"</div>
+<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref4-text">Il connaît très bien son marché, son positionnement et les enjeux technologiques et commerciaux de ses clients. Il est passionné par son métier, extrêmement curieux — cela facilite grandement les échanges.</p>
 <div class="flex items-center gap-3">
-<img src="../testimonials/jeremy-fortinon.webp" alt="" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full object-cover border border-white/10 shrink-0">
+<img src="../testimonials/jeremy-fortinon.webp" alt="" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full object-cover border border-neutral-200 shrink-0">
 <div class="flex flex-col gap-0.5">
-<span class="font-bold text-sm text-neutral-100">Jérémy Fortinon</span>
-<span class="text-xs text-neutral-400" data-i18n="ref4-role">Expert transformation des SI — client de Maxime</span>
+<span class="font-bold text-sm text-neutral-900">Jérémy Fortinon</span>
+<span class="text-xs text-neutral-500" data-i18n="ref4-role">Expert transformation des SI — client de Maxime</span>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!-- CONTACT -->
-<section id="contact" aria-labelledby="h2-contact-label" class="relative overflow-hidden bg-surface2 border-t border-white/10 text-center px-[4vw] py-28">
+<section id="contact" aria-labelledby="h2-contact-label" class="relative overflow-hidden bg-surface2 border-t border-neutral-200 text-center px-[4vw] py-28">
 <div class="grid-texture"></div>
 <div class="contact-glow"></div>
-<h2 id="h2-contact-label" class="reveal relative font-display font-medium text-[clamp(2.5rem,5vw,4rem)] mb-4" data-i18n-html="h2-contact">Available for<br>a conversation.</h2>
-<p class="reveal relative text-neutral-400 text-lg mb-10" data-i18n="p-contact">B2B Marketing & Growth Director · Bordeaux · France</p>
+<h2 id="h2-contact-label" class="reveal relative font-extrabold text-[clamp(2.5rem,5vw,4rem)] mb-4" data-i18n-html="h2-contact">Available for<br>a conversation.</h2>
+<p class="reveal relative text-neutral-500 text-lg mb-10" data-i18n="p-contact">B2B Marketing & Growth Director · Bordeaux · France</p>
 <div class="reveal relative flex flex-wrap gap-4 justify-center mb-14">
-<a href="mailto:girard.maxime33@gmail.com" data-umami-event="Footer Mail Click" class="plausible-event-name=Footer+Mail+Click flex items-center gap-2 text-neutral-100 text-sm border border-white/10 rounded-lg px-6 py-3 transition-all duration-200 hover:border-emerald-400 hover:text-emerald-400 hover:shadow-[0_0_24px_-8px_rgba(16,185,129,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 inline-block align-[-3px]"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span> girard.maxime33@gmail.com</a>
-<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" data-umami-event="Footer LinkedIn Click" class="plausible-event-name=Footer+LinkedIn+Click flex items-center gap-2 text-neutral-100 text-sm border border-white/10 rounded-lg px-6 py-3 transition-all duration-200 hover:border-emerald-400 hover:text-emerald-400 hover:shadow-[0_0_24px_-8px_rgba(16,185,129,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2"><span aria-hidden="true">↗</span> LinkedIn</a>
+<a href="mailto:girard.maxime33@gmail.com" data-umami-event="Footer Mail Click" class="plausible-event-name=Footer+Mail+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(221,255,87,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 inline-block align-[-3px]"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span> girard.maxime33@gmail.com</a>
+<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" data-umami-event="Footer LinkedIn Click" class="plausible-event-name=Footer+LinkedIn+Click flex items-center gap-2 text-neutral-900 text-sm border border-neutral-200 rounded-lg px-6 py-3 transition-all duration-200 hover:border-lime-400 hover:text-lime-700 hover:shadow-[0_0_24px_-8px_rgba(221,255,87,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">↗</span> LinkedIn</a>
 </div>
 <div id="booking-block" class="reveal relative max-w-3xl mx-auto text-left">
-<p class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-emerald-400 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-booking">Book a time slot</span></p>
-<div class="bg-surface border border-white/10 rounded-2xl p-3 overflow-hidden">
-<div class="calendly-inline-widget" data-url="https://calendly.com/girard-maxime33?hide_gdpr_banner=1&amp;background_color=12151c&amp;text_color=f4f5f7&amp;primary_color=10b981" style="min-width:280px;height:700px;"></div>
+<p class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="label-booking">Book a time slot</span></p>
+<div class="bg-surface border border-neutral-200 rounded-2xl p-3 overflow-hidden">
+<div class="calendly-inline-widget" data-url="https://calendly.com/girard-maxime33?hide_gdpr_banner=1&amp;background_color=ffffff&amp;text_color=171717&amp;primary_color=65a30d" style="min-width:280px;height:700px;"></div>
 </div>
 </div>
 </section>
 </main>
 <!-- FOOTER -->
-<footer class="bg-neutral-900 border-t border-white/10 text-white/50 px-[4vw] py-8">
+<footer class="bg-neutral-900 text-white/50 px-[4vw] py-8">
 <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
 <p>© <span id="footer-year">2026</span> Maxime Girard · Bordeaux, France</p>
 <div class="flex items-center gap-5">
-<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" data-umami-event="Footer Bottom LinkedIn Click" class="plausible-event-name=Footer+Bottom+LinkedIn+Click hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2 rounded" aria-label="Voir le profil LinkedIn">LinkedIn</a>
-<a href="mailto:girard.maxime33@gmail.com" data-umami-event="Footer Bottom Mail Click" class="plausible-event-name=Footer+Bottom+Mail+Click hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2 rounded" aria-label="Envoyer un e-mail">Email</a>
+<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" data-umami-event="Footer Bottom LinkedIn Click" class="plausible-event-name=Footer+Bottom+LinkedIn+Click hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" aria-label="Voir le profil LinkedIn">LinkedIn</a>
+<a href="mailto:girard.maxime33@gmail.com" data-umami-event="Footer Bottom Mail Click" class="plausible-event-name=Footer+Bottom+Mail+Click hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" aria-label="Envoyer un e-mail">Email</a>
 <div class="flex items-center gap-2" role="group" aria-label="Langue / Language">
-<a href="/" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2 rounded" hreflang="fr">FR</a>
+<a href="/" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" hreflang="fr">FR</a>
 <span aria-hidden="true">/</span>
-<a href="/en/" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2 rounded" hreflang="en">EN</a>
+<a href="/en/" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" hreflang="en">EN</a>
 </div>
-<a href="#hero" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2 rounded" data-i18n="footer-top" aria-label="Retour en haut de page">↑ Back to top</a>
+<a href="#hero" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" data-i18n="footer-top" aria-label="Retour en haut de page">↑ Back to top</a>
 </div>
 </div>
 </footer>
 <!-- ASSISTANT IA -->
-<button id="chat-toggle" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="Ouvrir l'assistant" class="fixed bottom-6 right-6 z-[90] w-14 h-14 rounded-full bg-emerald-400 text-black flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_32px_-6px_rgba(16,185,129,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2">
+<button id="chat-toggle" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="Ouvrir l'assistant" class="fixed bottom-6 right-6 z-[90] w-14 h-14 rounded-full bg-lime-400 text-black flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_32px_-6px_rgba(221,255,87,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2">
 <svg id="chat-icon-open" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
 <svg id="chat-icon-close" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden w-6 h-6"><path d="M18 6 6 18"/><path d="M6 6 18 18"/></svg>
 </button>
-<div id="chat-panel" hidden class="fixed z-[90] bottom-24 right-6 left-6 sm:left-auto w-auto sm:w-96 max-h-[70vh] bg-surface border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
-<div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
-<p class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-emerald-400 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="chat-title">Ask about Maxime</span></p>
-<button id="chat-close" type="button" aria-label="Fermer l'assistant" class="text-neutral-400 hover:text-white text-lg leading-none px-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2 rounded">✕</button>
+<div id="chat-panel" hidden class="fixed z-[90] bottom-24 right-6 left-6 sm:left-auto w-auto sm:w-96 max-h-[70vh] bg-surface border border-neutral-200 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+<div class="flex items-center justify-between px-4 py-3 border-b border-neutral-200">
+<p class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span data-i18n="chat-title">Ask about Maxime</span></p>
+<button id="chat-close" type="button" aria-label="Fermer l'assistant" class="text-neutral-500 hover:text-neutral-900 text-lg leading-none px-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">✕</button>
 </div>
 <div id="chat-messages" aria-live="polite" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 min-h-[160px]">
-<p class="text-sm text-neutral-400 leading-relaxed" data-i18n="chat-intro">Posez une question sur le profil de Maxime, ou choisissez une suggestion ci-dessous.</p>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="chat-intro">Posez une question sur le profil de Maxime, ou choisissez une suggestion ci-dessous.</p>
 </div>
 <div id="chat-chips" class="flex flex-col gap-2 px-4 pb-3">
-<button type="button" class="chat-chip text-left text-sm bg-white/5 border border-white/10 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-emerald-400 hover:bg-emerald-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2" data-i18n="chat-q1">How can Maxime help me?</button>
-<button type="button" class="chat-chip text-left text-sm bg-white/5 border border-white/10 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-emerald-400 hover:bg-emerald-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2" data-i18n="chat-q2">What are his main skills?</button>
-<button type="button" class="chat-chip text-left text-sm bg-white/5 border border-white/10 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-emerald-400 hover:bg-emerald-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2" data-i18n="chat-q3">Quel est son parcours ?</button>
-<button type="button" class="chat-chip text-left text-sm bg-white/5 border border-white/10 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-emerald-400 hover:bg-emerald-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2" data-i18n="chat-q4">How do I get in touch?</button>
+<button type="button" class="chat-chip text-left text-sm bg-neutral-100 border border-neutral-200 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-lime-400 hover:bg-lime-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n="chat-q1">How can Maxime help me?</button>
+<button type="button" class="chat-chip text-left text-sm bg-neutral-100 border border-neutral-200 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-lime-400 hover:bg-lime-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n="chat-q2">What are his main skills?</button>
+<button type="button" class="chat-chip text-left text-sm bg-neutral-100 border border-neutral-200 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-lime-400 hover:bg-lime-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n="chat-q3">Quel est son parcours ?</button>
+<button type="button" class="chat-chip text-left text-sm bg-neutral-100 border border-neutral-200 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-lime-400 hover:bg-lime-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n="chat-q4">How do I get in touch?</button>
 </div>
-<form id="chat-form" class="flex items-center gap-2 border-t border-white/10 p-3">
+<form id="chat-form" class="flex items-center gap-2 border-t border-neutral-200 p-3">
 <label for="chat-input" class="sr-only" data-i18n="chat-input-label">Your question</label>
-<input id="chat-input" type="text" autocomplete="off" maxlength="300" data-i18n-placeholder="chat-placeholder" placeholder="Ask your question…" class="flex-1 min-w-0 text-sm bg-white/5 border border-white/15 rounded-lg px-3 py-2 text-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-500 focus-visible:outline-offset-2">
-<button type="submit" aria-label="Envoyer" class="shrink-0 w-9 h-9 rounded-lg bg-emerald-400 text-black flex items-center justify-center transition-all duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2"><span aria-hidden="true">→</span></button>
+<input id="chat-input" type="text" autocomplete="off" maxlength="300" data-i18n-placeholder="chat-placeholder" placeholder="Ask your question…" class="flex-1 min-w-0 text-sm bg-neutral-100 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2">
+<button type="submit" aria-label="Envoyer" class="shrink-0 w-9 h-9 rounded-lg bg-lime-400 text-black flex items-center justify-center transition-all duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">→</span></button>
 </form>
 </div>
 <script>
@@ -631,7 +647,7 @@ const t = {
     'btn-cv-nav-mobile': '<span aria-hidden="true">↓</span> Télécharger le CV',
     'label-profil': 'Profil',
     'h2-profil': 'Marketing stratégique, exécution technique.',
-    'profil-pitch': `<p>Profil hybride <strong class="text-emerald-400 font-medium">stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable.</p><br><p>Vision CMO + exécution growth engineer. Je code, j'automatise, je pilote les données, je structure les équipes.</p><br><p>Startup en amorçage, scale-up en hypercroissance, PME en structuration : j'ai opéré à chaque stade, avec des résultats mesurables à chaque fois. Périmètre France, Europe, US et Japon.</p>`,
+    'profil-pitch': `<p>Profil hybride <strong class="text-lime-700 font-medium">stratégie / data / automatisation</strong>. Je construis des systèmes marketing qui génèrent de la croissance mesurable.</p><br><p>Vision CMO + exécution growth engineer. Je code, j'automatise, je pilote les données, je structure les équipes.</p><br><p>Startup en amorçage, scale-up en hypercroissance, PME en structuration : j'ai opéré à chaque stade, avec des résultats mesurables à chaque fois. Périmètre France, Europe, US et Japon.</p>`,
     'value1-title': 'Combatif',
     'value1-desc': "Détermination à relever les défis et à se dépasser. Encourage persévérance, audace et esprit d'initiative dans les équipes.",
     'value2-title': 'Ambitieux',
@@ -641,7 +657,7 @@ const t = {
     'label-exp': 'Parcours',
     'h2-exp': '10 ans, 6 COMEX,<br>5 marchés.',
     'exp0-type': 'PME · Fabrication additive',
-    'exp0-title': `Responsable Marketing Europe <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp0-title': `Responsable Marketing Europe <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
     'exp0-b1': "Déploiement complet d'une architecture GTM IA : pipeline RAG local (FastAPI + ChromaDB + Ollama), retrieval hybride BM25+RRF, reranking par cross-encoder, 6 modes experts métier, sans dépendance cloud",
     'exp0-b2': "Intégration du protocole MCP : orchestration d'agents IA connectant CRM, outils analytics (Semrush, GA4) et workflows n8n pour automatiser les cas d'usage GTM",
     'exp0-b3': "Architecture CRM orientée RevOps : pipeline à 8 étapes, scoring BANT/ICP, enrichissement, gouvernance Zoho Flow + webhooks n8n",
@@ -655,34 +671,34 @@ const t = {
     'exp1-b4': "Déploiement d'un dispositif multi-comptes Google My Business pour le mailing direct et la génération de trafic D2C",
     'exp1-result': 'Outil de scoring LinkedIn en production · 300 leads générés · 40 comptes GMB automatisés',
     'exp2-type': 'PME · Solutions de stationnement',
-    'exp2-title': `Directeur Marketing Europe B2B <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp2-title': `Directeur Marketing Europe B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
     'exp2-b1': 'Pilotage des opérations marketing européennes : Allemagne, Benelux, Espagne, Portugal, Autriche',
     'exp2-b2': 'Définition et exécution de campagnes B2B ciblant 700+ collectivités locales — CRM, RP, lobbying',
     'exp2-b3': 'Supervision de la conformité du site web B2B et de la génération de leads',
     'exp2-b4': 'Responsabilité directe du budget marketing européen, arbitrages stratégiques, reporting au CMO et au CEO',
     'exp2-result': '+30 M€ ARR · +30% croissance mois/mois',
     'exp3-type': 'PME · Conseil, Produit & Data',
-    'exp3-title': `Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp3-title': `Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
     'exp3-b1': "Pilotage du marketing mix modeling interne et externe — clients PME & ETI (Eurofeu, Réseau CCI, Cegid)",
     'exp3-b2': 'Définition de la stratégie de positionnement, messaging et offre commerciale',
     'exp3-b3': "Supervision de la génération de leads, du suivi commercial et de l'expérience client",
     'exp3-b4': "Management d'une équipe de 5 personnes",
     'exp3-result': '+1 M€ ARR · +10 MVP et business cases industrialisés',
     'exp4-type': 'Scale-up IoT & AR · Toulouse',
-    'exp4-title': `Directeur Croissance B2B2C <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp4-title': `Directeur Croissance B2B2C <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
     'exp4-b1': 'Définition de la stratégie mix marketing, positionnement et messaging — grands comptes (Renault, BMW, Airbus)',
     'exp4-b2': "Gestion d'un budget d'acquisition de 1 M€, stratégie multi-canal",
     'exp4-b3': 'Lancement commercial sur 5 marchés : France, USA, Allemagne, UK, Japon',
     'exp4-b4': "Conception et déploiement d'un chatbot interne pour automatiser les opérations marketing, produit et SAV",
     'exp4-result': '+3 M€ ARR · +300% croissance YoY',
     'exp5-type': 'Agence Marketing · Bordeaux',
-    'exp5-title': `Directeur Traffic B2B <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp5-title': `Directeur Traffic B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
     'exp5-b1': "Définition de la stratégie d'acquisition et supervision des campagnes clients (Fnac, Cdiscount, BMW)",
     'exp5-b2': "Développement et exploitation d'outils de collecte de données",
     'exp5-b3': "Structuration du réseau partenaires et commercial, management d'une équipe de 2 personnes",
     'exp5-result': '300 k€ ARR · +220% de performance sur la collecte de données',
     'exp6-type': 'Startup Chatbot & IA · Transport · Bordeaux',
-    'exp6-title': `Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
+    'exp6-title': `Directeur Marketing B2B <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">COMEX</span>`,
     'exp6-b1': "Développement de l'offre commerciale chatbots & AI Flows — grands comptes et secteur public (SNCF, métropoles)",
     'exp6-b2': "Arbitrage technologique et supervision des intégrations API, impact direct sur l'adoption commerciale et le revenu",
     'exp6-result': "300 k€ levés en seed · 2 appels d'offres publics remportés",
@@ -744,13 +760,11 @@ const t = {
     'chat-q4': 'Comment le contacter ?',
     'chat-input-label': 'Votre question',
     'chat-placeholder': 'Posez votre question…',
-    'hero-status': 'Disponible pour de nouveaux mandats',
     'chat-error': "Assistant indisponible pour le moment. Écrivez-moi directement : girard.maxime33@gmail.com",
   },
   en: {
     'page-title': 'Maxime Girard | Marketing & Growth Director B2B — Bordeaux',
     'skip-link': 'Skip to main content',
-    'hero-status': 'Available for new engagements',
     'nav-profil': 'Profile',
     'nav-experiences': 'Experience',
     'nav-cas-usage': 'Case Studies',
@@ -764,7 +778,7 @@ const t = {
     'btn-cv-nav-mobile': '<span aria-hidden="true">↓</span> Download my CV',
     'label-profil': 'Profile',
     'h2-profil': 'Strategic marketing, technical execution.',
-    'profil-pitch': `<p>Hybrid profile combining <strong class="text-emerald-400 font-medium">strategy / data / automation</strong>. I build marketing systems that drive measurable growth.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams.</p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p>`,
+    'profil-pitch': `<p>Hybrid profile combining <strong class="text-lime-700 font-medium">strategy / data / automation</strong>. I build marketing systems that drive measurable growth.</p><br><p>CMO vision + growth engineer execution. I code, I automate, I manage data, I structure teams.</p><br><p>Early-stage startup, hyper-growth scale-up, structured SMB: I've operated at every stage with measurable results each time. Scope: France, Europe, US and Japan.</p>`,
     'value1-title': 'Fighter',
     'value1-desc': 'Determination to tackle challenges and push beyond limits. Fosters perseverance, boldness and initiative within teams.',
     'value2-title': 'Ambitious',
@@ -774,7 +788,7 @@ const t = {
     'label-exp': 'Experience',
     'h2-exp': '10 years, 6 Exec. Committees,<br>5 markets.',
     'exp0-type': 'SME · Additive Manufacturing',
-    'exp0-title': `Europe Marketing Lead <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp0-title': `Europe Marketing Lead <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
     'exp0-b1': 'End-to-end deployment of a GTM AI architecture: local RAG pipeline (FastAPI + ChromaDB + Ollama), hybrid BM25+RRF retrieval, cross-encoder reranking, 6 domain expert modes, with no cloud dependency',
     'exp0-b2': 'MCP (Model Context Protocol) integration: orchestration of AI agents connecting CRM, analytics tools (Semrush, GA4) and n8n workflows to automate GTM use cases',
     'exp0-b3': 'RevOps-oriented CRM architecture: 8-stage pipeline, BANT/ICP scoring, enrichment, Zoho Flow governance + n8n webhooks',
@@ -788,34 +802,34 @@ const t = {
     'exp1-b4': 'Deployment of a multi-account Google My Business setup for direct mailing and D2C traffic generation',
     'exp1-result': 'LinkedIn scoring tool in production · 300 leads generated · 40 GMB accounts automated',
     'exp2-type': 'SME · Parking solutions',
-    'exp2-title': `B2B Europe Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp2-title': `B2B Europe Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
     'exp2-b1': 'Management of European marketing operations: Germany, Benelux, Spain, Portugal, Austria',
     'exp2-b2': 'Definition and execution of B2B campaigns targeting 700+ local authorities — CRM, PR, lobbying',
     'exp2-b3': 'Supervision of B2B website compliance and lead generation',
     'exp2-b4': 'Direct responsibility for the European marketing budget, strategic trade-offs and reporting to the CMO and CEO',
     'exp2-result': '+30M€ ARR · +30% month-over-month growth',
     'exp3-type': 'SME · Consulting, Product & Data',
-    'exp3-title': `B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp3-title': `B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
     'exp3-b1': 'Management of internal and external marketing mix modeling — SME and mid-cap clients (Eurofeu, CCI Network, Cegid)',
     'exp3-b2': 'Definition of positioning strategy, messaging and commercial offering',
     'exp3-b3': 'Supervision of lead generation, sales follow-up and customer experience',
     'exp3-b4': 'Management of a 5-person team',
     'exp3-result': '+1M€ ARR · +10 MVPs and business cases industrialized',
     'exp4-type': 'IoT & AR Scale-up · Toulouse',
-    'exp4-title': `B2B2C Growth Director <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp4-title': `B2B2C Growth Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
     'exp4-b1': 'Definition of the marketing mix strategy, positioning and messaging — mid-cap and large enterprise clients (Renault, BMW, Airbus)',
     'exp4-b2': 'Management of a €1M acquisition budget, multi-channel acquisition strategy',
     'exp4-b3': 'Commercial launch in 5 markets: France, USA, Germany, UK, Japan',
     'exp4-b4': 'Design and deployment of an internal chatbot to automate marketing, product and after-sales operations',
     'exp4-result': '+3M€ ARR · +300% YoY growth',
     'exp5-type': 'Marketing Agency · Bordeaux',
-    'exp5-title': `B2B Traffic Director <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp5-title': `B2B Traffic Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
     'exp5-b1': 'Definition of the acquisition strategy and supervision of client campaigns (Fnac, Cdiscount, BMW)',
     'exp5-b2': 'Development and operation of data collection tools',
     'exp5-b3': 'Structuring of the partner and sales network, management of a 2-person team',
     'exp5-result': '€300K ARR · +220% performance on data collection systems',
     'exp6-type': 'Chatbot & AI Startup · Transport · Bordeaux',
-    'exp6-title': `B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-emerald-400/15 border border-emerald-400/30 text-emerald-400 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
+    'exp6-title': `B2B Marketing Director <span class="font-mono text-[0.65rem] font-medium bg-lime-400/15 border border-lime-400/30 text-lime-700 px-2.5 py-0.5 rounded-full tracking-wide">C-Suite</span>`,
     'exp6-b1': 'Development of the chatbot and AI Flows commercial offering — large enterprise and public sector clients (SNCF, metropolitan authorities)',
     'exp6-b2': 'Technology arbitration and supervision of API integrations, direct impact on commercial adoption and revenue',
     'exp6-result': '€300K raised in seed funding · 2 public tenders won',
@@ -1058,8 +1072,8 @@ const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.d
   function addBubble(text, role) {
     const bubble = document.createElement('div');
     bubble.className = role === 'user'
-      ? 'self-end max-w-[85%] bg-emerald-400 text-black text-sm rounded-lg rounded-br-sm px-3 py-2'
-      : 'self-start max-w-[85%] bg-white/5 border border-white/10 text-neutral-100 text-sm rounded-lg rounded-bl-sm px-3 py-2';
+      ? 'self-end max-w-[85%] bg-lime-400 text-black text-sm rounded-lg rounded-br-sm px-3 py-2'
+      : 'self-start max-w-[85%] bg-neutral-100 border border-neutral-200 text-neutral-900 text-sm rounded-lg rounded-bl-sm px-3 py-2';
     bubble.textContent = text;
     messages.appendChild(bubble);
     messages.scrollTop = messages.scrollHeight;
