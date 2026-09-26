@@ -160,10 +160,10 @@ out = re.sub(r'src="testimonials/', 'src="../testimonials/', out)
 
 # ── 5. Lang toggle : EN actif, FR inactif ─────────────────────────────────
 # Basé sur data-lang plutôt que sur la liste exacte des classes, pour rester
-# robuste aux classes Tailwind ajoutées au bouton actif (bg-lime-400, text-black…).
+# robuste aux classes Tailwind ajoutées au bouton actif (bg-emerald-400, text-black…).
 def _deactivate_lang_btn(m):
     tag = m.group(0)
-    tag = re.sub(r'\bactive\s+bg-lime-400\s+text-black\s+', '', tag)
+    tag = re.sub(r'\bactive\s+bg-emerald-400\s+text-black\s+', '', tag)
     # aria-current="page" ne doit exister que sur le lien de la langue
     # affichée — pas de valeur "false" en ARIA, on retire l'attribut.
     tag = re.sub(r'\s*aria-current="page"', '', tag)
@@ -172,7 +172,7 @@ def _deactivate_lang_btn(m):
 def _activate_lang_btn(m):
     tag = m.group(0)
     if re.search(r'class="lang-btn\s+active\b', tag) is None:
-        tag = re.sub(r'class="lang-btn\s+', 'class="lang-btn active bg-lime-400 text-black ', tag, count=1)
+        tag = re.sub(r'class="lang-btn\s+', 'class="lang-btn active bg-emerald-400 text-black ', tag, count=1)
     if 'aria-current="page"' not in tag:
         tag = re.sub(r'(\bdata-lang="en")', r'\1 aria-current="page"', tag, count=1)
     return tag
