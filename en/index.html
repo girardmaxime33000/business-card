@@ -2,6 +2,32 @@
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
+<!-- Content-Security-Policy : placée le plus tôt possible dans <head> — une
+     policy posée en <meta> ne s'applique qu'aux ressources chargées APRÈS
+     elle dans le flux du document, donc tout doit rester derrière ce point.
+     'unsafe-inline' (script/style) est nécessaire : le script principal et
+     le JSON-LD sont inline, en dur dans la page (site statique GitHub Pages,
+     sans nonce ni templating serveur possible) — cette policy reste malgré
+     tout utile pour verrouiller la liste des origines externes autorisées.
+     Limitation connue du <meta> CSP (vs. un en-tête HTTP réel) : les
+     directives frame-ancestors / report-uri / sandbox y sont ignorées par
+     les navigateurs, elles sont donc omises ici plutôt que d'y figurer sans
+     effet. connect-src inclut des domaines Google Analytics/doubleclick à
+     titre préventif pour GTM : le contenu réel du conteneur GTM-T453T2RB vit
+     côté Google Tag Manager, hors de ce dépôt, donc pas garanti exhaustif si
+     de nouvelles balises y sont ajoutées. -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://cloud.umami.is https://plausible.io https://assets.calendly.com https://challenges.cloudflare.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src 'self' https://fonts.gstatic.com;
+  img-src 'self' data:;
+  connect-src 'self' https://maxime-girard-assistant.girard-maxime33.workers.dev https://cloud.umami.is https://plausible.io https://www.clarity.ms https://*.clarity.ms https://calendly.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://challenges.cloudflare.com;
+  frame-src https://calendly.com https://challenges.cloudflare.com;
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+">
 <!-- GTM + Microsoft Clarity : chargés seulement après consentement (voir bloc
      #cookie-consent en bas de page et son script). Posent des cookies / font
      du session replay — soumis à consentement RGPD, contrairement à Umami
@@ -18,6 +44,8 @@
 <link rel="alternate" hreflang="en" href="https://www.girardmaxime33.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://www.girardmaxime33.com/">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#FBFBFB">
 <meta property="og:type" content="profile">
 <meta property="og:locale" content="en_US">
@@ -39,6 +67,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://assets.calendly.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<!-- QTFrank (regular + heavy) utilisée dès le hero et la nav — préchargée
+     pour éviter le FOUT/CLS d'une découverte tardive via le CSSOM. -->
+<link rel="preload" href="/fonts/QTFrank.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/QTFrankHeavy.woff2" as="font" type="font/woff2" crossorigin>
 <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 <!-- CSS Tailwind précompilé (voir README.md « Mettre à jour le CSS Tailwind ») — remplace le CDN runtime cdn.tailwindcss.com -->
 <link rel="stylesheet" href="../tailwind.css">
@@ -48,14 +80,16 @@
    index.html et en/index.html sans réécriture par build-en.py. */
 @font-face {
   font-family: 'QTFrank';
-  src: url('/fonts/QTFrank.otf') format('opentype');
+  src: url('/fonts/QTFrank.woff2') format('woff2'),
+       url('/fonts/QTFrank.otf') format('opentype');
   font-weight: 100 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'QTFrank';
-  src: url('/fonts/QTFrankHeavy.otf') format('opentype');
+  src: url('/fonts/QTFrankHeavy.woff2') format('woff2'),
+       url('/fonts/QTFrankHeavy.otf') format('opentype');
   font-weight: 600 900;
   font-style: normal;
   font-display: swap;
@@ -125,33 +159,37 @@ body::before {
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Maxime Girard",
-  "url": "https://www.girardmaxime33.com/",
-  "image": "https://www.girardmaxime33.com/og-image.jpg",
-  "jobTitle": "Marketing & Growth Director B2B",
-  "description": "Marketing & Growth Director B2B — 10 years, 5 Exec. Committees, +35M€ ARR. Strategist AND practitioner, B2B/B2B2C. France, Europe, US, Japan.",
-  "email": "mailto:girard.maxime33@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Bordeaux",
-    "addressRegion": "Nouvelle-Aquitaine",
-    "addressCountry": "FR"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/in/maxime-girard-head-of-marketing/",
-    "https://github.com/girardmaxime33000"
-  ],
-  "knowsAbout": ["B2B Marketing", "Growth Marketing", "GTM Strategy", "SEO", "SEA", "Marketing Automation", "AI Agents", "HubSpot", "GA4", "Python", "JavaScript", "n8n", "Claude API"],
-  "knowsLanguage": ["fr", "en", "ja"],
-  "alumniOf": [
-    {"@type": "Organization", "name": "Sopexa"},
-    {"@type": "Organization", "name": "Facebots"},
-    {"@type": "Organization", "name": "Groupe Actiplay"},
-    {"@type": "Organization", "name": "Eyelights"},
-    {"@type": "Organization", "name": "Sense4data"},
-    {"@type": "Organization", "name": "Camping Car Park"}
-  ]
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Maxime Girard",
+    "url": "https://www.girardmaxime33.com/",
+    "image": "https://www.girardmaxime33.com/og-image.jpg",
+    "jobTitle": "Marketing & Growth Director B2B",
+    "description": "Marketing & Growth Director B2B — 10 years, 5 Exec. Committees, +35M€ ARR. Strategist AND practitioner, B2B/B2B2C. France, Europe, US, Japan.",
+    "email": "mailto:girard.maxime33@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bordeaux",
+      "addressRegion": "Nouvelle-Aquitaine",
+      "addressCountry": "FR"
+    },
+    "worksFor": {"@type": "Organization", "name": "Pollen AM"},
+    "sameAs": [
+      "https://www.linkedin.com/in/maxime-girard-head-of-marketing/",
+      "https://github.com/girardmaxime33000"
+    ],
+    "knowsAbout": ["B2B Marketing", "Growth Marketing", "GTM Strategy", "SEO", "SEA", "Marketing Automation", "AI Agents", "HubSpot", "GA4", "Python", "JavaScript", "n8n", "Claude API"],
+    "knowsLanguage": ["fr", "en", "ja"],
+    "alumniOf": [
+      {"@type": "Organization", "name": "Sopexa"},
+      {"@type": "Organization", "name": "Facebots"},
+      {"@type": "Organization", "name": "Groupe Actiplay"},
+      {"@type": "Organization", "name": "Eyelights"},
+      {"@type": "Organization", "name": "Sense4data"},
+      {"@type": "Organization", "name": "Camping Car Park"}
+    ]
+  }
 }
 </script>
 <script defer data-domain="www.girardmaxime33.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
@@ -622,6 +660,11 @@ body::before {
 <input id="chat-input" type="text" autocomplete="off" maxlength="300" data-i18n-placeholder="chat-placeholder" placeholder="Ask your question…" class="flex-1 min-w-0 text-sm bg-neutral-100 border border-neutral-200 rounded-lg px-3 py-2 text-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2">
 <button type="submit" aria-label="Envoyer" class="shrink-0 w-9 h-9 rounded-lg bg-lime-400 text-black flex items-center justify-center transition-all duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">→</span></button>
 </form>
+<!-- Widget Turnstile invisible (mode "execute", pas de case à cocher visible
+     en usage normal) — voir cloudflare-worker/README.md § Anti-abus. Rendu
+     hors du flux (position absolute) : ne doit pas décaler la mise en page
+     du panneau de chat. -->
+<div id="turnstile-container" class="absolute w-0 h-0 overflow-hidden" aria-hidden="true"></div>
 </div>
 <script>
 // ── TRANSLATIONS ──
@@ -993,8 +1036,12 @@ setTimeout(() => el.classList.add('visible'), 100 + i * 100);
   });
 
 // ── MOT-CLÉ DYNAMIQUE (h2-profil) ──
+// Contenu qui change seul en boucle indéfiniment : respecte
+// prefers-reduced-motion (comme .reveal plus haut) en ne démarrant pas la
+// rotation — le mot reste fixe sur "Growth" plutôt que de continuer à
+// changer automatiquement toutes les 2,2 s.
 const rotatingSkillEl = document.getElementById('rotating-skill');
-if (rotatingSkillEl) {
+if (rotatingSkillEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const rotatingSkills = ['Growth', 'SEO', 'Socials', 'SEA', 'Analytics', 'Tracking', 'CRM', 'Gen AI'];
   let rotatingSkillIndex = 0;
   setInterval(() => {
@@ -1105,6 +1152,13 @@ if (footerYear) footerYear.textContent = new Date().getFullYear();
 // Remplacer par l'URL du Worker publié (voir cloudflare-worker/README.md).
 const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.dev';
 
+// Cloudflare Turnstile (anti-abus, cf. chat-worker.js § TURNSTILE) : site key
+// du widget Invisible créé dans le dashboard Cloudflare (voir
+// cloudflare-worker/README.md § Anti-abus). Le Worker reste en fail-open
+// tant que TURNSTILE_SECRET_KEY n'est pas lié côté Worker — étape manuelle
+// restante, seule la clé publique se commite ici.
+const TURNSTILE_SITE_KEY = '0x4AAAAAAFEgmkrVRhc_3Wzb';
+
 (function () {
   const toggleBtn = document.getElementById('chat-toggle');
   const iconOpen = document.getElementById('chat-icon-open');
@@ -1119,6 +1173,66 @@ const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.d
 
   let opened = false; // fermé par défaut — ne pas masquer le CTA hero au chargement
 
+  // ── Turnstile : chargé à la demande, à la première ouverture du chat,
+  // comme le widget Calendly plus haut — pas de coût au chargement initial
+  // pour les visiteurs qui n'ouvrent jamais l'assistant.
+  let turnstileWidgetId = null;
+  let turnstileLoading = false;
+  let turnstileTokenResolvers = [];
+
+  window.onTurnstileLoad = function () {
+    if (!window.turnstile || turnstileWidgetId !== null) return;
+    turnstileWidgetId = window.turnstile.render('#turnstile-container', {
+      sitekey: TURNSTILE_SITE_KEY,
+      size: 'invisible',
+      execution: 'execute',
+      callback: (token) => {
+        const resolvers = turnstileTokenResolvers;
+        turnstileTokenResolvers = [];
+        resolvers.forEach((resolve) => resolve(token));
+      },
+      'error-callback': () => {
+        const resolvers = turnstileTokenResolvers;
+        turnstileTokenResolvers = [];
+        resolvers.forEach((resolve) => resolve(null));
+      },
+    });
+  };
+
+  function ensureTurnstileScript() {
+    if (turnstileLoading || window.turnstile) return;
+    turnstileLoading = true;
+    const script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+
+  // Token best-effort : si Turnstile n'a pas fini de charger (bloqué par un
+  // bloqueur de pub, réseau lent...), on part sans token plutôt que de
+  // bloquer tout le chat — voir chat-worker.js pour la politique côté
+  // serveur (fail-open tant que TURNSTILE_SECRET_KEY n'est pas configuré).
+  function getTurnstileToken() {
+    return new Promise((resolve) => {
+      if (!window.turnstile || turnstileWidgetId === null) {
+        resolve(null);
+        return;
+      }
+      const timeout = setTimeout(() => resolve(null), 8000);
+      turnstileTokenResolvers.push((token) => {
+        clearTimeout(timeout);
+        resolve(token);
+      });
+      try {
+        window.turnstile.execute(turnstileWidgetId);
+      } catch (e) {
+        clearTimeout(timeout);
+        resolve(null);
+      }
+    });
+  }
+
   function openPanel() {
     opened = true;
     panel.hidden = false;
@@ -1127,6 +1241,7 @@ const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.d
     toggleBtn.setAttribute('aria-expanded', 'true');
     toggleBtn.setAttribute('aria-label', 'Fermer l’assistant');
     input.focus();
+    ensureTurnstileScript();
     try { window.plausible && window.plausible('Chat Opened'); } catch (e) {}
   }
 
@@ -1168,10 +1283,11 @@ const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.d
     }
 
     try {
+      const turnstileToken = await getTurnstileToken();
       const res = await fetch(CHAT_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({ question, turnstileToken }),
       });
       const data = await res.json();
       loading.textContent = (data && data.answer) ? data.answer : t[currentLang]['chat-error'];

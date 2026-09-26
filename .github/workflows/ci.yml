@@ -90,3 +90,23 @@ jobs:
         # de cette exclusion une fois le domaine réellement joignable.
         # linkedin.com : bloque systématiquement les clients automatisés
         # (comportement connu, sans rapport avec la validité du lien).
+
+  lighthouse-audit:
+    name: Audit Lighthouse (perf / SEO / bonnes pratiques / accessibilité)
+    runs-on: ubuntu-latest
+    # Informatif uniquement, ne bloque jamais le merge : aucune assertion de
+    # score dans .github/lighthouserc.json, et continue-on-error en filet de
+    # sécurité si l'upload vers le stockage temporaire échoue. Le score
+    # "Accessibility" de Lighthouse est calculé avec axe-core — pas besoin
+    # d'un outil séparé pour ce recoupement. Le résumé du job et le rapport
+    # public temporaire (lien valide 7 jours) donnent le détail.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Lighthouse CI
+        run: npx --yes @lhci/cli@0.14.x autorun --config=.github/lighthouserc.json

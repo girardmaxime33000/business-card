@@ -2,6 +2,20 @@
 <html lang="fr" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
+<!-- Content-Security-Policy : cf. index.html pour le détail des choix. Cette
+     page ne charge ni GTM/Clarity/Umami/Plausible/Calendly/chat, la policy
+     reste donc volontairement plus stricte que celle d'index.html. -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src 'self' https://fonts.gstatic.com;
+  img-src 'self' data:;
+  connect-src 'self';
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politique de confidentialité | Maxime Girard</title>
 <meta name="description" content="Politique de confidentialité du site de Maxime Girard : données traitées, cookies et traceurs utilisés, durée de conservation, droits RGPD.">
@@ -12,22 +26,28 @@
 <link rel="alternate" hreflang="en" href="https://www.girardmaxime33.com/en/confidentialite.html">
 <link rel="alternate" hreflang="x-default" href="https://www.girardmaxime33.com/confidentialite.html">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#FBFBFB">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/QTFrank.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/QTFrankHeavy.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="tailwind.css">
 <style>
 @font-face {
   font-family: 'QTFrank';
-  src: url('/fonts/QTFrank.otf') format('opentype');
+  src: url('/fonts/QTFrank.woff2') format('woff2'),
+       url('/fonts/QTFrank.otf') format('opentype');
   font-weight: 100 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'QTFrank';
-  src: url('/fonts/QTFrankHeavy.otf') format('opentype');
+  src: url('/fonts/QTFrankHeavy.woff2') format('woff2'),
+       url('/fonts/QTFrankHeavy.otf') format('opentype');
   font-weight: 600 900;
   font-style: normal;
   font-display: swap;
