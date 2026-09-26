@@ -46,3 +46,30 @@ Redéployer après toute modification touchant ce mécanisme :
 cd cloudflare-worker
 npx wrangler deploy
 ```
+
+## Anti-abus (Cloudflare Turnstile)
+
+Complète le rate limiting par IP ci-dessus : un script tiers distribué sur
+plusieurs IP le contourne, mais pas Turnstile. Le widget est invisible côté
+site (mode `execute`, pas de case à cocher en usage normal).
+
+1. Créer un widget dans le dashboard Cloudflare : **Turnstile** → **Add
+   site**, domaine `www.girardmaxime33.com` (+ `girardmaxime33000.github.io`
+   et `localhost` en mode test si besoin), type de widget **Invisible**.
+2. Copier la **Site Key** (publique) dans `index.html`, constante
+   `TURNSTILE_SITE_KEY` (recherche `TURNSTILE_SITE_KEY`) — actuellement une
+   clé de test Cloudflare qui laisse toujours passer.
+3. Lier la **Secret Key** (privée) au Worker :
+   ```bash
+   cd cloudflare-worker
+   npx wrangler secret put TURNSTILE_SECRET_KEY
+   ```
+4. Régénérer `en/index.html` (`python3 build-en.py`) et redéployer le Worker
+   (`npx wrangler deploy`).
+
+Tant que `TURNSTILE_SECRET_KEY` n'est pas configuré côté Worker, la
+vérification est **fail-open** (même principe que `RATE_LIMIT`) : le chat
+reste fonctionnel sans protection Turnstile active. Une fois la clé
+configurée, un token absent ou invalide fait échouer la requête (403) — y
+compris une panne du service de vérification Cloudflare lui-même, traitée
+comme un échec plutôt que comme une absence de configuration.

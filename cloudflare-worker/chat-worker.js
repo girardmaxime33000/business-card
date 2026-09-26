@@ -118,6 +118,34 @@ async function isRateLimited(env, ip) {
   return false;
 }
 
+// ── CLOUDFLARE TURNSTILE (anti-abus) ──
+// Complète le rate limiting par IP : un script tiers distribué sur plusieurs
+// IP contourne le rate limiting mais pas Turnstile. Nécessite un widget
+// Turnstile créé dans le dashboard Cloudflare et son secret lié en tant que
+// binding TURNSTILE_SECRET_KEY (wrangler secret put) — voir README « Anti-
+// abus ». Fail-open tant que ce binding n'existe pas (même principe que
+// RATE_LIMIT ci-dessus) : le chat reste fonctionnel avant que la clé ne soit
+// configurée. Une fois configuré, un token absent ou invalide est rejeté —
+// et une panne du service de vérification lui-même est traitée comme un
+// échec (fail-closed), pas comme une absence de configuration.
+const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+
+async function verifyTurnstile(token, secret, ip) {
+  if (!secret) return true;
+  if (!token) return false;
+  try {
+    const res = await fetch(TURNSTILE_VERIFY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ secret, response: token, remoteip: ip || undefined }),
+    });
+    const data = await res.json();
+    return !!(data && data.success === true);
+  } catch {
+    return false;
+  }
+}
+
 // Avec response_format: json_object, Workers AI renvoie déjà un objet JS
 // dans result.response (pas une chaîne) — on le prend tel quel. Sinon
 // (chaîne, ou modèle qui ignore la consigne) : parse direct, puis
@@ -187,6 +215,14 @@ export default {
     if (!question) {
       return new Response(JSON.stringify({ error: 'Question manquante' }), {
         status: 400,
+        headers: { ...headers, 'Content-Type': 'application/json' },
+      });
+    }
+
+    const turnstileToken = body && typeof body.turnstileToken === 'string' ? body.turnstileToken : '';
+    if (!(await verifyTurnstile(turnstileToken, env.TURNSTILE_SECRET_KEY, ip))) {
+      return new Response(JSON.stringify({ error: 'Vérification anti-abus échouée' }), {
+        status: 403,
         headers: { ...headers, 'Content-Type': 'application/json' },
       });
     }
