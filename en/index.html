@@ -1152,13 +1152,12 @@ if (footerYear) footerYear.textContent = new Date().getFullYear();
 // Remplacer par l'URL du Worker publié (voir cloudflare-worker/README.md).
 const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.dev';
 
-// Cloudflare Turnstile (anti-abus, cf. chat-worker.js § TURNSTILE) : clé de
-// test publique Cloudflare (« passe toujours »), à remplacer par la site key
-// réelle du widget créé dans le dashboard Cloudflare (voir
-// cloudflare-worker/README.md § Anti-abus). Tant qu'elle n'est pas
-// remplacée, le Worker reste en fail-open (TURNSTILE_SECRET_KEY absent) et
-// le chat fonctionne normalement.
-const TURNSTILE_SITE_KEY = '1x00000000000000000000AA';
+// Cloudflare Turnstile (anti-abus, cf. chat-worker.js § TURNSTILE) : site key
+// du widget Invisible créé dans le dashboard Cloudflare (voir
+// cloudflare-worker/README.md § Anti-abus). Le Worker reste en fail-open
+// tant que TURNSTILE_SECRET_KEY n'est pas lié côté Worker — étape manuelle
+// restante, seule la clé publique se commite ici.
+const TURNSTILE_SITE_KEY = '0x4AAAAAAFEgmkrVRhc_3Wzb';
 
 (function () {
   const toggleBtn = document.getElementById('chat-toggle');
