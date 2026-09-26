@@ -57,19 +57,21 @@ site (mode `execute`, pas de case à cocher en usage normal).
    site**, domaine `www.girardmaxime33.com`, type de widget **Invisible**.~~
    Fait — widget créé, Site Key `0x4AAAAAAFEgmkrVRhc_3Wzb` déjà commitée
    dans `index.html` (constante `TURNSTILE_SITE_KEY`).
-2. **Reste à faire** : lier la **Secret Key** (privée, disponible dans le
-   même widget du dashboard Cloudflare) au Worker :
+2. ~~Lier la **Secret Key** (privée) au Worker :
+   `npx wrangler secret put TURNSTILE_SECRET_KEY`, coller la valeur à
+   l'invite.~~ Fait.
+3. **Reste à faire** : redéployer le Worker pour que la vérification prenne
+   effet :
    ```bash
    cd cloudflare-worker
-   npx wrangler secret put TURNSTILE_SECRET_KEY
+   npx wrangler deploy
    ```
-3. Redéployer le Worker (`npx wrangler deploy`) — active la vérification
-   côté serveur. Rien à régénérer côté site pour cette étape : la Site Key
-   est déjà en place et `en/index.html` déjà à jour.
+   Rien à régénérer côté site pour cette étape : la Site Key est déjà en
+   place et `en/index.html` déjà à jour.
 
-Tant que `TURNSTILE_SECRET_KEY` n'est pas configuré côté Worker, la
-vérification est **fail-open** (même principe que `RATE_LIMIT`) : le chat
-reste fonctionnel sans protection Turnstile active. Une fois la clé
-configurée, un token absent ou invalide fait échouer la requête (403) — y
+Une fois `TURNSTILE_SECRET_KEY` configuré côté Worker (fait) et le Worker
+redéployé, un token absent ou invalide fait échouer la requête (403) — y
 compris une panne du service de vérification Cloudflare lui-même, traitée
-comme un échec plutôt que comme une absence de configuration.
+comme un échec plutôt que comme une absence de configuration. Avant ce
+redéploiement, la vérification reste **fail-open** (même principe que
+`RATE_LIMIT`) : le chat reste fonctionnel sans protection Turnstile active.
