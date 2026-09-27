@@ -55,7 +55,7 @@ régénérer les fichiers dérivés.
 | Scripting  | Vanilla JS en bas de `<body>` — IntersectionObserver, scrollspy, menu mobile, horloge, chat |
 | i18n       | Objet `t` (fr/en) dans le script d'`index.html`, lu par `build-en.py` au build |
 | Backend    | Cloudflare Worker (`cloudflare-worker/chat-worker.js`) — assistant IA, Workers AI |
-| Fonts      | Google Fonts — Plus Jakarta Sans + JetBrains Mono     |
+| Fonts      | QTFrank (police maison, auto-hébergée sous `/fonts/`) + JetBrains Mono (Google Fonts) |
 | Analytics  | Plausible (`data-domain="www.girardmaxime33.com"`)   |
 | Booking    | Widget Calendly, chargé en différé à l'approche de `#contact` |
 | Dev tools  | `npx tailwindcss@3.4.13`, `python3` (aucune dépendance à installer côté visiteur) |
