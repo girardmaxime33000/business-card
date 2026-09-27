@@ -29,6 +29,15 @@ for m in re.finditer(r"'([^']+)'\s*:\s*'([^']*)'", block):
     if m.group(1) not in en:
         en[m.group(1)] = m.group(2)
 
+# Guillemets doubles (valeurs sur une ligne contenant une apostrophe, ex.
+# "He's ..." ou "... Maxime's client") : sans cette passe, ces clés ne
+# matchaient ni le pattern backticks ni le pattern guillemets simples
+# ci-dessus et restaient silencieusement absentes de `en`, laissant le
+# texte FR affiché tel quel sur la page anglaise.
+for m in re.finditer(r"'([^']+)'\s*:\s*\"([^\"]*)\"", block):
+    if m.group(1) not in en:
+        en[m.group(1)] = m.group(2)
+
 print(f"  {len(en)} clés EN extraites")
 
 # ── 2. Appliquer les traductions dans le HTML ──────────────────────────────
@@ -147,6 +156,24 @@ out = re.sub(r'("description": ")[^"]*(")',
     lambda m: m.group(1) + 'Marketing & Growth Director B2B — 10 years, '
     '6 Exec. Committees, +35M€ ARR. Strategist AND practitioner, B2B/B2B2C. France, Europe, US, Japan.' + m.group(2),
     out, count=1)
+
+# JSON-LD "review" (témoignages) : régex ancré sur le nom de l'auteur (stable,
+# jamais traduit) plutôt que sur le texte FR du reviewBody — un texte FR
+# littéral en dur ici se tairait silencieusement dès qu'il dérive de la
+# source (même piège que "description" ci-dessus). Réutilise le dict `en`
+# déjà extrait de t.en (section 1) : source de traduction unique, pas de
+# texte EN dupliqué dans ce script.
+review_authors = {
+    'Nicolas Pasetti': 'ref1-text',
+    'Alexandre Masson': 'ref2-text',
+    'Pierre Rocherie': 'ref3-text',
+    'Jérémy Fortinon': 'ref4-text',
+}
+for author, key in review_authors.items():
+    out = re.sub(
+        r'("name": "' + re.escape(author) + r'"\},\s*"reviewBody": ")[^"]*(")',
+        lambda m, key=key: m.group(1) + en[key].replace('"', '\\"') + m.group(2),
+        out, count=1)
 
 # ── 4. Chemins relatifs (depuis en/) ──────────────────────────────────────
 out = out.replace('href="favicon.svg"',              'href="../favicon.svg"',              1)

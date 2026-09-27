@@ -151,6 +151,28 @@ body::before {
     {"@type": "Organization", "name": "Eyelights"},
     {"@type": "Organization", "name": "Sense4data"},
     {"@type": "Organization", "name": "Camping Car Park"}
+  ],
+  "review": [
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Nicolas Pasetti"},
+      "reviewBody": "He is constantly innovating and seeking breakthroughs that will take him further. He's an extremely valuable profile to help a company grow."
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Alexandre Masson"},
+      "reviewBody": "On the technical side, Maxime is extremely skilled. He masters Python and JavaScript, and his scraping and automation capabilities are remarkable for a marketing director."
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Pierre Rocherie"},
+      "reviewBody": "Always several moves ahead — that's what we love about him! His analysis is very sharp on marketing, management and pure growth topics."
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Jérémy Fortinon"},
+      "reviewBody": "He knows his market, positioning and the technological and commercial challenges of his clients very well. He's passionate about his work, extremely curious — this greatly facilitates exchanges."
+    }
   ]
 }
 </script>
@@ -531,7 +553,7 @@ body::before {
 <div class="grid md:grid-cols-2 gap-6">
 <div class="ref-card reveal reveal-delay-1 bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
 <div class="font-extrabold text-4xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent leading-none mb-4">"</div>
-<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref1-text">Il est constamment en train d'innover et de rechercher les innovations qui lui permettront d'aller plus loin. C'est un profil ultra intéressant pour contribuer à faire grossir une entreprise.</p>
+<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref1-text">He is constantly innovating and seeking breakthroughs that will take him further. He's an extremely valuable profile to help a company grow.</p>
 <div class="flex items-center gap-3">
 <img src="../testimonials/nicolas-pasetti.webp" alt="" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full object-cover border border-neutral-200 shrink-0">
 <div class="flex flex-col gap-0.5">
@@ -553,7 +575,7 @@ body::before {
 </div>
 <div class="ref-card reveal reveal-delay-3 bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
 <div class="font-extrabold text-4xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent leading-none mb-4">"</div>
-<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref3-text">Toujours plusieurs coups d'avance, c'est ça qu'on aime chez lui ! Son analyse est très pointue sur des sujets concernant le marketing, le management et la growth pure.</p>
+<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref3-text">Always several moves ahead — that's what we love about him! His analysis is very sharp on marketing, management and pure growth topics.</p>
 <div class="flex items-center gap-3">
 <img src="../testimonials/pierre-rocherie.webp" alt="" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full object-cover border border-neutral-200 shrink-0">
 <div class="flex flex-col gap-0.5">
@@ -564,12 +586,12 @@ body::before {
 </div>
 <div class="ref-card reveal reveal-delay-4 bg-surface border border-neutral-200 rounded-2xl p-8 transition-all duration-300 hover:border-lime-400/30 hover:shadow-[0_0_32px_-10px_rgba(221,255,87,0.3)]">
 <div class="font-extrabold text-4xl bg-gradient-to-br from-lime-600 to-lime-700 bg-clip-text text-transparent leading-none mb-4">"</div>
-<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref4-text">Il connaît très bien son marché, son positionnement et les enjeux technologiques et commerciaux de ses clients. Il est passionné par son métier, extrêmement curieux — cela facilite grandement les échanges.</p>
+<p class="text-sm text-neutral-800 italic leading-relaxed mb-6" data-i18n="ref4-text">He knows his market, positioning and the technological and commercial challenges of his clients very well. He's passionate about his work, extremely curious — this greatly facilitates exchanges.</p>
 <div class="flex items-center gap-3">
 <img src="../testimonials/jeremy-fortinon.webp" alt="" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-full object-cover border border-neutral-200 shrink-0">
 <div class="flex flex-col gap-0.5">
 <span class="font-bold text-sm text-neutral-900">Jérémy Fortinon</span>
-<span class="text-xs text-neutral-500" data-i18n="ref4-role">Expert transformation des SI — client de Maxime</span>
+<span class="text-xs text-neutral-500" data-i18n="ref4-role">IT Transformation Expert — Maxime's client</span>
 </div>
 </div>
 </div>
@@ -630,12 +652,12 @@ body::before {
 <button id="chat-close" type="button" aria-label="Fermer l'assistant" class="text-neutral-500 hover:text-neutral-900 text-lg leading-none px-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded">✕</button>
 </div>
 <div id="chat-messages" aria-live="polite" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 min-h-[160px]">
-<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="chat-intro">Posez une question sur le profil de Maxime, ou choisissez une suggestion ci-dessous.</p>
+<p class="text-sm text-neutral-500 leading-relaxed" data-i18n="chat-intro">Ask a question about Maxime's profile, or pick a suggestion below.</p>
 </div>
 <div id="chat-chips" class="flex flex-col gap-2 px-4 pb-3">
 <button type="button" class="chat-chip text-left text-sm bg-neutral-100 border border-neutral-200 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-lime-400 hover:bg-lime-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n="chat-q1">How can Maxime help me?</button>
 <button type="button" class="chat-chip text-left text-sm bg-neutral-100 border border-neutral-200 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-lime-400 hover:bg-lime-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n="chat-q2">What are his main skills?</button>
-<button type="button" class="chat-chip text-left text-sm bg-neutral-100 border border-neutral-200 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-lime-400 hover:bg-lime-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n="chat-q3">Quel est son parcours ?</button>
+<button type="button" class="chat-chip text-left text-sm bg-neutral-100 border border-neutral-200 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-lime-400 hover:bg-lime-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n="chat-q3">What's his background?</button>
 <button type="button" class="chat-chip text-left text-sm bg-neutral-100 border border-neutral-200 rounded-lg px-3 py-2 transition-colors duration-200 hover:border-lime-400 hover:bg-lime-400/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2" data-i18n="chat-q4">How do I get in touch?</button>
 </div>
 <form id="chat-form" class="flex items-center gap-2 border-t border-neutral-200 p-3">
