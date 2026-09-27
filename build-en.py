@@ -108,8 +108,8 @@ out = re.sub(r'<title>[^<]*</title>',
     out, count=1)
 
 out = re.sub(r'(<meta name="description" content=")[^"]*(")',
-    lambda m: m.group(1) + 'Marketing &amp; Growth Director B2B \u2014 10 years, 6 Exec. Committees, '
-    '+35M\u20ac ARR. Strategist AND practitioner, B2B/B2B2C. France, Europe, US, Japan.' + m.group(2),
+    lambda m: m.group(1) + 'Marketing &amp; Growth Director B2B \u2014 10 years leading acquisition & performance, '
+    '+35M\u20ac ARR. SEA, Social Ads, CRO, tracking & data. B2B/B2B2C. France, Europe, US, Japan.' + m.group(2),
     out, count=1)
 
 out = re.sub(r'(<link rel="canonical" href=")[^"]*(")',
@@ -129,8 +129,8 @@ out = re.sub(r'(<meta property="og:title" content=")[^"]*(")',
     r'\g<1>Maxime Girard | Marketing &amp; Growth Director B2B — Bordeaux\2', out, count=1)
 
 out = re.sub(r'(<meta property="og:description" content=")[^"]*(")',
-    lambda m: m.group(1) + 'Marketing &amp; Growth Director B2B \u2014 10 years, 6 Exec. Committees, '
-    '+35M\u20ac ARR. Strategist AND practitioner, B2B/B2B2C.' + m.group(2),
+    lambda m: m.group(1) + 'Marketing &amp; Growth Director B2B \u2014 10 years leading acquisition & performance, '
+    '+35M\u20ac ARR. SEA, Social Ads, CRO, tracking & data. B2B/B2B2C.' + m.group(2),
     out, count=1)
 
 out = re.sub(r'(<meta property="og:image:alt" content=")[^"]*(")',
@@ -140,8 +140,8 @@ out = re.sub(r'(<meta name="twitter:title" content=")[^"]*(")',
     r'\g<1>Maxime Girard | Marketing &amp; Growth Director B2B — Bordeaux\2', out, count=1)
 
 out = re.sub(r'(<meta name="twitter:description" content=")[^"]*(")',
-    lambda m: m.group(1) + 'Marketing &amp; Growth Director B2B \u2014 10 years, 6 Exec. Committees, '
-    '+35M\u20ac ARR. Strategist AND practitioner, B2B/B2B2C.' + m.group(2),
+    lambda m: m.group(1) + 'Marketing &amp; Growth Director B2B \u2014 10 years leading acquisition & performance, '
+    '+35M\u20ac ARR. SEA, Social Ads, CRO, tracking & data. B2B/B2B2C.' + m.group(2),
     out, count=1)
 
 out = out.replace(
@@ -153,8 +153,8 @@ out = out.replace(
 # le texte FR source dérive, laissant le JSON-LD EN en français sans erreur
 # visible au build. Le regex reste correct même si le texte FR change.
 out = re.sub(r'("description": ")[^"]*(")',
-    lambda m: m.group(1) + 'Marketing & Growth Director B2B — 10 years, '
-    '6 Exec. Committees, +35M€ ARR. Strategist AND practitioner, B2B/B2B2C. France, Europe, US, Japan.' + m.group(2),
+    lambda m: m.group(1) + 'Marketing & Growth Director B2B — 10 years leading acquisition & performance, '
+    '+35M€ ARR. SEA, Social Ads, CRO, tracking & data. B2B/B2B2C. France, Europe, US, Japan.' + m.group(2),
     out, count=1)
 
 # JSON-LD "review" (témoignages) : régex ancré sur le nom de l'auteur (stable,
