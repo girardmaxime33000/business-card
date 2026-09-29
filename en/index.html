@@ -6,6 +6,15 @@
      #cookie-consent en bas de page et son script). Posent des cookies / font
      du session replay — soumis à consentement RGPD, contrairement à Umami
      ci-dessous (mesure d'audience anonyme, sans cookie, exemptée). -->
+<!-- Exclusion du propriétaire : visiter une page avec ?notrack=1 (désactiver : ?notrack=0)
+     pose un flag localStorage lu par Umami (umami.disabled) et Plausible (plausible_ignore). -->
+<script>
+try {
+  var nt = new URLSearchParams(location.search).get('notrack');
+  if (nt === '1') { localStorage.setItem('umami.disabled', '1'); localStorage.setItem('plausible_ignore', 'true'); }
+  else if (nt === '0') { localStorage.removeItem('umami.disabled'); localStorage.removeItem('plausible_ignore'); }
+} catch (e) {}
+</script>
 <!-- Umami -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="f769a5c6-f348-48f4-a9ed-e8fc1396c2cb"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
