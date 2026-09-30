@@ -101,15 +101,16 @@ for key, val in en.items():
     out = sub_i18n_placeholder(out, key, val)
 
 # ── 3. lang et métadonnées ─────────────────────────────────────────────────
+EN_TITLE = "Maxime Girard | B2B Marketing Director, Growth &amp; Acquisition"
+EN_DESC = "B2B Marketing &amp; Growth Director and Acquisition Manager based in Bordeaux. 10 years leading acquisition &amp; performance, +\u20ac35M ARR. SEA, CRO, tracking, AI."
+EN_DESC_JSON = "B2B Marketing & Growth Director and Acquisition Manager based in Bordeaux. 10 years leading acquisition & performance, +\u20ac35M ARR. SEA, CRO, tracking, AI."
 out = re.sub(r'<html lang="fr"', '<html lang="en"', out, count=1)
 
 out = re.sub(r'<title>[^<]*</title>',
-    '<title>Maxime Girard | Marketing &amp; Growth Director B2B — Bordeaux</title>',
-    out, count=1)
+    lambda m: '<title>' + EN_TITLE + '</title>', out, count=1)
 
 out = re.sub(r'(<meta name="description" content=")[^"]*(")',
-    lambda m: m.group(1) + 'Marketing &amp; Growth Director B2B \u2014 10 years leading acquisition & performance, '
-    '+35M\u20ac ARR. SEA, Social Ads, CRO, tracking & data. B2B/B2B2C. France, Europe, US, Japan.' + m.group(2),
+    lambda m: m.group(1) + EN_DESC + m.group(2),
     out, count=1)
 
 out = re.sub(r'(<link rel="canonical" href=")[^"]*(")',
@@ -126,54 +127,62 @@ out = re.sub(r'(<meta property="og:url" content=")[^"]*(")',
     r'\g<1>https://www.girardmaxime33.com/en/\2', out, count=1)
 
 out = re.sub(r'(<meta property="og:title" content=")[^"]*(")',
-    r'\g<1>Maxime Girard | Marketing &amp; Growth Director B2B — Bordeaux\2', out, count=1)
+    lambda m: m.group(1) + EN_TITLE + m.group(2), out, count=1)
 
 out = re.sub(r'(<meta property="og:description" content=")[^"]*(")',
-    lambda m: m.group(1) + 'Marketing &amp; Growth Director B2B \u2014 10 years leading acquisition & performance, '
-    '+35M\u20ac ARR. SEA, Social Ads, CRO, tracking & data. B2B/B2B2C.' + m.group(2),
+    lambda m: m.group(1) + EN_DESC + m.group(2),
     out, count=1)
 
 out = re.sub(r'(<meta property="og:image:alt" content=")[^"]*(")',
-    r'\g<1>Maxime Girard — Marketing &amp; Growth Director B2B, Bordeaux\2', out, count=1)
+    r'\g<1>Maxime Girard — B2B Marketing Director, Growth &amp; Acquisition, Bordeaux\2', out, count=1)
 
 out = re.sub(r'(<meta name="twitter:title" content=")[^"]*(")',
-    r'\g<1>Maxime Girard | Marketing &amp; Growth Director B2B — Bordeaux\2', out, count=1)
+    lambda m: m.group(1) + EN_TITLE + m.group(2), out, count=1)
 
 out = re.sub(r'(<meta name="twitter:description" content=")[^"]*(")',
-    lambda m: m.group(1) + 'Marketing &amp; Growth Director B2B \u2014 10 years leading acquisition & performance, '
-    '+35M\u20ac ARR. SEA, Social Ads, CRO, tracking & data. B2B/B2B2C.' + m.group(2),
+    lambda m: m.group(1) + EN_DESC + m.group(2),
     out, count=1)
 
-out = out.replace(
-    '"jobTitle": "Directeur Marketing & Growth B2B"',
-    '"jobTitle": "Marketing & Growth Director B2B"', 1)
+# JSON-LD : parsé avec json (KeyError bruyant si la structure dérive) plutôt
+# que des .replace() littéraux qui se taisent dès que le texte FR source
+# change. Les textes EN viennent du dict `en` (t.en) — source de traduction
+# unique, pas de texte EN dupliqué dans ce script (sauf métadonnées ci-dessus).
+import json
+_ld = re.search(r'(<script type="application/ld\+json">\n)(.*?)(\n</script>)', out, re.DOTALL)
+_data = json.loads(_ld.group(2))
+_nodes = {n["@type"]: n for n in _data["@graph"]}
 
-# Basé sur un regex (comme og:description ci-dessus) plutôt qu'un .replace()
-# sur chaîne littérale : un .replace() exact se tait silencieusement dès que
-# le texte FR source dérive, laissant le JSON-LD EN en français sans erreur
-# visible au build. Le regex reste correct même si le texte FR change.
-out = re.sub(r'("description": ")[^"]*(")',
-    lambda m: m.group(1) + 'Marketing & Growth Director B2B — 10 years leading acquisition & performance, '
-    '+35M€ ARR. SEA, Social Ads, CRO, tracking & data. B2B/B2B2C. France, Europe, US, Japan.' + m.group(2),
-    out, count=1)
+_nodes["WebSite"]["name"] = "Maxime Girard — Marketing & Growth Director B2B"
+_nodes["WebSite"]["inLanguage"] = "en-US"
+_nodes["ProfilePage"]["name"] = "Maxime Girard | B2B Marketing Director, Growth & Acquisition"
+_nodes["ProfilePage"]["inLanguage"] = "en-US"
+_nodes["ProfilePage"]["url"] = "https://www.girardmaxime33.com/en/"
 
-# JSON-LD "review" (témoignages) : régex ancré sur le nom de l'auteur (stable,
-# jamais traduit) plutôt que sur le texte FR du reviewBody — un texte FR
-# littéral en dur ici se tairait silencieusement dès qu'il dérive de la
-# source (même piège que "description" ci-dessus). Réutilise le dict `en`
-# déjà extrait de t.en (section 1) : source de traduction unique, pas de
-# texte EN dupliqué dans ce script.
-review_authors = {
+_person = _nodes["Person"]
+_person["jobTitle"] = ["Marketing & Growth Director B2B", "B2B Growth Marketing Expert", "Acquisition Manager"]
+_person["alternateName"] = ["Maxime Girard Marketing Director", "Maxime Girard Growth Expert"]
+_person["description"] = EN_DESC_JSON
+_person["hasOccupation"]["name"] = "Marketing & Growth Director B2B"
+_person["hasOccupation"]["skills"] = "Acquisition strategy, lead generation, SEA, Social Ads, SEO, CRO, tracking & data, marketing automation"
+
+_review_keys = {
     'Nicolas Pasetti': 'ref1-text',
     'Alexandre Masson': 'ref2-text',
     'Pierre Rocherie': 'ref3-text',
     'Jérémy Fortinon': 'ref4-text',
 }
-for author, key in review_authors.items():
-    out = re.sub(
-        r'("name": "' + re.escape(author) + r'"\},\s*"reviewBody": ")[^"]*(")',
-        lambda m, key=key: m.group(1) + en[key].replace('"', '\\"') + m.group(2),
-        out, count=1)
+for _r in _person["review"]:
+    _r["reviewBody"] = en[_review_keys[_r["author"]["name"]]]
+
+_faq = _nodes["FAQPage"]
+_faq["inLanguage"] = "en-US"
+for _i, _q in enumerate(_faq["mainEntity"], 1):
+    _q["name"] = en[f"faq-q{_i}"]
+    _q["acceptedAnswer"]["text"] = en[f"faq-a{_i}"]
+
+out = (out[:_ld.start(2)]
+       + json.dumps(_data, ensure_ascii=False, indent=2)
+       + out[_ld.end(2):])
 
 # ── 4. Chemins relatifs (depuis en/) ──────────────────────────────────────
 out = out.replace('href="favicon.svg"',              'href="../favicon.svg"',              1)
