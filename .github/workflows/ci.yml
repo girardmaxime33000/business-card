@@ -55,6 +55,22 @@ jobs:
             exit 1
           }
 
+  controles-site:
+    name: Contrôles du site (JSON-LD, robots, sitemap, EN)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: JSON-LD parsable
+        run: python3 scripts/check_jsonld.py
+
+      - name: noindex /c/*, sitemap, liens internes, EN sans texte français
+        run: python3 scripts/check_pages.py
+
   html-validate:
     name: Validation HTML (Nu Html Checker)
     runs-on: ubuntu-latest
@@ -72,7 +88,12 @@ jobs:
           html5validator --root . --match "index.html" "en/index.html" "confidentialite.html" "en/confidentialite.html" \
             "trambots-ia-transport.html" "eyeride-crowdfunding-international.html" "systeme-ia-multi-agent-marketing.html" "camping-car-park-marketing-europe.html" "sense4data-stack-marketing.html" \
             "c/ynov/index.html" "c/teddy-smith/index.html" "c/bdl-club-invest/index.html" \
+            --blacklist node_modules .git _template \
             --ignore 'CSS: "inset": Property "inset" doesn'\''t exist'
+        # --blacklist : exclut les gabarits (c/_template/index.html contient des
+        # jetons __X__ remplacés à la génération, donc invalide tel quel). Le
+        # filtre --match compare les noms de fichiers : "index.html" couvre
+        # aussi c/<slug>/index.html.
         # L'unique règle ignorée : le vérificateur CSS embarqué du Nu Html
         # Checker ne connaît pas le raccourci "inset" (CSS Positioned Layout
         # Level 3), pourtant largement supporté par les navigateurs actuels.
