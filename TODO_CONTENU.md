@@ -67,3 +67,10 @@ Actions hors code :
 - Plausible : déclarer dans Settings → Custom Properties les propriétés `section`, `question_index`, `suggestion`, `cv_location`, `cv_lang`, `utm_source`, `utm_medium`, `utm_campaign`, et créer des objectifs pour `Booking Slot Selected`, `Booking Confirmed`, `CV Download`, `Section Viewed`, `Chat Opened`, `Chat Question`, `Chat Suggestion Click`.
 - GTM : créer les déclencheurs d'événement personnalisé `booking_slot_selected`, `booking_confirmed`, `cv_download`, `section_viewed`, `chat_opened`, `chat_question`, `chat_suggestion_click` (GTM ne les reçoit qu'après consentement).
 - Calendly : les événements `calendly.date_and_time_selected` et `calendly.event_scheduled` sont émis par le widget inline ; vérifier en production avec un rendez-vous de test.
+
+## Identification B2B des entreprises visiteuses (L7)
+
+- Emplacement `loadB2BIdentification()` en commentaire dans le bloc de consentement d'`index.html` (segment « CONSENTEMENT COOKIES »), appels commentés après `loadClarity()` (cas `granted` et clic sur « Accepter »). Décommenter après avoir choisi le fournisseur (Dealfront, Snitcher ou Albacross) et renseigné l'URL du script et la clé.
+- Pages de confidentialité FR et EN : la ligne du tableau « Cookies et traceurs » contient des placeholders (fournisseur, cookie). Elle annonce un traitement non actif tant que le script reste commenté : supprimer la ligne ou la compléter selon la décision.
+- Au moment de l'activation : mettre à jour le texte du bandeau de consentement (`cookie-text` dans `t.fr` et `t.en`), qui ne cite aujourd'hui que Google Tag Manager et Microsoft Clarity.
+- Hors code : contrat et DPA du fournisseur, base légale de l'identification par adresse IP.
