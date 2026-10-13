@@ -1,0 +1,64 @@
+{
+  "title": "Trambots : première IA dédiée au transport en commun | Maxime Girard",
+  "description": "En 2016, connexion de Facebook Messenger aux API des transporteurs de Bordeaux Métropole en 10 jours. +100k utilisateurs/jour, 30 métropoles, +1M messages/jour.",
+  "h1": "Première IA Transport en Commun",
+  "label": "Cas d'usage",
+  "breadcrumb": {
+    "label": "Cas d'usage",
+    "href": "/#cas-usage"
+  },
+  "back_label": "Retour aux cas d'usage",
+  "sections": {
+    "contexte": [
+      {
+        "text": "{{A_COMPLETER: contexte du projet}}"
+      }
+    ],
+    "enjeu": [
+      {
+        "text": "{{A_COMPLETER: enjeu du projet}}"
+      }
+    ],
+    "actions": [
+      {
+        "key": "case1-text",
+        "sentences": [
+          0
+        ]
+      }
+    ],
+    "stack": [
+      {
+        "text": "{{A_COMPLETER: stack technique}}"
+      }
+    ],
+    "resultats": [
+      {
+        "key": "case1-text",
+        "sentences": [
+          1
+        ]
+      },
+      {
+        "type": "pills",
+        "keys": [
+          "case1-pill1",
+          "case1-pill2",
+          "case1-pill3",
+          "case1-pill4"
+        ]
+      }
+    ],
+    "duree": [
+      {
+        "text": "{{A_COMPLETER: durée du projet}}"
+      }
+    ],
+    "role": [
+      {
+        "text": "{{A_COMPLETER: rôle dans le projet}}"
+      }
+    ]
+  },
+  "slug": "trambots-ia-transport"
+}

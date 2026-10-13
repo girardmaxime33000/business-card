@@ -1,0 +1,76 @@
+{
+  "title": "EYERIDE : growth et crowdfunding sur 4 marchés | Maxime Girard",
+  "description": "Lancement d'EYERIDE chez Eyelights : stratégie growth et paid sur 4 marchés simultanément. Campagne Indiegogo à 984k$ sur 30 jours, +3M€ de CA en 3 mois.",
+  "h1": "Growth & Crowdfunding International",
+  "label": "Cas d'usage",
+  "breadcrumb": {
+    "label": "Cas d'usage",
+    "href": "/#cas-usage"
+  },
+  "back_label": "Retour aux cas d'usage",
+  "sections": {
+    "contexte": [
+      {
+        "text": "{{A_COMPLETER: contexte du projet}}"
+      }
+    ],
+    "enjeu": [
+      {
+        "text": "{{A_COMPLETER: enjeu du projet}}"
+      }
+    ],
+    "actions": [
+      {
+        "key": "case2-text",
+        "sentences": [
+          0
+        ]
+      },
+      {
+        "key": "exp4-b1",
+        "type": "li"
+      },
+      {
+        "key": "exp4-b2",
+        "type": "li"
+      },
+      {
+        "key": "exp4-b3",
+        "type": "li"
+      }
+    ],
+    "stack": [
+      {
+        "text": "{{A_COMPLETER: stack technique}}"
+      }
+    ],
+    "resultats": [
+      {
+        "key": "case2-text",
+        "sentences": [
+          1
+        ]
+      },
+      {
+        "type": "pills",
+        "keys": [
+          "case2-pill1",
+          "case2-pill2",
+          "case2-pill3",
+          "case2-pill4"
+        ]
+      }
+    ],
+    "duree": [
+      {
+        "text": "{{A_COMPLETER: durée du projet}}"
+      }
+    ],
+    "role": [
+      {
+        "text": "{{A_COMPLETER: rôle dans le projet}}"
+      }
+    ]
+  },
+  "slug": "eyeride-crowdfunding-international"
+}
