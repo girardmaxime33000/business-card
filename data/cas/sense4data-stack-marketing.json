@@ -1,0 +1,63 @@
+{
+  "title": "Sense4data : offre commerciale et stack marketing, +1 M€ ARR | Maxime Girard",
+  "description": "Directeur Marketing B2B chez Sense4data : sites produits autour de l'IA, Hubspot, équipe de 5 personnes, +1 M€ ARR, lancement de 3 produits SaaS.",
+  "h1": "Sense4data — Directeur Marketing B2B",
+  "label": "Expérience",
+  "breadcrumb": {
+    "label": "Expériences",
+    "href": "/#experiences"
+  },
+  "back_label": "Retour aux expériences",
+  "sections": {
+    "contexte": [
+      {
+        "key": "exp3-type"
+      }
+    ],
+    "enjeu": [
+      {
+        "text": "{{A_COMPLETER: enjeu du poste}}"
+      }
+    ],
+    "actions": [
+      {
+        "key": "exp3-b1",
+        "type": "li"
+      },
+      {
+        "key": "exp3-b2",
+        "type": "li"
+      },
+      {
+        "key": "exp3-b3",
+        "type": "li"
+      },
+      {
+        "key": "exp3-b4",
+        "type": "li"
+      }
+    ],
+    "stack": [
+      {
+        "text": "{{A_COMPLETER: stack technique}}"
+      }
+    ],
+    "resultats": [
+      {
+        "key": "exp3-result",
+        "type": "result"
+      }
+    ],
+    "duree": [
+      {
+        "text": "2021 – 2024"
+      }
+    ],
+    "role": [
+      {
+        "key": "exp3-title"
+      }
+    ]
+  },
+  "slug": "sense4data-stack-marketing"
+}

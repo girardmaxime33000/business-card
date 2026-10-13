@@ -56,7 +56,7 @@ Jan. 2025 – Nov. 2025 · Camping Car Park · PME · Solutions de stationnement
 - Management d'un chef de projet marketing, d'un growth marketer et d'un stagiaire — reporting au CMO et au DG
 - +30 M€ ARR · architecture marketing européenne complète et fiable pour la génération de leads multi-pays · Partenariats stratégiques développés · Agences de communication et presse gérées en direct
 
-2021 – 2024 · Sense4data · PME · Conseil, Produit & Data
+Voir le détail · 2021 – 2024 · Sense4data · PME · Conseil, Produit & Data
 
 ### Directeur Marketing B2B
 
@@ -66,7 +66,7 @@ Jan. 2025 – Nov. 2025 · Camping Car Park · PME · Solutions de stationnement
 - Management d'une équipe de 5 personnes (chefs de projet, UI/UX designer, growth hacker) — reporting au CEO
 - +1 M€ ARR · Développement de toute l'offre commerciale et de la stack marketing from scratch · Industrialisation du contenu selon les secteurs · Lancement de 3 produits SaaS
 
-2020 – 2021 · Eyelights · Scale-up IoT & AR · Toulouse
+Voir le détail · 2020 – 2021 · Eyelights · Scale-up IoT & AR · Toulouse
 
 ### Directeur Croissance B2B2C
 
@@ -126,6 +126,8 @@ En 2016, j'ai connecté Facebook Messenger aux API des transporteurs de Bordeaux
 - +1M messages/jour
 - Devant SNCF & Expédia
 
+Voir le détail
+
 ### Growth & Crowdfunding International
 
 Pour le lancement d'EYERIDE chez Eyelights, j'ai piloté l'ensemble de la stratégie growth et paid sur 4 marchés simultanément. Campagne Indiegogo réussie à 984k$ sur 30 jours, +3M€ de CA générés en 3 mois.
@@ -135,6 +137,8 @@ Pour le lancement d'EYERIDE chez Eyelights, j'ai piloté l'ensemble de la strat�
 - 1M$ SEA investi
 - 4 pays en simultané
 
+Voir le détail
+
 ### Système IA Multi-agent Marketing
 
 Système autonome d'automatisation marketing déployé en production : orchestrateur Claude API + Trello comme file de tâches, 9 agents spécialisés (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), versionning automatique sur Git.
@@ -143,6 +147,8 @@ Système autonome d'automatisation marketing déployé en production : orchestra
 - Claude API
 - Production autonome
 - Déployé en production
+
+Voir le détail
 
 <!-- section: competences -->
 

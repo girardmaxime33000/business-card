@@ -1,0 +1,58 @@
+{
+  "title": "Système IA multi-agent marketing en production | Maxime Girard",
+  "description": "Système autonome d'automatisation marketing en production : orchestrateur Claude API, Trello comme file de tâches, 9 agents spécialisés, versionning sur Git.",
+  "h1": "Système IA Multi-agent Marketing",
+  "label": "Cas d'usage",
+  "breadcrumb": {
+    "label": "Cas d'usage",
+    "href": "/#cas-usage"
+  },
+  "back_label": "Retour aux cas d'usage",
+  "sections": {
+    "contexte": [
+      {
+        "text": "{{A_COMPLETER: contexte du projet}}"
+      }
+    ],
+    "enjeu": [
+      {
+        "text": "{{A_COMPLETER: enjeu du projet}}"
+      }
+    ],
+    "actions": [
+      {
+        "key": "case3-text"
+      }
+    ],
+    "stack": [
+      {
+        "text": "{{A_COMPLETER: stack technique}}"
+      }
+    ],
+    "resultats": [
+      {
+        "type": "pills",
+        "keys": [
+          "case3-pill1",
+          "case3-pill2",
+          "case3-pill3",
+          "case3-pill4"
+        ]
+      },
+      {
+        "text": "{{A_COMPLETER: résultats chiffrés}}"
+      }
+    ],
+    "duree": [
+      {
+        "text": "{{A_COMPLETER: durée du projet}}"
+      }
+    ],
+    "role": [
+      {
+        "text": "{{A_COMPLETER: rôle dans le projet}}"
+      }
+    ]
+  },
+  "slug": "systeme-ia-multi-agent-marketing"
+}

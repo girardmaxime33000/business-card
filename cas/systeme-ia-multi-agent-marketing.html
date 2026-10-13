@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f769a5c6-f348-48f4-a9ed-e8fc1396c2cb"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+<link rel="stylesheet" href="/tailwind.css">
+<style>.reveal { opacity: 1; transform: none; }</style>
+<script defer data-domain="www.girardmaxime33.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Système IA multi-agent marketing en production | Maxime Girard</title>
+<meta name="description" content="Système autonome d&#x27;automatisation marketing en production : orchestrateur Claude API, Trello comme file de tâches, 9 agents spécialisés, versionning sur Git.">
+<meta name="author" content="Maxime Girard">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.girardmaxime33.com/cas/systeme-ia-multi-agent-marketing.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#FBFBFB">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://www.girardmaxime33.com/cas/systeme-ia-multi-agent-marketing.html">
+<meta property="og:title" content="Système IA multi-agent marketing en production | Maxime Girard">
+<meta property="og:description" content="Système autonome d&#x27;automatisation marketing en production : orchestrateur Claude API, Trello comme file de tâches, 9 agents spécialisés, versionning sur Git.">
+<meta property="og:image" content="https://www.girardmaxime33.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Système IA multi-agent marketing en production | Maxime Girard">
+<meta name="twitter:description" content="Système autonome d&#x27;automatisation marketing en production : orchestrateur Claude API, Trello comme file de tâches, 9 agents spécialisés, versionning sur Git.">
+<meta name="twitter:image" content="https://www.girardmaxime33.com/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.girardmaxime33.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cas d'usage",
+          "item": "https://www.girardmaxime33.com/#cas-usage"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Système IA Multi-agent Marketing",
+          "item": "https://www.girardmaxime33.com/cas/systeme-ia-multi-agent-marketing.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="bg-bg text-neutral-900 font-sans antialiased leading-relaxed">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-lime-400 focus:text-black focus:font-bold focus:text-sm focus:px-4 focus:py-2 focus:rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2">Aller au contenu principal</a>
+<!-- NAV -->
+<header class="fixed inset-x-0 top-0 z-[100]">
+<nav aria-label="Navigation principale" class="flex items-center justify-between px-[4vw] py-5 bg-lime-400/95 backdrop-blur-xl border-b border-lime-600/30 shadow-[0_2px_24px_-6px_rgba(101,163,13,0.35)]">
+<div class="flex items-center gap-10">
+<div class="font-extrabold text-base tracking-wide shrink-0">MG<span class="text-neutral-950">.</span></div>
+<ul class="hidden md:flex gap-2 list-none">
+<li><a href="/#profil" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Profil</a></li>
+<li><a href="/#experiences" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Expériences</a></li>
+<li><a href="/#formation" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Formation</a></li>
+<li><a href="/#cas-usage" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Cas d'usage</a></li>
+<li><a href="/#competences" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Compétences</a></li>
+<li><a href="/#references" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Références</a></li>
+<li><a href="/#contact" class="nav-link text-neutral-900/65 text-sm font-medium hover:text-neutral-900 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2 rounded-full px-3 py-1.5">Contact</a></li>
+</ul>
+</div>
+<div class="flex items-center gap-3">
+<div id="local-clock" class="hidden lg:flex items-center gap-2 font-mono text-xs text-neutral-900/65 tabular-nums" aria-hidden="true">
+<span>Bordeaux, FR</span>
+<span id="clock-time">--:--:--</span>
+</div>
+<a href="/cv-maxime-girard-fr.pdf" download data-cv-location="header" data-umami-event="Nav CV Download Click" class="nav-cv-btn plausible-event-name=Nav+CV+Download+Click hidden md:inline-flex items-center gap-1.5 bg-neutral-900 text-lime-300 text-xs font-bold tracking-wide px-3.5 py-1.5 rounded-full transition-all duration-200 hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> CV</a>
+<button id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile-menu" aria-label="Ouvrir le menu" class="md:hidden w-9 h-9 flex items-center justify-center rounded-md text-neutral-900 text-xl leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2">
+<span id="nav-toggle-icon" aria-hidden="true">☰</span>
+</button>
+<div class="lang-toggle flex items-center bg-surface border border-neutral-200 rounded-md overflow-hidden shrink-0" role="group" aria-label="Langue / Language">
+<a href="/" class="lang-btn active bg-lime-400 text-black px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest transition-colors" data-lang="fr" aria-current="page" hreflang="fr">FR</a>
+<a href="/en/" class="lang-btn px-3 py-1.5 text-[0.7rem] font-mono font-bold tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors" data-lang="en" hreflang="en">EN</a>
+</div>
+</div>
+</nav>
+<div id="nav-mobile-menu" hidden class="md:hidden bg-surface border-b border-neutral-200 shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto">
+<ul class="flex flex-col divide-y divide-neutral-200">
+<li><a href="/#profil" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Profil</a></li>
+<li><a href="/#experiences" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Expériences</a></li>
+<li><a href="/#formation" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Formation</a></li>
+<li><a href="/#cas-usage" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Cas d'usage</a></li>
+<li><a href="/#competences" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Compétences</a></li>
+<li><a href="/#references" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Références</a></li>
+<li><a href="/#contact" class="nav-link block px-[4vw] py-4 text-base font-medium text-neutral-800 hover:bg-neutral-100 hover:text-neutral-900 transition-colors">Contact</a></li>
+<li><a href="/cv-maxime-girard-fr.pdf" download data-cv-location="nav-mobile" data-umami-event="Nav CV Download Click" class="plausible-event-name=Nav+CV+Download+Click block px-[4vw] py-4 text-base font-bold text-lime-700 bg-lime-400/10 hover:bg-lime-400/20 transition-colors" aria-label="Télécharger mon CV en PDF"><span aria-hidden="true">↓</span> Télécharger le CV</a></li>
+</ul>
+</div>
+</header>
+<main id="main-content" class="max-w-4xl mx-auto px-[4vw] pt-36 pb-28">
+<a href="/#cas-usage" class="inline-flex items-center gap-2 font-mono text-xs text-neutral-500 hover:text-neutral-900 transition-colors mb-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded"><span aria-hidden="true">←</span> Retour aux cas d'usage</a>
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Cas d'usage</span></p>
+<h1 class="font-extrabold text-[clamp(2rem,5vw,3.5rem)] leading-tight tracking-tight mb-12">Système IA Multi-agent Marketing</h1>
+<section class="mb-12" aria-labelledby="h2-contexte">
+<h2 id="h2-contexte" class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Contexte</span></h2>
+<p class="text-neutral-600 leading-relaxed mb-4">{{A_COMPLETER: contexte du projet}}</p>
+</section>
+<section class="mb-12" aria-labelledby="h2-enjeu">
+<h2 id="h2-enjeu" class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Enjeu</span></h2>
+<p class="text-neutral-600 leading-relaxed mb-4">{{A_COMPLETER: enjeu du projet}}</p>
+</section>
+<section class="mb-12" aria-labelledby="h2-actions">
+<h2 id="h2-actions" class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Actions</span></h2>
+<p class="text-neutral-600 leading-relaxed mb-4">Système autonome d'automatisation marketing déployé en production : orchestrateur Claude API + Trello comme file de tâches, 9 agents spécialisés (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), versionning automatique sur Git.</p>
+</section>
+<section class="mb-12" aria-labelledby="h2-stack">
+<h2 id="h2-stack" class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Stack</span></h2>
+<p class="text-neutral-600 leading-relaxed mb-4">{{A_COMPLETER: stack technique}}</p>
+</section>
+<section class="mb-12" aria-labelledby="h2-resultats">
+<h2 id="h2-resultats" class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Résultats</span></h2>
+<div class="flex flex-wrap gap-2 mb-4"><span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1">9 agents spécialisés</span><span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1">Claude API</span><span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1">Production autonome</span><span class="font-mono text-xs font-medium bg-lime-400/10 text-lime-700 border border-lime-400/20 rounded-full px-3 py-1">Déployé en production</span></div>
+<p class="text-neutral-600 leading-relaxed mb-4">{{A_COMPLETER: résultats chiffrés}}</p>
+</section>
+<section class="mb-12" aria-labelledby="h2-duree">
+<h2 id="h2-duree" class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Durée</span></h2>
+<p class="text-neutral-600 leading-relaxed mb-4">{{A_COMPLETER: durée du projet}}</p>
+</section>
+<section class="mb-12" aria-labelledby="h2-role">
+<h2 id="h2-role" class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Rôle</span></h2>
+<p class="text-neutral-600 leading-relaxed mb-4">{{A_COMPLETER: rôle dans le projet}}</p>
+</section>
+<div class="flex flex-wrap gap-4 mt-16">
+<a href="https://calendly.com/girard-maxime33" target="_blank" rel="noopener noreferrer" data-umami-event="Case Booking Click" class="btn-shine plausible-event-name=Case+Booking+Click inline-flex items-center gap-2 bg-lime-400 text-black font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-110 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">→</span> Prendre RDV</a>
+<a href="/cv-maxime-girard-fr.pdf" download data-cv-location="case-page" data-umami-event="Case CV Download Click" class="btn-shine plausible-event-name=Case+CV+Download+Click inline-flex items-center gap-2 bg-neutral-900 text-lime-300 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-125 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">↓</span> Télécharger le CV</a>
+</div>
+<p class="mt-10"><a href="/#cas-usage" class="inline-flex items-center gap-2 font-mono text-xs text-neutral-500 hover:text-neutral-900 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded"><span aria-hidden="true">←</span> Retour aux cas d'usage</a></p>
+</main>
+<!-- FOOTER -->
+<footer class="bg-neutral-900 text-white/50 px-[4vw] py-8">
+<div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+<p>© <span id="footer-year">2026</span> Maxime Girard · Bordeaux, France</p>
+<div class="flex items-center gap-5">
+<a href="https://www.linkedin.com/in/maxime-girard-head-of-marketing/" target="_blank" rel="noopener noreferrer" data-umami-event="Footer Bottom LinkedIn Click" class="plausible-event-name=Footer+Bottom+LinkedIn+Click hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" aria-label="Voir le profil LinkedIn">LinkedIn</a>
+<a href="mailto:girard.maxime33@gmail.com" data-umami-event="Footer Bottom Mail Click" class="plausible-event-name=Footer+Bottom+Mail+Click hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" aria-label="Envoyer un e-mail">Email</a>
+<div class="flex items-center gap-2" role="group" aria-label="Langue / Language">
+<a href="/" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" hreflang="fr">FR</a>
+<span aria-hidden="true">/</span>
+<a href="/en/" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" hreflang="en">EN</a>
+</div>
+<a href="#main-content" class="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2 rounded" aria-label="Retour en haut de page">↑ Retour en haut</a>
+</div>
+</div>
+</footer>
+<!-- CONSENTEMENT COOKIES (GTM + Clarity) -->
+<div id="cookie-consent" hidden class="fixed inset-x-0 bottom-0 z-[110] bg-neutral-900 text-white px-[4vw] py-4 border-t border-white/10">
+<div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
+<p class="text-sm text-white/70 max-w-2xl">Ce site utilise des cookies de mesure d'audience et d'analyse comportementale (Google Tag Manager, Microsoft Clarity). Vous pouvez accepter ou refuser leur dépôt. <a href="/confidentialite.html" class="underline hover:text-white">En savoir plus</a>.</p>
+<div class="flex items-center gap-3 shrink-0">
+<button id="cookie-decline" type="button" class="text-sm font-medium text-white/70 hover:text-white transition-colors px-4 py-2 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2">Refuser</button>
+<button id="cookie-accept" type="button" class="text-sm font-bold bg-lime-400 text-black px-4 py-2 rounded-lg transition-all duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2">Accepter</button>
+</div>
+</div>
+<script>
+// ── LANGUE ──
+// Chaque langue est servie par sa propre page statique (/ pour le FR, /en/
+// pour l'EN, générée par build-en.py) : l'objet `t` ci-dessus est la source
+// de traduction utilisée au moment du build, pas un mécanisme de bascule en
+// place. currentLang ne sert plus ici qu'à choisir le bon message d'erreur
+// de l'assistant IA selon la page réellement affichée.
+let currentLang = document.documentElement.lang === 'en' ? 'en' : 'fr';
+
+// ── CONSENTEMENT COOKIES (GTM + Clarity) ──
+// Placé en tout premier dans ce script, avant toute autre fonctionnalité :
+// si un bloc plus bas (reveal, scrollspy, horloge...) lève une exception,
+// le reste du <script> s'arrête silencieusement — la bannière de
+// consentement, elle, ne doit jamais dépendre du succès d'une fonctionnalité
+// purement décorative. Umami (script en tête de page) ne pose pas de cookie
+// et mesure l'audience de façon anonyme, sans tracking cross-site : exempté
+// de consentement selon les critères CNIL, reste chargé sans condition. GTM
+// et Clarity posent des cookies / font du session replay — chargés
+// uniquement après acceptation.
+(function () {
+  const STORAGE_KEY = 'cookie-consent';
+  const banner = document.getElementById('cookie-consent');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+  if (!banner || !acceptBtn || !declineBtn) return;
+
+  function loadGTM() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-T453T2RB';
+    document.head.appendChild(script);
+  }
+
+  function loadClarity() {
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', 'yiajg2xzcr');
+  }
+
+  let consent = null;
+  try { consent = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+  if (consent === 'granted') {
+    loadGTM();
+    loadClarity();
+  } else if (consent !== 'denied') {
+    banner.hidden = false;
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    try { localStorage.setItem(STORAGE_KEY, 'granted'); } catch (e) {}
+    banner.hidden = true;
+    loadGTM();
+    loadClarity();
+  });
+
+  declineBtn.addEventListener('click', () => {
+    try { localStorage.setItem(STORAGE_KEY, 'denied'); } catch (e) {}
+    banner.hidden = true;
+  });
+})();
+
+// ── SUIVI CLIC CV (GTM) ──
+// Pousse un événement dataLayer à chaque clic sur un lien de téléchargement
+// du CV, pour créer un trigger d'événement personnalisé "cv_download" côté
+// GTM (variables cv_location / cv_lang) sans dépendre du click listener
+// automatique de GTM ni parser les classes plausible-event-name.
+window.dataLayer = window.dataLayer || [];
+document.querySelectorAll('a[data-cv-location]').forEach(link => {
+  link.addEventListener('click', () => {
+    window.dataLayer.push({
+      event: 'cv_download',
+      cv_location: link.dataset.cvLocation,
+      cv_lang: currentLang
+    });
+  });
+});
+
+// ── HORLOGE BORDEAUX ──
+// Heure réelle à Bordeaux (Europe/Paris), indépendante du fuseau du visiteur.
+(function () {
+  const el = document.getElementById('clock-time');
+  if (!el) return;
+  function tick() {
+    el.textContent = new Date().toLocaleTimeString('fr-FR', {
+      timeZone: 'Europe/Paris', hour: '2-digit', minute: '2-digit', second: '2-digit',
+    });
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// ── MOBILE NAV ──
+(function () {
+  const toggleBtn = document.getElementById('nav-toggle');
+  const toggleIcon = document.getElementById('nav-toggle-icon');
+  const menu = document.getElementById('nav-mobile-menu');
+  if (!toggleBtn || !toggleIcon || !menu) return;
+
+  function openMenu() {
+    menu.hidden = false;
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    toggleIcon.textContent = '✕';
+  }
+
+  function closeMenu() {
+    menu.hidden = true;
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleIcon.textContent = '☰';
+  }
+
+  toggleBtn.addEventListener('click', () => (menu.hidden ? openMenu() : closeMenu()));
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu.hidden) closeMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menu.hidden && !menu.contains(e.target) && !toggleBtn.contains(e.target)) closeMenu();
+  });
+
+  // Repli automatique si la fenêtre est agrandie au-delà du point de rupture mobile
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+    if (e.matches) closeMenu();
+  });
+})();
+
+// Lang toggle : lien <a> classique vers / ou /en/, navigation native du
+// navigateur — l'URL affichée correspond toujours à la langue du contenu.
+
+// ── ANNÉE DU FOOTER ──
+const footerYear = document.getElementById('footer-year');
+if (footerYear) footerYear.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
