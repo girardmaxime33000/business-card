@@ -218,12 +218,26 @@ let currentLang = document.documentElement.lang === 'en' ? 'en' : 'fr';
     })(window, document, 'clarity', 'script', 'yiajg2xzcr');
   }
 
+  // Identification B2B des entreprises visiteuses (Dealfront, Snitcher ou
+  // Albacross). Emplacement réservé : chargé après acceptation, au même titre
+  // que GTM et Clarity. Rester en commentaire tant que la clé n'est pas
+  // fournie ; une fois activé, mettre à jour le texte du bandeau
+  // (cookie-text) et la ligne correspondante des pages de confidentialité.
+  // function loadB2BIdentification() {
+  //   const script = document.createElement('script');
+  //   script.async = true;
+  //   script.src = '{{A_COMPLETER: URL du script du fournisseur retenu}}';
+  //   script.setAttribute('data-key', '{{A_COMPLETER: clé du fournisseur}}');
+  //   document.head.appendChild(script);
+  // }
+
   let consent = null;
   try { consent = localStorage.getItem(STORAGE_KEY); } catch (e) {}
 
   if (consent === 'granted') {
     loadGTM();
     loadClarity();
+    // loadB2BIdentification();
   } else if (consent !== 'denied') {
     banner.hidden = false;
   }
@@ -233,6 +247,7 @@ let currentLang = document.documentElement.lang === 'en' ? 'en' : 'fr';
     banner.hidden = true;
     loadGTM();
     loadClarity();
+    // loadB2BIdentification();
   });
 
   declineBtn.addEventListener('click', () => {
