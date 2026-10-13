@@ -58,3 +58,12 @@ Actions hors code :
 - Créer le webhook n8n, puis `npx wrangler secret put N8N_WEBHOOK_URL` et `npx wrangler deploy` dans `cloudflare-worker/`. Router la sortie n8n vers un e-mail ou Slack.
 - Compléter `data/candidatures/<slug>.json`, puis `python3 scripts/new_application.py --all`.
 - Diffuser chaque lien sous la forme `https://www.girardmaxime33.com/c/<slug>/?ref=<référent>`.
+
+## Mesure des conversions (L6)
+
+Décision à prendre : redondance Umami / Plausible. Les deux outils mesurent l'audience sans cookie et reçoivent les mêmes événements via `track()`. Ils reçoivent aussi chacun les événements de clic historiques (`data-umami-event` pour Umami, classes `plausible-event-name=…` pour Plausible). Rien n'a été supprimé. Options : conserver les deux, ou retenir un seul outil et retirer son script, ses attributs ou classes d'événements et sa ligne dans les deux pages de confidentialité.
+
+Actions hors code :
+- Plausible : déclarer dans Settings → Custom Properties les propriétés `section`, `question_index`, `suggestion`, `cv_location`, `cv_lang`, `utm_source`, `utm_medium`, `utm_campaign`, et créer des objectifs pour `Booking Slot Selected`, `Booking Confirmed`, `CV Download`, `Section Viewed`, `Chat Opened`, `Chat Question`, `Chat Suggestion Click`.
+- GTM : créer les déclencheurs d'événement personnalisé `booking_slot_selected`, `booking_confirmed`, `cv_download`, `section_viewed`, `chat_opened`, `chat_question`, `chat_suggestion_click` (GTM ne les reçoit qu'après consentement).
+- Calendly : les événements `calendly.date_and_time_selected` et `calendly.event_scheduled` sont émis par le widget inline ; vérifier en production avec un rendez-vous de test.
