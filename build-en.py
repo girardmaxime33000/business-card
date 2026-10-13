@@ -100,6 +100,17 @@ def sub_i18n_placeholder(html, key, val):
 for key, val in en.items():
     out = sub_i18n_placeholder(out, key, val)
 
+# data-i18n-alt (attribut alt — ex. portraits des références)
+def sub_i18n_alt(html, key, val):
+    """Remplace l'alt d'un élément portant data-i18n-alt="key"."""
+    pattern = re.compile(
+        r'(data-i18n-alt="' + re.escape(key) + r'"[^>]*?alt=")[^"]*(")'
+    )
+    return pattern.sub(lambda m: m.group(1) + val.replace('"', '&quot;') + m.group(2), html, count=1)
+
+for key, val in en.items():
+    out = sub_i18n_alt(out, key, val)
+
 # ── 3. lang et métadonnées ─────────────────────────────────────────────────
 EN_TITLE = "Maxime Girard | B2B Marketing Director, Growth &amp; Acquisition"
 EN_DESC = "B2B Marketing &amp; Growth Director and Acquisition Manager based in Bordeaux. 10 years leading acquisition &amp; performance, +\u20ac35M ARR. SEA, CRO, tracking, AI."
