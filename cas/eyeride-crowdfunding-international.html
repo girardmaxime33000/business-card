@@ -8,7 +8,86 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 <link rel="stylesheet" href="/tailwind.css">
-<style>.reveal { opacity: 1; transform: none; }</style>
+<style>
+/* ── POLICE DE MARQUE — QTFrank ──
+   Chemins en racine absolue (/fonts/...) : servent identiquement depuis
+   index.html et en/index.html sans réécriture par build-en.py. */
+@font-face {
+  font-family: 'QTFrank';
+  src: url('/fonts/QTFrank.otf') format('opentype');
+  font-weight: 100 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'QTFrank';
+  src: url('/fonts/QTFrankHeavy.otf') format('opentype');
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
+::selection { background: #ddff57; color: #0a0a0a; }
+/* ── FIX [hidden] vs utilitaires flex/grid ── */
+/* Le Preflight Tailwind pose [hidden]{display:none} avant .flex{display:flex} :
+   à spécificité égale, la règle la plus tardive gagne, donc .flex/.grid gagnaient
+   sur l'attribut hidden (ex. #chat-panel restait visible malgré hidden). */
+[hidden] { display: none !important; }
+body { overflow-x: hidden; }
+/* ── NOISE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
+/* ── AMBIENT GLOWS ── */
+.hero-glow { position: absolute; top: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(101,163,13,0.10) 0%, transparent 70%); pointer-events: none; }
+.hero-glow2 { position: absolute; bottom: -10%; left: -5%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(0,0,0,0.035) 0%, transparent 70%); pointer-events: none; }
+.contact-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(101,163,13,0.08) 0%, transparent 70%); pointer-events: none; }
+/* ── DOT-GRID TEXTURE ── */
+.grid-texture { position: absolute; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.07) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%); pointer-events: none; }
+/* ── BUTTON SHINE ── */
+.btn-shine { position: relative; overflow: hidden; }
+.btn-shine::before { content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent); transform: skewX(-20deg); transition: left 0.6s ease; }
+.btn-shine:hover::before { left: 125%; }
+/* ── SCROLL REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+/* ── NAV ACTIVE OVERLAY ── */
+.nav-link.nav-active { color: #0a0a0a; font-weight: 700; background-color: rgba(10,10,10,0.14); }
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+/* ── IMPRESSION ── */
+@media print {
+  /* Nav fixe, menu mobile, assistant : sans valeur hors écran */
+  header, footer, #chat-toggle, #chat-panel { display: none !important; }
+  /* Widget de réservation interactif : inutilisable sur papier */
+  #booking-block { display: none !important; }
+  /* CTA de réservation : mène au widget masqué ci-dessus */
+  #hero-book-btn { display: none !important; }
+  /* Flourishes purement visuelles : gaspillent l'encre, aucune valeur informative */
+  body::before, .hero-glow, .hero-glow2, .contact-glow, .grid-texture { display: none !important; }
+  /* Affiche l'URL des liens dont le texte visible ne la porte pas déjà
+     (LinkedIn, CV), faute de pouvoir cliquer sur papier. L'email est déjà
+     affiché en clair dans le texte du lien, pas besoin de le répéter. */
+  #contact a[href^="http"]::after, .btn-shine[href$=".pdf"]::after { content: " — " attr(href); font-weight: 400; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  section, .exp-item, .case-card, .value-card, .skill-card, .ref-card { break-inside: avoid; }
+  /* pt-40/min-h-screen ne servaient qu'à dégager la place du header fixe, masqué ci-dessus */
+  #hero { min-height: 0 !important; padding-top: 1rem !important; }
+}
+</style>
 <script defer data-domain="www.girardmaxime33.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -174,6 +253,7 @@
 <div class="flex items-center gap-3 shrink-0">
 <button id="cookie-decline" type="button" class="text-sm font-medium text-white/70 hover:text-white transition-colors px-4 py-2 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2">Refuser</button>
 <button id="cookie-accept" type="button" class="text-sm font-bold bg-lime-400 text-black px-4 py-2 rounded-lg transition-all duration-200 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-400 focus-visible:outline-offset-2">Accepter</button>
+</div>
 </div>
 </div>
 <script>

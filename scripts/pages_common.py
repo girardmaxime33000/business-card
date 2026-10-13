@@ -30,9 +30,9 @@ def esc_attr(text):
 
 
 # ── Traductions FR (t.fr) ──────────────────────────────────────────────────
-def t_fr():
-    start = INDEX.index("  fr: {")
-    end = INDEX.index("\n  },", start)
+def t_dict(lang):
+    start = INDEX.index("  %s: {" % lang)
+    end = INDEX.index("\n  }", start)
     block = INDEX[start:end]
     out = {}
     pat = re.compile(
@@ -47,6 +47,10 @@ def t_fr():
         else:
             out[m.group(1)] = m.group(4)
     return out
+
+
+def t_fr():
+    return t_dict("fr")
 
 
 # ── Fragments HTML ─────────────────────────────────────────────────────────
@@ -72,13 +76,15 @@ def footer():
 
 
 def cookie_banner():
-    m = re.search(r'<div id="cookie-consent".*?\n</div>\n</div>\n', INDEX, re.S)
+    m = re.search(r'<div id="cookie-consent".*?\n</div>\n</div>\n</div>\n', INDEX, re.S)
     return _strip_i18n(m.group(0)).rstrip("\n")
 
 
 def head_shared():
     """Polices, CSS, <style> et scripts de mesure, identiques à index.html."""
-    style = re.search(r"<style>.*?</style>", INDEX, re.S).group(0)
+    # Le bloc de styles principal (polices, .reveal, impression…), pas le
+    # <style> du <noscript> qui le précède dans le head.
+    style = next(m.group(0) for m in re.finditer(r"<style>.*?</style>", INDEX, re.S) if "@font-face" in m.group(0))
     umami = re.search(r'<script defer src="https://cloud\.umami\.is/script\.js"[^>]*></script>', INDEX).group(0)
     plausible = re.search(r'<script defer data-domain=[^>]*></script>\n<script>window\.plausible[^\n]*</script>', INDEX).group(0)
     return "\n".join([
