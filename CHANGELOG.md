@@ -39,3 +39,7 @@
 - `CV Download` remplace le `dataLayer.push` direct (même événement `cv_download`, propriétés conservées, UTM ajoutés).
 - Vérifié avec Chromium : événements, propriétés, filtrage d'origine des `postMessage`, URL Calendly avec UTM.
 - Décision Umami / Plausible consignée dans `TODO_CONTENU.md`.
+
+## L7 — Identification des entreprises visiteuses
+- Emplacement commenté `loadB2BIdentification()` dans le bloc de consentement (clés en `{{A_COMPLETER}}`), appels commentés pour les cas `granted` et « Accepter ».
+- Ligne ajoutée dans le tableau « Cookies et traceurs » des deux pages de confidentialité (« Requis — chargé après acceptation »), avec placeholders.
