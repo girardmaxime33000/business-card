@@ -27,6 +27,11 @@
 - [Texte intégral du profil (Markdown)](https://www.girardmaxime33.com/llms-full.txt)
 - [CV PDF FR](https://www.girardmaxime33.com/cv-maxime-girard-fr.pdf)
 - [CV PDF EN](https://www.girardmaxime33.com/cv-maxime-girard-en.pdf)
+- [Première IA Transport en Commun (cas d'usage)](https://www.girardmaxime33.com/cas/trambots-ia-transport.html)
+- [Growth & Crowdfunding International (cas d'usage)](https://www.girardmaxime33.com/cas/eyeride-crowdfunding-international.html)
+- [Système IA Multi-agent Marketing (cas d'usage)](https://www.girardmaxime33.com/cas/systeme-ia-multi-agent-marketing.html)
+- [Camping Car Park, Directeur Marketing Europe B2B (expérience)](https://www.girardmaxime33.com/cas/camping-car-park-marketing-europe.html)
+- [Sense4data, Directeur Marketing B2B (expérience)](https://www.girardmaxime33.com/cas/sense4data-stack-marketing.html)
 - [Politique de confidentialité](https://www.girardmaxime33.com/confidentialite.html)
 
 ## Contact
