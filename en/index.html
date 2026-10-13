@@ -1282,19 +1282,69 @@ let currentLang = document.documentElement.lang === 'en' ? 'en' : 'fr';
   });
 })();
 
+// ── MESURE (track) ──
+// Fonction unique d'émission d'événements, réutilisée par les gabarits
+// (cas/*.html, c/*/index.html) via scripts/pages_common.py. Chaque outil est
+// testé puis appelé dans son propre try/catch : l'absence ou l'échec d'un
+// outil (bloqueur, script pas encore chargé, refus de consentement pour GTM)
+// n'affecte ni les autres outils ni la page.
+//   Plausible : plausible(name, { props })
+//   Umami     : umami.track(name, props)
+//   GTM       : dataLayer.push({ event: <name en snake_case>, ...props })
+function snakeCase(name) {
+  return String(name).toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+}
+
+function track(name, props) {
+  props = props || {};
+  try { if (typeof window.plausible === 'function') window.plausible(name, { props: props }); } catch (e) {}
+  try { if (window.umami && typeof window.umami.track === 'function') window.umami.track(name, props); } catch (e) {}
+  try {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: snakeCase(name) }, props));
+  } catch (e) {}
+}
+
+// UTM : conservés pour la session (sessionStorage), joints au widget Calendly
+// ainsi qu'aux événements « Booking Confirmed » et « CV Download ».
+(function () {
+  try {
+    const q = new URLSearchParams(window.location.search);
+    const found = {};
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(k => {
+      const v = q.get(k);
+      if (v) found[k] = v.slice(0, 100);
+    });
+    if (Object.keys(found).length) sessionStorage.setItem('utm', JSON.stringify(found));
+  } catch (e) {}
+})();
+
+function getUtm() {
+  try { return JSON.parse(sessionStorage.getItem('utm') || '{}') || {}; } catch (e) { return {}; }
+}
+
+// Rendez-vous Calendly : le widget publie des postMessage vers la page.
+window.addEventListener('message', (e) => {
+  try {
+    if (e.origin !== 'https://calendly.com') return;
+    const ev = e.data && e.data.event;
+    if (ev === 'calendly.date_and_time_selected') track('Booking Slot Selected', getUtm());
+    else if (ev === 'calendly.event_scheduled') track('Booking Confirmed', getUtm());
+  } catch (err) {}
+});
+
 // ── SUIVI CLIC CV (GTM) ──
-// Pousse un événement dataLayer à chaque clic sur un lien de téléchargement
-// du CV, pour créer un trigger d'événement personnalisé "cv_download" côté
-// GTM (variables cv_location / cv_lang) sans dépendre du click listener
+// Émet « CV Download » (track()) à chaque clic sur un lien de téléchargement
+// du CV : côté GTM, événement dataLayer "cv_download" avec les variables
+// cv_location / cv_lang (+ utm_*), sans dépendre du click listener
 // automatique de GTM ni parser les classes plausible-event-name.
 window.dataLayer = window.dataLayer || [];
 document.querySelectorAll('a[data-cv-location]').forEach(link => {
   link.addEventListener('click', () => {
-    window.dataLayer.push({
-      event: 'cv_download',
+    track('CV Download', Object.assign({
       cv_location: link.dataset.cvLocation,
       cv_lang: currentLang
-    });
+    }, getUtm()));
   });
 });
 
@@ -1312,6 +1362,25 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.querySelectorAll('#hero .reveal').forEach((el, i) => {
 setTimeout(() => el.classList.add('visible'), 100 + i * 100);
   });
+
+// ── PROFONDEUR DE LECTURE ──
+// « Section Viewed » une seule fois par section (25 % de la section visible).
+(function () {
+  const ids = ['profil', 'experiences', 'cas-usage', 'references', 'contact'];
+  const seen = new Set();
+  const viewObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || seen.has(entry.target.id)) return;
+      seen.add(entry.target.id);
+      track('Section Viewed', { section: entry.target.id });
+      viewObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.25 });
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) viewObserver.observe(el);
+  });
+})();
 
 // ── MOT-CLÉ DYNAMIQUE (h2-profil) ──
 const rotatingSkillEl = document.getElementById('rotating-skill');
@@ -1352,6 +1421,11 @@ navSections.forEach(section => navObserver.observe(section));
 // alourdir le chargement initial des visiteurs qui ne descendent pas jusqu'au formulaire.
 const calendlyContainer = document.querySelector('.calendly-inline-widget');
 if (calendlyContainer) {
+  try {
+    const widgetUrl = new URL(calendlyContainer.getAttribute('data-url'));
+    Object.entries(getUtm()).forEach(([k, v]) => widgetUrl.searchParams.set(k, v));
+    calendlyContainer.setAttribute('data-url', widgetUrl.toString());
+  } catch (e) {}
   const calendlyObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -1448,7 +1522,7 @@ const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.d
     toggleBtn.setAttribute('aria-expanded', 'true');
     toggleBtn.setAttribute('aria-label', 'Fermer l’assistant');
     input.focus();
-    try { window.plausible && window.plausible('Chat Opened'); } catch (e) {}
+    track('Chat Opened');
   }
 
   function closePanel() {
@@ -1474,8 +1548,12 @@ const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.d
     return bubble;
   }
 
+  let questionCount = 0;
+
   async function ask(question) {
     if (!question) return;
+    questionCount += 1;
+    track('Chat Question', { question_index: questionCount });
     chips.style.display = 'none';
     addBubble(question, 'user');
     const loading = addBubble('…', 'assistant');
@@ -1496,7 +1574,6 @@ const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.d
       });
       const data = await res.json();
       loading.textContent = (data && data.answer) ? data.answer : t[currentLang]['chat-error'];
-      try { window.plausible && window.plausible('Chat Question'); } catch (e) {}
     } catch (err) {
       loading.textContent = t[currentLang]['chat-error'];
     } finally {
@@ -1506,7 +1583,10 @@ const CHAT_ENDPOINT = 'https://maxime-girard-assistant.girard-maxime33.workers.d
   }
 
   chips && chips.querySelectorAll('.chat-chip').forEach(btn => {
-    btn.addEventListener('click', () => ask(btn.textContent.trim()));
+    btn.addEventListener('click', () => {
+      track('Chat Suggestion Click', { suggestion: btn.getAttribute('data-i18n') || '' });
+      ask(btn.textContent.trim());
+    });
   });
 
   form.addEventListener('submit', (e) => {

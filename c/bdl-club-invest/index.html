@@ -193,19 +193,69 @@ let currentLang = document.documentElement.lang === 'en' ? 'en' : 'fr';
   });
 })();
 
+// ── MESURE (track) ──
+// Fonction unique d'émission d'événements, réutilisée par les gabarits
+// (cas/*.html, c/*/index.html) via scripts/pages_common.py. Chaque outil est
+// testé puis appelé dans son propre try/catch : l'absence ou l'échec d'un
+// outil (bloqueur, script pas encore chargé, refus de consentement pour GTM)
+// n'affecte ni les autres outils ni la page.
+//   Plausible : plausible(name, { props })
+//   Umami     : umami.track(name, props)
+//   GTM       : dataLayer.push({ event: <name en snake_case>, ...props })
+function snakeCase(name) {
+  return String(name).toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+}
+
+function track(name, props) {
+  props = props || {};
+  try { if (typeof window.plausible === 'function') window.plausible(name, { props: props }); } catch (e) {}
+  try { if (window.umami && typeof window.umami.track === 'function') window.umami.track(name, props); } catch (e) {}
+  try {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: snakeCase(name) }, props));
+  } catch (e) {}
+}
+
+// UTM : conservés pour la session (sessionStorage), joints au widget Calendly
+// ainsi qu'aux événements « Booking Confirmed » et « CV Download ».
+(function () {
+  try {
+    const q = new URLSearchParams(window.location.search);
+    const found = {};
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(k => {
+      const v = q.get(k);
+      if (v) found[k] = v.slice(0, 100);
+    });
+    if (Object.keys(found).length) sessionStorage.setItem('utm', JSON.stringify(found));
+  } catch (e) {}
+})();
+
+function getUtm() {
+  try { return JSON.parse(sessionStorage.getItem('utm') || '{}') || {}; } catch (e) { return {}; }
+}
+
+// Rendez-vous Calendly : le widget publie des postMessage vers la page.
+window.addEventListener('message', (e) => {
+  try {
+    if (e.origin !== 'https://calendly.com') return;
+    const ev = e.data && e.data.event;
+    if (ev === 'calendly.date_and_time_selected') track('Booking Slot Selected', getUtm());
+    else if (ev === 'calendly.event_scheduled') track('Booking Confirmed', getUtm());
+  } catch (err) {}
+});
+
 // ── SUIVI CLIC CV (GTM) ──
-// Pousse un événement dataLayer à chaque clic sur un lien de téléchargement
-// du CV, pour créer un trigger d'événement personnalisé "cv_download" côté
-// GTM (variables cv_location / cv_lang) sans dépendre du click listener
+// Émet « CV Download » (track()) à chaque clic sur un lien de téléchargement
+// du CV : côté GTM, événement dataLayer "cv_download" avec les variables
+// cv_location / cv_lang (+ utm_*), sans dépendre du click listener
 // automatique de GTM ni parser les classes plausible-event-name.
 window.dataLayer = window.dataLayer || [];
 document.querySelectorAll('a[data-cv-location]').forEach(link => {
   link.addEventListener('click', () => {
-    window.dataLayer.push({
-      event: 'cv_download',
+    track('CV Download', Object.assign({
       cv_location: link.dataset.cvLocation,
       cv_lang: currentLang
-    });
+    }, getUtm()));
   });
 });
 
