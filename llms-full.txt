@@ -1,0 +1,213 @@
+# Maxime Girard — texte intégral du site
+
+> Directeur Marketing & Growth B2B, Bordeaux (France). Contenu de https://www.girardmaxime33.com/ en Markdown, généré depuis index.html par scripts/build_llms.py.
+
+<!-- section: profil -->
+
+## Expert Growth.
+
+Directeur Marketing & Growth B2B, je travaille dans le webmarketing depuis plus de 10 ans. J'ai une expertise en stratégie d'acquisition, notoriété, trafic, génération de leads et conversions. Ma palette d'outils et de compétences me permet d'appréhender les challenges les plus exigeants. Mon relationnel et ma proximité me permettent de collaborer avec tous les profils techniques ou non techniques.
+
+Mon unique objectif repose sur le développement de l'entreprise et la génération d'opportunités commerciales. Basé à Bordeaux, avec une expérience en France, en Europe, aux États-Unis et au Japon.
+
+Combatif
+
+Détermination à relever les défis et à se dépasser. Encourage persévérance, audace et esprit d'initiative dans les équipes.
+
+Ambitieux
+
+Vision orientée impact immédiat. Inspire l'excellence et anticipe les besoins futurs des clients et des marchés.
+
+Accessible
+
+Approche inclusive, simplicité et proximité avec toutes les parties. Peut communiquer avec des profils techniques et non techniques.
+
+<!-- section: experiences -->
+
+## 10 ans de pilotage acquisition & performance.
+
+Mai 2026 — Aujourd'hui · Pollen AM · PME · Fabrication additive
+
+### Lead Marketing Europe
+
+- Programme de fonds marketing pour les revendeurs B2B et catalogue d'activités de co-marketing / co-branding
+- Landing pages et mini-sites déployés via Jekyll/GitHub (conformité RGPD, A/B testing, tracking des attributions) ; SEO/GEO multi-pays (France, Italie, Espagne, Allemagne, Belgique) et fichiers llms.txt pour l'indexation par les IA
+- Migration CRM vers Zoho Suite (forms, CRM, meetings) ; modèles agentiques locaux via Ollama + Docker (RAG) et automatisations MCP + Google Cloud + n8n
+- Webinars matériaux/prototypage 3D, whitepaper céramique, salons professionnels internationaux — reporting au DG et au CEO
+- Architecture marketing automatisée à +75% · Campagnes de vente directe et indirecte lancées · Agent IA en production pour le contenu et le reporting CRM + website
+
+Depuis 2024 · InRealArt · Plateforme Art B2C/B2B · Vente directe et indirecte
+
+### Directeur Marketing & Associé
+
+- Supervision de la stratégie de développement et du catalogue d'offres ; développement d'un réseau d'agents d'artiste pour accompagner associations et salons professionnels
+- Conception d'une IA RAG entraînée sur les données Logifrance, Art Trade et Urssaf pour rédiger des whitepapers sur les statuts et carrières artistiques
+- Stratégie de référencement via un index artistique et une quarantaine de comptes Google My Business, publipostage automatisé, blog piloté par un agent IA
+- Automatisation et nurturing des leads pour évaluer la maturité commerciale ; messages clés, lead magnets et simulateurs
+- +50 artistes signés · 300 leads générés · 40 comptes GMB automatisés
+
+Jan. 2025 – Nov. 2025 · Camping Car Park · PME · Solutions de stationnement
+
+### Directeur Marketing Europe B2B
+
+- Pilotage des opérations marketing européennes : Allemagne, Espagne, Portugal, Pays-Bas, Belgique
+- Campagnes de lobbying avec associations de maires et offices de tourisme ciblant 700+ collectivités locales, scrapping des annuaires politiques
+- Gestion multi-sites, suivi de +700 fiches GMB, A/B testing des parcours, tracking des attributions ; fiabilisation CRM et automatisation des pipelines par zone/pays
+- Management d'un chef de projet marketing, d'un growth marketer et d'un stagiaire — reporting au CMO et au DG
+- +30 M€ ARR · architecture marketing européenne complète et fiable pour la génération de leads multi-pays · Partenariats stratégiques développés · Agences de communication et presse gérées en direct
+
+2021 – 2024 · Sense4data · PME · Conseil, Produit & Data
+
+### Directeur Marketing B2B
+
+- Gestion de plusieurs sites produits/services autour de l'IA (secteurs RH, Environnement, Gaming), scrapping d'annuaires Kompass et développement de simulateurs ROI
+- Mise en place de Hubspot, qualification des leads et automatisation du contenu ; deux refontes menées avec agences communication/WordPress
+- Dashboards de pilotage et de reporting Comex/investisseurs ; agents IA spécialisés en contenu marketing et stratégie
+- Management d'une équipe de 5 personnes (chefs de projet, UI/UX designer, growth hacker) — reporting au CEO
+- +1 M€ ARR · Développement de toute l'offre commerciale et de la stack marketing from scratch · Industrialisation du contenu selon les secteurs · Lancement de 3 produits SaaS
+
+2020 – 2021 · Eyelights · Scale-up IoT & AR · Toulouse
+
+### Directeur Croissance B2B2C
+
+- Pilotage des campagnes de crowdfunding (Kickstarter, Indiegogo), programme de cross-selling pour améliorer le CAC, déploiement d'un programme d'affiliation marketing
+- Gestion d'un budget d'acquisition de 1 M€/an multi-agences (France, Japon, USA) : Meta, Google, Snapchat, TikTok, Twitter Ads
+- Lancement commercial sur 4 marchés simultanés : France, USA, Allemagne, Japon
+- Refonte du site Shopify, automatisation des pipelines CRM (Klaviyo, ActiveCampaign) ; conception d'un chatbot interne pour automatiser le SAV
+- +3 M€ ARR · +300% croissance YoY · Programme d'affiliation international complet lancé
+
+2019 – 2020 · Groupe Actiplay · Agence Marketing · Bordeaux
+
+### Directeur Traffic B2B
+
+- Développement de partenariats en régie programmatique et d'un programme d'affiliation avec +10 partenaires ; jeux-concours hebdomadaires
+- Pilotage en tant que régisseur des campagnes eCommerce de Cdiscount, Fnac, Sophie La Girafe…
+- Gestion d'un parc de 10 sites en propre et 10 sites annonceurs (Famille, Éducation, Jeux) ; mise en place d'un système d'achat/revente de leads en temps réel
+- Management d'un chef de projet et d'un développeur web — reporting au CEO
+- 300 k€ ARR · +220% de performance sur la collecte de données · Système d'achat/revente de leads en temps réel déployé
+
+2016 – 2018 · Facebots · Startup Chatbot & IA · Transport · Bordeaux
+
+### Directeur Marketing B2B
+
+- Scrapping des bases de données des transporteurs publics et mise en place d'API pour agréger et redistribuer la donnée sur un chatbot Messenger développé en interne
+- Partenariats commerciaux pour intégrer de nouveaux services (trottinette, co-voiturage) ; pages communautaires par ville, jeux-concours et hackathon avec des écoles
+- 300 k€ levés en seed · 2 appels d'offres publics remportés · +100k usagers · +1M messages/jour
+
+2012 – 2015 · Sopexa · Agence Marketing · Tokyo, Japon
+
+### Jr Account Manager B2B2C
+
+- Développement commercial et marketing B2B2C sur le marché japonais, gestion de comptes internationaux (3 ans en environnement multiculturel)
+- Accompagnement des grands comptes français et américains, développement d'outils de sales enablement, campagnes événementielles
+
+<!-- section: formation -->
+
+## Formation académique.
+
+### MBA Management & Marketing
+
+Inseec Business School — 2012
+
+### Bac ES
+
+Sainte Marie Grand Lebrun — 2008
+
+<!-- section: cas-usage -->
+
+## Preuves par l'exécution.
+
+### Première IA Transport en Commun
+
+En 2016, j'ai connecté Facebook Messenger aux API des transporteurs de Bordeaux Métropole en 10 jours. Trambots est devenu la première IA dédiée au transport en commun en France — croissance 100% organique via presse nationale.
+
+- +100k utilisateurs/jour
+- 30 métropoles
+- +1M messages/jour
+- Devant SNCF & Expédia
+
+### Growth & Crowdfunding International
+
+Pour le lancement d'EYERIDE chez Eyelights, j'ai piloté l'ensemble de la stratégie growth et paid sur 4 marchés simultanément. Campagne Indiegogo réussie à 984k$ sur 30 jours, +3M€ de CA générés en 3 mois.
+
+- +200M impressions
+- +80k leads
+- 1M$ SEA investi
+- 4 pays en simultané
+
+### Système IA Multi-agent Marketing
+
+Système autonome d'automatisation marketing déployé en production : orchestrateur Claude API + Trello comme file de tâches, 9 agents spécialisés (SEO, Content, Ads, Analytics, Social, Email, Brand, Strategy, Lead Research), versionning automatique sur Git.
+
+- 9 agents spécialisés
+- Claude API
+- Production autonome
+- Déployé en production
+
+<!-- section: competences -->
+
+## Stack stratégique & technique.
+
+Go-to-market & Stratégie commerciale
+
+Positionnement, messaging, lancement produit, structuration des offres, partenariats, marchés B2B et B2B2C — de l'amorçage au LBO
+
+Acquisition & Performance
+
+SEO/SEA (Semrush, Search Console, Bing Console), fichiers d'injection de prompt (llms.txt), lead generation, CRM (HubSpot, Pipedrive, Zoho, Klaviyo), campagnes multi-canal, LinkedIn Ads, Meta, Google Ads, TikTok
+
+Tracking, Data & CRO
+
+GA4, GTM, tracking des attributions, CRO & A/B testing, conformité RGPD/consentement, Looker Studio, Metabase, Hotjar, Clarity, Excel VBA, Google Sheets AppScript, Python (Pandas, NumPy)
+
+Automation & IA Générative
+
+Make, n8n (self-hosted VPS), Zapier, Zoho Flow, Claude API, OpenAI, Gemini — architecture RAG locale (Docling, FastAPI, ChromaDB, Ollama), agents marketing autonomes, intégrations MCP
+
+Développement Web
+
+Python, JavaScript / TypeScript, REST API, Jekyll/S3/CloudFront, GitHub Actions, Google Cloud Platform, WordPress, Firebase, Cloudflare Worker — autonome de la spec au déploiement
+
+<!-- section: references -->
+
+## Ce que disent mes collaborateurs.
+
+Il est constamment en train d'innover et de rechercher les innovations qui lui permettront d'aller plus loin. C'est un profil ultra intéressant pour contribuer à faire grossir une entreprise.
+
+Nicolas Pasetti CEO, eteam_work — a managé Maxime directement
+
+Sur le plan technique, Maxime est extrêmement compétent. Il maîtrise Python et JavaScript, et ses compétences en scraping et automatisation sont remarquables pour un directeur marketing.
+
+Alexandre Masson Data Engineer, ColisPrivé — a reporté à Maxime
+
+Toujours plusieurs coups d'avance, c'est ça qu'on aime chez lui ! Son analyse est très pointue sur des sujets concernant le marketing, le management et la growth pure.
+
+Pierre Rocherie Directeur Général FM Auto
+
+Il connaît très bien son marché, son positionnement et les enjeux technologiques et commerciaux de ses clients. Il est passionné par son métier, extrêmement curieux — cela facilite grandement les échanges.
+
+Jérémy Fortinon Expert transformation des SI — client de Maxime
+
+<!-- section: faq -->
+
+## Questions fréquentes.
+
+Qui est Maxime Girard ?
+
+Maxime Girard est Directeur Marketing & Growth B2B, basé à Bordeaux. Il cumule plus de 10 ans d'expérience en acquisition et performance digitale, avec une expérience en France, en Europe, aux États-Unis et au Japon.
+
+Que fait un expert Growth B2B ?
+
+Un expert Growth B2B pilote l'acquisition et la conversion de bout en bout : stratégie d'acquisition, SEA, Social Ads, SEO, CRO, tracking et data, CRM et marketing automation, avec pour objectif la génération d'opportunités commerciales mesurables.
+
+Quelles compétences en acquisition et en pilotage marketing ?
+
+Stratégie d'acquisition, génération de leads, SEA, Social Ads, SEO, CRO, tracking et data (GA4), CRM (HubSpot), marketing automation et agents IA (n8n, Python, Claude API), avec le management d'équipes et d'agences.
+
+Quels résultats ont été obtenus ?
+
+Plus de 35 M€ d'ARR cumulés sur les postes occupés, dont +30 M€ ARR sur un poste de Directeur Marketing avec une architecture européenne de génération de leads multi-pays. Le détail figure dans la section Expériences.
+
+Comment contacter Maxime Girard ?
+
+Par email (girard.maxime33@gmail.com), via LinkedIn, ou en réservant directement un créneau d'échange dans la section Contact de cette page.
