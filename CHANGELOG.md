@@ -29,3 +29,13 @@
 - Trois candidatures : `ynov`, `teddy-smith`, `bdl-club-invest`. `noindex, nofollow`, absentes de `sitemap.xml` et de `llms.txt`.
 - Worker : route `POST /notify` (origines autorisées, limitation de débit KV avec clé séparée, relais vers le secret `N8N_WEBHOOK_URL`, aucune IP ni user-agent transmis). Documentée dans `cloudflare-worker/README.md`.
 - Pages de confidentialité FR et EN : finalité, données transmises, ligne `sessionStorage`, durée de conservation de l'IP.
+
+## L6 — Mesure des conversions
+- `track(name, props)` dans le script d'`index.html` (segment « MESURE ») : Plausible, Umami et `dataLayer` (nom en snake_case), un `try/catch` par outil. Reprise par les pages `cas/*` et `c/*` via `scripts/pages_common.py`.
+- `Booking Slot Selected` et `Booking Confirmed` depuis les `postMessage` Calendly (`event.origin` = `https://calendly.com`).
+- `utm_source`, `utm_medium`, `utm_campaign` conservés dans `sessionStorage`, ajoutés à l'URL du widget Calendly et aux propriétés de `Booking Confirmed` et `CV Download`.
+- Chat : `Chat Opened`, `Chat Question` (numéro d'ordre uniquement), `Chat Suggestion Click` (clé de la suggestion).
+- `Section Viewed` (profil, experiences, cas-usage, references, contact), une fois par section.
+- `CV Download` remplace le `dataLayer.push` direct (même événement `cv_download`, propriétés conservées, UTM ajoutés).
+- Vérifié avec Chromium : événements, propriétés, filtrage d'origine des `postMessage`, URL Calendly avec UTM.
+- Décision Umami / Plausible consignée dans `TODO_CONTENU.md`.
