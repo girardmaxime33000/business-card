@@ -196,13 +196,13 @@ Qui est Maxime Girard ?
 
 Maxime Girard est Directeur Marketing & Growth B2B, basé à Bordeaux. Il cumule plus de 10 ans d'expérience en acquisition et performance digitale, avec une expérience en France, en Europe, aux États-Unis et au Japon.
 
-Que fait un expert Growth B2B ?
+Quelle est la disponibilité de Maxime Girard ?
 
-Un expert Growth B2B pilote l'acquisition et la conversion de bout en bout : stratégie d'acquisition, SEA, Social Ads, SEO, CRO, tracking et data, CRM et marketing automation, avec pour objectif la génération d'opportunités commerciales mesurables.
+{{A_COMPLETER: réponse sur la disponibilité}}
 
-Quelles compétences en acquisition et en pilotage marketing ?
+Quels postes et quels secteurs ?
 
-Stratégie d'acquisition, génération de leads, SEA, Social Ads, SEO, CRO, tracking et data (GA4), CRM (HubSpot), marketing automation et agents IA (n8n, Python, Claude API), avec le management d'équipes et d'agences.
+{{A_COMPLETER: réponse sur les postes et les secteurs}}
 
 Quels résultats ont été obtenus ?
 
