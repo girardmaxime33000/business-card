@@ -115,10 +115,10 @@ function corsHeaders(origin) {
 const RATE_LIMIT_WINDOW_SECONDS = 300; // 5 minutes
 const RATE_LIMIT_MAX_REQUESTS = 10;    // par IP, par fenêtre de 5 minutes
 
-async function isRateLimited(env, ip) {
+async function isRateLimited(env, ip, scope = 'rl') {
   if (!env.RATE_LIMIT || !ip) return false;
   const window = Math.floor(Date.now() / 1000 / RATE_LIMIT_WINDOW_SECONDS);
-  const key = `rl:${ip}:${window}`;
+  const key = `${scope}:${ip}:${window}`;
   const current = parseInt((await env.RATE_LIMIT.get(key)) || '0', 10);
   if (current >= RATE_LIMIT_MAX_REQUESTS) return true;
   // Lecture-puis-écriture non atomique : limite connue de Workers KV, une
@@ -151,6 +151,59 @@ function parseModelJson(raw) {
   return null;
 }
 
+// ── NOTIFICATION DE CONSULTATION (POST /notify) ──
+// Appelée par les pages de candidature (/c/<slug>/) au chargement. Relaie
+// {slug, ref, ts} vers le webhook n8n stocké dans le secret N8N_WEBHOOK_URL
+// (`npx wrangler secret put N8N_WEBHOOK_URL`). Aucune IP ni aucun
+// user-agent n'est transmis : l'IP ne sert qu'au compteur de limitation de
+// débit (clé KV `nt:<ip>:<fenêtre>`, TTL 5 minutes, séparé de celui du chat).
+const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+function jsonResponse(status, body, headers, extra = {}) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { ...headers, 'Content-Type': 'application/json', ...extra },
+  });
+}
+
+async function handleNotify(request, env, headers) {
+  const ip = request.headers.get('CF-Connecting-IP') || '';
+  if (await isRateLimited(env, ip, 'nt')) {
+    return jsonResponse(429, { error: 'Trop de requêtes' }, headers, { 'Retry-After': String(RATE_LIMIT_WINDOW_SECONDS) });
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return jsonResponse(400, { error: 'Invalid JSON' }, headers);
+  }
+
+  const slug = body && typeof body.slug === 'string' ? body.slug : '';
+  if (slug.length > 64 || !SLUG_PATTERN.test(slug)) {
+    return jsonResponse(400, { error: 'slug invalide' }, headers);
+  }
+  // Référent : caractères sûrs uniquement, 64 max.
+  const ref = body && typeof body.ref === 'string' ? body.ref.replace(/[^A-Za-z0-9._-]/g, '').slice(0, 64) : '';
+  const parsedTs = body && body.ts ? new Date(body.ts) : new Date();
+  const ts = (Number.isNaN(parsedTs.getTime()) ? new Date() : parsedTs).toISOString();
+
+  if (!env.N8N_WEBHOOK_URL) {
+    return jsonResponse(503, { error: 'Notification non configurée' }, headers);
+  }
+  try {
+    const res = await fetch(env.N8N_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug, ref, ts }),
+    });
+    if (!res.ok) return jsonResponse(502, { error: 'Webhook indisponible' }, headers);
+  } catch {
+    return jsonResponse(502, { error: 'Webhook indisponible' }, headers);
+  }
+  return jsonResponse(200, { ok: true }, headers);
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || '';
@@ -176,6 +229,10 @@ export default {
         status: 403,
         headers: { ...headers, 'Content-Type': 'application/json' },
       });
+    }
+
+    if (new URL(request.url).pathname === '/notify') {
+      return handleNotify(request, env, headers);
     }
 
     const ip = request.headers.get('CF-Connecting-IP') || '';
