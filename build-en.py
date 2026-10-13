@@ -44,39 +44,46 @@ print(f"  {len(en)} clés EN extraites")
 out = src
 
 def sub_i18n(html, key, val, is_html=False):
-    """Remplace le contenu d'un élément portant data-i18n[[-html]]="key"."""
+    """Remplace le contenu de TOUS les éléments portant data-i18n[[-html]]="key"
+    (une clé peut apparaître plusieurs fois : menu desktop et menu mobile,
+    liens « Voir le détail »…)."""
     attr = 'data-i18n-html' if is_html else 'data-i18n'
-    # Trouver l'ouverture du tag : <TAG ...data-i18n[-html]="key"...>
-    tag_open = re.search(
-        r'<(\w+)[^>]*' + re.escape(attr) + r'="' + re.escape(key) + r'"[^>]*>',
-        html
+    # ATTRS accepte un « > » à l'intérieur d'une valeur d'attribut entre
+    # guillemets (ex. class="… before:content-['->'] …") : un simple [^>]*
+    # s'arrêtait à ce « > » et laissait le texte FR en place dans en/index.html.
+    ATTRS = r'(?:"[^"]*"|\'[^\']*\'|[^>"\'])*'
+    opener = re.compile(
+        r'<(\w+)' + ATTRS + r'?\s' + re.escape(attr) + r'="' + re.escape(key) + r'"' + ATTRS + r'>'
     )
-    if not tag_open:
-        return html
-    tag_name = tag_open.group(1)
-    start = tag_open.start()
-    end_open = tag_open.end()
+    pos = 0
+    while True:
+        tag_open = opener.search(html, pos)
+        if not tag_open:
+            return html
+        tag_name = tag_open.group(1)
+        end_open = tag_open.end()
 
-    # Trouver la fermeture correspondante (depth=0)
-    depth = 1
-    pos = end_open
-    while depth > 0 and pos < len(html):
-        nxt_open  = re.search(r'<'  + tag_name + r'[\s>]', html[pos:])
-        nxt_close = re.search(r'</' + tag_name + r'\s*>',   html[pos:])
-        if nxt_close is None:
-            break
-        if nxt_open and nxt_open.start() < nxt_close.start():
-            depth += 1
-            pos += nxt_open.end()
-        else:
-            depth -= 1
-            if depth == 0:
-                close_start = pos + nxt_close.start()
-                close_end   = pos + nxt_close.end()
-                new_inner = val if is_html else val
-                return html[:end_open] + new_inner + html[close_start:]
-            pos += nxt_close.end()
-    return html
+        # Trouver la fermeture correspondante (depth=0)
+        depth = 1
+        scan = end_open
+        close_start = None
+        while depth > 0 and scan < len(html):
+            nxt_open  = re.compile(r'<'  + tag_name + r'[\s>]').search(html, scan)
+            nxt_close = re.compile(r'</' + tag_name + r'\s*>').search(html, scan)
+            if nxt_close is None:
+                break
+            if nxt_open and nxt_open.start() < nxt_close.start():
+                depth += 1
+                scan = nxt_open.end()
+            else:
+                depth -= 1
+                if depth == 0:
+                    close_start = nxt_close.start()
+                scan = nxt_close.end()
+        if close_start is None:
+            return html
+        html = html[:end_open] + val + html[close_start:]
+        pos = end_open + len(val)
 
 # data-i18n-html (innerHTML)
 for key, val in en.items():
