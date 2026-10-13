@@ -43,3 +43,14 @@
 ## L7 — Identification des entreprises visiteuses
 - Emplacement commenté `loadB2BIdentification()` dans le bloc de consentement (clés en `{{A_COMPLETER}}`), appels commentés pour les cas `granted` et « Accepter ».
 - Ligne ajoutée dans le tableau « Cookies et traceurs » des deux pages de confidentialité (« Requis — chargé après acceptation »), avec placeholders.
+
+## L8 — Vérification finale
+- Build : `build-en.py`, `build_cas.py`, `new_application.py --all`, `build_llms.py`, `tailwindcss` relancés, `git diff --exit-code` vide hors `sitemap.xml`.
+- `html5validator` (Nu Html Checker) : 0 erreur sur `index.html`, `en/index.html`, pages de confidentialité, 5 pages `cas/*` et 3 pages `c/*/index.html`. Gabarits exclus par `--blacklist _template`.
+- `lychee` : non exécuté (outil absent de l'environnement). `scripts/check_pages.py` contrôle les liens internes et les ancres. Les liens externes restent à la charge du job CI.
+- `scripts/check_jsonld.py` : 7 blocs JSON-LD parsables (index, EN, 5 pages de cas).
+- `scripts/check_pages.py` : pages `/c/*` en `noindex, nofollow` et absentes de `sitemap.xml`, `llms.txt`, `llms-full.txt` ; autres pages en `index, follow` ; URL du sitemap résolues en fichiers ; aucun texte français visible dans `en/index.html`. Nouveau job CI `controles-site`.
+- Contrôle visuel à 375 px et 1440 px (Chromium) : `index.html`, `en/index.html`, une page de cas, une page de candidature, sans débordement horizontal ni erreur JavaScript.
+- Corrections découvertes pendant ce lot :
+  - `en/index.html` : 28 puces d'expérience et 6 liens du menu mobile restaient en français (`build-en.py` s'arrêtait au premier `>` d'une classe `before:content-['->']` et ne traitait que la première occurrence d'une clé). Corrigé dans `build-en.py`.
+  - Pages `cas/*` et `c/*` : le `<style>` principal (polices QTFrank, `[hidden]`, impression) n'était pas repris, le bandeau de consentement était tronqué d'un `</div>`. Corrigés dans `scripts/pages_common.py`.

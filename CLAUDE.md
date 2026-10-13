@@ -132,6 +132,18 @@ Après toute modification d'`index.html`, toujours dans cet ordre :
    Scanne `index.html` **et** `en/index.html` (`content` dans
    `tailwind.config.js`) pour ne générer que les classes réellement utilisées.
 
+Fichiers générés supplémentaires, à relancer après toute modification
+d'`index.html` (voir `CHANGELOG.md`) :
+
+```bash
+python3 scripts/build_cas.py              # cas/*.html depuis data/cas/*.json
+python3 scripts/new_application.py --all  # c/*/index.html depuis data/candidatures/*.json
+python3 scripts/build_llms.py             # llms-full.txt
+```
+
+À lancer entre `build-en.py` et `tailwindcss`. Contrôles : `python3 scripts/check_jsonld.py`
+et `python3 scripts/check_pages.py`.
+
 **`build-en.py` d'abord, `tailwindcss` ensuite — jamais l'inverse.**
 `en/index.html` est généré depuis `index.html` ; tant qu'il n'a pas été
 régénéré, il reflète encore l'état précédent. Si une modification retire des

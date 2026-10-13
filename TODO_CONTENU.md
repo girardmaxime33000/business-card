@@ -74,3 +74,79 @@ Actions hors code :
 - Pages de confidentialité FR et EN : la ligne du tableau « Cookies et traceurs » contient des placeholders (fournisseur, cookie). Elle annonce un traitement non actif tant que le script reste commenté : supprimer la ligne ou la compléter selon la décision.
 - Au moment de l'activation : mettre à jour le texte du bandeau de consentement (`cookie-text` dans `t.fr` et `t.en`), qui ne cite aujourd'hui que Google Tag Manager et Microsoft Clarity.
 - Hors code : contrat et DPA du fournisseur, base légale de l'identification par adresse IP.
+
+## Récapitulatif des placeholders `{{A_COMPLETER}}` (fin du lot L8)
+
+Fichiers sources (les pages `cas/*.html` et `c/*/index.html` sont générées depuis `data/`). Lignes au dernier commit.
+
+| Fichier | Ligne | Placeholder |
+|---|---|---|
+| `index.html` | 310 | `{{A_COMPLETER: réponse sur la disponibilité}}` |
+| `index.html` | 318 | `{{A_COMPLETER: réponse sur les postes et les secteurs}}` |
+| `index.html` | 397 | `{{A_COMPLETER: Disponible à partir de … · CDI · Bordeaux / Nouvelle-Aquitaine / remote}}` |
+| `index.html` | 405 | `{{A_COMPLETER: indicateur 1, à choisir parmi les résultats publiés}}` |
+| `index.html` | 406 | `{{A_COMPLETER: indicateur 2, à choisir parmi les résultats publiés}}` |
+| `index.html` | 407 | `{{A_COMPLETER: indicateur 3, à choisir parmi les résultats publiés}}` |
+| `index.html` | 792 | `{{A_COMPLETER: réponse sur la disponibilité}}` |
+| `index.html` | 796 | `{{A_COMPLETER: réponse sur les postes et les secteurs}}` |
+| `index.html` | 891 | `{{A_COMPLETER: Disponible à partir de … · CDI · Bordeaux / Nouvelle-Aquitaine / remote}}` |
+| `index.html` | 892 | `{{A_COMPLETER: indicateur 1, à choisir parmi les résultats publiés}}` |
+| `index.html` | 893 | `{{A_COMPLETER: indicateur 2, à choisir parmi les résultats publiés}}` |
+| `index.html` | 894 | `{{A_COMPLETER: indicateur 3, à choisir parmi les résultats publiés}}` |
+| `index.html` | 1012 | `{{A_COMPLETER: réponse sur la disponibilité}}` |
+| `index.html` | 1014 | `{{A_COMPLETER: réponse sur les postes et les secteurs}}` |
+| `index.html` | 1062 | `{{A_COMPLETER: Available from … · Permanent contract · Bordeaux / Nouvelle-Aquitaine / remote}}` |
+| `index.html` | 1063 | `{{A_COMPLETER: indicator 1, to pick among the published results}}` |
+| `index.html` | 1064 | `{{A_COMPLETER: indicator 2, to pick among the published results}}` |
+| `index.html` | 1065 | `{{A_COMPLETER: indicator 3, to pick among the published results}}` |
+| `index.html` | 1183 | `{{A_COMPLETER: answer on availability}}` |
+| `index.html` | 1185 | `{{A_COMPLETER: answer on roles and sectors}}` |
+| `index.html` | 1274 | `{{A_COMPLETER: URL du script du fournisseur retenu}}` |
+| `index.html` | 1275 | `{{A_COMPLETER: clé du fournisseur}}` |
+| `llms.txt` | 3 | `{{A_COMPLETER: disponibilité, type de contrat, mobilité}}` |
+| `llms.txt` | 7 | `{{A_COMPLETER: valider la liste}}` |
+| `confidentialite.html` | 110 | `{{A_COMPLETER: Dealfront, Snitcher ou Albacross}}` |
+| `confidentialite.html` | 112 | `{{A_COMPLETER: selon le fournisseur retenu}}` |
+| `en/confidentialite.html` | 110 | `{{A_COMPLETER: Dealfront, Snitcher or Albacross}}` |
+| `en/confidentialite.html` | 112 | `{{A_COMPLETER: depends on the selected provider}}` |
+| `data/cas/camping-car-park-marketing-europe.json` | 19 | `{{A_COMPLETER: enjeu du poste}}` |
+| `data/cas/camping-car-park-marketing-europe.json` | 42 | `{{A_COMPLETER: stack technique}}` |
+| `data/cas/eyeride-crowdfunding-international.json` | 14 | `{{A_COMPLETER: contexte du projet}}` |
+| `data/cas/eyeride-crowdfunding-international.json` | 19 | `{{A_COMPLETER: enjeu du projet}}` |
+| `data/cas/eyeride-crowdfunding-international.json` | 44 | `{{A_COMPLETER: stack technique}}` |
+| `data/cas/eyeride-crowdfunding-international.json` | 66 | `{{A_COMPLETER: durée du projet}}` |
+| `data/cas/eyeride-crowdfunding-international.json` | 71 | `{{A_COMPLETER: rôle dans le projet}}` |
+| `data/cas/sense4data-stack-marketing.json` | 19 | `{{A_COMPLETER: enjeu du poste}}` |
+| `data/cas/sense4data-stack-marketing.json` | 42 | `{{A_COMPLETER: stack technique}}` |
+| `data/cas/systeme-ia-multi-agent-marketing.json` | 14 | `{{A_COMPLETER: contexte du projet}}` |
+| `data/cas/systeme-ia-multi-agent-marketing.json` | 19 | `{{A_COMPLETER: enjeu du projet}}` |
+| `data/cas/systeme-ia-multi-agent-marketing.json` | 29 | `{{A_COMPLETER: stack technique}}` |
+| `data/cas/systeme-ia-multi-agent-marketing.json` | 43 | `{{A_COMPLETER: résultats chiffrés}}` |
+| `data/cas/systeme-ia-multi-agent-marketing.json` | 48 | `{{A_COMPLETER: durée du projet}}` |
+| `data/cas/systeme-ia-multi-agent-marketing.json` | 53 | `{{A_COMPLETER: rôle dans le projet}}` |
+| `data/cas/trambots-ia-transport.json` | 14 | `{{A_COMPLETER: contexte du projet}}` |
+| `data/cas/trambots-ia-transport.json` | 19 | `{{A_COMPLETER: enjeu du projet}}` |
+| `data/cas/trambots-ia-transport.json` | 32 | `{{A_COMPLETER: stack technique}}` |
+| `data/cas/trambots-ia-transport.json` | 54 | `{{A_COMPLETER: durée du projet}}` |
+| `data/cas/trambots-ia-transport.json` | 59 | `{{A_COMPLETER: rôle dans le projet}}` |
+| `data/candidatures/bdl-club-invest.json` | 5 | `{{A_COMPLETER}}` |
+| `data/candidatures/bdl-club-invest.json` | 6 | `{{A_COMPLETER}}` |
+| `data/candidatures/bdl-club-invest.json` | 11 | `{{A_COMPLETER}}` |
+| `data/candidatures/teddy-smith.json` | 5 | `{{A_COMPLETER}}` |
+| `data/candidatures/teddy-smith.json` | 6 | `{{A_COMPLETER}}` |
+| `data/candidatures/teddy-smith.json` | 11 | `{{A_COMPLETER}}` |
+| `data/candidatures/ynov.json` | 6 | `{{A_COMPLETER}}` |
+| `data/candidatures/ynov.json` | 11 | `{{A_COMPLETER}}` |
+
+## Actions hors code
+
+1. DNS chez le registrar.
+   - Apex `girardmaxime33.com` : enregistrements A vers `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` ; enregistrements AAAA vers `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`.
+   - `www` : CNAME vers `girardmaxime33000.github.io`.
+   - Supprimer toute page de parking ou de redirection du registrar.
+2. GitHub, Settings → Pages : domaine personnalisé `www.girardmaxime33.com`, vérification DNS validée, case « Enforce HTTPS » cochée.
+3. Vérification du domaine dans GitHub (Settings → Pages → Verified domains), pour empêcher sa reprise.
+4. Search Console (propriété de domaine) et Bing Webmaster Tools : soumettre `sitemap.xml`, puis inspecter `/` et `/en/`.
+5. Retirer l'exclusion `girardmaxime33\.com` de `lychee` dans `.github/workflows/ci.yml` une fois le domaine joignable.
+6. Créer le webhook n8n et notifier les consultations de `/c/*` par e-mail ou sur Slack (voir « Pages de candidature »).
+7. Recréer les PDF de CV avec Title, Author et Subject renseignés (voir « Métadonnées des PDF de CV »).
