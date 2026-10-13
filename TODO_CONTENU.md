@@ -46,3 +46,15 @@ Le nombre de pays opérés, toutes expériences confondues, n'est pas publié : 
 - `worksFor` (Pollen AM, InRealArt) et `alumniOf` Inseec Business School : appliqués.
 - `jobTitle` : `Head of Growth` et `Head of Performance` non ajoutés. Décision à prendre : valider l'ajout.
 - `image` : reste `og-image.jpg`. `{{A_COMPLETER: photo portrait carrée, fichier /maxime-girard.webp}}` : à remplacer dans `index.html` (JSON-LD `Person.image`) une fois la photo fournie, puis relancer `build-en.py`.
+
+## Pages de candidature `/c/*` (L5)
+
+Décisions à prendre :
+- `robots.txt` : `Disallow: /c/` non ajouté. Un `Disallow` empêche Google de lire le `noindex` ; sans `Disallow`, les pages `/c/*` restent accessibles aux robots, qui lisent `noindex, nofollow` et ne les indexent pas.
+- Raison sociale exacte à valider : `Groupe Teddy Smith` (donnée fournie dans la demande), `BDL Club Invest` (déduit du slug `bdl-club-invest`, casse à confirmer).
+- Intitulé de poste exact à valider : `Direction marketing & digital` (Teddy Smith), `Growth Marketing` (BDL Club Invest).
+
+Actions hors code :
+- Créer le webhook n8n, puis `npx wrangler secret put N8N_WEBHOOK_URL` et `npx wrangler deploy` dans `cloudflare-worker/`. Router la sortie n8n vers un e-mail ou Slack.
+- Compléter `data/candidatures/<slug>.json`, puis `python3 scripts/new_application.py --all`.
+- Diffuser chaque lien sous la forme `https://www.girardmaxime33.com/c/<slug>/?ref=<référent>`.

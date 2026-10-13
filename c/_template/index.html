@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+__HEAD_SHARED__
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>__TITLE__</title>
+<meta name="description" content="Page de candidature personnalisée de Maxime Girard.">
+<meta name="author" content="Maxime Girard">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#FBFBFB">
+</head>
+<body class="bg-bg text-neutral-900 font-sans antialiased leading-relaxed">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-lime-400 focus:text-black focus:font-bold focus:text-sm focus:px-4 focus:py-2 focus:rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2">Aller au contenu principal</a>
+<!-- NAV -->
+__HEADER__
+<main id="main-content" class="max-w-4xl mx-auto px-[4vw] pt-36 pb-28">
+<p class="section-label flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Candidature</span></p>
+<h1 class="font-extrabold text-[clamp(2rem,5vw,3.5rem)] leading-tight tracking-tight mb-4">Candidature — __POSTE__ — __ENTREPRISE__</h1>
+<p class="font-mono text-sm text-neutral-600 mb-12">__LIEU__</p>
+<section class="mb-12" aria-labelledby="h2-diagnostic">
+<h2 id="h2-diagnostic" class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Diagnostic</span></h2>
+<p class="text-neutral-600 leading-relaxed">__DIAGNOSTIC__</p>
+</section>
+<section class="mb-12" aria-labelledby="h2-plan">
+<h2 id="h2-plan" class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Plan 30 / 60 / 90 jours</span></h2>
+<div class="grid md:grid-cols-3 gap-6">
+__PLAN__
+</div>
+</section>
+<section class="mb-12" aria-labelledby="h2-kpis">
+<h2 id="h2-kpis" class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Indicateurs proposés</span></h2>
+__KPIS__
+</section>
+<section class="mb-12" aria-labelledby="h2-support">
+<h2 id="h2-support" class="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-lime-700 mb-4 font-mono"><span class="opacity-60" aria-hidden="true">//</span><span>Support</span></h2>
+__SUPPORT__
+</section>
+<div class="flex flex-wrap gap-4 mt-16">
+<a href="__CALENDLY_URL__" target="_blank" rel="noopener noreferrer" data-umami-event="Application Booking Click" class="btn-shine plausible-event-name=Application+Booking+Click inline-flex items-center gap-2 bg-lime-400 text-black font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-110 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">→</span> Prendre RDV</a>
+<a href="/cv-maxime-girard-fr.pdf" download data-cv-location="application-page" data-umami-event="Application CV Download Click" class="btn-shine plausible-event-name=Application+CV+Download+Click inline-flex items-center gap-2 bg-neutral-900 text-lime-300 font-bold text-sm px-7 py-3.5 rounded-lg transition-all duration-200 hover:brightness-125 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-600 focus-visible:outline-offset-2"><span aria-hidden="true">↓</span> Télécharger le CV</a>
+</div>
+</main>
+<!-- FOOTER -->
+__FOOTER__
+<!-- CONSENTEMENT COOKIES (GTM + Clarity) -->
+__COOKIE_BANNER__
+__SCRIPT__
+<script>
+// ── NOTIFICATION DE CONSULTATION ──
+// Transmet au Worker {slug, ref, ts} : identifiant de page, référent (?ref=)
+// et horodatage. Aucune IP, aucun user-agent, aucune donnée personnelle.
+// Une seule notification par session et par page.
+(function () {
+  var slug = '__SLUG__';
+  var ref = '';
+  try { ref = (new URLSearchParams(window.location.search).get('ref') || '').slice(0, 64); } catch (e) {}
+  try {
+    if (sessionStorage.getItem('notified:' + slug)) return;
+    sessionStorage.setItem('notified:' + slug, '1');
+  } catch (e) {}
+  try {
+    fetch('__NOTIFY_ENDPOINT__', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug: slug, ref: ref, ts: new Date().toISOString() }),
+      keepalive: true
+    }).catch(function () {});
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>

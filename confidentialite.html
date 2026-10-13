@@ -50,7 +50,7 @@
 </header>
 <main class="max-w-3xl mx-auto px-[4vw] py-20">
 <h1 class="font-extrabold text-[clamp(1.75rem,4vw,2.5rem)] leading-tight tracking-tight mb-2">Politique de confidentialité</h1>
-<p class="text-sm text-neutral-500 mb-12">Dernière mise à jour : 26 septembre 2026</p>
+<p class="text-sm text-neutral-500 mb-12">Dernière mise à jour : 13 octobre 2026</p>
 
 <h2 class="font-bold text-xl mt-10 mb-3">Éditeur du site</h2>
 <p class="text-neutral-700 mb-4">Ce site est édité par Maxime Girard, à titre individuel, basé à Bordeaux (France). Contact : <a href="mailto:girard.maxime33@gmail.com" class="text-lime-700 underline hover:no-underline">girard.maxime33@gmail.com</a>. C'est une carte de visite professionnelle personnelle : elle ne vend rien et ne collecte aucune donnée via un formulaire d'inscription.</p>
@@ -66,6 +66,7 @@
 <li><strong>Assistant IA (chat)</strong> : la question saisie est envoyée à un Worker Cloudflare qui la transmet à un modèle d'IA (Mistral, hébergé par Cloudflare Workers AI) pour générer une réponse. Aucune question ni réponse n'est stockée au-delà du traitement de la requête. L'adresse IP est conservée 5 minutes maximum, uniquement pour limiter le nombre de requêtes par visiteur, puis supprimée automatiquement.</li>
 <li><strong>Prise de rendez-vous</strong> : un widget Calendly est intégré dans la section Contact. Son usage relève de la politique de confidentialité de Calendly, Inc. (tiers).</li>
 <li><strong>Navigation et téléchargement du CV</strong> : aucune donnée personnelle n'est collectée par le site au-delà des cookies et traceurs décrits ci-dessous.</li>
+<li><strong>Notification de consultation des pages de candidature</strong> : à l'ouverture d'une page de candidature personnalisée (adresse commençant par /c/), le navigateur transmet à un Worker Cloudflare l'identifiant de la page, le référent indiqué dans l'adresse (paramètre ref) et l'horodatage. Le Worker relaie ces trois informations à un outil d'automatisation (webhook n8n) afin d'avertir l'éditeur de la consultation. Aucune adresse IP, aucun user-agent et aucune autre donnée personnelle ne sont transmis dans ce cadre. L'adresse IP sert uniquement à limiter le nombre de requêtes (voir la durée de conservation).</li>
 <li><strong>Contact direct</strong> : l'e-mail et le lien LinkedIn affichés renvoient vers des services tiers (client mail, LinkedIn), hors du périmètre de ce site.</li>
 </ul>
 
@@ -111,11 +112,17 @@
 <td class="py-2 pr-4">Oui (tiers)</td>
 <td class="py-2">Chargé uniquement à l'approche de la section Contact</td>
 </tr>
-<tr>
+<tr class="border-b border-neutral-200">
 <td class="py-2 pr-4">localStorage <code class="font-mono text-xs">cookie-consent</code></td>
 <td class="py-2 pr-4">Mémorise votre choix (accepté / refusé)</td>
 <td class="py-2 pr-4">Stockage local, pas un cookie HTTP</td>
 <td class="py-2">—</td>
+</tr>
+<tr>
+<td class="py-2 pr-4">sessionStorage <code class="font-mono text-xs">notified:&lt;page&gt;</code></td>
+<td class="py-2 pr-4">Limite à une notification de consultation par session et par page de candidature</td>
+<td class="py-2 pr-4">Stockage de session, pas un cookie HTTP</td>
+<td class="py-2">Non requis (fonctionnel, pages de candidature uniquement)</td>
 </tr>
 </tbody>
 </table>
@@ -126,7 +133,7 @@
 <h2 class="font-bold text-xl mt-10 mb-3">Durée de conservation</h2>
 <ul class="list-disc pl-5 space-y-1 text-neutral-700 mb-4">
 <li>Choix de consentement : conservé jusqu'à réinitialisation ou effacement des données de navigation.</li>
-<li>Adresse IP (limitation de débit de l'assistant IA) : 5 minutes maximum.</li>
+<li>Adresse IP (limitation de débit de l'assistant IA et des notifications de consultation) : 5 minutes maximum.</li>
 <li>Logs techniques d'hébergement (GitHub Pages, Cloudflare) : durées standards de ces prestataires, hors du contrôle direct de l'éditeur du site.</li>
 </ul>
 
